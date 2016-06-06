@@ -1,0 +1,30 @@
+//-
+  p.message-source {% $reference %}
+p.message-date {% $published %}
+//-
+  p.message.no-print Article summary&nbsp;:
+  ul.list-stripe-link.no-print
+    li
+      a(href='#index')
+        span.icon-arrow-down
+        | &nbsp;&nbsp; Title 1
+    li
+      a(href='#index')
+        span.icon-arrow-down
+        | &nbsp;&nbsp; Title 2
+    li
+      a(href='#index')
+        span.icon-arrow-down
+        | &nbsp;&nbsp; Title 3
+    li
+      a(href='#index')
+        span.icon-arrow-down
+        | &nbsp;&nbsp; Title 4
+    li
+      a(href='#index')
+        span.icon-arrow-down
+        | &nbsp;&nbsp; Title 5
+_if $keywords
+p(itemprop='keywords').message-keyword {% $keywords %}
+_endif
+

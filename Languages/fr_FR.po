@@ -1,0 +1,400 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Scriptura\n"
+"POT-Creation-Date: 2016-05-28 10:15+0100\n"
+"PO-Revision-Date: 2016-05-28 10:16+0100\n"
+"Last-Translator: \n"
+"Language-Team: Olivier Chavarin\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.10\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: ../Functions/Breadcrumb.php:31
+msgid "Home"
+msgstr "Accueil"
+
+#: ../Functions/CategoryTagSearch.php:27
+msgid "Read more"
+msgstr "Lire la suite"
+
+#: ../Functions/FunctionImages.php:46
+msgid "Portrait"
+msgstr "Portrait"
+
+#: ../Functions/FunctionImages.php:47
+msgid "Squarre"
+msgstr "Carré"
+
+#: ../Functions/FunctionPannel.php:15
+msgid "Configure theme"
+msgstr "Configuration du thème"
+
+#: ../Functions/FunctionPannel.php:25 ../Functions/FunctionPannel.php:26
+msgid "Identity"
+msgstr "Identité"
+
+#: ../Functions/FunctionPannel.php:33 ../Functions/FunctionPannel.php:34
+#: ../Functions/FunctionPannelUsers.php:28
+msgid "Users"
+msgstr "Utilisateurs"
+
+#: ../Functions/FunctionPannel.php:41 ../Functions/FunctionPannel.php:42
+msgid "Forms"
+msgstr "Formulaires"
+
+#: ../Functions/FunctionPannelForms.php:23
+#: ../Functions/FunctionPannelIdentity.php:23
+#: ../Functions/FunctionPannelTemplates.php:33
+#: ../Functions/FunctionPannelUsers.php:23
+msgid "Options saved successfully."
+msgstr "Options sauvegardées."
+
+#: ../Functions/FunctionPannelForms.php:28
+msgid "Contact Forms"
+msgstr "Formulaires de contact"
+
+#: ../Functions/FunctionPannelForms.php:35
+msgid "Address(s) email the contact form"
+msgstr "Adresse(s) email de contact"
+
+#: ../Functions/FunctionPannelForms.php:39
+msgid ""
+"The emails are beings separated by commas without spaces if you want to save "
+"many. The contact form ensures privacy: email will not appear clearly on the "
+"site. If the field is left blank the default will be the address of the "
+"first administrator."
+msgstr ""
+"Les emails doivent êtres séparés par des virgules sans espaces si vous "
+"souhaitez en enregistrer plusieurs. Le formulaire de contact garantit la "
+"confidentialité : l'email n'apparaîtra pas en clair sur le site. Si le champ "
+"est laissé vide l'adresse par défaut sera celle du premier administrateur."
+
+#: ../Functions/FunctionPannelForms.php:47
+#: ../Functions/FunctionPannelIdentity.php:159
+#: ../Functions/FunctionPannelTemplates.php:84
+#: ../Functions/FunctionPannelUsers.php:50
+msgid "Save changes"
+msgstr "Enregistrer les modifications"
+
+#: ../Functions/FunctionPannelIdentity.php:28
+msgid "Site identity"
+msgstr "Identité du site"
+
+#: ../Functions/FunctionPannelIdentity.php:32
+msgid "Informations about the organization"
+msgstr ""
+
+#: ../Functions/FunctionPannelIdentity.php:37
+msgid "Title of insert"
+msgstr ""
+
+#: ../Functions/FunctionPannelIdentity.php:41
+msgid "This field is required if we are to show the information on the site."
+msgstr ""
+
+#: ../Functions/FunctionPannelIdentity.php:46
+msgid "Name of the organization"
+msgstr ""
+
+#: ../Functions/FunctionPannelIdentity.php:54
+msgid "Address"
+msgstr ""
+
+#: ../Functions/FunctionPannelIdentity.php:62
+msgid "Postal code"
+msgstr ""
+
+#: ../Functions/FunctionPannelIdentity.php:70
+msgid "Locality"
+msgstr ""
+
+#: ../Functions/FunctionPannelIdentity.php:78
+msgid "Country"
+msgstr "Pays"
+
+#: ../Functions/FunctionPannelIdentity.php:86
+msgid "Phone"
+msgstr ""
+
+#: ../Functions/FunctionPannelIdentity.php:94
+#: ../Functions/VariablesRegister.php:84
+msgid "Email"
+msgstr "Email"
+
+#: ../Functions/FunctionPannelIdentity.php:103
+msgid "Editorial manager"
+msgstr ""
+
+#: ../Functions/FunctionPannelIdentity.php:111
+msgid "Date site creation"
+msgstr "Date de création du site"
+
+#: ../Functions/FunctionPannelIdentity.php:115
+msgid "Follow the format <code>dd/mm/yyyy</code>."
+msgstr ""
+
+#: ../Functions/FunctionPannelIdentity.php:122
+msgid "Display in the footer"
+msgstr ""
+
+#: ../Functions/FunctionPannelIdentity.php:126
+msgid "View information about the organization"
+msgstr ""
+
+#: ../Functions/FunctionPannelIdentity.php:130
+#: ../Functions/FunctionPannelTemplates.php:73
+#: ../Functions/FunctionPannelUsers.php:40
+msgid "No"
+msgstr "Non"
+
+#: ../Functions/FunctionPannelIdentity.php:131
+msgid "Pages and articles"
+msgstr "Pages et articles"
+
+#: ../Functions/FunctionPannelIdentity.php:132
+msgid "Contacts pages only"
+msgstr ""
+
+#: ../Functions/FunctionPannelIdentity.php:134
+msgid ""
+"This information may be completed and submitted from the \"Site Identity\" "
+"tab."
+msgstr ""
+
+#: ../Functions/FunctionPannelIdentity.php:145
+msgid "Account number"
+msgstr ""
+
+#: ../Functions/FunctionPannelIdentity.php:150
+msgid ""
+"Register your account number Analytics if you require this service. You must "
+"have previously created an account on <a href=\"http://www.google.fr/intl/fr/"
+"analytics/\">the API website</a>."
+msgstr ""
+"Inscrivez ici votre numéro de compte Google Analytics si vous souhaitez "
+"bénéficier de ce service. Vous devez préalablement avoir créé un compte sur "
+"<a href=\"http://www.google.fr/intl/fr/analytics/\">le site de l'API</a>."
+
+#: ../Functions/FunctionPannelTemplates.php:41
+msgid "Options for Scriptura framework"
+msgstr ""
+
+#: ../Functions/FunctionPannelTemplates.php:45
+#: ../Functions/FunctionPannelTemplates.php:50
+msgid "Default thumbnail"
+msgstr ""
+
+#: ../Functions/FunctionPannelTemplates.php:46
+msgid "Customizing the default image for the presentation of items."
+msgstr ""
+"Personnalisation de l'image par défaut pour la présentation des articles."
+
+#: ../Functions/FunctionPannelTemplates.php:56
+msgid "No current image"
+msgstr ""
+
+#: ../Functions/FunctionPannelTemplates.php:57
+msgid "Choose an image"
+msgstr "Choisir une image"
+
+#: ../Functions/FunctionPannelTemplates.php:58
+msgid "Delete image"
+msgstr "Supprimer l'image"
+
+#: ../Functions/FunctionPannelTemplates.php:65
+msgid "Snowstorm"
+msgstr ""
+
+#: ../Functions/FunctionPannelTemplates.php:69
+msgid "Activate"
+msgstr "Activer"
+
+#: ../Functions/FunctionPannelTemplates.php:74
+#: ../Functions/FunctionPannelUsers.php:41
+msgid "Yes"
+msgstr "Oui"
+
+#: ../Functions/FunctionPannelTemplates.php:76
+msgid "Displays a snow effect on the site during the winter season."
+msgstr ""
+
+#: ../Functions/FunctionPannelUsers.php:32
+msgid "User registration"
+msgstr "Enregistrement des utilisateurs"
+
+#: ../Functions/FunctionPannelUsers.php:36
+msgid "Allow user registration"
+msgstr "Autoriser l'enregistrement des utilisateurs"
+
+#: ../Functions/FunctionSearchForm.php:11
+#: ../Functions/FunctionSearchForm.php:12
+msgid "Search"
+msgstr "Rechercher"
+
+#: ../Functions/FunctionSearchForm.php:13
+msgid "Submit"
+msgstr "Soumettre"
+
+#: ../Functions/FunctionSetup.php:89
+msgid "Primary menu"
+msgstr "Menu principal"
+
+#: ../Functions/FunctionSetup.php:90
+msgid "Secondary menu"
+msgstr "Menu secondaire"
+
+#: ../Functions/Head.php:9 ../Functions/VariablesTag.php:4
+msgid "Tag"
+msgstr "Étiquette "
+
+#: ../Functions/Head.php:12
+msgid "Search results for"
+msgstr "Résultats de recherche pour"
+
+#: ../Functions/Head.php:24
+#, fuzzy
+msgid "Request for category:"
+msgstr "Requête pour "
+
+#: ../Functions/Head.php:26
+#, fuzzy
+msgid "Request for tag:"
+msgstr "Requête pour "
+
+#: ../Functions/MainNav.php:91 ../Functions/VariablesLogin.php:9
+msgid "Login"
+msgstr "Connexion"
+
+#: ../Functions/Variables404.php:4
+msgid "Error 404!"
+msgstr "Erreur 404 !"
+
+#: ../Functions/Variables404.php:5
+msgid "Page not found..."
+msgstr "Page introuvable..."
+
+#: ../Functions/VariablesCategory.php:4
+msgid "Category"
+msgstr "Catégorie "
+
+#: ../Functions/VariablesLogin.php:12
+msgid "Username or email"
+msgstr "Nom d'utilisateur ou Email"
+
+#: ../Functions/VariablesLogin.php:13
+msgid "Pseudo / pseudo@gmail.com"
+msgstr "Pseudo / pseudo@gmail.com"
+
+#: ../Functions/VariablesLogin.php:14 ../Functions/VariablesRegister.php:79
+msgid "Password"
+msgstr "Mot de passe"
+
+#: ../Functions/VariablesLogin.php:16
+msgid "Save information"
+msgstr "Sauver les informations"
+
+#: ../Functions/VariablesLogin.php:17 ../Functions/VariablesRegister.php:68
+msgid "Sign in"
+msgstr "Se connecter"
+
+#: ../Functions/VariablesLogin.php:18
+msgid "Not yet registered?"
+msgstr "Pas encore enregistré&nbsp;?"
+
+#: ../Functions/VariablesLogin.php:24
+msgid "Your password is invalid. Your connection attempt failed."
+msgstr ""
+"Votre mot de passe est invalide. Votre tentative de connexion a échoué."
+
+#: ../Functions/VariablesProfil.php:17
+msgid "Hello"
+msgstr "Bonjour"
+
+#: ../Functions/VariablesProfil.php:21
+msgid "Logout"
+msgstr "Déconnexion"
+
+#: ../Functions/VariablesProfil.php:23
+msgid "Administration"
+msgstr "Administration"
+
+#: ../Functions/VariablesRegister.php:9 ../Functions/VariablesRegister.php:95
+msgid "Register"
+msgstr "Enregistrement"
+
+#: ../Functions/VariablesRegister.php:19
+msgid "Enter a username"
+msgstr "Entrer un nom d'utilisateur"
+
+#: ../Functions/VariablesRegister.php:24
+msgid "Enter a password"
+msgstr "Entrer un mot de passe"
+
+#: ../Functions/VariablesRegister.php:28
+msgid "The password is too short (Least 6 characters)"
+msgstr "Le mot de passe est trop court (6 caractères minimum)"
+
+#: ../Functions/VariablesRegister.php:33
+msgid "The email address is invalid"
+msgstr "L'addresse email est invalide"
+
+#: ../Functions/VariablesRegister.php:37
+msgid "Enter a email"
+msgstr "Entrer un email"
+
+#: ../Functions/VariablesRegister.php:47
+msgid "User created"
+msgstr "Utilisateur créé"
+
+#: ../Functions/VariablesRegister.php:48
+#, php-format
+msgid ""
+"<p>Username: <strong>%1s</strong></p><p>Password: <strong>%2s</strong></"
+"p><p>Email: <strong>%3s</strong></p>"
+msgstr ""
+"<p>Identifiant: <strong>%1s</strong></p><p>Mot de passe&nbsp;: <strong>%2s</"
+"strong></p><p>Email&nbsp;: <strong>%3s</strong></p>"
+
+#: ../Functions/VariablesRegister.php:75
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+#: ../Functions/VariablesRegister.php:76
+msgid "John Smith"
+msgstr "Victor Hugo"
+
+#: ../Functions/VariablesRegister.php:85
+msgid "pseudo@gmail.com"
+msgstr "pseudo@gmail.com"
+
+#: ../Functions/VariablesSearch.php:4
+msgid "Request to"
+msgstr "Requête pour "
+
+#: ../Functions/VariablesSingle.php:29
+#, fuzzy
+msgid "Keywords"
+msgstr "Mots clefs "
+
+#: ../Functions/VariablesSingle.php:144
+msgid "Published on"
+msgstr "Publié le"
+
+#: ../Functions/VariablesSingle.php:149
+msgid "modified on"
+msgstr "modifié le"
+
+#: ../Functions/VariablesSingle.php:194
+msgid "Read article"
+msgstr "Lire l'article"
+
+#~ msgid "Choose a theme"
+#~ msgstr "Choisir un thème"

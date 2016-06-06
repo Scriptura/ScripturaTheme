@@ -1,0 +1,34 @@
+extends PatternLayouts
+
+append variables
+  _require_wp Functions/VariablesSingle
+
+append functions
+  _require_wp Functions/Breadcrumb
+
+block breadcrumb
+  _php $breadcrumb
+
+block content
+  article.article(itemscope itemtype='https://schema.org/Article')
+    | {% $image %}
+    #index-article
+      .wrap
+        .grid.print-area
+          .m12
+            h1.h2.vmin.emphasized {% $name %}
+          .grid6.sizeS-grid12
+            .links(itemprop='articleBody') {% $content %}
+            include Includes/Buttons
+          aside.m6.sizeS-m12
+            include Includes/Sidebar
+
+block comments
+  .ajax-window-comments
+
+block aside
+  _if $relation
+  aside.aside
+    .wrap
+      .relationship {% $relation %}
+  _endif

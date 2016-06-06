@@ -1,0 +1,48 @@
+extends ../PatternLayouts
+
+block banner
+  //-
+    _php // Template Name: Login
+
+append variables
+  _require_wp Functions/VariablesLogin
+
+append functions
+  _require_wp Functions/Breadcrumb
+
+block breadcrumb
+  _php $breadcrumb
+
+block content
+  article.article(itemscope itemtype='https://schema.org/Article')
+    #index-article
+      .wrap
+        .grid.print-area
+          .m12
+            h1.emphasized {% $name %}
+            div(itemprop='articleBody')
+              .columns
+                form(method='post' action='{% $formAction %}')
+                  fieldset
+                    _if $errorLogin
+                    _php $errorLogin
+                    _endif
+                    .input
+                      label(for='user_login') {% $formUserLoginText %}
+                      input(type='text' id='user_login' name='user_login' placeholder='{% $formUserLoginPlaceholder %}' autofocus)
+                    .input-password
+                      label(for='user_password') {% $formUserPasswordText %}
+                      input(type='password' id='user_password' name='user_password' placeholder='{% $formUserPasswordPlaceholder %}')
+                      input(type='checkbox' title='See the password')
+                    div
+                      input#remember.switch(type='checkbox' name='remember' checked='')
+                      label(for='remember') {% $formSaveText %}
+                        span(data-on='yes', data-off='no')
+                    div
+                      button.button
+                        span.icon-login
+                        |  {% $formSignInText %}
+                div
+                  h2.h4 Pas encore inscrit&nbsp;?
+                  form(action='{% $siteUri %}/Register' method='post')
+                    button.button S'inscrire

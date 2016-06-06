@@ -1,0 +1,13 @@
+aside.button-group.no-print
+  button(title='Print article').button.cmd-print
+    span.icon-printer
+  //-
+    button(title='Share article').button
+      span.icon-share
+    button(data-display='comments' data-path='{% $themeUri %}/Ajax/Comments' title='Comment article').button#comments
+      span.icon-bubbles
+  _if current_user_can('edit_posts')
+  form(action='{% $editPost %}' method='post' target='_blank')
+    button(title='Edit article').button
+      span.icon-pen
+  _endif

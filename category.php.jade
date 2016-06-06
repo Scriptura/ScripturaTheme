@@ -1,0 +1,17 @@
+extends PatternLayouts
+
+append variables
+  _require_wp Functions/VariablesCategory
+
+append functions
+  _require_wp Functions/Breadcrumb
+
+block breadcrumb
+  _php $breadcrumb
+
+block content
+  .section
+    .wrap-limited
+      .grid
+        h1.vmin.emphasized {% $name %}
+        _php $content

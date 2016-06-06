@@ -1,0 +1,18 @@
+extends ../PatternLayouts
+
+block banner
+  _php // Template Name: Open Layout
+
+append variables
+  _require_wp Functions/VariablesSingle
+
+block breadcrumb
+  _php $breadcrumb
+
+block content
+  article.article(itemscope itemtype='https://schema.org/Article')
+    | {% $image %}
+    #index-article
+      .wrap
+        _php $content
+        include ../Includes/Buttons

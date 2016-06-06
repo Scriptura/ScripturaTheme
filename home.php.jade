@@ -1,0 +1,20 @@
+extends PatternLayouts
+
+append variables
+  _require_wp Functions/VariablesHome
+
+block content
+  _php $slideshow
+  section.section
+    .wrap-limited
+      .grid
+        .m
+          br
+          h1.vmin.emphasized {% $name %}
+          br
+        //-
+          _php $content
+        .m8.o2
+          br
+          _php $searchForm
+          br

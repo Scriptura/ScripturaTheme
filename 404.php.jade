@@ -1,0 +1,20 @@
+extends PatternLayouts
+
+append variables
+  _require_wp Functions/Variables404
+
+append functions
+  _require_wp Functions/Breadcrumb
+
+block breadcrumb
+  _php $breadcrumb
+
+block content
+  header.section.vh100(role='banner')
+    .wrap.ribbon-container
+      .ribbon
+        a(href='./') {% $alternativeLink %}
+      .vertical.vh85
+        .text-center
+          h1(itemprop='name') {% $name %}
+          h2 {% $content %}

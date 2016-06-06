@@ -1,0 +1,24 @@
+extends ../PatternLayouts
+
+block banner
+  //-
+    _php // Template Name: Register
+
+append variables
+  _require_wp Functions/VariablesRegister
+
+append functions
+  _require_wp Functions/Breadcrumb
+
+block breadcrumb
+  _php $breadcrumb
+
+block content
+  article.article(itemscope itemtype='https://schema.org/Article')
+    #index-article
+      .wrap
+        .grid.print-area
+          .m12
+            h1.emphasized {% $name %}
+            div(itemprop='articleBody')
+              _php $content

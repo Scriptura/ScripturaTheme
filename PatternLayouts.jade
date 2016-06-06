@@ -1,0 +1,25 @@
+block var
+
+block banner
+
+block variables
+  _require_wp Functions/Variables
+
+block functions
+  _require_wp Functions/MainNav
+
+doctype html
+html.no-js(lang='en')
+  block head
+    head
+      _require_wp Functions/Head
+  body(itemscope itemtype='https://schema.org/WebPage')
+    block mainnav
+      include Includes/MainNav
+    block breadcrumb
+    main(itemprop='mainContentOfPage')
+      block content
+    block comments
+    block aside
+    block footer
+      include Includes/Footer

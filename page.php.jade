@@ -1,0 +1,18 @@
+extends PatternLayouts
+
+append variables
+  _require_wp Functions/VariablesSingle
+
+block breadcrumb
+  _php $breadcrumb
+
+block content
+  article.article(itemscope itemtype='https://schema.org/Article')
+    | {% $image %}
+    #index-article
+      .wrap
+        .grid.print-area
+          div
+            h1.emphasized {% $name %}
+          div(itemprop='articleBody') {% $content %}
+          include Includes/Buttons
