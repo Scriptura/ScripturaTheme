@@ -9,21 +9,22 @@
 // @note Les fonctionnalités de ce thème recourent au minimum à WordPress 4.4
 
 //	phpinfo ( -1 );
-	require_once locate_template( 'Functions/Variables.php' );
-	
+	require_once locate_template( 'Functions/FunctionVariables.php' );
 	require_once locate_template( 'Functions/FunctionRouter.php' );
 	require_once locate_template( 'Functions/FunctionSetup.php' );
 	require_once locate_template( 'Functions/FunctionHead.php' );
 	require_once locate_template( 'Functions/FunctionScripts.php' );
 	require_once locate_template( 'Functions/FunctionImages.php' );
+	require_once locate_template( 'Functions/FunctionPlayers.php' );
 	require_once locate_template( 'Functions/FunctionWysiwyg.php' );
 	require_once locate_template( 'Functions/FunctionUsers.php' );
 	require_once locate_template( 'Functions/FunctionPannel.php' );
-	require_once locate_template( 'Functions/FunctionPannelTemplates.php' );
+	require_once locate_template( 'Functions/FunctionPannelOptions.php' );
 	require_once locate_template( 'Functions/FunctionPannelIdentity.php' );
 	require_once locate_template( 'Functions/FunctionPannelUsers.php' );
 	require_once locate_template( 'Functions/FunctionPannelForms.php' );
 	require_once locate_template( 'Functions/FunctionSearchForm.php' );
+
 
 // -----------------------------------------------------------------------------
 // @subsection  Login WordPress

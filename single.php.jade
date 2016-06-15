@@ -1,7 +1,7 @@
 extends PatternLayouts
 
 append variables
-  _require_wp Functions/VariablesSingle
+  _require_wp Functions/SetSingle
 
 append functions
   _require_wp Functions/Breadcrumb
@@ -14,7 +14,7 @@ block content
     | {% $image %}
     #index-article
       .wrap
-        .grid.print-area
+        .grid
           .m12
             h1.h2.vmin.emphasized {% $name %}
           .grid6.sizeS-grid12
@@ -24,11 +24,21 @@ block content
             include Includes/Sidebar
 
 block comments
+  _if $capacityRead
+  aside.aside#index-comments
+    .wrap
+      h2.emphasized {% $commentsTitle %}
+        a.anchor(href='#index-comments')
+      .grid
+        _php $comments
+        _php $commentForm
+  _endif
   .ajax-window-comments
 
 block aside
   _if $relation
   aside.aside
     .wrap
+      h2.emphasized {% $relationsTitle %}
       .relationship {% $relation %}
   _endif

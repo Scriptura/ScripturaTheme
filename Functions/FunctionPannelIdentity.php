@@ -30,7 +30,6 @@ if (is_admin()) :
 			<hr>
 			<table class="form-table">
 			<h3><?php echo __( 'Informations about the organization', 'scriptura' ); ?></h3>
-			<p>Afin que ces informations soient visibles sur le site, l'option <code>Afficher les informations sur l'organisation</code> doit être paramètrée <a href="<?php bloginfo( 'url' ); ?>/wp-admin/admin.php?page=scriptura-pannel">ici</a>.</p>
 				<tbody>
 					<tr>
 						<th scope="row">
@@ -129,7 +128,6 @@ if (is_admin()) :
 						<select id="scriptura_organization" name="option[scriptura_organization]">
 							<option value="0"<?php if(get_option('scriptura_organization') == 0) { echo ' selected="selected"'; } ?><?php if (!get_option('scriptura_organization')) { echo ' selected="selected"'; } ?>><?php echo __( 'No', 'scriptura' ); ?></option>
 							<option value="1"<?php if(get_option('scriptura_organization') == 1) { echo ' selected="selected"'; } ?>><?php echo __('Pages and articles', 'scriptura'); ?></option>
-							<option value="2"<?php if(get_option('scriptura_organization') == 2) { echo ' selected="selected"'; } ?>><?php echo __('Contacts pages only', 'scriptura'); ?></option>
 						</select>
 						<p class="description"><?php echo __( 'This information may be completed and submitted from the "Site Identity" tab.', 'scriptura' ); ?></p>
 						</td>

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Scriptura\n"
-"POT-Creation-Date: 2016-05-28 10:15+0100\n"
-"PO-Revision-Date: 2016-05-28 10:16+0100\n"
+"POT-Creation-Date: 2016-06-13 09:07+0100\n"
+"PO-Revision-Date: 2016-06-13 09:39+0100\n"
 "Last-Translator: \n"
 "Language-Team: Olivier Chavarin\n"
 "Language: fr_FR\n"
@@ -17,19 +17,19 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
 
-#: ../Functions/Breadcrumb.php:31
+#: ../Functions/Breadcrumb.php:30
 msgid "Home"
 msgstr "Accueil"
 
-#: ../Functions/CategoryTagSearch.php:27
+#: ../Functions/CategoryTagSearch.php:28
 msgid "Read more"
 msgstr "Lire la suite"
 
-#: ../Functions/FunctionImages.php:46
+#: ../Functions/FunctionImages.php:43
 msgid "Portrait"
 msgstr "Portrait"
 
-#: ../Functions/FunctionImages.php:47
+#: ../Functions/FunctionImages.php:44
 msgid "Squarre"
 msgstr "Carré"
 
@@ -52,7 +52,7 @@ msgstr "Formulaires"
 
 #: ../Functions/FunctionPannelForms.php:23
 #: ../Functions/FunctionPannelIdentity.php:23
-#: ../Functions/FunctionPannelTemplates.php:33
+#: ../Functions/FunctionPannelOptions.php:34
 #: ../Functions/FunctionPannelUsers.php:23
 msgid "Options saved successfully."
 msgstr "Options sauvegardées."
@@ -78,8 +78,8 @@ msgstr ""
 "est laissé vide l'adresse par défaut sera celle du premier administrateur."
 
 #: ../Functions/FunctionPannelForms.php:47
-#: ../Functions/FunctionPannelIdentity.php:159
-#: ../Functions/FunctionPannelTemplates.php:84
+#: ../Functions/FunctionPannelIdentity.php:140
+#: ../Functions/FunctionPannelOptions.php:145
 #: ../Functions/FunctionPannelUsers.php:50
 msgid "Save changes"
 msgstr "Enregistrer les modifications"
@@ -90,90 +90,90 @@ msgstr "Identité du site"
 
 #: ../Functions/FunctionPannelIdentity.php:32
 msgid "Informations about the organization"
-msgstr ""
+msgstr "Informations sur l'organisme"
 
-#: ../Functions/FunctionPannelIdentity.php:37
+#: ../Functions/FunctionPannelIdentity.php:36
 msgid "Title of insert"
 msgstr ""
 
-#: ../Functions/FunctionPannelIdentity.php:41
+#: ../Functions/FunctionPannelIdentity.php:40
 msgid "This field is required if we are to show the information on the site."
 msgstr ""
 
-#: ../Functions/FunctionPannelIdentity.php:46
+#: ../Functions/FunctionPannelIdentity.php:45
 msgid "Name of the organization"
-msgstr ""
+msgstr "Nom de l'organisme"
 
-#: ../Functions/FunctionPannelIdentity.php:54
+#: ../Functions/FunctionPannelIdentity.php:53
 msgid "Address"
-msgstr ""
+msgstr "Adresse"
 
-#: ../Functions/FunctionPannelIdentity.php:62
+#: ../Functions/FunctionPannelIdentity.php:61
 msgid "Postal code"
-msgstr ""
+msgstr "Code postal"
 
-#: ../Functions/FunctionPannelIdentity.php:70
+#: ../Functions/FunctionPannelIdentity.php:69
 msgid "Locality"
-msgstr ""
+msgstr "Localité"
 
-#: ../Functions/FunctionPannelIdentity.php:78
+#: ../Functions/FunctionPannelIdentity.php:77
 msgid "Country"
 msgstr "Pays"
 
-#: ../Functions/FunctionPannelIdentity.php:86
+#: ../Functions/FunctionPannelIdentity.php:85
 msgid "Phone"
-msgstr ""
+msgstr "Téléphone"
 
-#: ../Functions/FunctionPannelIdentity.php:94
+#: ../Functions/FunctionPannelIdentity.php:93
 #: ../Functions/VariablesRegister.php:84
 msgid "Email"
 msgstr "Email"
 
-#: ../Functions/FunctionPannelIdentity.php:103
+#: ../Functions/FunctionPannelIdentity.php:102
 msgid "Editorial manager"
 msgstr ""
 
-#: ../Functions/FunctionPannelIdentity.php:111
+#: ../Functions/FunctionPannelIdentity.php:110
 msgid "Date site creation"
 msgstr "Date de création du site"
 
-#: ../Functions/FunctionPannelIdentity.php:115
+#: ../Functions/FunctionPannelIdentity.php:114
 msgid "Follow the format <code>dd/mm/yyyy</code>."
-msgstr ""
+msgstr "Selon le format <code>dd/mm/yyyy</code>."
 
-#: ../Functions/FunctionPannelIdentity.php:122
+#: ../Functions/FunctionPannelIdentity.php:121
 msgid "Display in the footer"
-msgstr ""
+msgstr "Afficher dans le pied de page"
 
-#: ../Functions/FunctionPannelIdentity.php:126
+#: ../Functions/FunctionPannelIdentity.php:125
 msgid "View information about the organization"
-msgstr ""
+msgstr "Voir les informations sur l'organisation"
 
-#: ../Functions/FunctionPannelIdentity.php:130
-#: ../Functions/FunctionPannelTemplates.php:73
+#: ../Functions/FunctionPannelIdentity.php:129
+#: ../Functions/FunctionPannelOptions.php:134
 #: ../Functions/FunctionPannelUsers.php:40
 msgid "No"
 msgstr "Non"
 
-#: ../Functions/FunctionPannelIdentity.php:131
+#: ../Functions/FunctionPannelIdentity.php:130
 msgid "Pages and articles"
 msgstr "Pages et articles"
 
 #: ../Functions/FunctionPannelIdentity.php:132
-msgid "Contacts pages only"
-msgstr ""
-
-#: ../Functions/FunctionPannelIdentity.php:134
 msgid ""
 "This information may be completed and submitted from the \"Site Identity\" "
 "tab."
 msgstr ""
 
-#: ../Functions/FunctionPannelIdentity.php:145
-msgid "Account number"
-msgstr ""
+#: ../Functions/FunctionPannelOptions.php:42
+msgid "Options for Scriptura framework"
+msgstr "Options pour le framework Scriptura"
 
-#: ../Functions/FunctionPannelIdentity.php:150
+#: ../Functions/FunctionPannelOptions.php:50
+msgid "Account number"
+msgstr "Numéro de compte"
+
+#: ../Functions/FunctionPannelOptions.php:55
 msgid ""
 "Register your account number Analytics if you require this service. You must "
 "have previously created an account on <a href=\"http://www.google.fr/intl/fr/"
@@ -183,46 +183,58 @@ msgstr ""
 "bénéficier de ce service. Vous devez préalablement avoir créé un compte sur "
 "<a href=\"http://www.google.fr/intl/fr/analytics/\">le site de l'API</a>."
 
-#: ../Functions/FunctionPannelTemplates.php:41
-msgid "Options for Scriptura framework"
-msgstr ""
+#: ../Functions/FunctionPannelOptions.php:67
+msgid "API Key"
+msgstr "Clef de l'API"
 
-#: ../Functions/FunctionPannelTemplates.php:45
-#: ../Functions/FunctionPannelTemplates.php:50
+#: ../Functions/FunctionPannelOptions.php:83
+msgid "Recaptcha Site Key"
+msgstr "Clef du site pour le Recaptcha"
+
+#: ../Functions/FunctionPannelOptions.php:93
+msgid "Recaptcha Secret Key"
+msgstr "Clef secrette de Recaptcha"
+
+#: ../Functions/FunctionPannelOptions.php:105
+#: ../Functions/FunctionPannelOptions.php:110
 msgid "Default thumbnail"
-msgstr ""
+msgstr "Vignette par défaut"
 
-#: ../Functions/FunctionPannelTemplates.php:46
+#: ../Functions/FunctionPannelOptions.php:106
 msgid "Customizing the default image for the presentation of items."
 msgstr ""
 "Personnalisation de l'image par défaut pour la présentation des articles."
 
-#: ../Functions/FunctionPannelTemplates.php:56
+#: ../Functions/FunctionPannelOptions.php:116
 msgid "No current image"
-msgstr ""
+msgstr "Pas d'image courante"
 
-#: ../Functions/FunctionPannelTemplates.php:57
+#: ../Functions/FunctionPannelOptions.php:117
 msgid "Choose an image"
 msgstr "Choisir une image"
 
-#: ../Functions/FunctionPannelTemplates.php:58
+#: ../Functions/FunctionPannelOptions.php:118
 msgid "Delete image"
 msgstr "Supprimer l'image"
 
-#: ../Functions/FunctionPannelTemplates.php:65
-msgid "Snowstorm"
-msgstr ""
+#: ../Functions/FunctionPannelOptions.php:119
+msgid "The image must first be uploaded via the media library."
+msgstr "L'image doit préalablement être uploadée via la bibliothèque medias."
 
-#: ../Functions/FunctionPannelTemplates.php:69
+#: ../Functions/FunctionPannelOptions.php:126
+msgid "Snowstorm"
+msgstr "Tempête de neige"
+
+#: ../Functions/FunctionPannelOptions.php:130
 msgid "Activate"
 msgstr "Activer"
 
-#: ../Functions/FunctionPannelTemplates.php:74
+#: ../Functions/FunctionPannelOptions.php:135
 #: ../Functions/FunctionPannelUsers.php:41
 msgid "Yes"
 msgstr "Oui"
 
-#: ../Functions/FunctionPannelTemplates.php:76
+#: ../Functions/FunctionPannelOptions.php:137
 msgid "Displays a snow effect on the site during the winter season."
 msgstr ""
 
@@ -239,7 +251,7 @@ msgstr "Autoriser l'enregistrement des utilisateurs"
 msgid "Search"
 msgstr "Rechercher"
 
-#: ../Functions/FunctionSearchForm.php:13
+#: ../Functions/FunctionSearchForm.php:13 ../functions.php:65
 msgid "Submit"
 msgstr "Soumettre"
 
@@ -251,25 +263,23 @@ msgstr "Menu principal"
 msgid "Secondary menu"
 msgstr "Menu secondaire"
 
-#: ../Functions/Head.php:9 ../Functions/VariablesTag.php:4
+#: ../Functions/Head.php:12 ../Functions/VariablesTag.php:4
 msgid "Tag"
 msgstr "Étiquette "
 
-#: ../Functions/Head.php:12
+#: ../Functions/Head.php:15
 msgid "Search results for"
 msgstr "Résultats de recherche pour"
 
-#: ../Functions/Head.php:24
-#, fuzzy
+#: ../Functions/Head.php:27
 msgid "Request for category:"
-msgstr "Requête pour "
+msgstr "Requête pour la catégorie :"
 
-#: ../Functions/Head.php:26
-#, fuzzy
+#: ../Functions/Head.php:29
 msgid "Request for tag:"
-msgstr "Requête pour "
+msgstr "Requête pour :"
 
-#: ../Functions/MainNav.php:91 ../Functions/VariablesLogin.php:9
+#: ../Functions/MainNav.php:90 ../Functions/VariablesLogin.php:9
 msgid "Login"
 msgstr "Connexion"
 
@@ -280,6 +290,10 @@ msgstr "Erreur 404 !"
 #: ../Functions/Variables404.php:5
 msgid "Page not found..."
 msgstr "Page introuvable..."
+
+#: ../Functions/Variables404.php:6
+msgid "Home Page"
+msgstr "Page d'accueil"
 
 #: ../Functions/VariablesCategory.php:4
 msgid "Category"
@@ -379,22 +393,59 @@ msgstr "pseudo@gmail.com"
 msgid "Request to"
 msgstr "Requête pour "
 
-#: ../Functions/VariablesSingle.php:29
+#: ../Functions/VariablesSingle.php:28
 #, fuzzy
 msgid "Keywords"
 msgstr "Mots clefs "
 
-#: ../Functions/VariablesSingle.php:144
+#: ../Functions/VariablesSingle.php:143
 msgid "Published on"
 msgstr "Publié le"
 
-#: ../Functions/VariablesSingle.php:149
+#: ../Functions/VariablesSingle.php:148
 msgid "modified on"
 msgstr "modifié le"
 
-#: ../Functions/VariablesSingle.php:194
+#: ../Functions/VariablesSingle.php:218
 msgid "Read article"
 msgstr "Lire l'article"
+
+#: ../Functions/VariablesSingle.php:227
+msgid "Comments"
+msgstr ""
+
+#: ../Functions/VariablesSingle.php:228
+msgid "Related Articles"
+msgstr "Articles en relation"
+
+#: ../functions.php:44
+#, fuzzy
+msgid "Index the comment"
+msgstr "Ajouter un commentaire"
+
+#: ../functions.php:62
+msgid "Add a comment"
+msgstr "Ajouter un commentaire"
+
+#: ../functions.php:63
+#, php-format
+msgid "Add a comment to %s"
+msgstr ""
+
+#: ../functions.php:64
+msgid "Cancel Reply"
+msgstr ""
+
+#: ../functions.php:67
+msgid "Message"
+msgstr "Message"
+
+#: ../functions.php:67
+msgid "Hello..."
+msgstr "Bonjour..."
+
+#~ msgid "Contacts pages only"
+#~ msgstr "Pages de contact seulement"
 
 #~ msgid "Choose a theme"
 #~ msgstr "Choisir un thème"

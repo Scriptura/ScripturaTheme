@@ -1,9 +1,9 @@
-<?php require_once locate_template('Functions/Variables.php');
-      require_once locate_template('Functions/VariablesHome.php');
-      require_once locate_template('Functions/MainNav.php'); ?><!DOCTYPE html>
+<?php require locate_template('Functions/FunctionVariables.php');
+      require locate_template('Functions/SetHome.php');
+      require locate_template('Functions/MainNav.php'); ?><!DOCTYPE html>
 <html lang="en" class="no-js">
   <head>
-    <?php require_once locate_template('Functions/Head.php'); ?>
+    <?php require locate_template('Functions/Head.php'); ?>
   </head>
   <body itemscope itemtype="https://schema.org/WebPage">
     <nav role="navigation" class="main-nav sizeNav-nav-bottom">
@@ -54,7 +54,6 @@
     <script>window.jQuery || document.write('<script src="<?php echo $templateUri; ?>/Scripts/Vendors/JQuery.js"><\/script>')</script>
     <script>var templateUri = '<?php echo $templateUri; ?>'</script>
     <script src="<?php echo $templateUri; ?>/Public/Scripts/Main.js"></script>
-    <?php wp_footer();
-          require_once locate_template('Functions/GoogleAnalytics.php'); ?>
+    <?php require locate_template('Functions/GoogleAnalytics.php'); ?>
   </body>
 </html>

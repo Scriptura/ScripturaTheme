@@ -109,7 +109,7 @@
             </div>
           </div>
           <div class="input">
-            <label for="message">Textarea</label>
+            <label for="message">Message</label>
             <textarea id="message" name="message" placeholder="Bonjour..." required=""></textarea>
           </div>
           <div class="button-group">

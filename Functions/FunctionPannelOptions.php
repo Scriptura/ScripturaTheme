@@ -116,6 +116,7 @@ if (is_admin()) :
 							<input type="text" id="scriptura_def_thumbnail" name="option[scriptura_def_thumbnail]" value="<?php echo get_option('scriptura_def_thumbnail', ''); ?>" class="regular-text" placeholder="<?php echo __( 'No current image', 'scriptura' ); ?>">
 							<a href="#" class="button scriptura-media-uploader"><?php echo __( 'Choose an image', 'scriptura' ); ?></a>
 							<a href="#" class="button scriptura-media-remove"><?php echo __( 'Delete image', 'scriptura' ); ?></a>
+							<p class="description"><?php echo __( 'The image must first be uploaded via the media library.', 'scriptura' ); ?></p>
 						</td>
 					</tr>
 				</tbody>

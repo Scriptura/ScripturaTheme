@@ -74,7 +74,7 @@ function ScripturaImgCaptionShortcode( $current_html, $attr, $content )
     ) );
     if ( 1 > ( int ) $width || empty( $caption ) ) return $content;
     if ( $id ) $id = 'id="' . esc_attr( $id ) . '" ';
-        $image = do_shortcode( $content );
+        $image = $content; // do_shortcode( $content )
         $html ='<figure ' . $id . 'class="figure-focus-thumbnail-' . esc_attr( $align ) . '">'
             . PHP_EOL
         	. '<picture>'
@@ -85,11 +85,13 @@ function ScripturaImgCaptionShortcode( $current_html, $attr, $content )
                 preg_replace(
                     [
                         '/<.*w sizes.*>/', // Les balises <sources> contenant ce string sont supprimées
-                        '/class=.* src/' // Suppression des classes sur l'image
+                        '/class=.* src/', // Suppression des classes sur l'image
+                        '/(<img[^>]*>)(.*)/s', // Image après les éléments <source>, facultatif...
                     ],
                     [
                         '',
-                        'src'
+                        'src',
+                        '$2$1'
                     ],
                     str_replace(
                 		// @note On filtre l'image pour avoir une sortie html convenant à un élément <picture> :

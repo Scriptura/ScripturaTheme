@@ -1,11 +1,15 @@
 <?php
 
 // -----------------------------------------------------------------------------
+// @section     Function Users
+// @description Gestion des utilisateurs
+// -----------------------------------------------------------------------------
+
 // @subsection  Login User
 // @description Connexion de l'utilisateur
 // -----------------------------------------------------------------------------
 
-// @note Fonctionnalitée désormait par défaut dans WordPress vanilla ? @todo À réévaluer...
+// @note Fonctionnalitée d'autentification par mail désormait disponible par défaut dans WordPress vanilla ? @todo À réévaluer...
 
 function ScripturaAuthenticate( $user, $username, $password )
 {
@@ -21,7 +25,6 @@ remove_filter( 'authenticate', 'wp_authenticate_username_password', 20, 3 ); // 
 add_filter( 'authenticate', 'ScripturaAuthenticate', 20, 3 );
 
 
-// -----------------------------------------------------------------------------
 // @subsection  Gravatars
 // @description Affichage des gravatars
 // -----------------------------------------------------------------------------

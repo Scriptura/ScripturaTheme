@@ -1,10 +1,10 @@
 <?php // Template Name: Open Layout
-      require_once locate_template('Functions/Variables.php');
-      require_once locate_template('Functions/VariablesSingle.php');
-      require_once locate_template('Functions/MainNav.php'); ?><!DOCTYPE html>
+      require locate_template('Functions/FunctionVariables.php');
+      require locate_template('Functions/SetSingle.php');
+      require locate_template('Functions/MainNav.php'); ?><!DOCTYPE html>
 <html lang="en" class="no-js">
   <head>
-    <?php require_once locate_template('Functions/Head.php'); ?>
+    <?php require locate_template('Functions/Head.php'); ?>
   </head>
   <body itemscope itemtype="https://schema.org/WebPage">
     <nav role="navigation" class="main-nav sizeNav-nav-bottom">
@@ -22,9 +22,16 @@
         <div id="index-article">
           <div class="wrap">
             <?php echo $content; ?>
-            <aside class="button-group no-print">
-              <button title="Print article" class="button cmd-print"><span class="icon-printer"></span></button>
-              <?php if (current_user_can('edit_posts')): ?>
+            <aside class="button-group">
+              <div>
+                <button title="Print article" class="button cmd-print"><span class="icon-printer"></span></button>
+              </div>
+              <?php if ($capacityRead): ?>
+              <div>
+                <button data-display="comments" data-path="<?php echo $templateUri; ?>/Ajax/Comments" title="Comment article" id="comments" class="button"><span class="icon-bubbles"></span></button>
+              </div>
+              <?php endif;
+                    if ($capacityEditPosts): ?>
               <form action="<?php echo $editPost; ?>" method="post" target="_blank">
                 <button title="Edit article" class="button"><span class="icon-pen"></span></button>
               </form>
@@ -58,7 +65,6 @@
     <script>window.jQuery || document.write('<script src="<?php echo $templateUri; ?>/Scripts/Vendors/JQuery.js"><\/script>')</script>
     <script>var templateUri = '<?php echo $templateUri; ?>'</script>
     <script src="<?php echo $templateUri; ?>/Public/Scripts/Main.js"></script>
-    <?php wp_footer();
-          require_once locate_template('Functions/GoogleAnalytics.php'); ?>
+    <?php require locate_template('Functions/GoogleAnalytics.php'); ?>
   </body>
 </html>

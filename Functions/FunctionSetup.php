@@ -29,7 +29,7 @@ add_filter( 'show_admin_bar', '__return_false' ); // Retrait de la barre côté 
 // @note Fichiers d'externalisation pour les traductions du thème
 // @note Nom de domaine et emplacement des fichiers de traduction
 load_theme_textdomain( 'scriptura', get_template_directory() . '/Languages' );
-//var_dump( get_locale() ); die(); // @note Teste le paramètre de langue engesistré par l'utilisateur
+//var_dump( get_locale() ); // @note Teste le paramètre de langue engresistré par l'utilisateur
 
 
 // @subsection  RSS

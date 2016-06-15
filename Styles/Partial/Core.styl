@@ -2622,27 +2622,11 @@ if $bundleTables
     color $colorCL091
     background-color $colorBG091
 
-  @media (min-width $sizeXS)
-    // Pour les tableaux, de part leur nature, l'approche adaptatif design prend le pas sur le mobile first
-
-    [class^="table"][class*="fixed"]
-      table-layout fixed
-
-    [class^="table"][class*="firstcolumn"] tbody td:first-child
-      color $colorCL092
-      background-color $colorBG092
-
-    [class^="table"] tbody td
-      border 1px solid $colorBD093
-
-    [class^="table"] tbody :empty
-      background-image repeating-linear-gradient(-45deg, $colorBG094, $colorBG095 1px, transparent 1px, transparent 6px)
-      background-size 8px 8px
-
   @media (max-width $sizeXS)
 
     [class^="table"]
       border-collapse collapse
+      border .2em solid $colorBD097
 
     [class^="table"] thead
       display none
@@ -2664,9 +2648,26 @@ if $bundleTables
     [class^="table"] tbody td:empty::before
       content attr(data-thead) '\00a0: --'
 
+    //[class^="table"] tbody td
+    //  border-left .2em solid $colorBD097
+    //  border-right .2em solid $colorBD097
+
+  @media (min-width $sizeXS)
+    // Pour les tableaux, de part leur nature, l'approche adaptatif design prend le pas sur le mobile first
+
+    [class^="table"][class*="fixed"]
+      table-layout fixed
+
+    [class^="table"][class*="firstcolumn"] tbody td:first-child
+      color $colorCL092
+      background-color $colorBG092
+
     [class^="table"] tbody td
-      border-left .2em solid $colorBD097
-      border-right .2em solid $colorBD097
+      border 1px solid $colorBD093
+
+    [class^="table"] tbody :empty
+      background-image repeating-linear-gradient(-45deg, $colorBG094, $colorBG095 1px, transparent 1px, transparent 6px)
+      background-size 8px 8px
 
 
 // -----------------------------------------------------------------------------
@@ -3449,12 +3450,12 @@ if $bundleComments
     @extend .gradient-right
     ifBoxShadow($colorBS036)
 
-  .comment [href^="#index"]
+  .comment [href^="#comment"]
     transition color .3s
 
   @media (max-width $sizeXS)
 
-    .comment [href^="#index"]
+    .comment [href^="#comment"]
       padding-left 1em
 
   @media (min-width $sizeXS)
@@ -3462,14 +3463,14 @@ if $bundleComments
     .comment
       position relative
 
-    .comment [href^="#index"]
+    .comment [href^="#comment"]
       position absolute
       top .5rem
       right 1rem
 
-  .comment [href^="#index"]:focus
-  .comment [href^="#index"]:hover
-  .comment [href^="#index"]:active
+  .comment [href^="#comment"]:focus
+  .comment [href^="#comment"]:hover
+  .comment [href^="#comment"]:active
     color #efefef
     text-decoration none
 
@@ -3480,6 +3481,7 @@ if $bundleComments
     display table-cell
     width 4rem
     height 4rem
+    background-color #444
     background-size cover
 
   .author-comment p
@@ -3559,4 +3561,125 @@ if $bundleMessagesBox and $bundleInputs
       opacity 1
     50%
       opacity .2
+
+
+// -----------------------------------------------------------------------------
+// @section     Organizational Chart
+// @description Organigramme
+// -----------------------------------------------------------------------------
+if $bundleOrganizationalChart
+
+  // @note Sur listes simples
+  // @note Les couleurs d'entrées et de résultat final sont immuables
+
+  .organizational-chart
+    display flex
+    color #fff
+
+  .organizational-chart ul
+    display flex
+    flex-direction column
+    justify-content space-around
+    margin 0
+    padding 0
+
+  .organizational-chart li
+    position relative
+    height 2em
+    min-width 3.5em
+    max-width 10em
+    margin-bottom 2em
+    padding .5em
+    line-height 1
+    list-style none
+    text-align center
+    white-space nowrap
+    background-color $color1
+
+  .organizational-chart ul:nth-last-child(2) li
+    background-color $color4 // #459168
+
+  .organizational-chart ul:nth-last-child(3) li
+    background-color $color6 // #007a85
+
+  .organizational-chart ul:nth-last-child(4) li
+    background-color $color4 // Peru
+
+  .organizational-chart ul:nth-last-child(5) li
+    background-color $color5
+
+  .organizational-chart ul:first-child li // Inputs
+    background-color $color6 // Tan
+
+  .organizational-chart ul:last-child li // Final result
+    background-color $color1
+
+  .organizational-chart li::before
+  .organizational-chart li::after
+    content ''
+    position absolute
+    display block
+    box-sizing border-box
+
+  .organizational-chart li::before
+    top 50%
+    left 100%
+    width 2em
+    border 1px solid #aaa
+
+  .organizational-chart li::after
+    top 0
+    right -2em
+    height 1em
+    border 1px solid #aaa
+
+  .organizational-chart ul:last-child li::before
+  .organizational-chart ul:last-child li::after
+    content none
+
+  .organizational-chart li:nth-child(odd)::after
+    top 50%
+
+  .organizational-chart ul:nth-child(2) li::after
+    height 3em
+
+  .organizational-chart ul:nth-child(2) li:nth-child(even)::after
+    top -100%
+
+  .organizational-chart ul:nth-child(3) li::after
+    height 7em
+
+  .organizational-chart ul:nth-child(3) li:nth-child(even)::after
+    top -300%
+
+  .organizational-chart ul:nth-child(4) li::after
+    height 15em
+
+  .organizational-chart ul:nth-child(4) li:nth-child(even)::after
+    top -700%
+
+  .organizational-chart ul:nth-child(5) li::after
+    height 31em
+
+  .organizational-chart ul:nth-child(5) li:nth-child(even)::after
+    top -1500%
+
+  @media (max-width $sizeXS)
+
+    .organizational-chart ul + ul li
+      margin-left -2em
+
+    .organizational-chart ul li::before
+      width 1em
+
+    .organizational-chart ul li::after
+      right -1em
+
+  @media (min-width $sizeXS)
+
+    .organizational-chart ul + ul li
+      margin-left 1em
+
+  :root .organizational-chart li:empty // @note Permet le support des cases vides
+    visibility hidden // @note Pas de 'display none' afin de ne pas désorganiser les items
 

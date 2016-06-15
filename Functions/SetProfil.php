@@ -17,7 +17,7 @@
 	$name = __( 'Hello', 'scriptura' ) . ' ' .$userDisplayName;
 
 	$logoutUri = wp_logout_url( '//' . $_SERVER[ 'HTTP_HOST' ] . $_SERVER[ 'REQUEST_URI' ] );
-	
+
 	$textLogout = __( 'Logout', 'scriptura' );
 	$adminUri = get_bloginfo( 'url' ) . '/wp-admin/';
 	$textAdmin = __( 'Administration', 'scriptura' );

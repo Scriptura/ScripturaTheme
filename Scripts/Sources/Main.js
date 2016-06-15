@@ -1,8 +1,8 @@
 // -----------------------------------------------------------------------------
 // @name         Scriptura
 // @description  Interface for web apps
-// @version      0.0.31
-// @lastmodified 2016-06-05 18:45:52
+// @version      0.0.32
+// @lastmodified 2016-06-08 09:03:52
 // @author       Olivier Chavarin
 // @homepage     http://scriptura.github.io/
 // @license      ISC
@@ -53,17 +53,14 @@
 	var element = $( 'audio, video' );
 	if ( element.length ) {
 		// Appel des sripts
-		var uriScript = templateUri + '/Scripts/Vendors/MediaElementJS/mediaelement-and-player.min.js';
-		$.getScript( uriScript, function() { // Chargement via Ajax
+		var scriptUri = templateUri + '/Scripts/Vendors/MediaElementJS/mediaelement-and-player.min.js';
+		var stylesUri = templateUri + '/Scripts/Vendors/MediaElementJS/mediaelementplayer.css';
+		$.getScript( scriptUri, function() { // Chargement via Ajax
 			$( 'audio, video' ).mediaelementplayer(); // Initialisation du script
 		} );
-		$( 'head' ).append( '<link rel="stylesheet" href="../Scripts/Vendors/MediaElementJS/mediaelementplayer.css" media="screen">' ); // Appel des styles
+		$( 'head' ).append( '<link rel="stylesheet" href="' + stylesUri + '" media="screen">' ); // Appel des styles
 	}
 } )( jQuery );
-
-// @archive Ancienne méthode avant $getScript() :
-//$( 'body > footer' ).append( '<script src="../Scripts/Vendors/MediaElementJS/mediaelement-and-player.min.js"><\/script>' );
-//$( 'audio, video' ).mediaelementplayer();
 
 
 // -----------------------------------------------------------------------------
@@ -417,6 +414,7 @@
 		$( this )
 			.find( 'picture' ) // .find( 'img' )
 			.clone()
+			.find( 'img' ).removeAttr( 'width' ).removeAttr( 'height' ) // @note La suppression des attributs de dimention de l'image permet le responsive en zoom
 			.css( 'display', 'inherit' ) // @bugfix @affected Firefox @note Neutralise une déclaration inligne style 'display:inline' induite (via jQuery ?) sous ce navigateur
 			.fadeIn( 300 )
 			.appendTo( 'body > footer' )
@@ -874,4 +872,16 @@ jQuery( document ).keydown( function( e ) {
 console.time( 'test' );
 // Le script
 console.timeEnd( 'test' );
+
+// Repère les éléments dépassants en responsive
+var docWidth = document.documentElement.offsetWidth;
+[].forEach.call(
+  document.querySelectorAll( '*' ),
+  function( el ) {
+    if (el.offsetWidth > docWidth) {
+      console.log( el );
+    }
+  }
+);
 */
+
