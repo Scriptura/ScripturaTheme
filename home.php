@@ -1,7 +1,7 @@
 <?php require locate_template('Functions/FunctionVariables.php');
       require locate_template('Functions/SetHome.php');
       require locate_template('Functions/MainNav.php'); ?><!DOCTYPE html>
-<html lang="en" class="no-js">
+<html <?php echo $siteLang; ?> class="no-js">
   <head>
     <?php require locate_template('Functions/Head.php'); ?>
   </head>
@@ -57,3 +57,4 @@
     <?php require locate_template('Functions/GoogleAnalytics.php'); ?>
   </body>
 </html>
+<?php die(); ?>

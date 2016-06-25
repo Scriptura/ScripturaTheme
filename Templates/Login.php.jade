@@ -20,8 +20,8 @@ block content
         .grid.print-area
           .m12
             h1.emphasized {% $name %}
-            div(itemprop='articleBody')
-              .columns
+            .grid(itemprop='articleBody')
+              .m6
                 form(method='post' action='{% $formAction %}')
                   fieldset
                     _if $errorLogin
@@ -41,8 +41,14 @@ block content
                     div
                       button.button
                         span.icon-login
-                        |  {% $formSignInText %}
-                div
-                  h2.h4 Pas encore inscrit&nbsp;?
+                        | &nbsp;&nbsp;{% $formSignInText %}
+                _if $userRegistrationOpen
+                .message-info
+                  p {% $message %}
                   form(action='{% $siteUri %}/Register' method='post')
-                    button.button S'inscrire
+                    button.button
+                      span.icon-arrow-right
+                      | &nbsp;&nbsp;{% $register %}
+                _endif
+              .m6.vertical
+                .icon-user.surround.zoom500

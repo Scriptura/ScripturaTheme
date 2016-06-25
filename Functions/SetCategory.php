@@ -1,5 +1,10 @@
 <?php
 
+// -----------------------------------------------------------------------------
+// @section     Set Category
+// @description Configuration pour les pages de catégories
+// -----------------------------------------------------------------------------
+
 	ob_start();
 	echo __( 'Category', 'scriptura' ) . ': ' . single_cat_title( '', false );
 	$name = ob_get_clean();

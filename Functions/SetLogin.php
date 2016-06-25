@@ -1,5 +1,10 @@
 <?php
 
+// -----------------------------------------------------------------------------
+// @section     Set Login
+// @description Configuration pour la connexion utlisateur
+// -----------------------------------------------------------------------------
+
 	// @note Certaines fonctions WP ne peuvent être mise dans une variable en l'état. Recours aux fonctions php natives 'ob_start()' et 'ob_get_clean()' afin de contourner ce problème.
 
 	// @documentation
@@ -31,3 +36,6 @@
 	header( 'location:Profil' );
 	endif;
 	endif;
+
+	$message = __( 'Not registered?', 'scriptura' );
+	$register = __( 'Register', 'scriptura' );

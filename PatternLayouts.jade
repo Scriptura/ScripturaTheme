@@ -3,13 +3,13 @@ block var
 block banner
 
 block variables
-  _require_wp Functions/FunctionVariables
+  _php require locate_template('Functions/FunctionVariables.php')
 
 block functions
   _require_wp Functions/MainNav
 
 doctype html
-html.no-js(lang='en')
+html.no-js({% $siteLang %})
   block head
     head
       _require_wp Functions/Head
@@ -23,3 +23,4 @@ html.no-js(lang='en')
     block aside
     block footer
       include Includes/Footer
+_php die()

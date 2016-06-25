@@ -1,5 +1,10 @@
 <?php
 
+// -----------------------------------------------------------------------------
+// @section     Set Register
+// @description Configuration pour la page d'inscription utlisateur
+// -----------------------------------------------------------------------------
+
 	// @note Certaines fonctions WP ne peuvent être mise dans une variable en l'état. Recours aux fonctions php natives 'ob_start()' et 'ob_get_clean()' afin de contourner ce problème.
 
 	// @documentation
@@ -92,11 +97,19 @@
 			*/
 			. '<div>
 				<input type="hidden" name="submitted" id="submitted" value="true" />
-				<button class="button"><span class="icon-checkmark"></span> ' .__( 'Register', 'scriptura' ) . '</button>
+				<button class="button"><span class="icon-checkmark"></span>&nbsp;&nbsp;' .__( 'Register', 'scriptura' ) . '</button>
 			</div>
 		</form>
 		';
 		endif;
 		return $obj;
 	}
-	$content = ScripturaCreateUser();
+
+    if ( $userRegistrationOpen ) {
+		$content = ScripturaCreateUser();
+    } else {
+		$content = '<p class="message-error">' .__('The registration of new users is currently not allowed.', 'scriptura'). '</p>';
+    }
+
+	$message = __( 'The site moderation reserves the right to delete an account if the conditions of use are not respected.', 'scriptura' );
+

@@ -40,10 +40,33 @@ add_theme_support( 'automatic-feed-links' );
 
 
 // @subsection  Title tag
-// @description Gére le title du head sans conflit avec les plugins SEO
+// @description Gestion du titre du head sans conflit avec les plugins SEO
 // -----------------------------------------------------------------------------
 
 //	add_theme_support( 'title-tag' );
+
+
+// @subsection  Excerpt
+// @description Gestion des extraits d'articles
+// -----------------------------------------------------------------------------
+
+if (!is_admin()) :
+
+// Longueur des extraits d'article
+function ScripturaExcerptLength() {
+	return 60;
+}
+add_filter('excerpt_length', 'ScripturaExcerptLength');
+
+
+// Pointillés pour les extraits de post
+function ScripturaExcerptMore( $more ) {
+	global $post;
+	return '...';
+}
+add_filter('excerpt_more', 'ScripturaExcerptMore');
+
+endif; // admin
 
 
 // @subsection  Widgets
@@ -186,7 +209,7 @@ function ScripturaDisableEmojis()
 	remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
 	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );	
 	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
-	add_filter( 'tiny_mce_plugins', 'disable_emojis_tinymce' );
+	//add_filter( 'tiny_mce_plugins', 'disable_emojis_tinymce' );
 }
 add_action( 'init', 'ScripturaDisableEmojis' );
 

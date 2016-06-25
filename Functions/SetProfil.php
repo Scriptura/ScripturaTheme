@@ -1,5 +1,10 @@
 <?php
 
+// -----------------------------------------------------------------------------
+// @section     Set Profil
+// @description Configuration pour la page de profil utlisateur
+// -----------------------------------------------------------------------------
+
 	// @note Certaines fonctions WP ne peuvent être mise dans une variable en l'état. Recours aux fonctions php natives 'ob_start()' et 'ob_get_clean()' afin de contourner ce problème.
 
 	// @documentation

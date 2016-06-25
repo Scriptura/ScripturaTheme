@@ -1,7 +1,7 @@
 <?php require locate_template('Functions/FunctionVariables.php');
       require locate_template('Functions/SetSingle.php');
       require locate_template('Functions/MainNav.php'); ?><!DOCTYPE html>
-<html lang="en" class="no-js">
+<html <?php echo $siteLang; ?> class="no-js">
   <head>
     <?php require locate_template('Functions/Head.php'); ?>
   </head>
@@ -29,9 +29,9 @@
                 <div>
                   <button title="Print article" class="button cmd-print"><span class="icon-printer"></span></button>
                 </div>
-                <?php if ($capacityRead): ?>
+                <?php if (( $capacityRead AND $commentsOpen AND is_single() )): ?>
                 <div>
-                  <button data-display="comments" data-path="<?php echo $templateUri; ?>/Ajax/Comments" title="Comment article" id="comments" class="button"><span class="icon-bubbles"></span></button>
+                  <button title="Comment article" id="comments" class="button"><span class="icon-bubbles"></span></button>
                 </div>
                 <?php endif;
                       if ($capacityEditPosts): ?>
@@ -72,3 +72,4 @@
     <?php require locate_template('Functions/GoogleAnalytics.php'); ?>
   </body>
 </html>
+<?php die(); ?>

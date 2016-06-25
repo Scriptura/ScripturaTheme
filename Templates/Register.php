@@ -2,7 +2,7 @@
       require locate_template('Functions/SetRegister.php');
       require locate_template('Functions/MainNav.php');
       require locate_template('Functions/Breadcrumb.php'); ?><!DOCTYPE html>
-<html lang="en" class="no-js">
+<html <?php echo $siteLang; ?> class="no-js">
   <head>
     <?php require locate_template('Functions/Head.php'); ?>
   </head>
@@ -21,14 +21,20 @@
       <article itemscope itemtype="https://schema.org/Article" class="article">
         <div id="index-article">
           <div class="wrap">
-            <div class="grid print-area">
-              <div class="m12">
-                <h1 class="emphasized"><?php echo $name; ?></h1>
-                <div itemprop="articleBody">
-                  <?php echo $content; ?>
-                </div>
+            <h1 class="emphasized"><?php echo $name; ?></h1>
+            <?php if ($userRegistrationOpen): ?>
+            <div itemprop="articleBody" class="grid">
+              <div class="m6">
+                <?php echo $content; ?>
+                <p class="message-info"><?php echo $message; ?></p>
+              </div>
+              <div class="m6 vertical">
+                <div class="icon-rocket surround zoom500"></div>
               </div>
             </div>
+            <?php else: ?>
+            <div itemprop="articleBody"><?php echo $content; ?></div>
+            <?php endif; ?>
           </div>
         </div>
       </article>
@@ -60,3 +66,4 @@
     <?php require locate_template('Functions/GoogleAnalytics.php'); ?>
   </body>
 </html>
+<?php die(); ?>

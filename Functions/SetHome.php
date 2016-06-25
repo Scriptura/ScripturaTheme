@@ -1,5 +1,10 @@
 <?php
 
+// -----------------------------------------------------------------------------
+// @section     Set Home
+// @description Configuration pour la page d'accueil
+// -----------------------------------------------------------------------------
+
 	ob_start();
 
   $popular = new WP_Query( [
@@ -77,10 +82,6 @@
   }
 	wp_reset_postdata();
 	$slideshow = ob_get_clean();
-
-  ob_start();
-  echo scriptura_search_form();
-  $searchForm = ob_get_clean();
 
   $name = $siteName;
 

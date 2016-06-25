@@ -8,7 +8,10 @@
 // @link https://make.wordpress.org/themes/handbook/review/
 // @note Les fonctionnalités de ce thème recourent au minimum à WordPress 4.4
 
-//	phpinfo ( -1 );
+	//phpinfo ( -1 );
+	//ini_set( 'display_errors', 0 ) ;
+	//error_reporting( 0 );
+
 	require_once locate_template( 'Functions/FunctionVariables.php' );
 	require_once locate_template( 'Functions/FunctionRouter.php' );
 	require_once locate_template( 'Functions/FunctionSetup.php' );

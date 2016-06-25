@@ -48,3 +48,23 @@ function scripturaUserGravatar()
 $gravatarUri = scripturaUserGravatar();
 
 endif; // admin
+
+// @subsection  Restrict Access Administration
+// @description Restreindre l’accès à l’administration à certains rôles
+// -----------------------------------------------------------------------------
+
+// @note Si une url de l'administration est appelée directement sans passer par une page du site alors page blanche, sinon retour à la page précédente.
+// @link http://www.geekpress.fr/restreindre-administration-roles/
+// @link https://codex.wordpress.org/Roles_and_Capabilities
+
+function ScripturaRestrictAccessAdministration()
+{
+    if ( ! current_user_can( 'edit_posts' ) ) { // Si le rôle n'a pas la capacité 'edit_posts'
+    // @todo Bloque l'utilisation de l'Ajax en l'état, si besoin utiliser ceci :
+    //if ( ! current_user_can( 'edit_posts' ) AND ( !isset( $_SERVER[ 'HTTP_X_REQUESTED_WITH' ] ) OR $_SERVER[ 'HTTP_X_REQUESTED_WITH' ] != 'XMLHttpRequest' )  ) { // Si besoin d'utiliser l'Ajax de l'admin par certains plugins...
+        wp_redirect( $_SERVER['HTTP_REFERER'] ); // Revient à la page précédente
+        exit();
+    }
+}
+add_action( 'admin_init', 'ScripturaRestrictAccessAdministration' );
+

@@ -5,8 +5,9 @@
 // @description Alternative au formulaire de recherche par défaut de WordPress
 // -----------------------------------------------------------------------------
 
-function scriptura_search_form() {
-	$search = '<form role="search" method="get" action="">' // Attribut action pas nécessaire
+function ScripturaSearchForm()
+{
+	$search = '<form role="search" method="get" action="' . get_site_url() . '">' // Attribut action pas nécessaire
 			. '<fieldset class="search">'
 			. '<input type="search" name="s" placeholder="' . __( 'Search', 'scriptura' ) . '" required/>'
 			. '<label accesskey="s">' . __( 'Search', 'scriptura' ) . '</label>'

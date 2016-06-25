@@ -1,5 +1,10 @@
 <?php
 
+// -----------------------------------------------------------------------------
+// @section     Set Single
+// @description Configuration pour les pages d'articles
+// -----------------------------------------------------------------------------
+
 	// @note Certaines fonctions WP ne peuvent être mise dans une variable en l'état. Recours aux fonctions php natives 'ob_start()' et 'ob_get_clean()' afin de contourner ce problème.
 
 	// @documentation
@@ -339,6 +344,7 @@ function ScripturaCommentForm()
 	return $html;
 }
 
+$commentsOpen = comments_open();
 $comments = ScripturaComments()[0];
 $commentForm = '<div class="grid"><div class="m6 ' . ScripturaComments()[1] . '' . ScripturaComments()[2] . 'sizeS-m9">'
 			 . '<h2 class="h4">' . __( 'Add a comment', 'scriptura' ) . '</h2>'
@@ -346,7 +352,4 @@ $commentForm = '<div class="grid"><div class="m6 ' . ScripturaComments()[1] . ''
 			 . '</div></div>';
 $commentsTitle = __( 'Comments', 'scriptura' );
 $relationsTitle = __( 'Related Articles', 'scriptura' );
-
-$capacityRead = current_user_can( 'read' );
-$capacityEditPosts = current_user_can('edit_posts');
 

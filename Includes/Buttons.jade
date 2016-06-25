@@ -6,9 +6,9 @@ aside.button-group
     div
       button(title='Share article').button
         span.icon-share
-  _if $capacityRead
+  _if ( $capacityRead AND $commentsOpen AND is_single() )
   div
-    button(data-display='comments' data-path='{% $templateUri %}/Ajax/Comments' title='Comment article').button#comments
+    button(title='Comment article').button#comments
       span.icon-bubbles
   _endif
   _if $capacityEditPosts

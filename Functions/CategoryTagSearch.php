@@ -1,5 +1,10 @@
 <?php
 
+// -----------------------------------------------------------------------------
+// @section     Category Tag Search
+// @description Configuration commune pour les pages susnommées
+// -----------------------------------------------------------------------------
+
 	ob_start();
 	if( have_posts() ) {
 	while( have_posts() ) : the_post();
@@ -29,6 +34,10 @@
 		   . '</article>';
 	endwhile;
 	wp_reset_postdata();
+	} else {
+		echo '<p class="message-error">' . __( 'This query yielded no results.', 'scriptura' ) . '</p>';
 	}
+	echo '<hr>';
+	echo ScripturaSearchForm();
 	$content = ob_get_clean();
 

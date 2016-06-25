@@ -1,8 +1,8 @@
 // -----------------------------------------------------------------------------
 // @name         Scriptura
 // @description  Interface for web apps
-// @version      0.0.32
-// @lastmodified 2016-06-08 09:03:52
+// @version      0.0.33
+// @lastmodified 2016-06-25 05:59:32
 // @author       Olivier Chavarin
 // @homepage     http://scriptura.github.io/
 // @license      ISC
@@ -53,9 +53,9 @@
 	var element = $( 'audio, video' );
 	if ( element.length ) {
 		// Appel des sripts
-		var scriptUri = templateUri + '/Scripts/Vendors/MediaElementJS/mediaelement-and-player.min.js';
+		var scriptsUri = templateUri + '/Scripts/Vendors/MediaElementJS/mediaelement-and-player.min.js';
 		var stylesUri = templateUri + '/Scripts/Vendors/MediaElementJS/mediaelementplayer.css';
-		$.getScript( scriptUri, function() { // Chargement via Ajax
+		$.getScript( scriptsUri, function() { // Chargement via Ajax
 			$( 'audio, video' ).mediaelementplayer(); // Initialisation du script
 		} );
 		$( 'head' ).append( '<link rel="stylesheet" href="' + stylesUri + '" media="screen">' ); // Appel des styles
@@ -68,7 +68,7 @@
 // @description Gestion des liens externes au site
 // -----------------------------------------------------------------------------
 
-// #note Par défaut, tous les liens externes conduisent à l'ouverture d'un nouvel onglet, sauf les liens de téléchargement
+// @note Par défaut, tous les liens externes conduisent à l'ouverture d'un nouvel onglet, sauf les liens de téléchargement
 
 ( function( $ ) { // Ajout d'un attribut target_blank sur les liens externes
 	$( document ).find( 'a:not(.download-link)' ).filter( function() {
@@ -481,8 +481,8 @@
 			pause.css( { 'display' : 'block' } );
 		} );
 		// Auto-Initialization:
-		var uriScript = templateUri + '/Scripts/Vendors/Cycle.js';
-		$.getScript( uriScript, function() {  // Chargement via Ajax
+		var scriptsUri = templateUri + '/Scripts/Vendors/Cycle.js';
+		$.getScript( scriptsUri, function() {  // Chargement via Ajax
 			$( '.slideshow' ).cycle(); // Initialisation du script
 		} );
 	}

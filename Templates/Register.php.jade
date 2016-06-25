@@ -17,8 +17,14 @@ block content
   article.article(itemscope itemtype='https://schema.org/Article')
     #index-article
       .wrap
-        .grid.print-area
-          .m12
-            h1.emphasized {% $name %}
-            div(itemprop='articleBody')
-              _php $content
+        h1.emphasized {% $name %}
+        _if $userRegistrationOpen
+        .grid(itemprop='articleBody')
+          .m6
+            _php $content
+            p.message-info {% $message %}
+          .m6.vertical
+            .icon-rocket.surround.zoom500
+        _else
+        div(itemprop='articleBody') {% $content %}
+        _endif

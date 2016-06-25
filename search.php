@@ -2,7 +2,7 @@
       require locate_template('Functions/SetSearch.php');
       require locate_template('Functions/MainNav.php');
       require locate_template('Functions/Breadcrumb.php'); ?><!DOCTYPE html>
-<html lang="en" class="no-js">
+<html <?php echo $siteLang; ?> class="no-js">
   <head>
     <?php require locate_template('Functions/Head.php'); ?>
   </head>
@@ -54,3 +54,4 @@
     <?php require locate_template('Functions/GoogleAnalytics.php'); ?>
   </body>
 </html>
+<?php die(); ?>

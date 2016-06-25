@@ -25,13 +25,17 @@ block content
 
 block comments
   _if $capacityRead
+  _if $comments OR $capacityCommentator AND $commentsOpen
   aside.aside#index-comments
     .wrap
       h2.emphasized {% $commentsTitle %}
         a.anchor(href='#index-comments')
       .grid
         _php $comments
+        _endif
+        _if $capacityCommentator AND $commentsOpen
         _php $commentForm
+        _endif
   _endif
   .ajax-window-comments
 

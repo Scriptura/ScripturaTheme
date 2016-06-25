@@ -2,7 +2,7 @@
       require locate_template('Functions/Set404.php');
       require locate_template('Functions/MainNav.php');
       require locate_template('Functions/Breadcrumb.php'); ?><!DOCTYPE html>
-<html lang="en" class="no-js">
+<html <?php echo $siteLang; ?> class="no-js">
   <head>
     <?php require locate_template('Functions/Head.php'); ?>
   </head>
@@ -19,14 +19,17 @@
     <?php echo $breadcrumb; ?>
     <main itemprop="mainContentOfPage">
       <header role="banner" class="section vh100">
-        <div class="wrap ribbon-container">
-          <div class="ribbon"><a href="./"><?php echo $alternativeLink; ?></a></div>
-          <div class="vertical vh85">
-            <div class="text-center">
-              <h1 itemprop="name"><?php echo $name; ?></h1>
-              <h2><?php echo $content; ?></h2>
-            </div>
-          </div>
+        <div class="wrap-limited ribbon-container">
+          <div class="ribbon"><a href="<?php echo $siteUri; ?>"><?php echo $alternativeLink; ?></a></div>
+          <h1 itemprop="name" class="emphasized"><?php echo $name; ?></h1>
+          <style>
+            .meca-anim{display:block;max-width:100%;max-height:50vh;margin:0 auto;fill:#5a728a;stroke:#444;stroke-width:2}
+            .meca-anim :nth-child(odd){fill:#b03c57}
+            .meca-anim :nth-child(3){fill:#bb7c3c}
+            .meca-anim :nth-child(5){fill:#7ca166}
+          </style>
+          <?php require locate_template('Images/404.svg'); ?><br class="hidden sizeXS-unhidden"><br class="hidden sizeXS-unhidden"><br class="hidden sizeXS-unhidden">
+          <?php echo $searchForm; ?>
         </div>
       </header>
     </main>
@@ -57,3 +60,4 @@
     <?php require locate_template('Functions/GoogleAnalytics.php'); ?>
   </body>
 </html>
+<?php die(); ?>

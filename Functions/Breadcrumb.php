@@ -15,13 +15,13 @@ function ScripturaBreadcrumb()
 	//global $category;
 
 	if( count($slug) == 1 AND $slug[0] == 'Login' ) :
-	$name = 'Login';
+		$name = 'Login';
 	endif;
 	if( count($slug) == 1 AND $slug[0] == 'Register' ) :
-	$name = 'Register';
+		$name = 'Register';
 	endif;
 	if( count($slug) == 1 AND $slug[0] == 'Profil' ) :
-	$name = 'Profil';
+		$name = 'Profil';
 	endif;
 
 	$breadcrumb = '<nav class="breadcrumb">' . PHP_EOL;
@@ -38,4 +38,4 @@ function ScripturaBreadcrumb()
 	return $breadcrumb;
 }
 
-$breadcrumb .= ScripturaBreadcrumb();
+$breadcrumb = ScripturaBreadcrumb();

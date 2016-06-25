@@ -2,7 +2,7 @@
       require locate_template('Functions/SetLogin.php');
       require locate_template('Functions/MainNav.php');
       require locate_template('Functions/Breadcrumb.php'); ?><!DOCTYPE html>
-<html lang="en" class="no-js">
+<html <?php echo $siteLang; ?> class="no-js">
   <head>
     <?php require locate_template('Functions/Head.php'); ?>
   </head>
@@ -24,8 +24,8 @@
             <div class="grid print-area">
               <div class="m12">
                 <h1 class="emphasized"><?php echo $name; ?></h1>
-                <div itemprop="articleBody">
-                  <div class="columns">
+                <div itemprop="articleBody" class="grid">
+                  <div class="m6">
                     <form method="post" action="<?php echo $formAction; ?>">
                       <fieldset>
                         <?php if ($errorLogin):
@@ -45,16 +45,21 @@
                           <label for="remember"><?php echo $formSaveText; ?><span data-on="yes" data-off="no"></span></label>
                         </div>
                         <div>
-                          <button class="button"><span class="icon-login"></span> <?php echo $formSignInText; ?></button>
+                          <button class="button"><span class="icon-login"></span>&nbsp;&nbsp;<?php echo $formSignInText; ?></button>
                         </div>
                       </fieldset>
                     </form>
-                    <div>
-                      <h2 class="h4">Pas encore inscrit&nbsp;?</h2>
+                    <?php if ($userRegistrationOpen): ?>
+                    <div class="message-info">
+                      <p><?php echo $message; ?></p>
                       <form action="<?php echo $siteUri; ?>/Register" method="post">
-                        <button class="button">S'inscrire</button>
+                        <button class="button"><span class="icon-arrow-right"></span>&nbsp;&nbsp;<?php echo $register; ?></button>
                       </form>
                     </div>
+                    <?php endif; ?>
+                  </div>
+                  <div class="m6 vertical">
+                    <div class="icon-user surround zoom500"></div>
                   </div>
                 </div>
               </div>
@@ -90,3 +95,4 @@
     <?php require locate_template('Functions/GoogleAnalytics.php'); ?>
   </body>
 </html>
+<?php die(); ?>

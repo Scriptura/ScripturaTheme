@@ -2,7 +2,7 @@
       require locate_template('Functions/SetProfil.php');
       require locate_template('Functions/MainNav.php');
       require locate_template('Functions/Breadcrumb.php'); ?><!DOCTYPE html>
-<html lang="en" class="no-js">
+<html <?php echo $siteLang; ?> class="no-js">
   <head>
     <?php require locate_template('Functions/Head.php'); ?>
   </head>
@@ -46,7 +46,10 @@
                       <p><span class="icon-user"></span>&nbsp;&nbsp;Pseudo&nbsp;: <?php echo $userDisplayName; ?></p>
                       <?php endif; ?>
                     </div>
-                    <div class="list-stripe"><a href="<?php echo $adminUri; ?>"><span class="icon-login"></span>&nbsp;&nbsp;<?php echo $textAdmin; ?></a><a href="<?php echo $logoutUri; ?>"><span class="icon-logout"></span>&nbsp;&nbsp;<?php echo $textLogout; ?></a></div>
+                    <div class="list-stripe">
+                      <?php if ($capacityEditPosts): ?><a href="<?php echo $adminUri; ?>"><span class="icon-login"></span>&nbsp;&nbsp;<?php echo $textAdmin; ?></a>
+                      <?php endif; ?><a href="<?php echo $logoutUri; ?>"><span class="icon-logout"></span>&nbsp;&nbsp;<?php echo $textLogout; ?></a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -82,3 +85,4 @@
     <?php require locate_template('Functions/GoogleAnalytics.php'); ?>
   </body>
 </html>
+<?php die(); ?>

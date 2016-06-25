@@ -2,7 +2,7 @@
       require locate_template('Functions/SetSingle.php');
       require locate_template('Functions/MainNav.php');
       require locate_template('Functions/Breadcrumb.php'); ?><!DOCTYPE html>
-<html lang="en" class="no-js">
+<html <?php echo $siteLang; ?> class="no-js">
   <head>
     <?php require locate_template('Functions/Head.php'); ?>
   </head>
@@ -31,9 +31,9 @@
                   <div>
                     <button title="Print article" class="button cmd-print"><span class="icon-printer"></span></button>
                   </div>
-                  <?php if ($capacityRead): ?>
+                  <?php if (( $capacityRead AND $commentsOpen AND is_single() )): ?>
                   <div>
-                    <button data-display="comments" data-path="<?php echo $templateUri; ?>/Ajax/Comments" title="Comment article" id="comments" class="button"><span class="icon-bubbles"></span></button>
+                    <button title="Comment article" id="comments" class="button"><span class="icon-bubbles"></span></button>
                   </div>
                   <?php endif;
                         if ($capacityEditPosts): ?>
@@ -54,13 +54,17 @@
         </div>
       </article>
     </main>
-    <?php if ($capacityRead): ?>
+    <?php if ($capacityRead):
+          if ($comments OR $capacityCommentator AND $commentsOpen): ?>
     <aside id="index-comments" class="aside">
       <div class="wrap">
         <h2 class="emphasized"><?php echo $commentsTitle; ?><a href="#index-comments" class="anchor"></a></h2>
         <div class="grid">
           <?php echo $comments;
-                echo $commentForm; ?>
+                endif;
+                if ($capacityCommentator AND $commentsOpen):
+                echo $commentForm;
+                endif; ?>
         </div>
       </div>
     </aside>
@@ -101,3 +105,4 @@
     <?php require locate_template('Functions/GoogleAnalytics.php'); ?>
   </body>
 </html>
+<?php die(); ?>

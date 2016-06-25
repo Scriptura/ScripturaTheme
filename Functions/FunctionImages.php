@@ -64,6 +64,7 @@ if ( !is_admin() ) :
 
 function ScripturaImgCaptionShortcode( $current_html, $attr, $content )
 { // Change le html autour des images, généré via shortcode par l'éditeur WordPress
+    global $host;
     extract( shortcode_atts(
     	[
     		'id' => '',
@@ -77,7 +78,7 @@ function ScripturaImgCaptionShortcode( $current_html, $attr, $content )
         $image = $content; // do_shortcode( $content )
         $html ='<figure ' . $id . 'class="figure-focus-thumbnail-' . esc_attr( $align ) . '">'
             . PHP_EOL
-        	. '<picture>'
+            . '<picture>'
             . PHP_EOL
             . str_replace(
                 [ PHP_EOL . PHP_EOL, PHP_EOL . PHP_EOL, PHP_EOL . PHP_EOL ], // @todo Il existe certainement une méthode plus simple pour supprimer deux retours chariots
@@ -109,7 +110,9 @@ function ScripturaImgCaptionShortcode( $current_html, $attr, $content )
                 			' 600w ',
                 			' 400w ',
                             ' />',
-                            '><'
+                            '><',
+                            'http://' . $host,
+                            'https://' . $host
                 		],
                 		[
                 			'><source srcset',
@@ -122,7 +125,9 @@ function ScripturaImgCaptionShortcode( $current_html, $attr, $content )
                 			' 600w media="(min-width: 400px)" ',
                 			' 400w media="(min-width: 300px)" ',
                             '>',
-                            '>' . PHP_EOL . '<' // ">\x0A\x0D<"
+                            '>' . PHP_EOL . '<', // ">\x0A\x0D<"
+                            '',
+                            ''
                 		],
                 		$image // Image and srcset attributes
                     )

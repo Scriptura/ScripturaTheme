@@ -52,9 +52,11 @@ block content
                     | &nbsp;&nbsp;Pseudo&nbsp;: {% $userDisplayName %}
                   _endif
                 .list-stripe
+                  _if $capacityEditPosts
                   a(href='{% $adminUri %}')
                     span.icon-login
                     | &nbsp;&nbsp;{% $textAdmin %}
+                  _endif
                   a(href='{% $logoutUri %}')
                     span.icon-logout
                     | &nbsp;&nbsp;{% $textLogout %}

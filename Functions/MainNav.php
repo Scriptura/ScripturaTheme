@@ -14,6 +14,7 @@ function ScripturaMainNav()
 	global $siteUri;
 	global $gravatarUri;
 	global $slug;
+	global $userRegistrationMainNav;
 
 	global $current_user;
 	$userDisplayName = $current_user->display_name;
@@ -67,31 +68,33 @@ function ScripturaMainNav()
 			}
 			$menuList .= '</li>' . PHP_EOL;
 		}
-		if ( is_user_logged_in() ) {
-			$menuList .= '<li class="item-push login">';
-			if ( count( $slug ) == 1 AND $slug[0] == 'Profil' ) {
-				$menuList .= '<span class="active">';
+		if ( $userRegistrationMainNav ) {
+			if ( is_user_logged_in() ) {
+				$menuList .= '<li class="item-push login">';
+				if ( count( $slug ) == 1 AND $slug[0] == 'Profil' ) {
+					$menuList .= '<span class="active">';
+				} else {
+					$menuList .= '<a href="' .$siteUri. '/Profil">';
+				}
+				$menuList .= '<span class="icon-user"></span><span>' . $userDisplayName . '</span><div class="avatar" style="background-image:url(' . $gravatarUri . ')"></div>';
+				if ( count( $slug ) == 1 AND $slug[0] == 'Profil' ) {
+					$menuList .= '</span>';
+				} else {
+					$menuList .= '</a>';
+				}
 			} else {
-				$menuList .= '<a href="' .$siteUri. '/Profil">';
-			}
-			$menuList .= '<span class="icon-user"></span><span>' . $userDisplayName . '</span><div class="avatar" style="background-image:url(' . $gravatarUri . ')"></div>';
-			if ( count( $slug ) == 1 AND $slug[0] == 'Profil' ) {
-				$menuList .= '</span>';
-			} else {
-				$menuList .= '</a>';
-			}
-		} else {
-		$menuList .= '<li class="item-push">';
-			if ( count( $slug ) == 1 AND $slug[0] == 'Login' ) {
-				$menuList .= '<span class="active">';
-			} else {
-				$menuList .= '<a href="' . $siteUri . '/Login">';
-			}
-			$menuList .= '<span class="icon-user"></span>' . __( 'Login', 'scriptura' );
-			if ( count( $slug ) == 1 AND $slug[0] == 'Login' ) {
-				$menuList .= '</span>';
-			} else {
-				$menuList .= '</a>';
+			$menuList .= '<li class="item-push">';
+				if ( count( $slug ) == 1 AND $slug[0] == 'Login' ) {
+					$menuList .= '<span class="active">';
+				} else {
+					$menuList .= '<a href="' . $siteUri . '/Login">';
+				}
+				$menuList .= '<span class="icon-user"></span>' . __( 'Login', 'scriptura' );
+				if ( count( $slug ) == 1 AND $slug[0] == 'Login' ) {
+					$menuList .= '</span>';
+				} else {
+					$menuList .= '</a>';
+				}
 			}
 		}
 		$menuList .= '</li>' . PHP_EOL;

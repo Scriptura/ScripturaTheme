@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Scriptura\n"
-"POT-Creation-Date: 2016-06-13 09:07+0100\n"
-"PO-Revision-Date: 2016-06-13 09:39+0100\n"
+"POT-Creation-Date: 2016-06-25 08:11+0100\n"
+"PO-Revision-Date: 2016-06-25 08:11+0100\n"
 "Last-Translator: \n"
 "Language-Team: Olivier Chavarin\n"
 "Language: fr_FR\n"
@@ -21,9 +21,25 @@ msgstr ""
 msgid "Home"
 msgstr "Accueil"
 
-#: ../Functions/CategoryTagSearch.php:28
+#: ../Functions/CategoryTagSearch.php:33
 msgid "Read more"
 msgstr "Lire la suite"
+
+#: ../Functions/CategoryTagSearch.php:38
+msgid "This query yielded no results."
+msgstr "Cette requête n'a donné aucun résultat."
+
+#: ../Functions/FunctionHead.php:74
+msgid "Some Meta Box Headline"
+msgstr ""
+
+#: ../Functions/FunctionHead.php:143
+msgid "Description"
+msgstr "Description"
+
+#: ../Functions/FunctionHead.php:146
+msgid "100-255 carcteres..."
+msgstr "100-255 caractères"
 
 #: ../Functions/FunctionImages.php:43
 msgid "Portrait"
@@ -78,9 +94,9 @@ msgstr ""
 "est laissé vide l'adresse par défaut sera celle du premier administrateur."
 
 #: ../Functions/FunctionPannelForms.php:47
-#: ../Functions/FunctionPannelIdentity.php:140
+#: ../Functions/FunctionPannelIdentity.php:142
 #: ../Functions/FunctionPannelOptions.php:145
-#: ../Functions/FunctionPannelUsers.php:50
+#: ../Functions/FunctionPannelUsers.php:67
 msgid "Save changes"
 msgstr "Enregistrer les modifications"
 
@@ -97,8 +113,9 @@ msgid "Title of insert"
 msgstr ""
 
 #: ../Functions/FunctionPannelIdentity.php:40
-msgid "This field is required if we are to show the information on the site."
+msgid "This field is required if you want to show the information on the site."
 msgstr ""
+"Ce champ est obligatoire si vous voulez montrer les informations sur le site."
 
 #: ../Functions/FunctionPannelIdentity.php:45
 msgid "Name of the organization"
@@ -116,50 +133,55 @@ msgstr "Code postal"
 msgid "Locality"
 msgstr "Localité"
 
-#: ../Functions/FunctionPannelIdentity.php:77
+#: ../Functions/FunctionPannelIdentity.php:73
+#: ../Functions/FunctionPannelIdentity.php:82
+msgid "This result will appear in a meta tag site."
+msgstr "Ce résultat apparaitra dans une balise meta du site."
+
+#: ../Functions/FunctionPannelIdentity.php:78
 msgid "Country"
 msgstr "Pays"
 
-#: ../Functions/FunctionPannelIdentity.php:85
+#: ../Functions/FunctionPannelIdentity.php:87
 msgid "Phone"
 msgstr "Téléphone"
 
-#: ../Functions/FunctionPannelIdentity.php:93
-#: ../Functions/VariablesRegister.php:84
+#: ../Functions/FunctionPannelIdentity.php:95 ../Functions/SetRegister.php:89
 msgid "Email"
 msgstr "Email"
 
-#: ../Functions/FunctionPannelIdentity.php:102
+#: ../Functions/FunctionPannelIdentity.php:104
 msgid "Editorial manager"
-msgstr ""
+msgstr "Responsable de la rédaction"
 
-#: ../Functions/FunctionPannelIdentity.php:110
+#: ../Functions/FunctionPannelIdentity.php:112
 msgid "Date site creation"
 msgstr "Date de création du site"
 
-#: ../Functions/FunctionPannelIdentity.php:114
+#: ../Functions/FunctionPannelIdentity.php:116
 msgid "Follow the format <code>dd/mm/yyyy</code>."
 msgstr "Selon le format <code>dd/mm/yyyy</code>."
 
-#: ../Functions/FunctionPannelIdentity.php:121
+#: ../Functions/FunctionPannelIdentity.php:123
 msgid "Display in the footer"
 msgstr "Afficher dans le pied de page"
 
-#: ../Functions/FunctionPannelIdentity.php:125
+#: ../Functions/FunctionPannelIdentity.php:127
 msgid "View information about the organization"
 msgstr "Voir les informations sur l'organisation"
 
-#: ../Functions/FunctionPannelIdentity.php:129
+#: ../Functions/FunctionPannelIdentity.php:131
 #: ../Functions/FunctionPannelOptions.php:134
 #: ../Functions/FunctionPannelUsers.php:40
+#: ../Functions/FunctionPannelUsers.php:57
 msgid "No"
 msgstr "Non"
 
-#: ../Functions/FunctionPannelIdentity.php:130
+#: ../Functions/FunctionPannelIdentity.php:132
 msgid "Pages and articles"
 msgstr "Pages et articles"
 
-#: ../Functions/FunctionPannelIdentity.php:132
+#: ../Functions/FunctionPannelIdentity.php:134
 msgid ""
 "This information may be completed and submitted from the \"Site Identity\" "
 "tab."
@@ -231,12 +253,14 @@ msgstr "Activer"
 
 #: ../Functions/FunctionPannelOptions.php:135
 #: ../Functions/FunctionPannelUsers.php:41
+#: ../Functions/FunctionPannelUsers.php:58
 msgid "Yes"
 msgstr "Oui"
 
 #: ../Functions/FunctionPannelOptions.php:137
 msgid "Displays a snow effect on the site during the winter season."
 msgstr ""
+"Affiche un effet d'enneigement sur le site au cours de la saison d'hiver."
 
 #: ../Functions/FunctionPannelUsers.php:32
 msgid "User registration"
@@ -246,129 +270,147 @@ msgstr "Enregistrement des utilisateurs"
 msgid "Allow user registration"
 msgstr "Autoriser l'enregistrement des utilisateurs"
 
-#: ../Functions/FunctionSearchForm.php:11
+#: ../Functions/FunctionPannelUsers.php:49
+msgid "From the main menu"
+msgstr "Depuis le menu principal"
+
+#: ../Functions/FunctionPannelUsers.php:53
+msgid "Make the connection from the Site navigation menu"
+msgstr "Ajouter la connexion depuis le menu de navigation du site"
+
 #: ../Functions/FunctionSearchForm.php:12
+#: ../Functions/FunctionSearchForm.php:13
 msgid "Search"
 msgstr "Rechercher"
 
-#: ../Functions/FunctionSearchForm.php:13 ../functions.php:65
+#: ../Functions/FunctionSearchForm.php:14 ../Functions/SetSingle.php:338
 msgid "Submit"
 msgstr "Soumettre"
 
-#: ../Functions/FunctionSetup.php:89
+#: ../Functions/FunctionSetup.php:112
 msgid "Primary menu"
 msgstr "Menu principal"
 
-#: ../Functions/FunctionSetup.php:90
+#: ../Functions/FunctionSetup.php:113
 msgid "Secondary menu"
 msgstr "Menu secondaire"
 
-#: ../Functions/Head.php:12 ../Functions/VariablesTag.php:4
-msgid "Tag"
-msgstr "Étiquette "
-
-#: ../Functions/Head.php:15
-msgid "Search results for"
-msgstr "Résultats de recherche pour"
-
-#: ../Functions/Head.php:27
-msgid "Request for category:"
-msgstr "Requête pour la catégorie :"
-
-#: ../Functions/Head.php:29
-msgid "Request for tag:"
-msgstr "Requête pour :"
-
-#: ../Functions/MainNav.php:90 ../Functions/VariablesLogin.php:9
-msgid "Login"
-msgstr "Connexion"
-
-#: ../Functions/Variables404.php:4
-msgid "Error 404!"
-msgstr "Erreur 404 !"
-
-#: ../Functions/Variables404.php:5
-msgid "Page not found..."
-msgstr "Page introuvable..."
-
-#: ../Functions/Variables404.php:6
-msgid "Home Page"
-msgstr "Page d'accueil"
-
-#: ../Functions/VariablesCategory.php:4
+#: ../Functions/Head.php:21 ../Functions/SetCategory.php:9
 msgid "Category"
 msgstr "Catégorie "
 
-#: ../Functions/VariablesLogin.php:12
+#: ../Functions/Head.php:23 ../Functions/SetTag.php:9
+msgid "Tag"
+msgstr "Étiquette "
+
+#: ../Functions/Head.php:25
+msgid "Search results for"
+msgstr "Résultats de recherche pour"
+
+#: ../Functions/Head.php:27 ../Functions/MainNav.php:92
+#: ../Functions/SetLogin.php:14
+msgid "Login"
+msgstr "Connexion"
+
+#: ../Functions/Head.php:29 ../Functions/SetLogin.php:41
+#: ../Functions/SetRegister.php:14 ../Functions/SetRegister.php:100
+msgid "Register"
+msgstr "S'inscrire"
+
+#: ../Functions/Head.php:31
+msgid "Profil"
+msgstr ""
+
+#: ../Functions/Head.php:42
+msgid "Request for the category"
+msgstr "Requête pour la catégorie "
+
+#: ../Functions/Head.php:44
+msgid "Request for the tag"
+msgstr "Requête pour le mot clef "
+
+#: ../Functions/Set404.php:9
+msgid "Error 404!"
+msgstr "Erreur 404 !"
+
+#: ../Functions/Set404.php:10
+msgid "Page not found..."
+msgstr "Page introuvable..."
+
+#: ../Functions/Set404.php:11
+msgid "Home Page"
+msgstr "Page d'accueil"
+
+#: ../Functions/SetLogin.php:17
 msgid "Username or email"
 msgstr "Nom d'utilisateur ou Email"
 
-#: ../Functions/VariablesLogin.php:13
+#: ../Functions/SetLogin.php:18
 msgid "Pseudo / pseudo@gmail.com"
 msgstr "Pseudo / pseudo@gmail.com"
 
-#: ../Functions/VariablesLogin.php:14 ../Functions/VariablesRegister.php:79
+#: ../Functions/SetLogin.php:19 ../Functions/SetRegister.php:84
 msgid "Password"
 msgstr "Mot de passe"
 
-#: ../Functions/VariablesLogin.php:16
+#: ../Functions/SetLogin.php:21
 msgid "Save information"
 msgstr "Sauver les informations"
 
-#: ../Functions/VariablesLogin.php:17 ../Functions/VariablesRegister.php:68
+#: ../Functions/SetLogin.php:22 ../Functions/SetRegister.php:73
 msgid "Sign in"
 msgstr "Se connecter"
 
-#: ../Functions/VariablesLogin.php:18
+#: ../Functions/SetLogin.php:23
 msgid "Not yet registered?"
 msgstr "Pas encore enregistré&nbsp;?"
 
-#: ../Functions/VariablesLogin.php:24
+#: ../Functions/SetLogin.php:29
 msgid "Your password is invalid. Your connection attempt failed."
 msgstr ""
 "Votre mot de passe est invalide. Votre tentative de connexion a échoué."
 
-#: ../Functions/VariablesProfil.php:17
+#: ../Functions/SetLogin.php:40
+msgid "Not registered?"
+msgstr "Pas encore inscrit&nbsp;?"
+
+#: ../Functions/SetProfil.php:22
 msgid "Hello"
 msgstr "Bonjour"
 
-#: ../Functions/VariablesProfil.php:21
+#: ../Functions/SetProfil.php:26
 msgid "Logout"
 msgstr "Déconnexion"
 
-#: ../Functions/VariablesProfil.php:23
+#: ../Functions/SetProfil.php:28
 msgid "Administration"
 msgstr "Administration"
 
-#: ../Functions/VariablesRegister.php:9 ../Functions/VariablesRegister.php:95
-msgid "Register"
-msgstr "Enregistrement"
-
-#: ../Functions/VariablesRegister.php:19
+#: ../Functions/SetRegister.php:24
 msgid "Enter a username"
 msgstr "Entrer un nom d'utilisateur"
 
-#: ../Functions/VariablesRegister.php:24
+#: ../Functions/SetRegister.php:29
 msgid "Enter a password"
 msgstr "Entrer un mot de passe"
 
-#: ../Functions/VariablesRegister.php:28
+#: ../Functions/SetRegister.php:33
 msgid "The password is too short (Least 6 characters)"
 msgstr "Le mot de passe est trop court (6 caractères minimum)"
 
-#: ../Functions/VariablesRegister.php:33
+#: ../Functions/SetRegister.php:38
 msgid "The email address is invalid"
 msgstr "L'addresse email est invalide"
 
-#: ../Functions/VariablesRegister.php:37
+#: ../Functions/SetRegister.php:42
 msgid "Enter a email"
 msgstr "Entrer un email"
 
-#: ../Functions/VariablesRegister.php:47
+#: ../Functions/SetRegister.php:52
 msgid "User created"
 msgstr "Utilisateur créé"
 
-#: ../Functions/VariablesRegister.php:48
+#: ../Functions/SetRegister.php:53
 #, php-format
 msgid ""
 "<p>Username: <strong>%1s</strong></p><p>Password: <strong>%2s</strong></"
@@ -377,72 +419,74 @@ msgstr ""
 "<p>Identifiant: <strong>%1s</strong></p><p>Mot de passe&nbsp;: <strong>%2s</"
 "strong></p><p>Email&nbsp;: <strong>%3s</strong></p>"
 
-#: ../Functions/VariablesRegister.php:75
+#: ../Functions/SetRegister.php:80
 msgid "Username"
 msgstr "Nom d'utilisateur"
 
-#: ../Functions/VariablesRegister.php:76
+#: ../Functions/SetRegister.php:81
 msgid "John Smith"
 msgstr "Victor Hugo"
 
-#: ../Functions/VariablesRegister.php:85
+#: ../Functions/SetRegister.php:90
 msgid "pseudo@gmail.com"
 msgstr "pseudo@gmail.com"
 
-#: ../Functions/VariablesSearch.php:4
+#: ../Functions/SetRegister.php:111
+msgid "The registration of new users is currently not allowed."
+msgstr ""
+"L'enregistrement de nouveaux utilisateurs n'est actuellement pas autorisé."
+
+#: ../Functions/SetRegister.php:114
+msgid ""
+"The site moderation reserves the right to delete an account if the "
+"conditions of use are not respected."
+msgstr ""
+"La modération du site se réserve le droit de supprimer un compte si les "
+"conditions d'utilisation ne sont pas respectées."
+
+#: ../Functions/SetSearch.php:9
 msgid "Request to"
 msgstr "Requête pour "
 
-#: ../Functions/VariablesSingle.php:28
-#, fuzzy
+#: ../Functions/SetSingle.php:33
 msgid "Keywords"
-msgstr "Mots clefs "
+msgstr "Mots clefs"
 
-#: ../Functions/VariablesSingle.php:143
+#: ../Functions/SetSingle.php:148
 msgid "Published on"
 msgstr "Publié le"
 
-#: ../Functions/VariablesSingle.php:148
+#: ../Functions/SetSingle.php:153
 msgid "modified on"
 msgstr "modifié le"
 
-#: ../Functions/VariablesSingle.php:218
+#: ../Functions/SetSingle.php:223
 msgid "Read article"
 msgstr "Lire l'article"
 
-#: ../Functions/VariablesSingle.php:227
-msgid "Comments"
-msgstr ""
-
-#: ../Functions/VariablesSingle.php:228
-msgid "Related Articles"
-msgstr "Articles en relation"
-
-#: ../functions.php:44
-#, fuzzy
+#: ../Functions/SetSingle.php:278
 msgid "Index the comment"
 msgstr "Ajouter un commentaire"
 
-#: ../functions.php:62
-msgid "Add a comment"
-msgstr "Ajouter un commentaire"
-
-#: ../functions.php:63
-#, php-format
-msgid "Add a comment to %s"
-msgstr ""
-
-#: ../functions.php:64
-msgid "Cancel Reply"
-msgstr ""
-
-#: ../functions.php:67
+#: ../Functions/SetSingle.php:337
 msgid "Message"
 msgstr "Message"
 
-#: ../functions.php:67
+#: ../Functions/SetSingle.php:337
 msgid "Hello..."
 msgstr "Bonjour..."
+
+#: ../Functions/SetSingle.php:350
+msgid "Add a comment"
+msgstr "Ajouter un commentaire"
+
+#: ../Functions/SetSingle.php:353
+msgid "Comments"
+msgstr "Commentaires"
+
+#: ../Functions/SetSingle.php:354
+msgid "Related Articles"
+msgstr "Articles en relation"
 
 #~ msgid "Contacts pages only"
 #~ msgstr "Pages de contact seulement"
