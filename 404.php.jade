@@ -1,13 +1,7 @@
 extends PatternLayouts
 
 append variables
-  _require_wp Functions/Set404
-
-append functions
-  _require_wp Functions/Breadcrumb
-
-block breadcrumb
-  _php $breadcrumb
+  _require_once_wp Functions/Set404
 
 block content
   header.section.vh100(role='banner')

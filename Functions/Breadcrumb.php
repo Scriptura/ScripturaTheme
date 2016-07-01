@@ -14,15 +14,12 @@ function ScripturaBreadcrumb()
 	global $name;
 	//global $category;
 
-	if( count($slug) == 1 AND $slug[0] == 'Login' ) :
-		$name = 'Login';
-	endif;
-	if( count($slug) == 1 AND $slug[0] == 'Register' ) :
-		$name = 'Register';
-	endif;
-	if( count($slug) == 1 AND $slug[0] == 'Profil' ) :
-		$name = 'Profil';
-	endif;
+	if( count($slug) == 1 AND $slug[0] == 'Login' )
+		$name = __( 'Login', 'scriptura' );
+	if( count($slug) == 1 AND $slug[0] == 'Register' )
+		$name = __( 'Register', 'scriptura' );
+	if( count($slug) == 1 AND $slug[0] == 'Profile' )
+		$name = __( 'Profile', 'scriptura' );
 
 	$breadcrumb = '<nav class="breadcrumb">' . PHP_EOL;
 	$breadcrumb .= '<div class="wrap">' . PHP_EOL;

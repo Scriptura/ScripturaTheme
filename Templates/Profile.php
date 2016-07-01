@@ -1,5 +1,5 @@
 <?php require locate_template('Functions/FunctionVariables.php');
-      require locate_template('Functions/SetSingle.php');
+      require_once locate_template('Functions/SetProfile.php');
       require_once locate_template('Functions/SetAll.php');
       require_once locate_template('Functions/MainNav.php');
       require_once locate_template('Functions/Breadcrumb.php'); ?><!DOCTYPE html>
@@ -22,26 +22,46 @@
       <article itemscope itemtype="https://schema.org/Article" class="article"><?php echo $image; ?>
         <div id="index-article">
           <div class="wrap">
-            <div class="grid">
-              <div>
-                <h1 class="emphasized"><?php echo $name; ?></h1>
+            <div itemprop="articleBody">
+              <h1 class="emphasized"><?php echo $name; ?></h1>
+              <div class="grid">
+                <div class="m2 sizeXS-m6 sizeS-m3">
+                  <div style="background-image:url(<?php echo $gravatarUri; ?>)" class="avatar">
+                    <div class="ratio"></div>
+                  </div>
+                </div>
+                <div class="m6 sizeS-m9">
+                  <?php if ($userDescription): ?>
+                  <p><em><?php echo $userDescription; ?></em></p>
+                  <?php endif; ?>
+                </div>
               </div>
-              <div itemprop="articleBody"><?php echo $content; ?></div>
-              <aside class="button-group">
-                <div>
-                  <button title="Print article" class="button cmd-print"><span class="icon-printer"></span></button>
+              <div class="columns">
+                <div class="list-stripe">
+                  <?php if ($userLogin): ?>
+                  <p><span class="icon-ampersand"></span>&nbsp;&nbsp;Identifiant&nbsp;: <?php echo $userLogin; ?></p>
+                  <?php endif;
+                        if ($userEmail): ?>
+                  <p><span class="icon-at"></span>&nbsp;&nbsp;Email&nbsp;: <?php echo $userEmail; ?></p>
+                  <?php endif;
+                        if ($userFirstName): ?>
+                  <p><span class="icon-user"></span>&nbsp;&nbsp;Prénom&nbsp;: <?php echo $userFirstName; ?></p>
+                  <?php endif;
+                        if ($userLastName): ?>
+                  <p><span class="icon-user"></span>&nbsp;&nbsp;Nom&nbsp;: <?php echo $userLastName; ?></p>
+                  <?php endif;
+                        if ($userDisplayName): ?>
+                  <p><span class="icon-user"></span>&nbsp;&nbsp;Pseudo&nbsp;: <?php echo $userDisplayName; ?></p>
+                  <?php endif;
+                        if ($userMetaGroup): ?>
+                  <p><span class="icon-radio-unchecked"></span>&nbsp;&nbsp;Group&nbsp;: <?php echo $userMetaGroup; ?></p>
+                  <?php endif; ?>
                 </div>
-                <?php if (( $capacityRead AND $commentsOpen AND is_single() )): ?>
-                <div>
-                  <button title="Comment article" id="comments" class="button"><span class="icon-bubbles"></span></button>
+                <div class="list-stripe">
+                  <?php if ($capacityEditPosts): ?><a href="<?php echo $adminUri; ?>"><span class="icon-login"></span>&nbsp;&nbsp;<?php echo $textAdmin; ?></a>
+                  <?php endif; ?><a href="<?php echo $logoutUri; ?>"><span class="icon-logout"></span>&nbsp;&nbsp;<?php echo $textLogout; ?></a>
                 </div>
-                <?php endif;
-                      if ($capacityEditPosts): ?>
-                <form action="<?php echo $editPost; ?>" method="post" target="_blank">
-                  <button title="Edit article" class="button"><span class="icon-pen"></span></button>
-                </form>
-                <?php endif; ?>
-              </aside>
+              </div>
             </div>
           </div>
         </div>

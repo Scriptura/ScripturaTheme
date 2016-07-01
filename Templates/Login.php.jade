@@ -5,19 +5,13 @@ block banner
     _php // Template Name: Login
 
 append variables
-  _require_wp Functions/SetLogin
-
-append functions
-  _require_wp Functions/Breadcrumb
-
-block breadcrumb
-  _php $breadcrumb
+  _require_once_wp Functions/SetLogin
 
 block content
   article.article(itemscope itemtype='https://schema.org/Article')
     #index-article
       .wrap
-        .grid.print-area
+        .grid
           .m12
             h1.emphasized {% $name %}
             .grid(itemprop='articleBody')

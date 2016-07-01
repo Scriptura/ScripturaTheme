@@ -339,8 +339,8 @@ function ScripturaCommentForm()
 		'fields' => apply_filters( 'comment_form_default_fields', $fields ),
 	];
 	ob_start();
-	$html = comment_form( $arrCommentForm );
-	$html .= ob_get_clean();
+	comment_form( $arrCommentForm );
+	$html = ob_get_clean();
 	return $html;
 }
 
@@ -352,4 +352,8 @@ $commentForm = '<div class="grid"><div class="m6 ' . ScripturaComments()[1] . ''
 			 . '</div></div>';
 $commentsTitle = __( 'Comments', 'scriptura' );
 $relationsTitle = __( 'Related Articles', 'scriptura' );
+
+
+//$testUser = get_user_meta( get_current_user_id(), '', true );
+//print_r( $testUser );die();
 

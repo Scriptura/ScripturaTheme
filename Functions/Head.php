@@ -27,8 +27,8 @@
         echo __( 'Login', 'scriptura' ) . $separator . $siteName;
     } elseif ( count($slug) == 1 AND $slug[0] == 'Register' ) {
         echo __( 'Register', 'scriptura' ) . $separator . $siteName;
-    } elseif ( count($slug) == 1 AND $slug[0] == 'Profil' ) {
-        echo __( 'Profil', 'scriptura' ) . $separator . $siteName;
+    } elseif ( count($slug) == 1 AND $slug[0] == 'Profile' ) {
+        echo __( 'Profile', 'scriptura' ) . $separator . $siteName;
     } else {
             echo get_the_title() . $separator . $siteName;
     }
@@ -53,8 +53,11 @@
     echo '">' . PHP_EOL;
 
     echo '    <meta name="viewport" content="width=device-width initial-scale=1.0">' . PHP_EOL;
-    if ( $locality AND $country ) {
-        echo '    <meta name="geo.placename" content="' . $locality . ', ' . $country . '">' . PHP_EOL;
+    if ( $locality ) {
+        echo '    <meta name="geo.placename" content="' . $locality . '">' . PHP_EOL;
+    }
+    if ( $country ) {
+        echo '    <meta name="geo.region" content="' . $country . '">' . PHP_EOL;
     }
     echo '    <link rel="shortcut icon" href="' . $templateUri . '/Images/favicon.ico">' . PHP_EOL;
     echo '    <link rel="stylesheet" href="' . $templateUri . '/Public/Styles/MainBlooming.css' . $version . '" media="screen">' . PHP_EOL;

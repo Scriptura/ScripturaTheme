@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Scriptura\n"
-"POT-Creation-Date: 2016-06-25 08:11+0100\n"
-"PO-Revision-Date: 2016-06-25 08:11+0100\n"
+"POT-Creation-Date: 2016-06-30 17:31+0100\n"
+"PO-Revision-Date: 2016-06-30 17:31+0100\n"
 "Last-Translator: \n"
 "Language-Team: Olivier Chavarin\n"
 "Language: fr_FR\n"
@@ -17,7 +17,22 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
 
-#: ../Functions/Breadcrumb.php:30
+#: ../Functions/Breadcrumb.php:18 ../Functions/Head.php:27
+#: ../Functions/MainNav.php:92 ../Functions/SetLogin.php:14
+msgid "Login"
+msgstr "Connexion"
+
+#: ../Functions/Breadcrumb.php:20 ../Functions/Head.php:29
+#: ../Functions/SetLogin.php:41 ../Functions/SetRegister.php:14
+#: ../Functions/SetRegister.php:100
+msgid "Register"
+msgstr "S'inscrire"
+
+#: ../Functions/Breadcrumb.php:22 ../Functions/Head.php:31
+msgid "Profile"
+msgstr "Profil"
+
+#: ../Functions/Breadcrumb.php:27
 msgid "Home"
 msgstr "Accueil"
 
@@ -30,16 +45,20 @@ msgid "This query yielded no results."
 msgstr "Cette requête n'a donné aucun résultat."
 
 #: ../Functions/FunctionHead.php:74
-msgid "Some Meta Box Headline"
-msgstr ""
+msgid "Meta tags"
+msgstr "Balises meta"
 
 #: ../Functions/FunctionHead.php:143
-msgid "Description"
-msgstr "Description"
+msgid "Article description"
+msgstr "Description de l'article"
 
 #: ../Functions/FunctionHead.php:146
-msgid "100-255 carcteres..."
-msgstr "100-255 caractères"
+msgid ""
+"This should be an interesting alternative to the title should contain 100 to "
+"255 characters."
+msgstr ""
+"Cette description doit être une alternative intéressante au titre est doit "
+"comporter de 100 à 255 caractères."
 
 #: ../Functions/FunctionImages.php:43
 msgid "Portrait"
@@ -94,7 +113,7 @@ msgstr ""
 "est laissé vide l'adresse par défaut sera celle du premier administrateur."
 
 #: ../Functions/FunctionPannelForms.php:47
-#: ../Functions/FunctionPannelIdentity.php:142
+#: ../Functions/FunctionPannelIdentity.php:141
 #: ../Functions/FunctionPannelOptions.php:145
 #: ../Functions/FunctionPannelUsers.php:67
 msgid "Save changes"
@@ -110,7 +129,7 @@ msgstr "Informations sur l'organisme"
 
 #: ../Functions/FunctionPannelIdentity.php:36
 msgid "Title of insert"
-msgstr ""
+msgstr "Titre de l'encart"
 
 #: ../Functions/FunctionPannelIdentity.php:40
 msgid "This field is required if you want to show the information on the site."
@@ -180,12 +199,6 @@ msgstr "Non"
 #: ../Functions/FunctionPannelIdentity.php:132
 msgid "Pages and articles"
 msgstr "Pages et articles"
-
-#: ../Functions/FunctionPannelIdentity.php:134
-msgid ""
-"This information may be completed and submitted from the \"Site Identity\" "
-"tab."
-msgstr ""
 
 #: ../Functions/FunctionPannelOptions.php:42
 msgid "Options for Scriptura framework"
@@ -287,13 +300,21 @@ msgstr "Rechercher"
 msgid "Submit"
 msgstr "Soumettre"
 
-#: ../Functions/FunctionSetup.php:112
+#: ../Functions/FunctionSetup.php:78
 msgid "Primary menu"
 msgstr "Menu principal"
 
-#: ../Functions/FunctionSetup.php:113
+#: ../Functions/FunctionSetup.php:79
 msgid "Secondary menu"
 msgstr "Menu secondaire"
+
+#: ../Functions/FunctionUsers.php:79
+msgid "Additional Information"
+msgstr "Informations complémentaires"
+
+#: ../Functions/FunctionWidgets.php:22
+msgid "This widget takes place in the site footer."
+msgstr "Ce widget prend place dans le pied de page du site."
 
 #: ../Functions/Head.php:21 ../Functions/SetCategory.php:9
 msgid "Category"
@@ -306,20 +327,6 @@ msgstr "Étiquette "
 #: ../Functions/Head.php:25
 msgid "Search results for"
 msgstr "Résultats de recherche pour"
-
-#: ../Functions/Head.php:27 ../Functions/MainNav.php:92
-#: ../Functions/SetLogin.php:14
-msgid "Login"
-msgstr "Connexion"
-
-#: ../Functions/Head.php:29 ../Functions/SetLogin.php:41
-#: ../Functions/SetRegister.php:14 ../Functions/SetRegister.php:100
-msgid "Register"
-msgstr "S'inscrire"
-
-#: ../Functions/Head.php:31
-msgid "Profil"
-msgstr ""
 
 #: ../Functions/Head.php:42
 msgid "Request for the category"
@@ -374,15 +381,15 @@ msgstr ""
 msgid "Not registered?"
 msgstr "Pas encore inscrit&nbsp;?"
 
-#: ../Functions/SetProfil.php:22
-msgid "Hello"
-msgstr "Bonjour"
+#: ../Functions/SetProfile.php:23
+msgid "Your profile"
+msgstr "Votre profil"
 
-#: ../Functions/SetProfil.php:26
+#: ../Functions/SetProfile.php:27
 msgid "Logout"
 msgstr "Déconnexion"
 
-#: ../Functions/SetProfil.php:28
+#: ../Functions/SetProfile.php:29
 msgid "Administration"
 msgstr "Administration"
 
@@ -488,8 +495,5 @@ msgstr "Commentaires"
 msgid "Related Articles"
 msgstr "Articles en relation"
 
-#~ msgid "Contacts pages only"
-#~ msgstr "Pages de contact seulement"
-
-#~ msgid "Choose a theme"
-#~ msgstr "Choisir un thème"
+#~ msgid "Hello"
+#~ msgstr "Bonjour"

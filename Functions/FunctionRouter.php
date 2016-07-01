@@ -14,15 +14,12 @@ function ScripturaRouter()
 
 	global $slug;
 
-	if( count( $slug ) == 1 AND $slug[0] == 'Login' ) :
-	require locate_template( 'Templates/Login.php' );
-	endif;
-	if( count( $slug ) == 1 AND $slug[0] == 'Register' ) :
-	require locate_template( 'Templates/Register.php' );
-	endif;
-	if( count( $slug ) == 1 AND $slug[0] == 'Profil' ) :
-	require locate_template( 'Templates/Profil.php' );
-	endif;
+	if( count( $slug ) == 1 AND $slug[0] == 'Login' )
+		require locate_template( 'Templates/Login.php' );
+	if( count( $slug ) == 1 AND $slug[0] == 'Register' )
+		require locate_template( 'Templates/Register.php' );
+	if( count( $slug ) == 1 AND $slug[0] == 'Profile' )
+		require locate_template( 'Templates/Profile.php' );
 }
 
 add_action( 'send_headers', 'ScripturaRouter' ); // @note Gestion des en-têtes HTTP

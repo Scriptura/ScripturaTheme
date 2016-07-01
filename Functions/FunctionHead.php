@@ -44,17 +44,17 @@ endif; // admin
 // @link https://wabeo.fr/jouons-avec-les-meta-boxes/
  
 if ( is_admin() ) {
-    add_action( 'load-post.php', 'ScripturaCallSomeClass' );
-    add_action( 'load-post-new.php', 'ScripturaCallSomeClass' );
+    add_action( 'load-post.php', 'ScripturaMetaBox' );
+    add_action( 'load-post-new.php', 'ScripturaMetaBox' );
 }
 
 // Calls the class on the post edit screen.
-function ScripturaCallSomeClass()
+function ScripturaMetaBox()
 {
-    new someClass();
+    new ClassScripturaMetaBox();
 }
 
-class someClass
+class ClassScripturaMetaBox
 {
  
     // Hook into the appropriate actions when the class is constructed.
@@ -71,7 +71,7 @@ class someClass
         if ( in_array( $post_type, $post_types ) ) {
             add_meta_box(
                 'some_meta_box_name',
-                __( 'Some Meta Box Headline', 'textdomain' ),
+                __( 'Meta tags', 'scriptura' ),
                 [ $this, 'ScripturaMetaBoxForm' ],
                 $post_type,
                 'advanced',
@@ -104,7 +104,7 @@ class someClass
 		}
  
 		// Check the user's permissions.
-		if ( 'page' == $_POST['post_type'] ) {
+		if ( 'page' == $_POST[ 'post_type' ] ) {
 			if ( ! current_user_can( 'edit_page', $post_id ) ) {
 				return $post_id;
 			}
@@ -117,7 +117,7 @@ class someClass
 		// OK, it's safe for us to save the data now.
  
 		// Sanitize the user input.
-		$mydata = sanitize_text_field( $_POST['scriptura_meta_description'] );
+		$mydata = sanitize_text_field( $_POST[ 'scriptura_meta_description' ] );
  
 		// Update the meta field.
 		update_post_meta( $post_id, 'metadescription', $mydata );
@@ -140,10 +140,13 @@ class someClass
 		<table class="form-table">
 			<tr>
 				<th scope="row">
-					<label for="scriptura_meta_description"><?php _e( 'Description', 'scriptura' ); ?></label>
+					<label for="scriptura_meta_description"><?php _e( 'Article description', 'scriptura' ); ?></label>
 				</th>
 				<td>
+					<textarea id="scriptura_meta_description" name="scriptura_meta_description" placeholder="<?php _e( 'This should be an interesting alternative to the title should contain 100 to 255 characters.', 'scriptura' ); ?>" style="width:100%;min-height:5rem"><?php echo esc_attr( $value ); ?></textarea>
+					<?php /*
 					<input type="text" id="scriptura_meta_description" name="scriptura_meta_description" value="<?php echo esc_attr( $value ); ?>" size="25" style="width:100%" placeholder="<?php _e( '100-255 carcteres...', 'scriptura' ); ?>" />
+					*/ ?>
 				</td>
 			</tr>
 		</table>

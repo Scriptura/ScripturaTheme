@@ -71,13 +71,13 @@ function ScripturaMainNav()
 		if ( $userRegistrationMainNav ) {
 			if ( is_user_logged_in() ) {
 				$menuList .= '<li class="item-push login">';
-				if ( count( $slug ) == 1 AND $slug[0] == 'Profil' ) {
+				if ( count( $slug ) == 1 AND $slug[0] == 'Profile' ) {
 					$menuList .= '<span class="active">';
 				} else {
-					$menuList .= '<a href="' .$siteUri. '/Profil">';
+					$menuList .= '<a href="' . $siteUri . '/Profile">';
 				}
 				$menuList .= '<span class="icon-user"></span><span>' . $userDisplayName . '</span><div class="avatar" style="background-image:url(' . $gravatarUri . ')"></div>';
-				if ( count( $slug ) == 1 AND $slug[0] == 'Profil' ) {
+				if ( count( $slug ) == 1 AND $slug[0] == 'Profile' ) {
 					$menuList .= '</span>';
 				} else {
 					$menuList .= '</a>';

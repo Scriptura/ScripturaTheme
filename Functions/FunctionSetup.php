@@ -69,40 +69,6 @@ add_filter('excerpt_more', 'ScripturaExcerptMore');
 endif; // admin
 
 
-// @subsection  Widgets
-// @description 
-// -----------------------------------------------------------------------------
-
-function scriptura_widgets_init()
-{
-  register_sidebar( [
-    'name' => 'widgetsHome',
-    'id' => 'widgetsHome',
-    'before_widget' => '<div class="box">',
-    'after_widget' => '</div>',
-    'before_title' => '<h2>',
-    'after_title' => '</h2>',
-  ] );
-  register_sidebar( [
-    'name' => 'widgetsPages',
-    'id' => 'widgetsPages',
-    'before_widget' => '<div class="box">',
-    'after_widget' => '</div>',
-    'before_title' => '<h2">',
-    'after_title' => '</h2>',
-  ] );
-  register_sidebar( [
-    'name' => 'widgetsArticles',
-    'id' => 'widgetsArticles',
-    'before_widget' => '<div class="box">',
-    'after_widget' => '</div>',
-    'before_title' => '<h2">',
-    'after_title' => '</h2>',
-  ] );
-}
-add_action( 'widgets_init', 'scriptura_widgets_init' );
-
-
 // @subsection  Nav Menus
 // @description Gestion de wp_nav_menu()
 // -----------------------------------------------------------------------------
@@ -179,19 +145,18 @@ add_filter( 'get_shortlink', function( $shortlink ) {
 
 // @note La méthode XMLRPC, gérant les rétroliens, est nécessaire pour utiliser JetPack, elle ne doit donc pas être complètement supprimée.
 // @link https://github.com/fooplugins/remove-xmlrpc-pingback-ping/blob/master/remove-xmlrpc-pingback-ping.php
-// @todo Méthode expérimentale, ne semble pas fonctionner...
+// @todo Méthode en test, ne semble pas fonctionner...
 
-// if ( ! defined( 'WPINC' ) ) {
-// 	die;
-// }
-
-add_filter( 'xmlrpc_methods', 'ScripturaRemoveXmlrpcPingbackPing' );
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
 
 function ScripturaRemoveXmlrpcPingbackPing( $methods )
 {
 	unset( $methods[ 'pingback.ping' ] );
 	return $methods;
 }
+add_filter( 'xmlrpc_methods', 'ScripturaRemoveXmlrpcPingbackPing' );
 
 
 // @subsection  Remove Emoji Icons
@@ -222,7 +187,8 @@ add_action( 'init', 'ScripturaDisableEmojis' );
 //	}
 //}
 
-} // END function ScripturaSetup
 
+// END function ScripturaSetup :
+}
 add_action( 'after_setup_theme', 'ScripturaSetup' );
 

@@ -131,7 +131,6 @@ if ( is_admin() ) :
 							<option value="0"<?php if( get_option( 'scriptura_organization' ) == 0 ) { echo ' selected="selected"'; } ?><?php if ( ! get_option( 'scriptura_organization' ) ) { echo ' selected="selected"'; } ?>><?php _e( 'No', 'scriptura' ); ?></option>
 							<option value="1"<?php if( get_option( 'scriptura_organization' ) == 1 ) { echo ' selected="selected"'; } ?>><?php _e('Pages and articles', 'scriptura'); ?></option>
 						</select>
-						<p class="description"><?php _e( 'This information may be completed and submitted from the "Site Identity" tab.', 'scriptura' ); ?></p>
 						</td>
 					</tr>
 				</tbody>

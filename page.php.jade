@@ -3,9 +3,6 @@ extends PatternLayouts
 append variables
   _require_wp Functions/SetSingle
 
-block breadcrumb
-  _php $breadcrumb
-
 block content
   article.article(itemscope itemtype='https://schema.org/Article')
     | {% $image %}

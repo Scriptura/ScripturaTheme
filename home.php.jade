@@ -1,7 +1,10 @@
 extends PatternLayouts
 
 append variables
-  _require_wp Functions/SetHome
+  _require_once_wp Functions/SetHome
+
+block breadcrumb
+  //- No breadcrumb
 
 block content
   _php $slideshow

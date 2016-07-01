@@ -32,15 +32,15 @@ add_filter( 'authenticate', 'ScripturaAuthenticate', 20, 3 );
 // @note Fonction plus fiable que get_avatar() de WordPress sur les pages autres que single.php
 // @link https://fr.gravatar.com/site/implement/images/php/
 
-if ( !is_admin() ) :
+if ( ! is_admin() ) :
 
 function scripturaUserGravatar()
 {
     global $current_user;
-    get_currentuserinfo();
+    //get_currentuserinfo();
     $email = $current_user->user_email;
     $default = 'identicon';
-    $size = 200; // Taille maximum du gravatar
+    $size = 400; // Taille maximum du gravatar
     $gravatarUri = '//www.gravatar.com/avatar/' . md5( strtolower( trim( $email ) ) ) . '?d=' . urlencode( $default ) . '&s=' . $size;
     return $gravatarUri;
 }
@@ -67,4 +67,73 @@ function ScripturaRestrictAccessAdministration()
     }
 }
 add_action( 'admin_init', 'ScripturaRestrictAccessAdministration' );
+
+
+// @subsection  User profile fields
+// @description Metas supplémentaires pour le profil utlisateur
+// -----------------------------------------------------------------------------
+
+function ScripturaUserAddMetas( $user )
+{ ?>
+ 
+    <h2><?php _e( 'Additional Information', 'scriptura' ); ?></h2>
+    <table class="form-table">
+        <tbody>
+            <tr>
+                <th><label>Location</label></th>
+                <td><input class="regular-text" id="location" type="text" name="location" value="<?php echo esc_attr( get_the_author_meta( 'location', $user->ID ) ); ?>" /></td>
+            </tr>
+            <tr>
+                <th><label>Group</label></th>
+                <td><input class="regular-text" id="group" type="text" name="group" value="<?php echo esc_attr( get_the_author_meta( 'group', $user->ID ) ); ?>" /></td>
+            </tr>
+        </tbody>
+    </table>
+    
+<?php }
+add_action( 'show_user_profile', 'ScripturaUserAddMetas' );
+add_action( 'edit_user_profile', 'ScripturaUserAddMetas' );
+ 
+ 
+function ScripturaUserSaveAddMetas( $user_id ) {
+ 
+    if ( !current_user_can( 'edit_user', $user_id ) ) { 
+        return false; 
+    }
+    update_user_meta( $user_id, 'location', $_POST[ 'location' ] );
+    update_user_meta( $user_id, 'group', $_POST[ 'group' ] );
+    
+}
+add_action( 'personal_options_update', 'ScripturaUserSaveAddMetas' );
+add_action( 'edit_user_profile_update', 'ScripturaUserSaveAddMetas' );
+
+
+
+
+// @subsection  Login WordPress
+// @description Style particulier pour la page login de WordPress
+// -----------------------------------------------------------------------------
+
+/*
+if ( !is_admin() ) :
+
+// Annulation des styles par défaut
+if ( basename( $_SERVER['PHP_SELF'] ) == 'wp-login.php' ) {
+    add_action( 'style_loader_tag', create_function( '$a', 'return null;' ));
+}
+
+// Chemin de la nouvelle feuille de style
+function scripturaCustomLogin() {
+  echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo( 'stylesheet_directory' ) . '/Public/Styles/MainRatatouille.css" />';
+}
+add_action( 'login_head', 'scripturaCustomLogin' );
+
+// Lien par defaut de la page de connexion
+function scripturaUrlLogin() {
+    return get_bloginfo( 'url' );
+}
+add_filter( 'login_headerurl', 'scripturaUrlLogin' );
+
+endif; // admin
+*/
 

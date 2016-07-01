@@ -1,13 +1,7 @@
 extends PatternLayouts
 
 append variables
-  _require_wp Functions/SetTag
-
-append functions
-  _require_wp Functions/Breadcrumb
-
-block breadcrumb
-  _php $breadcrumb
+  _require_once_wp Functions/SetTag
 
 block content
   .section

@@ -3,20 +3,23 @@ block var
 block banner
 
 block variables
-  _php require locate_template('Functions/FunctionVariables.php')
+  _require_wp Functions/FunctionVariables
 
 block functions
-  _require_wp Functions/MainNav
+  _require_once_wp Functions/SetAll
+  _require_once_wp Functions/MainNav
+  _require_once_wp Functions/Breadcrumb
 
 doctype html
 html.no-js({% $siteLang %})
   block head
     head
-      _require_wp Functions/Head
+      _require_once_wp Functions/Head
   body(itemscope itemtype='https://schema.org/WebPage')
     block mainnav
       include Includes/MainNav
     block breadcrumb
+      _php $breadcrumb
     main(itemprop='mainContentOfPage')
       block content
     block comments

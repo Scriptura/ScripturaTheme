@@ -1,7 +1,7 @@
 <?php
 
 // -----------------------------------------------------------------------------
-// @section     Set Profil
+// @section     Set Profile
 // @description Configuration pour la page de profil utlisateur
 // -----------------------------------------------------------------------------
 
@@ -19,7 +19,8 @@
 
 	global $current_user;
 	$userDisplayName = $current_user->display_name;
-	$name = __( 'Hello', 'scriptura' ) . ' ' .$userDisplayName;
+	//$name = __( 'Hello', 'scriptura' ) . ' ' . $userDisplayName;
+	$name = __( 'Your profile', 'scriptura' );
 
 	$logoutUri = wp_logout_url( '//' . $_SERVER[ 'HTTP_HOST' ] . $_SERVER[ 'REQUEST_URI' ] );
 

@@ -28,12 +28,12 @@
 	if( is_wp_error( $user) ) :
 	$errorLogin = '<p class="message-error">' .__( 'Your password is invalid. Your connection attempt failed.', 'scriptura' ). '</p>';
 	else :
-	header( 'location:Profil' );
+	header( 'location:Profile' );
 	endif;
 	else :
 	$user = wp_get_current_user();
 	if( $user->ID != 0 ) :
-	header( 'location:Profil' );
+	header( 'location:Profile' );
 	endif;
 	endif;
 

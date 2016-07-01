@@ -1,0 +1,73 @@
+extends ../PatternLayouts
+
+block banner
+  //-
+    _php // Template Name: Profile
+
+append variables
+  _require_once_wp Functions/SetProfile
+
+block content
+  article.article(itemscope itemtype='https://schema.org/Article')
+    | {% $image %}
+    #index-article
+      .wrap
+        div(itemprop='articleBody')
+          h1.emphasized {% $name %}
+          .grid
+            .m2.sizeXS-m6.sizeS-m3
+              .avatar(style='background-image:url({% $gravatarUri %})')
+                .ratio
+            .m6.sizeS-m9
+              _if $userDescription
+              p
+                em {% $userDescription %}
+              _endif
+          .columns
+            .list-stripe
+              _if $userLogin
+              p
+                span.icon-ampersand
+                | &nbsp;&nbsp;Identifiant&nbsp;: {% $userLogin %}
+              _endif
+              _if $userEmail
+              p
+                span.icon-at
+                | &nbsp;&nbsp;Email&nbsp;: {% $userEmail %}
+              _endif
+              _if $userFirstName
+              p
+                span.icon-user
+                | &nbsp;&nbsp;Prénom&nbsp;: {% $userFirstName %}
+              _endif
+              _if $userLastName
+              p
+                span.icon-user
+                | &nbsp;&nbsp;Nom&nbsp;: {% $userLastName %}
+              _endif
+              _if $userDisplayName
+              p
+                span.icon-user
+                | &nbsp;&nbsp;Pseudo&nbsp;: {% $userDisplayName %}
+              _endif
+              _if $userMetaGroup
+              p
+                span.icon-radio-unchecked
+                | &nbsp;&nbsp;Group&nbsp;: {% $userMetaGroup %}
+              _endif
+              //-
+                _if $userDescription
+                p
+                  span.icon-user
+                  | &nbsp;&nbsp;Description&nbsp;: {% $userDescription %}
+                _endif
+            .list-stripe
+              _if $capacityEditPosts
+              a(href='{% $adminUri %}')
+                span.icon-login
+                | &nbsp;&nbsp;{% $textAdmin %}
+              _endif
+              a(href='{% $logoutUri %}')
+                span.icon-logout
+                | &nbsp;&nbsp;{% $textLogout %}
+
