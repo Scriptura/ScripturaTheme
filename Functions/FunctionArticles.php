@@ -1,0 +1,211 @@
+<?php
+
+// -----------------------------------------------------------------------------
+// @section     Function Articles
+// @description Configuration 
+// -----------------------------------------------------------------------------
+
+
+// @subsection  Additional Information
+// @description Informations supplémentaires sur un article
+// -----------------------------------------------------------------------------
+
+// Ajout de métadonnées pour un article via des champs supplémentaires dans l'administration
+// @link https://developer.wordpress.org/reference/functions/add_meta_box/
+// @link https://developer.wordpress.org/reference/functions/add_meta_box/#div-comment-343
+// @link https://wabeo.fr/jouons-avec-les-meta-boxes/
+
+if ( is_admin() ) :
+
+add_action( 'load-post.php', 'ScripturaMetaBox' );
+add_action( 'load-post-new.php', 'ScripturaMetaBox' );
+
+// Calls the class on the post edit screen.
+function ScripturaMetaBox()
+{
+	new ClassScripturaMetaBox();
+}
+
+class ClassScripturaMetaBox
+{
+
+	// Hook into the appropriate actions when the class is constructed.
+	public function __construct() {
+		add_action( 'add_meta_boxes', [ $this, 'add_meta_box' ] );
+		add_action( 'save_post', [ $this, 'save' ] );
+	}
+
+	// Adds the meta box container.
+	public function add_meta_box( $post_type ) {
+		// Limit meta box to certain post types.
+		$post_types = array( 'post', 'page' );
+
+		if ( in_array( $post_type, $post_types ) ) {
+			add_meta_box(
+				'some_meta_box_name',
+				__( 'Additional Informations', 'scriptura' ),
+				[ $this, 'ScripturaMetaBoxForm' ],
+				$post_type,
+				'advanced',
+				'high'
+			);
+		}
+	}
+
+	// Save the meta when the post is saved.
+	// @param int $post_id The ID of the post being saved.
+	public function save( $post_id ) {
+
+		// We need to verify this came from the our screen and with proper authorization, because save_post can be triggered at other times.
+
+		// Check if our nonce is set.
+		if ( ! isset( $_POST[ 'myplugin_inner_custom_box_nonce' ] ) ) {
+			return $post_id;
+		}
+
+		$nonce = $_POST[ 'myplugin_inner_custom_box_nonce' ];
+
+		// Verify that the nonce is valid.
+		if ( ! wp_verify_nonce( $nonce, 'myplugin_inner_custom_box' ) ) {
+			return $post_id;
+		}
+
+		// If this is an autosave, our form has not been submitted, so we don't want to do anything.
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+			return $post_id;
+		}
+
+		// Check the user's permissions.
+		if ( 'page' == $_POST[ 'post_type' ] ) {
+			if ( ! current_user_can( 'edit_page', $post_id ) ) {
+				return $post_id;
+			}
+		} else {
+			if ( ! current_user_can( 'edit_post', $post_id ) ) {
+				return $post_id;
+			}
+		}
+
+		// OK, it's safe for us to save the data now.
+
+		// Sanitize the user input.
+		$dataMetaDescription = $_POST[ 'scriptura_meta_description' ];
+		$dataArticleDescription = $_POST[ 'scriptura_article_description' ];
+		$dataAuthorizedGroups = sanitize_text_field( $_POST[ 'scriptura_authorized_groups' ] );
+		$dataAuthorGivenName = sanitize_text_field( $_POST[ 'scriptura_author_given_name' ] );
+		$dataAuthorFamilyName = sanitize_text_field( $_POST[ 'scriptura_author_family_name' ] );
+		$dataArticleSource = sanitize_text_field( $_POST[ 'scriptura_article_source' ] );
+		$dataAddressLocality = sanitize_text_field( $_POST[ 'scriptura_address_locality' ] );
+		$dataDateDocumentPublished = sanitize_text_field( $_POST[ 'scriptura_date_document_published' ] );
+
+		// Update the meta field.
+		update_post_meta( $post_id, 'metadescription', $dataMetaDescription );
+		update_post_meta( $post_id, 'articledescription', $dataArticleDescription );
+		update_post_meta( $post_id, 'authorizedgroups', $dataAuthorizedGroups );
+		update_post_meta( $post_id, 'authorgivenname', $dataAuthorGivenName );
+		update_post_meta( $post_id, 'authorfamilyname', $dataAuthorFamilyName );
+		update_post_meta( $post_id, 'articlesource', $dataArticleSource );
+		update_post_meta( $post_id, 'addresslocality', $dataAddressLocality );
+		update_post_meta( $post_id, 'datedocumentpublished', $dataDateDocumentPublished );
+}
+
+
+	// Render Meta Box content.
+	// @param WP_Post $post The post object.
+
+	public function ScripturaMetaBoxForm( $post ) {
+
+		// Add an nonce field so we can check for it later.
+		wp_nonce_field( 'myplugin_inner_custom_box', 'myplugin_inner_custom_box_nonce' );
+
+		// Use get_post_meta to retrieve an existing value from the database.
+		$dataMetaDescription = get_post_meta( $post->ID, 'metadescription', true );
+		$dataArticleDescription = get_post_meta( $post->ID, 'articledescription', true );
+		$dataAuthorizedGroups = get_post_meta( $post->ID, 'authorizedgroups', true );
+		$dataAuthorGivenName = get_post_meta( $post->ID, 'authorgivenname', true );
+		$dataAuthorFamilyName = get_post_meta( $post->ID, 'authorfamilyname', true );
+		$dataArticleSource = get_post_meta( $post->ID, 'articlesource', true );
+		$dataAddressLocality = get_post_meta( $post->ID, 'addresslocality', true );
+		$dataDateDocumentPublished = get_post_meta( $post->ID, 'datedocumentpublished', true );
+ 
+		// Display the form, using the current value.
+		?>
+		<h3><?php _e( 'On article', 'scriptura' ); ?></h3>
+		<table class="form-table">
+			<tr>
+				<th scope="row">
+					<label for="scriptura_meta_description"><?php _e( 'Meta description tag', 'scriptura' ); ?></label>
+				</th>
+				<td>
+					<textarea id="scriptura_meta_description" name="scriptura_meta_description" placeholder="<?php _e( 'A description...', 'scriptura' ); ?>" style="width:100%;min-height:5rem"><?php echo esc_attr( $dataMetaDescription ); ?></textarea>
+					<p class="description"><?php _e( 'This should be an interesting alternative to the title should contain 100 to 255 characters. It will appear in a html tag dedicated to search engines and will replace the default item proposed extract in the presentation pages (categories, keywords ...).', 'scriptura' ); ?></p>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					<label for="scriptura_article_description"><?php _e( 'Article description', 'scriptura' ); ?></label>
+				</th>
+				<td>
+					<textarea id="scriptura_article_description" name="scriptura_article_description" placeholder="<?php _e( 'A description...', 'scriptura' ); ?>" style="width:100%;min-height:5rem"><?php echo esc_attr( $dataArticleDescription ); ?></textarea>
+					<p class="description"><?php _e( 'A presentation of the article. Appear in plain text on the page within the article.', 'scriptura' ); ?></p>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					<label for="scriptura_authorized_groups"><?php _e( 'Authorized Groups', 'scriptura' ); ?></label>
+				</th>
+				<td>
+					<input type="text" id="scriptura_authorized_groups" name="scriptura_authorized_groups" value="<?php echo esc_attr( $dataAuthorizedGroups ); ?>" style="width:100%" placeholder="<?php _e( 'GroupA', 'scriptura' ); ?>" />
+					<p class="description"><?php _e( 'No default restriction if the field is left blank.', 'scriptura' ); ?></p>
+				</td>
+			</tr>
+		</table>
+		<hr>
+		<h3><?php _e( 'Article Source', 'scriptura' ); ?></h3>
+		<table class="form-table">
+			<tr>
+				<th scope="row">
+					<label for="scriptura_author_given_name"><?php _e( 'Given name', 'scriptura' ); ?></label>
+				</th>
+				<td>
+					<input type="text" id="scriptura_author_given_name" name="scriptura_author_given_name" value="<?php echo esc_attr( $dataAuthorGivenName ); ?>" style="width:100%" placeholder="<?php _e( 'Given name', 'scriptura' ); ?>" />
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					<label for="scriptura_author_family_name"><?php _e( 'Family name', 'scriptura' ); ?></label>
+				</th>
+				<td>
+					<input type="text" id="scriptura_author_family_name" name="scriptura_author_family_name" value="<?php echo esc_attr( $dataAuthorFamilyName ); ?>" style="width:100%" placeholder="<?php _e( 'Family name', 'scriptura' ); ?>" />
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					<label for="scriptura_article_source"><?php _e( 'Article Source', 'scriptura' ); ?></label>
+				</th>
+				<td>
+					<input type="text" id="scriptura_article_source" name="scriptura_article_source" value="<?php echo esc_attr( $dataArticleSource ); ?>" style="width:100%" placeholder="<?php _e( 'Book, Article...', 'scriptura' ); ?>" />
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					<label for="scriptura_address_locality"><?php _e( 'Address Locality', 'scriptura' ); ?></label>
+				</th>
+				<td>
+					<input type="text" id="scriptura_address_locality" name="scriptura_address_locality" value="<?php echo esc_attr( $dataAddressLocality ); ?>" style="width:100%" placeholder="<?php _e( 'Paris', 'scriptura' ); ?>" />
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					<label for="scriptura_date_document_published"><?php _e( 'Date Document Published', 'scriptura' ); ?></label>
+				</th>
+				<td>
+					<input type="text" id="scriptura_date_document_published" name="scriptura_date_document_published" value="<?php echo esc_attr( $dataDateDocumentPublished ); ?>" style="width:100%" placeholder="<?php _e( 'Paris', 'scriptura' ); ?>" />
+				</td>
+			</tr>
+		</table>
+		<?php
+	}
+}
+
+endif;

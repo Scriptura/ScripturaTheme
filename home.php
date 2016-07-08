@@ -8,13 +8,12 @@
     <?php require_once locate_template('Functions/Head.php'); ?>
   </head>
   <body itemscope itemtype="https://schema.org/WebPage">
-    <nav role="navigation" class="main-nav sizeNav-nav-bottom">
+    <nav role="navigation" class="main-nav">
       <div class="wrap">
         <div class="brand-image"><a href="<?php echo $siteUri; ?>"><?php echo $siteName; ?></a></div>
-        <div>
-          <button></button>
-          <?php echo $mainNav; ?>
-        </div>
+        <input type="checkbox" id="cmd-main-nav">
+        <label for="cmd-main-nav"><span></span></label>
+        <?php echo $mainNav; ?>
       </div>
     </nav>
     <main itemprop="mainContentOfPage">
@@ -23,7 +22,7 @@
         <div class="wrap-limited">
           <div class="grid">
             <div class="m"><br>
-              <h1 class="vmin emphasized"><?php echo $name; ?></h1><br>
+              <h1 itemprop="name headline" class="vmin emphasized"><?php echo $name; ?></h1><br>
             </div>
             <div class="m8 o2"><br>
               <?php echo $searchForm; ?><br>
@@ -35,8 +34,8 @@
     <footer id="index-footer" class="section footer center">
       <?php echo $widgetFooter; ?>
       <div class="terms-use">
-        <div class="message-warning">
-          <p>En parcourant ce site vous acceptez nos conditions générales d'utilisation...</p>
+        <div class="message">
+          <p>Bonjour ! En parcourant ce site vous acceptez <a href="<?php echo $siteUri; ?>/legal-notice" style="color:#000">nos conditions générales d'utilisation.</a></p>
           <button id="terms-use" class="button width">oui</button>
         </div>
       </div>

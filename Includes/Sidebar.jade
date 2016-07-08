@@ -1,8 +1,12 @@
-//-
-  p.message-source {% $reference %}
+_if $articleDescription
+p.message(itemprop='description') {% $articleDescription %}
+_endif
+_if $reference
+p.message-source {% $reference %}
+_endif
 p.message-date {% $published %}
 //-
-  p.message.no-print Article summary&nbsp;:
+  p.message Article summary&nbsp;:
   ul.list-stripe-link.no-print
     li
       a(href='#index')
@@ -25,6 +29,6 @@ p.message-date {% $published %}
         span.icon-arrow-down
         | &nbsp;&nbsp; Title 5
 _if $keywords
-p(itemprop='keywords').message-keyword {% $keywords %}
+p.message-keyword {% $keywords %}
 _endif
 

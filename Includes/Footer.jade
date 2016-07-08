@@ -2,8 +2,9 @@ footer#index-footer.section.footer.center
   _php $widgetFooter
   //- Nécessité d'insérer les div suivantes dans un contener afin ne pas faire "sauter" le script de navigation OnePage:
   .terms-use
-    .message-warning
-      p En parcourant ce site vous acceptez nos conditions générales d'utilisation...
+    .message
+      p Bonjour ! En parcourant ce site vous acceptez 
+        a(href='{% $siteUri %}/legal-notice' style='color:#000') nos conditions générales d'utilisation.
       button.button.width#terms-use oui
   .old-browers
     .icon-spaceinvader.zoom700

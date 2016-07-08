@@ -8,26 +8,25 @@
     <?php require_once locate_template('Functions/Head.php'); ?>
   </head>
   <body itemscope itemtype="https://schema.org/WebPage">
-    <nav role="navigation" class="main-nav sizeNav-nav-bottom">
+    <nav role="navigation" class="main-nav">
       <div class="wrap">
         <div class="brand-image"><a href="<?php echo $siteUri; ?>"><?php echo $siteName; ?></a></div>
-        <div>
-          <button></button>
-          <?php echo $mainNav; ?>
-        </div>
+        <input type="checkbox" id="cmd-main-nav">
+        <label for="cmd-main-nav"><span></span></label>
+        <?php echo $mainNav; ?>
       </div>
     </nav>
     <?php echo $breadcrumb; ?>
     <main itemprop="mainContentOfPage">
-      <article itemscope itemtype="https://schema.org/Article" class="article"><?php echo $image; ?>
+      <article itemprop="mainEntityOfPage" itemscope itemtype="https://schema.org/Article" class="article"><?php echo $image; ?>
         <div id="index-article">
           <div class="wrap">
             <div class="grid">
               <div class="m12">
-                <h1 class="h2 vmin emphasized"><?php echo $name; ?></h1>
+                <h1 itemprop="name headline" class="h2 vmin emphasized"><?php echo $name; ?></h1>
               </div>
               <div class="grid6 sizeS-grid12">
-                <div itemprop="articleBody" class="links"><?php echo $content; ?></div>
+                <div itemprop="articleBody" class="links protected"><?php echo $content; ?></div>
                 <aside class="button-group">
                   <div>
                     <button title="Print article" class="button cmd-print"><span class="icon-printer"></span></button>
@@ -45,9 +44,15 @@
                 </aside>
               </div>
               <aside class="m6 sizeS-m12">
+                <?php if ($articleDescription): ?>
+                <p itemprop="description" class="message"><?php echo $articleDescription; ?></p>
+                <?php endif;
+                      if ($reference): ?>
+                <p class="message-source"><?php echo $reference; ?></p>
+                <?php endif; ?>
                 <p class="message-date"><?php echo $published; ?></p>
                 <?php if ($keywords): ?>
-                <p itemprop="keywords" class="message-keyword"><?php echo $keywords; ?></p>
+                <p class="message-keyword"><?php echo $keywords; ?></p>
                 <?php endif; ?>
               </aside>
             </div>
@@ -82,8 +87,8 @@
     <footer id="index-footer" class="section footer center">
       <?php echo $widgetFooter; ?>
       <div class="terms-use">
-        <div class="message-warning">
-          <p>En parcourant ce site vous acceptez nos conditions générales d'utilisation...</p>
+        <div class="message">
+          <p>Bonjour ! En parcourant ce site vous acceptez <a href="<?php echo $siteUri; ?>/legal-notice" style="color:#000">nos conditions générales d'utilisation.</a></p>
           <button id="terms-use" class="button width">oui</button>
         </div>
       </div>

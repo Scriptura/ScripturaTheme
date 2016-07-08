@@ -1,7 +1,8 @@
-nav.main-nav.sizeNav-nav-bottom(role='navigation')
+nav.main-nav(role='navigation')
   .wrap
     .brand-image
       a(href='{% $siteUri %}') {% $siteName %}
-    div
-      button
-      _php $mainNav
+    input(type='checkbox', id='cmd-main-nav')
+    label(for='cmd-main-nav')
+      span
+    _php $mainNav

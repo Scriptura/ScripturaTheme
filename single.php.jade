@@ -4,15 +4,15 @@ append variables
   _require_once_wp Functions/SetSingle
 
 block content
-  article.article(itemscope itemtype='https://schema.org/Article')
+  article.article(itemprop='mainEntityOfPage' itemscope itemtype='https://schema.org/Article')
     | {% $image %}
     #index-article
       .wrap
         .grid
           .m12
-            h1.h2.vmin.emphasized {% $name %}
+            h1.h2.vmin.emphasized(itemprop='name headline') {% $name %}
           .grid6.sizeS-grid12
-            .links(itemprop='articleBody') {% $content %}
+            .links.protected(itemprop='articleBody') {% $content %}
             include Includes/Buttons
           aside.m6.sizeS-m12
             include Includes/Sidebar

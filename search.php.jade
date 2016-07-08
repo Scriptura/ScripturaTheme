@@ -7,5 +7,11 @@ block content
   .section
     .wrap-limited
       .grid
-        h1.vmin.emphasized {% $name %}
+        h1.vmin.emphasized(itemprop='name headline') {% $name %}
         _php $content
+
+block aside
+  aside.aside
+    .wrap
+      h2.hidden {% $titleSearchForm %}
+      _php $searchForm

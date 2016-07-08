@@ -16,7 +16,7 @@
 // `gulp images` : traitement des images
 // `gulp glyphmin` : minification des svg de la police d'icônes GlyphIcons
 // `gulp icons` : refonte de la police d'icônes GlyphIcons avec ses styles et le html de démonstration
-// Les autres commandes sont lancées automatiquement arpès la surveillance des fichiers (watcher) initialisée par la commande globale.
+// Les autres commandes sont lancées automatiquement après la surveillance des fichiers (watcher) initialisée par la commande globale.
 
 
 // -----------------------------------------------------------------------------

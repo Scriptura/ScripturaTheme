@@ -43,4 +43,4 @@
 
 	global $gravatarUri;
 
-	//var_dump( $userDescription );die();
+	//var_dump( $templateUri );die();

@@ -2,7 +2,7 @@
 // @name         Scriptura
 // @description  Interface for web apps
 // @version      0.0.33
-// @lastmodified 2016-06-30 05:53:01
+// @lastmodified 2016-07-01 22:10:50
 // @author       Olivier Chavarin
 // @homepage     http://scriptura.github.io/
 // @license      ISC
@@ -42,6 +42,30 @@
 		}
 	} )();
 } )( jQuery );
+
+
+// -----------------------------------------------------------------------------
+// @section     Protected
+// @description Protège partiellement le texte en empêchant sa sélection
+// -----------------------------------------------------------------------------
+
+// @note Script conforté par règle css @see Core.styl
+// @note Script no jQuery
+
+window.onload = function() {
+  var protect = document.getElementsByClassName( 'protected' );
+  for( var i = 0; i < protect.length; i++ ) {
+    protect[i].onmousedown = function( e ) {
+      e = e || window.event;
+      if( e.preventDefault ) {
+        e.preventDefault();
+      } else {
+        e.returnValue = false;
+      }
+      return false;
+    };
+  }
+};
 
 
 // -----------------------------------------------------------------------------

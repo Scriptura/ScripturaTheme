@@ -85,5 +85,3 @@
 
   $name = $siteName;
 
-  $searchForm = ScripturaSearchForm();
-

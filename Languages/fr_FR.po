@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Scriptura\n"
-"POT-Creation-Date: 2016-06-30 17:31+0100\n"
-"PO-Revision-Date: 2016-06-30 17:31+0100\n"
+"POT-Creation-Date: 2016-07-05 18:47+0100\n"
+"PO-Revision-Date: 2016-07-05 18:48+0100\n"
 "Last-Translator: \n"
 "Language-Team: Olivier Chavarin\n"
 "Language: fr_FR\n"
@@ -44,21 +44,90 @@ msgstr "Lire la suite"
 msgid "This query yielded no results."
 msgstr "Cette requête n'a donné aucun résultat."
 
-#: ../Functions/FunctionHead.php:74
-msgid "Meta tags"
-msgstr "Balises meta"
+#: ../Functions/CategoryTagSearch.php:41
+msgid "Search form"
+msgstr "Formulaire de recherche"
 
-#: ../Functions/FunctionHead.php:143
+#: ../Functions/FunctionArticles.php:46
+msgid "Additional Informations"
+msgstr "Informations complémentaires"
+
+#: ../Functions/FunctionArticles.php:133
+msgid "On article"
+msgstr "Sur l'article"
+
+#: ../Functions/FunctionArticles.php:137
+msgid "Meta description tag"
+msgstr "Balise meta description"
+
+#: ../Functions/FunctionArticles.php:140 ../Functions/FunctionArticles.php:149
+msgid "A description..."
+msgstr "Une description..."
+
+#: ../Functions/FunctionArticles.php:141
+msgid ""
+"This should be an interesting alternative to the title should contain 100 to "
+"255 characters. It will appear in a html tag dedicated to search engines and "
+"will replace the default item proposed extract in the presentation pages "
+"(categories, keywords ...)."
+msgstr ""
+"Cette description doit être une alternative intéressante au titre est doit "
+"comporter de 100 à 255 caractères. Elle apparaîtra dans une balise html "
+"dédiée aux moteurs de recherche et se substituera à l'extrait d'article "
+"proposé par défaut dans les pages de présentation (catégories, mots-"
+"clefs...)."
+
+#: ../Functions/FunctionArticles.php:146
 msgid "Article description"
 msgstr "Description de l'article"
 
-#: ../Functions/FunctionHead.php:146
+#: ../Functions/FunctionArticles.php:150
 msgid ""
-"This should be an interesting alternative to the title should contain 100 to "
-"255 characters."
+"A presentation of the article. Appear in plain text on the page within the "
+"article."
 msgstr ""
-"Cette description doit être une alternative intéressante au titre est doit "
-"comporter de 100 à 255 caractères."
+"Une présentation de l'article. Apparaitra en clair sur la page au sein de "
+"l'article."
+
+#: ../Functions/FunctionArticles.php:155
+msgid "Authorized Groups"
+msgstr "Groupes autorisés"
+
+#: ../Functions/FunctionArticles.php:158
+msgid "GroupA"
+msgstr "GroupeA"
+
+#: ../Functions/FunctionArticles.php:159
+msgid "No default restriction if the field is left blank."
+msgstr "Pas de restriction par défaut si le champ est laissé vide."
+
+#: ../Functions/FunctionArticles.php:164 ../Functions/FunctionArticles.php:184
+msgid "Article Source"
+msgstr "Source de l'article"
+
+#: ../Functions/FunctionArticles.php:168 ../Functions/FunctionArticles.php:171
+msgid "Given name"
+msgstr "Prénom"
+
+#: ../Functions/FunctionArticles.php:176 ../Functions/FunctionArticles.php:179
+msgid "Family name"
+msgstr "Nom de famille"
+
+#: ../Functions/FunctionArticles.php:187
+msgid "Book, Article..."
+msgstr "Livre, article..."
+
+#: ../Functions/FunctionArticles.php:192
+msgid "Address Locality"
+msgstr "Localité"
+
+#: ../Functions/FunctionArticles.php:195 ../Functions/FunctionArticles.php:203
+msgid "Paris"
+msgstr ""
+
+#: ../Functions/FunctionArticles.php:200
+msgid "Date Document Published"
+msgstr "Date de publication du document"
 
 #: ../Functions/FunctionImages.php:43
 msgid "Portrait"
@@ -296,7 +365,7 @@ msgstr "Ajouter la connexion depuis le menu de navigation du site"
 msgid "Search"
 msgstr "Rechercher"
 
-#: ../Functions/FunctionSearchForm.php:14 ../Functions/SetSingle.php:338
+#: ../Functions/FunctionSearchForm.php:14 ../Functions/SetSingle.php:353
 msgid "Submit"
 msgstr "Soumettre"
 
@@ -455,45 +524,58 @@ msgstr ""
 msgid "Request to"
 msgstr "Requête pour "
 
-#: ../Functions/SetSingle.php:33
-msgid "Keywords"
-msgstr "Mots clefs"
+#: ../Functions/SetSingle.php:31
+msgid "Keywords:"
+msgstr "Mots clefs :"
 
-#: ../Functions/SetSingle.php:148
-msgid "Published on"
-msgstr "Publié le"
+#: ../Functions/SetSingle.php:115
+msgid "Author:"
+msgstr "Auteur :"
 
-#: ../Functions/SetSingle.php:153
+#: ../Functions/SetSingle.php:163
+msgid "Content published on"
+msgstr "Contenu publié le"
+
+#: ../Functions/SetSingle.php:168
 msgid "modified on"
 msgstr "modifié le"
 
-#: ../Functions/SetSingle.php:223
+#: ../Functions/SetSingle.php:238
 msgid "Read article"
 msgstr "Lire l'article"
 
-#: ../Functions/SetSingle.php:278
+#: ../Functions/SetSingle.php:293
 msgid "Index the comment"
 msgstr "Ajouter un commentaire"
 
-#: ../Functions/SetSingle.php:337
+#: ../Functions/SetSingle.php:352
 msgid "Message"
 msgstr "Message"
 
-#: ../Functions/SetSingle.php:337
+#: ../Functions/SetSingle.php:352
 msgid "Hello..."
 msgstr "Bonjour..."
 
-#: ../Functions/SetSingle.php:350
+#: ../Functions/SetSingle.php:365
 msgid "Add a comment"
 msgstr "Ajouter un commentaire"
 
-#: ../Functions/SetSingle.php:353
+#: ../Functions/SetSingle.php:368
 msgid "Comments"
 msgstr "Commentaires"
 
-#: ../Functions/SetSingle.php:354
+#: ../Functions/SetSingle.php:369
 msgid "Related Articles"
 msgstr "Articles en relation"
+
+#~ msgid "Given Name"
+#~ msgstr "Prénom"
+
+#~ msgid "Name"
+#~ msgstr "Nom"
+
+#~ msgid "Meta tags"
+#~ msgstr "Balises meta"
 
 #~ msgid "Hello"
 #~ msgstr "Bonjour"

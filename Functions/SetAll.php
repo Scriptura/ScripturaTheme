@@ -11,3 +11,4 @@
 		$widgetFooter .= ob_get_clean();
 	}
 
+	$searchForm = ScripturaSearchForm();

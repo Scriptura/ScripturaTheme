@@ -13,31 +13,29 @@
 
 	global $siteUri;
 
-	// Loop WordPress
 	if( have_posts() ) {
 		while( have_posts() ) : the_post();
 		$name = get_the_title();
 		$author = get_the_author();
-		$created = get_the_date();
-		$publisher = 'Editions MachinTruc';
-		$dateCreated = $created;
-		$addressLocality = 'Paris';
-		$pageStart = '57';
-		$pageEnd = '58';
+		//$publisher = 'Editions MachinTruc';
+		$addressLocality = get_post_meta( $post->ID, 'addresslocality', true );
+		$dateDocumentPublished = get_post_meta( $post->ID, 'datedocumentpublished', true );
+		//$pageStart = '57';
+		//$pageEnd = '58';
 		$datePublished = get_the_date();
 		$dateModified = get_the_modified_date();
 		ob_start();
 		if ( get_the_tags() ) {
 			$posttags = get_the_tags(); // plus facilement personnalisable que the_tags()
 			if ( $posttags ) {
-				$keywords = __( 'Keywords', 'scriptura' ) . ': ';
+				$keywords = __( 'Keywords:', 'scriptura' ) . ' <span itemprop="keywords">';
 				foreach( $posttags as $tag ) {
 					$keywords .= '<a href="' . get_tag_link( $tag->term_id ) . '">' . $tag->name . '</a>';
 					$keywords .= ', '; // Ajout d'une virgule
 				}
 			}
 			$keywords = rtrim( $keywords, ', ' ); // Suppression de la dernière virgule
-			$keywords = $keywords . '.'; // Un point en fin de chaîne
+			$keywords = $keywords . '</span>.'; // Un point en fin de chaîne
 			echo $keywords;
 		}
 		$keywords = ob_get_clean();
@@ -105,48 +103,65 @@
 			   . '</header>' . PHP_EOL;
 	}
 
+
+	$reference = false;
+	$authorGivenName = get_post_meta( $post->ID, 'authorgivenname', true );
+	$authorFamilyName = get_post_meta( $post->ID, 'authorfamilyname', true );
+	$articleSource = get_post_meta( $post->ID, 'articlesource', true );
 	$separator = ', ';
 
-	if( $author ) {
-		$reference = '<span itemprop="author" class="author">' .$author. '</span>';
+	if( $authorGivenName OR $authorFamilyName ) {
+		if( ! $articleSource ) // Affichage de l'introduction "auteur" si les autres données bibliographiques ne sont pas disponibles
+			$reference .= __( 'Author:', 'scriptura' ) . ' ';
+		$reference .= '<span itemprop="author" class="author">' . $authorGivenName;
+		if( $reference )
+			$reference .= ' ';
+		$reference .= $authorFamilyName . '</span>';
 	}
-	if( $name ) {
-		$reference .= $separator;
-		$reference .= '<em itemprop="alternativeHeadline">' . $name . '</em>';
+	if( $articleSource ) {
+		if( $reference )
+			$reference .= $separator;
+		$reference .= '<em itemprop="alternativeHeadline">' . $articleSource . '</em>';
 	}
 	if( $translator ) {
-		$reference .= $separator;
+		if( $reference )
+			$reference .= $separator;
 		$reference .= 'tr. <span itemprop="translator">' . $translator . '</span>';
 	}
 	if( $publisher ) {
-		$reference .= $separator;
+		if( $reference )
+			$reference .= $separator;
 		$reference .= '<span itemprop="publisher">' . $publisher . '</span>';
 	}
 	if( $addressLocality ) {
-		$reference .= $separator;
+		if( $reference )
+			$reference .= $separator;
 		$reference .= '<span itemprop="locationCreated" itemscope itemtype="https://schema.org/Place">';
 		$reference .= '<span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">';
 		$reference .= '<span itemprop="addressLocality">' . $addressLocality . '</span>';
 		$reference .= '</span>';
 		$reference .= '</span>';
 	}
-	if( $datePublished ) {
-		$reference .= $separator;
-		$reference .= '<span itemprop="datePublished">' . $datePublished . '</span>';
+	if( $dateDocumentPublished ) {
+		if( $reference )
+			$reference .= $separator;
+		$reference .= '<span itemprop="datePublished">' . $dateDocumentPublished . '</span>';
 	}
 	if( $pageStart AND $pageEnd ) {
-		$reference .= $separator;
+		if( $reference )
+			$reference .= $separator;
 		$reference .= 'pp. <span itemprop="pagination">';
 		$reference .= '<span itemprop="pageStart">' . $pageStart . '</span>';
 		$reference .= ' - ';
 		$reference .= '<span itemprop="pageEnd">' . $pageEnd . '</span>';
 		$reference .= '</span>';
 	}
-	$reference .= '.';
+	if( $reference )
+		$reference .= '.';
 
-	if( $dateCreated ) {
-		$published = __( 'Published on', 'scriptura' );
-		$published .= ' <time itemprop="dateCreated" datetime="2015-11-21T20:06:17+00:00">' . $dateCreated . '</time>';
+	if( $datePublished ) {
+		$published = __( 'Content published on', 'scriptura' );
+		$published .= ' <time itemprop="dateCreated datePublished" datetime="2015-11-21T20:06:17+00:00">' . $datePublished . '</time>';
 	}
 	if( $dateModified ) {
 		$published .= $separator;
@@ -352,6 +367,7 @@ $commentForm = '<div class="grid"><div class="m6 ' . ScripturaComments()[1] . ''
 			 . '</div></div>';
 $commentsTitle = __( 'Comments', 'scriptura' );
 $relationsTitle = __( 'Related Articles', 'scriptura' );
+$articleDescription = get_post_meta( $post->ID, 'articledescription', true );
 
 
 //$testUser = get_user_meta( get_current_user_id(), '', true );

@@ -10,6 +10,6 @@ block content
       .wrap
         .grid
           div
-            h1.emphasized {% $name %}
+            h1.emphasized(itemprop='name headline') {% $name %}
           div(itemprop='articleBody') {% $content %}
           include Includes/Buttons

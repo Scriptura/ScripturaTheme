@@ -14,7 +14,7 @@
 		$postLink = get_permalink();
 		$resume = get_the_excerpt();
 
-		echo '<article class="box0 m3 sizeS-m6 sizeL-m4 ribbon-container-bottom">';
+		echo '<article class="box0 m3 sizeS-m6 sizeL-m4 ribbon-container-bottom protected">';
 		echo '<a href="' . $postLink . '">';
 		if ( has_post_thumbnail() ) {
 			ob_start();
@@ -37,7 +37,5 @@
 	} else {
 		echo '<p class="message-error">' . __( 'This query yielded no results.', 'scriptura' ) . '</p>';
 	}
-	echo '<hr>';
-	echo ScripturaSearchForm();
 	$content = ob_get_clean();
-
+	$titleSearchForm = __( 'Search form', 'scriptura' );

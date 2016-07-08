@@ -24,6 +24,7 @@
 	require_once locate_template( 'Functions/FunctionWysiwyg.php' );
 	require_once locate_template( 'Functions/FunctionSearchForm.php' );
 	require_once locate_template( 'Functions/FunctionUsers.php' );
+	require_once locate_template( 'Functions/FunctionArticles.php' );
 	require_once locate_template( 'Functions/FunctionPannel.php' );
 	require_once locate_template( 'Functions/FunctionPannelOptions.php' );
 	require_once locate_template( 'Functions/FunctionPannelIdentity.php' );
