@@ -30,7 +30,7 @@
     } elseif ( count($slug) == 1 AND $slug[0] == 'Profile' ) {
         echo __( 'Profile', 'scriptura' ) . $separator . $siteName;
     } else {
-            echo get_the_title() . $separator . $siteName;
+            echo strip_tags( get_the_title() ) . $separator . $siteName;
     }
     echo '</title>' . PHP_EOL;
 

@@ -11,7 +11,7 @@
 
 	    $postId = get_the_ID();
 	    $title = get_the_title();
-		$postLink = get_permalink();
+		$postLink = str_replace( 'http:', '', get_permalink() );
 		$resume = get_the_excerpt();
 
 		echo '<article class="box0 m3 sizeS-m6 sizeL-m4 ribbon-container-bottom protected">';
@@ -21,7 +21,7 @@
 			the_post_thumbnail_url( 'image1000' );
 			$image1000 = ob_get_clean();
 		} elseif ( get_option( 'scriptura_def_thumbnail' ) ) {
-			$image1000 = get_option( 'scriptura_def_thumbnail' );
+			$image1000 = str_replace( 'http:', '', get_option( 'scriptura_def_thumbnail' ) );
 		} else {
 			$image1000 = $templateUri . '/Images/Default.jpg';
 		}

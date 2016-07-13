@@ -87,7 +87,7 @@ function ScripturaImgCaptionShortcode( $current_html, $attr, $content )
                     [
                         '/<.*w sizes.*>/', // Les balises <sources> contenant ce string sont supprimées
                         '/class=.* src/', // Suppression des classes sur l'image
-                        '/(<img[^>]*>)(.*)/s', // Image après les éléments <source>, facultatif...
+                        '/(<img[^>]*>)(.*)/s' // Image après les éléments <source>, facultatif...
                     ],
                     [
                         '',
@@ -126,8 +126,8 @@ function ScripturaImgCaptionShortcode( $current_html, $attr, $content )
                 			' 400w media="(min-width: 300px)" ',
                             '>',
                             '>' . PHP_EOL . '<', // ">\x0A\x0D<"
-                            '',
-                            ''
+                            '/',
+                            '/'
                 		],
                 		$image // Image and srcset attributes
                     )

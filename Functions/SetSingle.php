@@ -220,14 +220,14 @@
 
     $postId = get_the_ID();
     $postTitle = get_the_title();
-    $postLink = get_the_permalink();
+    $postLink = str_replace( 'http:', '', get_the_permalink() );
 
 	if ( has_post_thumbnail() ) {
 		ob_start();
 		the_post_thumbnail_url( 'image1000' );
 		$image1000 = ob_get_clean();
 	} elseif ( get_option( 'scriptura_def_thumbnail' ) ) {
-		$image1000 = get_option( 'scriptura_def_thumbnail' );
+		$image1000 = str_replace( 'http:', '', get_option( 'scriptura_def_thumbnail' ) );
 	} else {
 		$image1000 = $templateUri . '/Images/Default.jpg';
 	}

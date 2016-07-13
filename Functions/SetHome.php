@@ -9,18 +9,18 @@
 
   $popular = new WP_Query( [
       //'orderby' => 'rand',
-      'post__in' => get_option('sticky_posts'), // cibler posts "Mis en avant"
+      'post__in' => get_option( 'sticky_posts' ), // cibler posts "Mis en avant"
       'posts_per_page' => 5
   ] );
 
-  if( get_option('sticky_posts') ) {
+  if( get_option( 'sticky_posts' ) ) {
     echo '<header id="slideshow1" data-cycle-slides=".cycle-item" data-cycle-timeout="10000" data-cycle-speed="2000" data-cycle-prev="#prev" data-cycle-next="#next" data-cycle-manual-fx="scrollHorz" data-cycle-manual-speed="300" class="section slideshow">';
     if( have_posts() ) {
 
       while ( $popular->have_posts() ) : $popular->the_post();
 
         $postId = get_the_ID();
-        $postImg = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full', false )[ 0 ];
+        $postImg = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full', false )[0];
         $postTitle = get_the_title();
         $permalink = get_permalink();
 
