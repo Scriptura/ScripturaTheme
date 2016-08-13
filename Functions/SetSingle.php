@@ -39,6 +39,7 @@
 			echo $keywords;
 		}
 		$keywords = ob_get_clean();
+
 		ob_start();
 		the_content();
 		$content = ob_get_clean();

@@ -15,7 +15,7 @@
 // @link https://developer.wordpress.org/reference/functions/add_meta_box/#div-comment-343
 // @link https://wabeo.fr/jouons-avec-les-meta-boxes/
 
-if ( is_admin() ) :
+if ( is_admin() ) {
 
 add_action( 'load-post.php', 'ScripturaMetaBox' );
 add_action( 'load-post-new.php', 'ScripturaMetaBox' );
@@ -200,7 +200,7 @@ class ClassScripturaMetaBox
 					<label for="scriptura_date_document_published"><?php _e( 'Date Document Published', 'scriptura' ); ?></label>
 				</th>
 				<td>
-					<input type="text" id="scriptura_date_document_published" name="scriptura_date_document_published" value="<?php echo esc_attr( $dataDateDocumentPublished ); ?>" style="width:100%" placeholder="<?php _e( 'Paris', 'scriptura' ); ?>" />
+					<input type="text" id="scriptura_date_document_published" name="scriptura_date_document_published" value="<?php echo esc_attr( $dataDateDocumentPublished ); ?>" style="width:100%" placeholder="<?php _e( '1974', 'scriptura' ); ?>" />
 				</td>
 			</tr>
 		</table>
@@ -208,4 +208,25 @@ class ClassScripturaMetaBox
 	}
 }
 
-endif;
+} else {
+
+	function ScripturaReplaceContent( $content )
+	{ // Remplacement du contenu généré par WordPress
+		$search = [
+			'<h2>',
+			'<h3>',
+			'<h4>',
+			'<h5>'
+		];
+		$replace = [
+			'<h2 class="h3 vmin">',
+			'<h3 class="h4 vmin">',
+			'<h4 class="h5 vmin">',
+			'<h5 class="h6 vmin">'
+		];
+		$content = str_replace( $search, $replace, $content );
+		return $content;
+	}
+	add_filter( 'the_content', 'ScripturaReplaceContent' );
+
+}

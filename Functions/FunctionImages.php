@@ -83,6 +83,7 @@ function ScripturaImgCaptionShortcode( $current_html, $attr, $content )
             . str_replace(
                 [ PHP_EOL . PHP_EOL, PHP_EOL . PHP_EOL, PHP_EOL . PHP_EOL ], // @todo Il existe certainement une méthode plus simple pour supprimer deux retours chariots
                 [ PHP_EOL, PHP_EOL, PHP_EOL ],
+                /*
                 preg_replace(
                     [
                         '/<.*w sizes.*>/', // Les balises <sources> contenant ce string sont supprimées
@@ -132,6 +133,8 @@ function ScripturaImgCaptionShortcode( $current_html, $attr, $content )
                 		$image // Image and srcset attributes
                     )
                 )
+                */
+                $image
             )
         	. PHP_EOL
         	. '</picture>'
