@@ -59,9 +59,9 @@
     if ( $country ) {
         echo '    <meta name="geo.region" content="' . $country . '">' . PHP_EOL;
     }
-    echo '    <meta name="theme-color" content="#ffa500">' . PHP_EOL; // #b03c57
+    echo '    <meta name="theme-color" content="#ff6f7d">' . PHP_EOL; // @note Couleur dominante pour le thème @affected Androïd
     echo '    <link rel="shortcut icon" href="' . $templateUri . '/Images/favicon.ico">' . PHP_EOL;
-    echo '    <link rel="icon" sizes="192x192" href="' . $templateUri . '/Images/favicon192.png">' . PHP_EOL;
+    echo '    <link rel="icon" sizes="192x192" href="' . $templateUri . '/Images/favicon192.png">' . PHP_EOL; // @affected Androïd
     echo '    <link rel="stylesheet" href="' . $templateUri . '/Public/Styles/MainBlooming.css' . $version . '" media="screen">' . PHP_EOL;
     echo '    <link rel="stylesheet" href="' . $templateUri . '/Public/Styles/Print.css' . $version . '" media="print">' . PHP_EOL;
     //wp_head(); // API WordPress
