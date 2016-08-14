@@ -64,7 +64,7 @@
       </noscript>
       <div class="ajax-window-popin"></div>
     </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="<?php echo $templateUri; ?>/Scripts/Vendors/JQuery.js"><\/script>')</script>
     <script>var templateUri = '<?php echo $templateUri; ?>'</script>
     <script src="<?php echo $templateUri; ?>/Public/Scripts/Main.js"></script>

@@ -64,7 +64,7 @@
           if ($comments OR $capacityCommentator AND $commentsOpen): ?>
     <aside id="index-comments" class="aside">
       <div class="wrap">
-        <h2 class="emphasized"><?php echo $commentsTitle; ?><a href="#index-comments" class="anchor"></a></h2>
+        <h2 class="vmin emphasized"><?php echo $commentsTitle; ?><a href="#index-comments" class="anchor"></a></h2>
         <div class="grid">
           <?php echo $comments;
                 endif;
@@ -79,7 +79,7 @@
     <?php if ($relation): ?>
     <aside class="aside">
       <div class="wrap">
-        <h2 class="emphasized"><?php echo $relationsTitle; ?></h2>
+        <h2 class="vmin emphasized"><?php echo $relationsTitle; ?></h2>
         <div class="relationship"><?php echo $relation; ?></div>
       </div>
     </aside>
@@ -102,7 +102,7 @@
       </noscript>
       <div class="ajax-window-popin"></div>
     </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="<?php echo $templateUri; ?>/Scripts/Vendors/JQuery.js"><\/script>')</script>
     <script>var templateUri = '<?php echo $templateUri; ?>'</script>
     <script src="<?php echo $templateUri; ?>/Public/Scripts/Main.js"></script>
