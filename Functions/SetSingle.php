@@ -15,6 +15,7 @@
 
 	if( have_posts() ) {
 		while( have_posts() ) : the_post();
+
 		$name = get_the_title();
 		$author = get_the_author();
 		//$publisher = 'Editions MachinTruc';
@@ -24,6 +25,10 @@
 		//$pageEnd = '58';
 		$datePublished = get_the_date();
 		$dateModified = get_the_modified_date();
+		$restrictedRead = get_post_meta( $post->ID, 'restrictedread', true );
+		$authorizedGroups = get_post_meta( $post->ID, 'authorizedgroups', true );
+		//var_dump( $restrictedread );die();
+
 		ob_start();
 		if ( get_the_tags() ) {
 			$posttags = get_the_tags(); // plus facilement personnalisable que the_tags()
@@ -40,9 +45,20 @@
 		}
 		$keywords = ob_get_clean();
 
+//		if ( ( $restrictedread != 1 AND $capacityRead == false ) AND ( $capacityAministrator OR $authorizedgroups == '' OR $authorizedgroups == $userGroup ) ) {
+
+
 		ob_start();
-		the_content();
+		if ( $restrictedRead == '1' AND $capacityRead == false ) {
+			echo '<p class="message-error">' . __( 'This content is only visible to connected users.', 'scriptura' ) . '</p>';
+		} elseif ( ! $capacityAministrator AND $userGroup != $authorizedGroups ) {
+			echo '<p class="message-error">' . __( 'This content is only visible to authorized users.', 'scriptura' ) . '</p>';
+		} else {
+			the_content();
+		}
 		$content = ob_get_clean();
+
+
 
 		ob_start();
 		the_post_thumbnail_url( 'image300' );
@@ -60,7 +76,7 @@
 		the_post_thumbnail_url( 'image2000' );
 		$image2000 = ob_get_clean();
 
-		$category = get_the_category()[0]; // Récupération de la première catégorie seulement
+		$category = get_the_category()[ 0 ]; // Récupération de la première catégorie seulement
 		$singleCatLink = get_category_link( $category->cat_ID );
 		$singleCatName = $category->cat_name;
 		endwhile;
@@ -331,6 +347,9 @@ function ScripturaComments()
 		$offsetSubSizeS = 'sizeS-o0 ';
 	}
 	return [ $comments, $offsetSub, $offsetSubSizeS ];
+	// $comments : Contenu du commentaire
+	// $offsetSub : Classe offset de la div pour le positionnement du commentaire dans la page
+	// $offsetSubSizeS : Classe de l'offset pour les définitions d'écran en dessous de "sizeS"
 }
 
 function ScripturaCommentForm()
@@ -361,16 +380,12 @@ function ScripturaCommentForm()
 }
 
 $commentsOpen = comments_open();
-$comments = ScripturaComments()[0];
-$commentForm = '<div class="grid"><div class="m6 ' . ScripturaComments()[1] . '' . ScripturaComments()[2] . 'sizeS-m9">'
+$comments = ScripturaComments()[ 0 ];
+$commentForm = '<div class="grid"><div class="m6 ' . ScripturaComments()[ 1 ] . '' . ScripturaComments()[ 2 ] . 'sizeS-m9">'
 			 . '<h2 class="h4">' . __( 'Add a comment', 'scriptura' ) . '</h2>'
 			 . ScripturaCommentForm()
 			 . '</div></div>';
 $commentsTitle = __( 'Comments', 'scriptura' );
 $relationsTitle = __( 'Related Articles', 'scriptura' );
 $articleDescription = get_post_meta( $post->ID, 'articledescription', true );
-
-
-//$testUser = get_user_meta( get_current_user_id(), '', true );
-//print_r( $testUser );die();
 

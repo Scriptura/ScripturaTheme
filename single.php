@@ -47,6 +47,11 @@
                 <?php if ($articleDescription): ?>
                 <p itemprop="description" class="message"><?php echo $articleDescription; ?></p>
                 <?php endif;
+                      if ($restrictedRead AND $capacityRead): ?>
+                <p class="message-warning">
+                  <?php _e( 'This content is only visible to connected users.', 'scriptura' ); ?>
+                </p>
+                <?php endif;
                       if ($reference): ?>
                 <p class="message-source"><?php echo $reference; ?></p>
                 <?php endif; ?>

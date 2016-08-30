@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Scriptura\n"
-"POT-Creation-Date: 2016-07-05 18:47+0100\n"
-"PO-Revision-Date: 2016-07-05 18:48+0100\n"
+"POT-Creation-Date: 2016-08-30 10:54+0100\n"
+"PO-Revision-Date: 2016-08-30 10:54+0100\n"
 "Last-Translator: \n"
 "Language-Team: Olivier Chavarin\n"
 "Language: fr_FR\n"
@@ -36,15 +36,19 @@ msgstr "Profil"
 msgid "Home"
 msgstr "Accueil"
 
-#: ../Functions/CategoryTagSearch.php:33
+#: ../Functions/CategoryTagSearch.php:37 ../Functions/SetSingle.php:50
+msgid "This content is only visible to authorized users."
+msgstr "Ce contenu n'est visible que par les utilisateurs autorisés."
+
+#: ../Functions/CategoryTagSearch.php:39
 msgid "Read more"
 msgstr "Lire la suite"
 
-#: ../Functions/CategoryTagSearch.php:38
+#: ../Functions/CategoryTagSearch.php:44
 msgid "This query yielded no results."
 msgstr "Cette requête n'a donné aucun résultat."
 
-#: ../Functions/CategoryTagSearch.php:41
+#: ../Functions/CategoryTagSearch.php:47
 msgid "Search form"
 msgstr "Formulaire de recherche"
 
@@ -52,19 +56,19 @@ msgstr "Formulaire de recherche"
 msgid "Additional Informations"
 msgstr "Informations complémentaires"
 
-#: ../Functions/FunctionArticles.php:133
+#: ../Functions/FunctionArticles.php:136
 msgid "On article"
 msgstr "Sur l'article"
 
-#: ../Functions/FunctionArticles.php:137
+#: ../Functions/FunctionArticles.php:140
 msgid "Meta description tag"
 msgstr "Balise meta description"
 
-#: ../Functions/FunctionArticles.php:140 ../Functions/FunctionArticles.php:149
+#: ../Functions/FunctionArticles.php:143 ../Functions/FunctionArticles.php:152
 msgid "A description..."
 msgstr "Une description..."
 
-#: ../Functions/FunctionArticles.php:141
+#: ../Functions/FunctionArticles.php:144
 msgid ""
 "This should be an interesting alternative to the title should contain 100 to "
 "255 characters. It will appear in a html tag dedicated to search engines and "
@@ -77,11 +81,11 @@ msgstr ""
 "proposé par défaut dans les pages de présentation (catégories, mots-"
 "clefs...)."
 
-#: ../Functions/FunctionArticles.php:146
+#: ../Functions/FunctionArticles.php:149
 msgid "Article description"
 msgstr "Description de l'article"
 
-#: ../Functions/FunctionArticles.php:150
+#: ../Functions/FunctionArticles.php:153
 msgid ""
 "A presentation of the article. Appear in plain text on the page within the "
 "article."
@@ -89,45 +93,72 @@ msgstr ""
 "Une présentation de l'article. Apparaitra en clair sur la page au sein de "
 "l'article."
 
-#: ../Functions/FunctionArticles.php:155
+#: ../Functions/FunctionArticles.php:158
+msgid "Restricted read"
+msgstr "Lecture restreinte"
+
+#: ../Functions/FunctionArticles.php:162
+#: ../Functions/FunctionPannelIdentity.php:131
+#: ../Functions/FunctionPannelOptions.php:134
+#: ../Functions/FunctionPannelUsers.php:40
+#: ../Functions/FunctionPannelUsers.php:57
+msgid "No"
+msgstr "Non"
+
+#: ../Functions/FunctionArticles.php:163
+#: ../Functions/FunctionPannelOptions.php:135
+#: ../Functions/FunctionPannelUsers.php:41
+#: ../Functions/FunctionPannelUsers.php:58
+msgid "Yes"
+msgstr "Oui"
+
+#: ../Functions/FunctionArticles.php:165
+msgid "Reading the article restricted to members online."
+msgstr "Lecture de l'article restreinte aux membres connectés."
+
+#: ../Functions/FunctionArticles.php:170
 msgid "Authorized Groups"
 msgstr "Groupes autorisés"
 
-#: ../Functions/FunctionArticles.php:158
+#: ../Functions/FunctionArticles.php:173
 msgid "GroupA"
 msgstr "GroupeA"
 
-#: ../Functions/FunctionArticles.php:159
+#: ../Functions/FunctionArticles.php:174
 msgid "No default restriction if the field is left blank."
 msgstr "Pas de restriction par défaut si le champ est laissé vide."
 
-#: ../Functions/FunctionArticles.php:164 ../Functions/FunctionArticles.php:184
+#: ../Functions/FunctionArticles.php:179 ../Functions/FunctionArticles.php:199
 msgid "Article Source"
 msgstr "Source de l'article"
 
-#: ../Functions/FunctionArticles.php:168 ../Functions/FunctionArticles.php:171
+#: ../Functions/FunctionArticles.php:183 ../Functions/FunctionArticles.php:186
 msgid "Given name"
 msgstr "Prénom"
 
-#: ../Functions/FunctionArticles.php:176 ../Functions/FunctionArticles.php:179
+#: ../Functions/FunctionArticles.php:191 ../Functions/FunctionArticles.php:194
 msgid "Family name"
 msgstr "Nom de famille"
 
-#: ../Functions/FunctionArticles.php:187
+#: ../Functions/FunctionArticles.php:202
 msgid "Book, Article..."
 msgstr "Livre, article..."
 
-#: ../Functions/FunctionArticles.php:192
+#: ../Functions/FunctionArticles.php:207
 msgid "Address Locality"
 msgstr "Localité"
 
-#: ../Functions/FunctionArticles.php:195 ../Functions/FunctionArticles.php:203
+#: ../Functions/FunctionArticles.php:210
 msgid "Paris"
-msgstr ""
+msgstr "Paris"
 
-#: ../Functions/FunctionArticles.php:200
+#: ../Functions/FunctionArticles.php:215
 msgid "Date Document Published"
 msgstr "Date de publication du document"
+
+#: ../Functions/FunctionArticles.php:218
+msgid "1974"
+msgstr "1974"
 
 #: ../Functions/FunctionImages.php:43
 msgid "Portrait"
@@ -258,13 +289,6 @@ msgstr "Afficher dans le pied de page"
 msgid "View information about the organization"
 msgstr "Voir les informations sur l'organisation"
 
-#: ../Functions/FunctionPannelIdentity.php:131
-#: ../Functions/FunctionPannelOptions.php:134
-#: ../Functions/FunctionPannelUsers.php:40
-#: ../Functions/FunctionPannelUsers.php:57
-msgid "No"
-msgstr "Non"
-
 #: ../Functions/FunctionPannelIdentity.php:132
 msgid "Pages and articles"
 msgstr "Pages et articles"
@@ -333,12 +357,6 @@ msgstr "Tempête de neige"
 msgid "Activate"
 msgstr "Activer"
 
-#: ../Functions/FunctionPannelOptions.php:135
-#: ../Functions/FunctionPannelUsers.php:41
-#: ../Functions/FunctionPannelUsers.php:58
-msgid "Yes"
-msgstr "Oui"
-
 #: ../Functions/FunctionPannelOptions.php:137
 msgid "Displays a snow effect on the site during the winter season."
 msgstr ""
@@ -365,7 +383,7 @@ msgstr "Ajouter la connexion depuis le menu de navigation du site"
 msgid "Search"
 msgstr "Rechercher"
 
-#: ../Functions/FunctionSearchForm.php:14 ../Functions/SetSingle.php:353
+#: ../Functions/FunctionSearchForm.php:14 ../Functions/SetSingle.php:368
 msgid "Submit"
 msgstr "Soumettre"
 
@@ -377,9 +395,49 @@ msgstr "Menu principal"
 msgid "Secondary menu"
 msgstr "Menu secondaire"
 
-#: ../Functions/FunctionUsers.php:79
+#: ../Functions/FunctionUsers.php:81
 msgid "Additional Information"
 msgstr "Informations complémentaires"
+
+#: ../Functions/FunctionUsers.php:85
+msgid "Location"
+msgstr "Localisation"
+
+#: ../Functions/FunctionUsers.php:89
+msgid "Group"
+msgstr "Groupe"
+
+#: ../Functions/FunctionVariables.php:43
+msgid "Administrator"
+msgstr "Administrateur"
+
+#: ../Functions/FunctionVariables.php:44
+msgid "Moderator"
+msgstr "Modérateur"
+
+#: ../Functions/FunctionVariables.php:45
+msgid "Editor"
+msgstr "Éditeur"
+
+#: ../Functions/FunctionVariables.php:46
+msgid "Contributor"
+msgstr "Contributeur"
+
+#: ../Functions/FunctionVariables.php:47
+msgid "Author"
+msgstr "Auteur"
+
+#: ../Functions/FunctionVariables.php:48
+msgid "Student"
+msgstr "Édudiant"
+
+#: ../Functions/FunctionVariables.php:49
+msgid "Commentator"
+msgstr "Commentateur"
+
+#: ../Functions/FunctionVariables.php:50
+msgid "Subscriber"
+msgstr "Abonné"
 
 #: ../Functions/FunctionWidgets.php:22
 msgid "This widget takes place in the site footer."
@@ -524,47 +582,51 @@ msgstr ""
 msgid "Request to"
 msgstr "Requête pour "
 
-#: ../Functions/SetSingle.php:31
+#: ../Functions/SetSingle.php:36
 msgid "Keywords:"
 msgstr "Mots clefs :"
 
-#: ../Functions/SetSingle.php:115
+#: ../Functions/SetSingle.php:52
+msgid "This content is only visible to connected users."
+msgstr "Ce contenu n'est visible que par les utilisateurs connectés."
+
+#: ../Functions/SetSingle.php:127
 msgid "Author:"
 msgstr "Auteur :"
 
-#: ../Functions/SetSingle.php:163
+#: ../Functions/SetSingle.php:175
 msgid "Content published on"
 msgstr "Contenu publié le"
 
-#: ../Functions/SetSingle.php:168
+#: ../Functions/SetSingle.php:180
 msgid "modified on"
 msgstr "modifié le"
 
-#: ../Functions/SetSingle.php:238
+#: ../Functions/SetSingle.php:250
 msgid "Read article"
 msgstr "Lire l'article"
 
-#: ../Functions/SetSingle.php:293
+#: ../Functions/SetSingle.php:305
 msgid "Index the comment"
 msgstr "Ajouter un commentaire"
 
-#: ../Functions/SetSingle.php:352
+#: ../Functions/SetSingle.php:367
 msgid "Message"
 msgstr "Message"
 
-#: ../Functions/SetSingle.php:352
+#: ../Functions/SetSingle.php:367
 msgid "Hello..."
 msgstr "Bonjour..."
 
-#: ../Functions/SetSingle.php:365
+#: ../Functions/SetSingle.php:380
 msgid "Add a comment"
 msgstr "Ajouter un commentaire"
 
-#: ../Functions/SetSingle.php:368
+#: ../Functions/SetSingle.php:383
 msgid "Comments"
 msgstr "Commentaires"
 
-#: ../Functions/SetSingle.php:369
+#: ../Functions/SetSingle.php:384
 msgid "Related Articles"
 msgstr "Articles en relation"
 

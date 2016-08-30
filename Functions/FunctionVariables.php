@@ -32,15 +32,26 @@
 	$userLastName = $current_user->user_lastname;
 	$userDisplayName = $current_user->display_name;
 	$userDescription = $current_user->description; //get_user_meta( $userId, 'description', true );
-	$userMetaGroup = get_user_meta( $userId, 'group', true );
+	$userGroup = get_user_meta( $userId, 'group', true );
+	$capacityAministrator = current_user_can( 'administrator' );
 	$capacityRead = current_user_can( 'read' );
 	$capacityCommentator = ( current_user_can( 'subscriber' ) ) ? false : true;
 	$capacityEditPosts = current_user_can( 'edit_posts' );
 
+	$userRole = $current_user->roles[ 0 ];
+	// Traduction de `$userRole` si possible :
+	if ($userRole == 'administrator' )    $userRole = __( 'Administrator', 'scriptura' );
+	if ($userRole == 'role_moderator' )   $userRole = __( 'Moderator', 'scriptura' );
+	if ($userRole == 'role_editor' )      $userRole = __( 'Editor', 'scriptura' );
+	if ($userRole == 'role_contributor' ) $userRole = __( 'Contributor', 'scriptura' );
+	if ($userRole == 'role_author' )      $userRole = __( 'Author', 'scriptura' );
+	if ($userRole == 'role_student' )     $userRole = __( 'Student', 'scriptura' );
+	if ($userRole == 'role_commentator' ) $userRole = __( 'Commentator', 'scriptura' );
+	if ($userRole == 'subscriber' )       $userRole = __( 'Subscriber', 'scriptura' );
 
 	$userRegistrationOpen = get_option( 'scriptura_user_registration' );
 	$userRegistrationMainNav = get_option( 'scriptura_user_registration_main_nav' );
+	$authorizedgroups = ''; // Initialisation de la variable par défaut
 
 	global $gravatarUri;
 
-	//var_dump( $templateUri );die();

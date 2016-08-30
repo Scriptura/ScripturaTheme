@@ -16,6 +16,7 @@ block content
           h1.emphasized {% $name %}
           .grid
             .m2.sizeXS-m6.sizeS-m3
+              br.sizeS-hidden
               .avatar(style='background-image:url({% $gravatarUri %})')
                 .ratio
             .m6.sizeS-m9
@@ -50,10 +51,15 @@ block content
                 span.icon-user
                 | &nbsp;&nbsp;Pseudo&nbsp;: {% $userDisplayName %}
               _endif
-              _if $userMetaGroup
+              _if $userRole
+              p
+                span.icon-badge
+                | &nbsp;&nbsp;Role&nbsp;: {% $userRole %}
+              _endif
+              _if $userGroup
               p
                 span.icon-radio-unchecked
-                | &nbsp;&nbsp;Group&nbsp;: {% $userMetaGroup %}
+                | &nbsp;&nbsp;Group&nbsp;: {% $userGroup %}
               _endif
               //-
                 _if $userDescription

@@ -1117,7 +1117,7 @@ if $bundleEmphasized
 
     .emphasized
       margin-bottom .5em
-      padding-bottom .1em
+      padding-bottom .25em
       border-bottom .15em solid $colorBD029
 
   @media (min-width $sizeS)
@@ -2616,6 +2616,7 @@ if $bundleTabs
 // @description Tableaux
 // -----------------------------------------------------------------------------
 if $bundleTables
+  // @note Pour les tableaux, de part leur nature, l'approche adaptatif design prend le pas sur le mobile first
   // @note La mise en place de .table sur l'élément html <table> suffit pour styler un tableau
 
   [class^="table"]
@@ -2674,7 +2675,6 @@ if $bundleTables
     //  border-right .2em solid $colorBD097
 
   @media (min-width $sizeXS)
-    // Pour les tableaux, de part leur nature, l'approche adaptatif design prend le pas sur le mobile first
 
     [class^="table"][class*="fixed"]
       table-layout fixed

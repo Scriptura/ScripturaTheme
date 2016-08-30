@@ -21,7 +21,7 @@
       <header role="banner" class="section vh100">
         <div class="wrap-limited ribbon-container">
           <div class="ribbon"><a href="<?php echo $siteUri; ?>"><?php echo $alternativeLink; ?></a></div>
-          <h1 itemprop="name" class="emphasized"><?php echo $name; ?></h1>
+          <h1 itemprop="name" class="emphasized vmin"><?php echo $name; ?></h1>
           <style>
             .meca-anim{display:block;max-width:100%;max-height:50vh;margin:0 auto;fill:#5a728a;stroke:#444;stroke-width:2}
             .meca-anim :nth-child(odd){fill:#b03c57}

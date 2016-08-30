@@ -24,7 +24,7 @@
             <div itemprop="articleBody">
               <h1 class="emphasized"><?php echo $name; ?></h1>
               <div class="grid">
-                <div class="m2 sizeXS-m6 sizeS-m3">
+                <div class="m2 sizeXS-m6 sizeS-m3"><br class="sizeS-hidden">
                   <div style="background-image:url(<?php echo $gravatarUri; ?>)" class="avatar">
                     <div class="ratio"></div>
                   </div>
@@ -52,8 +52,11 @@
                         if ($userDisplayName): ?>
                   <p><span class="icon-user"></span>&nbsp;&nbsp;Pseudo&nbsp;: <?php echo $userDisplayName; ?></p>
                   <?php endif;
-                        if ($userMetaGroup): ?>
-                  <p><span class="icon-radio-unchecked"></span>&nbsp;&nbsp;Group&nbsp;: <?php echo $userMetaGroup; ?></p>
+                        if ($userRole): ?>
+                  <p><span class="icon-badge"></span>&nbsp;&nbsp;Role&nbsp;: <?php echo $userRole; ?></p>
+                  <?php endif;
+                        if ($userGroup): ?>
+                  <p><span class="icon-radio-unchecked"></span>&nbsp;&nbsp;Group&nbsp;: <?php echo $userGroup; ?></p>
                   <?php endif; ?>
                 </div>
                 <div class="list-stripe">

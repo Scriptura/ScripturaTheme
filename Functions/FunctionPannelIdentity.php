@@ -96,7 +96,7 @@ if ( is_admin() ) :
 						</th>
 						<td>
 							<input type="text" id="scriptura_itemprop_email" name="option[scriptura_itemprop_email]" value="<?php echo get_option( 'scriptura_itemprop_email', '' ); ?>" placeholder="ex : pseudo@gmail.com" class="regular-text">
-							<p class="description">En raison du risque de spams cette option est déconseillée. Le <a href="<?php bloginfo( 'url' ); ?>/wp-admin/admin.php?page=scriptura-pannel-2">formulaire de contact</a> du site est une alternative à privilégier car il garantit la confidentialité.</p>
+							<p class="description">En raison du risque de spams cette option est déconseillée. Le <a href="<?php bloginfo( 'url' ); ?>/wp-admin/admin.php?page=scriptura-pannel-forms">formulaire de contact</a> du site est une alternative à privilégier car il garantit la confidentialité.</p>
 						</td>
 					</tr>
 					<tr>

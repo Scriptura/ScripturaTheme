@@ -91,6 +91,7 @@ class ClassScripturaMetaBox
 		// Sanitize the user input.
 		$dataMetaDescription = $_POST[ 'scriptura_meta_description' ];
 		$dataArticleDescription = $_POST[ 'scriptura_article_description' ];
+		$dataRestrictedRead = sanitize_text_field( $_POST[ 'scriptura_restricted_read' ] );
 		$dataAuthorizedGroups = sanitize_text_field( $_POST[ 'scriptura_authorized_groups' ] );
 		$dataAuthorGivenName = sanitize_text_field( $_POST[ 'scriptura_author_given_name' ] );
 		$dataAuthorFamilyName = sanitize_text_field( $_POST[ 'scriptura_author_family_name' ] );
@@ -101,6 +102,7 @@ class ClassScripturaMetaBox
 		// Update the meta field.
 		update_post_meta( $post_id, 'metadescription', $dataMetaDescription );
 		update_post_meta( $post_id, 'articledescription', $dataArticleDescription );
+		update_post_meta( $post_id, 'restrictedread', $dataRestrictedRead );
 		update_post_meta( $post_id, 'authorizedgroups', $dataAuthorizedGroups );
 		update_post_meta( $post_id, 'authorgivenname', $dataAuthorGivenName );
 		update_post_meta( $post_id, 'authorfamilyname', $dataAuthorFamilyName );
@@ -121,6 +123,7 @@ class ClassScripturaMetaBox
 		// Use get_post_meta to retrieve an existing value from the database.
 		$dataMetaDescription = get_post_meta( $post->ID, 'metadescription', true );
 		$dataArticleDescription = get_post_meta( $post->ID, 'articledescription', true );
+		$dataRestrictedRead = get_post_meta( $post->ID, 'restrictedread', true );
 		$dataAuthorizedGroups = get_post_meta( $post->ID, 'authorizedgroups', true );
 		$dataAuthorGivenName = get_post_meta( $post->ID, 'authorgivenname', true );
 		$dataAuthorFamilyName = get_post_meta( $post->ID, 'authorfamilyname', true );
@@ -148,6 +151,18 @@ class ClassScripturaMetaBox
 				<td>
 					<textarea id="scriptura_article_description" name="scriptura_article_description" placeholder="<?php _e( 'A description...', 'scriptura' ); ?>" style="width:100%;min-height:5rem"><?php echo esc_attr( $dataArticleDescription ); ?></textarea>
 					<p class="description"><?php _e( 'A presentation of the article. Appear in plain text on the page within the article.', 'scriptura' ); ?></p>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					<label for="scriptura_restricted_read"><?php _e( 'Restricted read', 'scriptura' ); ?></label>
+				</th>
+				<td>
+					<select id="scriptura_restricted_read" name="scriptura_restricted_read">
+						<option value=""<?php if( $dataRestrictedRead == '' ) { echo ' selected="selected"'; } ?>><?php _e( 'No', 'scriptura' ); ?></option>
+						<option value="1"<?php if( $dataRestrictedRead == 1 ) { echo ' selected="selected"'; } ?>><?php _e( 'Yes', 'scriptura' ); ?></option>
+					</select>
+					<p class="description"><?php _e( 'Reading the article restricted to members online.', 'scriptura' ); ?></p>
 				</td>
 			</tr>
 			<tr>

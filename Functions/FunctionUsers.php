@@ -62,7 +62,7 @@ function ScripturaRestrictAccessAdministration()
     if ( ! current_user_can( 'edit_posts' ) ) { // Si le rôle n'a pas la capacité 'edit_posts'
     // @todo Bloque l'utilisation de l'Ajax en l'état, si besoin utiliser ceci :
     //if ( ! current_user_can( 'edit_posts' ) AND ( !isset( $_SERVER[ 'HTTP_X_REQUESTED_WITH' ] ) OR $_SERVER[ 'HTTP_X_REQUESTED_WITH' ] != 'XMLHttpRequest' )  ) { // Si besoin d'utiliser l'Ajax de l'admin par certains plugins...
-        wp_redirect( $_SERVER['HTTP_REFERER'] ); // Revient à la page précédente
+        wp_redirect( $_SERVER[ 'HTTP_REFERER' ] ); // Revient à la page précédente
         exit();
     }
 }
@@ -73,23 +73,25 @@ add_action( 'admin_init', 'ScripturaRestrictAccessAdministration' );
 // @description Metas supplémentaires pour le profil utlisateur
 // -----------------------------------------------------------------------------
 
+// @link http://b-website.com/ajouter-des-information-aux-profils-utilisateur-dans-wordpress/
+
 function ScripturaUserAddMetas( $user )
 { ?>
- 
+
     <h2><?php _e( 'Additional Information', 'scriptura' ); ?></h2>
     <table class="form-table">
         <tbody>
             <tr>
-                <th><label>Location</label></th>
+                <th><label><?php _e( 'Location', 'scriptura' ); ?></label></th>
                 <td><input class="regular-text" id="location" type="text" name="location" value="<?php echo esc_attr( get_the_author_meta( 'location', $user->ID ) ); ?>" /></td>
             </tr>
             <tr>
-                <th><label>Group</label></th>
+                <th><label><?php _e( 'Group', 'scriptura' ); ?></label></th>
                 <td><input class="regular-text" id="group" type="text" name="group" value="<?php echo esc_attr( get_the_author_meta( 'group', $user->ID ) ); ?>" /></td>
             </tr>
         </tbody>
     </table>
-    
+
 <?php }
 add_action( 'show_user_profile', 'ScripturaUserAddMetas' );
 add_action( 'edit_user_profile', 'ScripturaUserAddMetas' );

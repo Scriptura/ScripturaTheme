@@ -13,6 +13,9 @@
 	    $title = get_the_title();
 		$postLink = str_replace( 'http:', '', get_permalink() );
 		$resume = get_the_excerpt();
+		$restrictedRead = get_post_meta( $post->ID, 'restrictedread', true );
+		$authorizedGroups = get_post_meta( $post->ID, 'authorizedgroups', true );
+		//var_dump( $restrictedRead );die();
 
 		echo '<article class="box0 m3 sizeS-m6 sizeL-m4 ribbon-container-bottom protected">';
 		echo '<a href="' . $postLink . '">';
@@ -28,9 +31,15 @@
 		echo '<style>#post' . $postId . ' {background-image: url(' . $image1000 . ')}</style>';
 		echo '<div class="ratio-1-2 magimg" id="post' . $postId . '"></div>';
 		echo '</a>';
-		echo '<h2 class="h5"><a href="' . $postLink . '">' . $title . '</a></h2>'
-		   . '<p>' . $resume . '</p>'
-		   . '<div class="ribbon"><a href="' . $postLink . '">' . __( 'Read more', 'scriptura' ) . '</a></div>'
+		echo '<h2 class="h5"><a href="' . $postLink . '">' . $title . '</a></h2>';
+		if ( $restrictedRead == '1' AND $capacityRead == false ) {
+			echo '<p class="message-error">' . __( 'This content is only visible to connected users.', 'scriptura' ) . '</p>';
+		} elseif ( ! $capacityAministrator AND $userGroup != $authorizedGroups ) {
+			echo '<p class="message-error">' . __( 'This content is only visible to authorized users.', 'scriptura' ) . '</p>';
+		} else {
+			echo '<p>' . $resume . '</p>';
+		}
+		echo '<div class="ribbon"><a href="' . $postLink . '">' . __( 'Read more', 'scriptura' ) . '</a></div>'
 		   . '</article>';
 	endwhile;
 	wp_reset_postdata();
