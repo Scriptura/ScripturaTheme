@@ -49,7 +49,7 @@
 
 
 		ob_start();
-		if ( $restrictedRead == '1' AND $capacityRead == false ) {
+		if ( $restrictedRead AND ! $capacityRead ) {
 			echo '<p class="message-error">' . __( 'This content is only visible to connected users.', 'scriptura' ) . '</p>';
 		} elseif ( ! $capacityAministrator AND $userGroup != $authorizedGroups ) {
 			echo '<p class="message-error">' . __( 'This content is only visible to authorized users.', 'scriptura' ) . '</p>';
@@ -90,6 +90,13 @@
 			$imageAlt = get_post_meta( get_post_thumbnail_id(), '_wp_attachment_image_alt', true ); // Meta alt
 		} else {
 			$imageAlt = 'Article image'; // Texte alternatif si meta alt non renseignée
+		}
+		if ( ( $restrictedRead AND ! $capacityRead ) OR ( ! $capacityAministrator AND $userGroup != $authorizedGroups ) ) { // Si fichier protégé alors image et description de remplacement
+			$image1000 = $templateUri . '/Images/Protected1000.jpg';
+			$image1500 = $templateUri . '/Images/Protected1500.jpg';
+			$image2000 = $templateUri . '/Images/Protected2000.jpg';
+			$imageUri = $templateUri . '/Images/Protected1000.jpg';
+			$imageAlt = __( 'Protected file', 'scriptura' );
 		}
 		$image = '
 <style>
@@ -238,15 +245,19 @@
     $postId = get_the_ID();
     $postTitle = get_the_title();
     $postLink = str_replace( 'http:', '', get_the_permalink() );
+	$restrictedRead = get_post_meta( $post->ID, 'restrictedread', true );
+	$authorizedGroups = get_post_meta( $post->ID, 'authorizedgroups', true );
 
-	if ( has_post_thumbnail() ) {
+	if ( ( $restrictedRead AND ! $capacityRead ) OR ( ! $capacityAministrator AND $userGroup != $authorizedGroups ) ) {
+		$image1000 = $templateUri . '/Images/Protected1000.jpg';
+	} elseif ( has_post_thumbnail() ) {
 		ob_start();
 		the_post_thumbnail_url( 'image1000' );
 		$image1000 = ob_get_clean();
 	} elseif ( get_option( 'scriptura_def_thumbnail' ) ) {
 		$image1000 = str_replace( 'http:', '', get_option( 'scriptura_def_thumbnail' ) );
 	} else {
-		$image1000 = $templateUri . '/Images/Default.jpg';
+		$image1000 = $templateUri . '/Images/Default1000.jpg';
 	}
 	echo '<a href="' . $postLink . '" class="ribbon-container" itemprop="relatedLink">' . PHP_EOL;
 	echo '<style>#relation' . $postId . ' {background-image: url(' . $image1000 . ')}</style>' . PHP_EOL;

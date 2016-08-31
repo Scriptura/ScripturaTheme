@@ -19,20 +19,22 @@
 
 		echo '<article class="box0 m3 sizeS-m6 sizeL-m4 ribbon-container-bottom protected">';
 		echo '<a href="' . $postLink . '">';
-		if ( has_post_thumbnail() ) {
+		if ( ( $restrictedRead AND ! $capacityRead ) OR ( ! $capacityAministrator AND $userGroup != $authorizedGroups ) ) {
+			$image1000 = $templateUri . '/Images/Protected1000.jpg';
+		} elseif ( has_post_thumbnail() ) {
 			ob_start();
 			the_post_thumbnail_url( 'image1000' );
 			$image1000 = ob_get_clean();
 		} elseif ( get_option( 'scriptura_def_thumbnail' ) ) {
 			$image1000 = str_replace( 'http:', '', get_option( 'scriptura_def_thumbnail' ) );
 		} else {
-			$image1000 = $templateUri . '/Images/Default.jpg';
+			$image1000 = $templateUri . '/Images/Default1000.jpg';
 		}
 		echo '<style>#post' . $postId . ' {background-image: url(' . $image1000 . ')}</style>';
 		echo '<div class="ratio-1-2 magimg" id="post' . $postId . '"></div>';
 		echo '</a>';
 		echo '<h2 class="h5"><a href="' . $postLink . '">' . $title . '</a></h2>';
-		if ( $restrictedRead == '1' AND $capacityRead == false ) {
+		if ( $restrictedRead != false AND $capacityRead == false ) {
 			echo '<p class="message-error">' . __( 'This content is only visible to connected users.', 'scriptura' ) . '</p>';
 		} elseif ( ! $capacityAministrator AND $userGroup != $authorizedGroups ) {
 			echo '<p class="message-error">' . __( 'This content is only visible to authorized users.', 'scriptura' ) . '</p>';

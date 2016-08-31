@@ -1,10 +1,6 @@
 _if $articleDescription
 p.message(itemprop='description') {% $articleDescription %}
 _endif
-_if $restrictedRead AND $capacityRead
-p.message-warning
-  _php _e( 'This content is only visible to connected users.', 'scriptura' )
-_endif
 _if $reference
 p.message-source {% $reference %}
 _endif
@@ -35,4 +31,7 @@ p.message-date {% $published %}
 _if $keywords
 p.message-keyword {% $keywords %}
 _endif
-
+_if $restrictedRead AND $capacityRead
+p.message-info
+  _php _e( 'This content is only visible to connected users.', 'scriptura' )
+_endif

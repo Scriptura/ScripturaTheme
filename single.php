@@ -27,11 +27,12 @@
               </div>
               <div class="grid6 sizeS-grid12">
                 <div itemprop="articleBody" class="links protected"><?php echo $content; ?></div>
+                <?php if (! $restrictedRead OR $restrictedRead AND $capacityRead): ?>
                 <aside class="button-group">
                   <div>
                     <button title="Print article" class="button cmd-print"><span class="icon-printer"></span></button>
                   </div>
-                  <?php if (( $capacityRead AND $commentsOpen AND is_single() )): ?>
+                  <?php if ($capacityRead AND $commentsOpen AND is_single()): ?>
                   <div>
                     <button title="Comment article" id="comments" class="button"><span class="icon-bubbles"></span></button>
                   </div>
@@ -42,15 +43,12 @@
                   </form>
                   <?php endif; ?>
                 </aside>
+                <?php endif; ?>
               </div>
+              <?php if (! $restrictedRead OR $restrictedRead AND $capacityRead): ?>
               <aside class="m6 sizeS-m12">
                 <?php if ($articleDescription): ?>
                 <p itemprop="description" class="message"><?php echo $articleDescription; ?></p>
-                <?php endif;
-                      if ($restrictedRead AND $capacityRead): ?>
-                <p class="message-warning">
-                  <?php _e( 'This content is only visible to connected users.', 'scriptura' ); ?>
-                </p>
                 <?php endif;
                       if ($reference): ?>
                 <p class="message-source"><?php echo $reference; ?></p>
@@ -58,8 +56,14 @@
                 <p class="message-date"><?php echo $published; ?></p>
                 <?php if ($keywords): ?>
                 <p class="message-keyword"><?php echo $keywords; ?></p>
+                <?php endif;
+                      if ($restrictedRead AND $capacityRead): ?>
+                <p class="message-info">
+                  <?php _e( 'This content is only visible to connected users.', 'scriptura' ); ?>
+                </p>
                 <?php endif; ?>
               </aside>
+              <?php endif; ?>
             </div>
           </div>
         </div>

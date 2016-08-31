@@ -33,7 +33,9 @@
             echo strip_tags( get_the_title() ) . $separator . $siteName;
     }
     echo '</title>' . PHP_EOL;
-
+    if ( $restrictedRead ) { // Si restriction de lecture alors pas d'indexation par les robots
+    echo '    <meta name="robots" content="noindex">' . PHP_EOL;
+    }
     // Meta Description tag:
     echo '    <meta name="description" content="';
     if ( is_home() OR is_front_page() ) { // @note Si page statique à la place de la vraie page d'accueil

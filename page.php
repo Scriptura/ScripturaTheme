@@ -30,7 +30,7 @@
                 <div>
                   <button title="Print article" class="button cmd-print"><span class="icon-printer"></span></button>
                 </div>
-                <?php if (( $capacityRead AND $commentsOpen AND is_single() )): ?>
+                <?php if ($capacityRead AND $commentsOpen AND is_single()): ?>
                 <div>
                   <button title="Comment article" id="comments" class="button"><span class="icon-bubbles"></span></button>
                 </div>

@@ -6,7 +6,7 @@ aside.button-group
     div
       button(title='Share article').button
         span.icon-share
-  _if ( $capacityRead AND $commentsOpen AND is_single() )
+  _if $capacityRead AND $commentsOpen AND is_single()
   div
     button(title='Comment article').button#comments
       span.icon-bubbles

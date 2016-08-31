@@ -13,9 +13,13 @@ block content
             h1.h2.vmin.emphasized(itemprop='name headline') {% $name %}
           .grid6.sizeS-grid12
             .links.protected(itemprop='articleBody') {% $content %}
+            _if ! $restrictedRead OR $restrictedRead AND $capacityRead
             include Includes/Buttons
+            _endif
+          _if ! $restrictedRead OR $restrictedRead AND $capacityRead
           aside.m6.sizeS-m12
             include Includes/Sidebar
+          _endif
 
 block comments
   _if $capacityRead
