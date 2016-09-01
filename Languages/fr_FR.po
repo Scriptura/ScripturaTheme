@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Scriptura\n"
-"POT-Creation-Date: 2016-08-30 10:54+0100\n"
-"PO-Revision-Date: 2016-08-30 10:54+0100\n"
+"POT-Creation-Date: 2016-08-31 13:35+0100\n"
+"PO-Revision-Date: 2016-08-31 13:35+0100\n"
 "Last-Translator: \n"
 "Language-Team: Olivier Chavarin\n"
 "Language: fr_FR\n"
@@ -36,19 +36,24 @@ msgstr "Profil"
 msgid "Home"
 msgstr "Accueil"
 
-#: ../Functions/CategoryTagSearch.php:37 ../Functions/SetSingle.php:50
+#: ../Functions/CategoryTagSearch.php:38 ../Functions/SetSingle.php:53
+#: ../single.php:62
+msgid "This content is only visible to connected users."
+msgstr "Ce contenu n'est visible que par les utilisateurs connectés."
+
+#: ../Functions/CategoryTagSearch.php:40 ../Functions/SetSingle.php:55
 msgid "This content is only visible to authorized users."
 msgstr "Ce contenu n'est visible que par les utilisateurs autorisés."
 
-#: ../Functions/CategoryTagSearch.php:39
+#: ../Functions/CategoryTagSearch.php:44
 msgid "Read more"
 msgstr "Lire la suite"
 
-#: ../Functions/CategoryTagSearch.php:44
+#: ../Functions/CategoryTagSearch.php:49
 msgid "This query yielded no results."
 msgstr "Cette requête n'a donné aucun résultat."
 
-#: ../Functions/CategoryTagSearch.php:47
+#: ../Functions/CategoryTagSearch.php:52
 msgid "Search form"
 msgstr "Formulaire de recherche"
 
@@ -383,7 +388,7 @@ msgstr "Ajouter la connexion depuis le menu de navigation du site"
 msgid "Search"
 msgstr "Rechercher"
 
-#: ../Functions/FunctionSearchForm.php:14 ../Functions/SetSingle.php:368
+#: ../Functions/FunctionSearchForm.php:14 ../Functions/SetSingle.php:384
 msgid "Submit"
 msgstr "Soumettre"
 
@@ -456,10 +461,14 @@ msgid "Search results for"
 msgstr "Résultats de recherche pour"
 
 #: ../Functions/Head.php:42
+msgid "Content on this page is protected."
+msgstr "Le contenu de cette page est protégé."
+
+#: ../Functions/Head.php:46
 msgid "Request for the category"
 msgstr "Requête pour la catégorie "
 
-#: ../Functions/Head.php:44
+#: ../Functions/Head.php:48
 msgid "Request for the tag"
 msgstr "Requête pour le mot clef "
 
@@ -586,47 +595,47 @@ msgstr "Requête pour "
 msgid "Keywords:"
 msgstr "Mots clefs :"
 
-#: ../Functions/SetSingle.php:52
-msgid "This content is only visible to connected users."
-msgstr "Ce contenu n'est visible que par les utilisateurs connectés."
+#: ../Functions/SetSingle.php:99
+msgid "Protected content"
+msgstr "Contenu protégé"
 
-#: ../Functions/SetSingle.php:127
+#: ../Functions/SetSingle.php:139
 msgid "Author:"
 msgstr "Auteur :"
 
-#: ../Functions/SetSingle.php:175
+#: ../Functions/SetSingle.php:187
 msgid "Content published on"
 msgstr "Contenu publié le"
 
-#: ../Functions/SetSingle.php:180
+#: ../Functions/SetSingle.php:192
 msgid "modified on"
 msgstr "modifié le"
 
-#: ../Functions/SetSingle.php:250
+#: ../Functions/SetSingle.php:266
 msgid "Read article"
 msgstr "Lire l'article"
 
-#: ../Functions/SetSingle.php:305
+#: ../Functions/SetSingle.php:321
 msgid "Index the comment"
 msgstr "Ajouter un commentaire"
 
-#: ../Functions/SetSingle.php:367
+#: ../Functions/SetSingle.php:383
 msgid "Message"
 msgstr "Message"
 
-#: ../Functions/SetSingle.php:367
+#: ../Functions/SetSingle.php:383
 msgid "Hello..."
 msgstr "Bonjour..."
 
-#: ../Functions/SetSingle.php:380
+#: ../Functions/SetSingle.php:396
 msgid "Add a comment"
 msgstr "Ajouter un commentaire"
 
-#: ../Functions/SetSingle.php:383
+#: ../Functions/SetSingle.php:399
 msgid "Comments"
 msgstr "Commentaires"
 
-#: ../Functions/SetSingle.php:384
+#: ../Functions/SetSingle.php:400
 msgid "Related Articles"
 msgstr "Articles en relation"
 

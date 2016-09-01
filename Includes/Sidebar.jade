@@ -31,7 +31,11 @@ p.message-date {% $published %}
 _if $keywords
 p.message-keyword {% $keywords %}
 _endif
-_if $restrictedRead AND $capacityRead
+_if $restrictedRead
 p.message-info
   _php _e( 'This content is only visible to connected users.', 'scriptura' )
+_endif
+_if $authorizedGroups
+p.message-info
+  _php _e( 'This content is only visible to authorized users.', 'scriptura' )
 _endif

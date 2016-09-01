@@ -20,9 +20,11 @@
       while ( $popular->have_posts() ) : $popular->the_post();
 
         $postId = get_the_ID();
-        $postImg = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full', false )[0];
+        $postImg = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full', false )[ 0 ];
         $postTitle = get_the_title();
         $permalink = get_permalink();
+        $restrictedRead = get_post_meta( $post->ID, 'restrictedread', true );
+        $authorizedGroups = get_post_meta( $post->ID, 'authorizedgroups', true );
 
         if ( has_post_thumbnail() ) {
           ob_start();
@@ -43,10 +45,16 @@
           $image1500 = get_option( 'scriptura_def_thumbnail' );
           $image2000 = get_option( 'scriptura_def_thumbnail' );
         } else {
-          $image300 = $imgDefault;
-          $image1000 = $imgDefault;
-          $image1500 = $imgDefault;
-          $image2000 = $imgDefault;
+          $image300 = $imgDefault300;
+          $image1000 = $imgDefault1000;
+          $image1500 = $imgDefault1500;
+          $image2000 = $imgDefault2000;
+        }
+        if ( ( $restrictedRead AND ! $capacityRead ) OR ( ! $capacityAministrator AND $userGroup != $authorizedGroups ) ) {
+          $image300 = $imageProtected300;
+          $image1000 = $imageProtected1000;
+          $image1500 = $imageProtected1500;
+          $image2000 = $imageProtected2000;
         }
         echo '<style>
                 @media screen and (max-width: 36.01rem) {

@@ -27,7 +27,6 @@
 		$dateModified = get_the_modified_date();
 		$restrictedRead = get_post_meta( $post->ID, 'restrictedread', true );
 		$authorizedGroups = get_post_meta( $post->ID, 'authorizedgroups', true );
-		//var_dump( $restrictedread );die();
 
 		ob_start();
 		if ( get_the_tags() ) {
@@ -45,13 +44,13 @@
 		}
 		$keywords = ob_get_clean();
 
-//		if ( ( $restrictedread != 1 AND $capacityRead == false ) AND ( $capacityAministrator OR $authorizedgroups == '' OR $authorizedgroups == $userGroup ) ) {
+//		if ( ( $restrictedread != 1 AND $capacityRead == false ) AND ( $capacityAministrator OR $authorizedGroups == '' OR $authorizedGroups == $userGroup ) ) {
 
-
+		//var_dump($userGroup);die();
 		ob_start();
 		if ( $restrictedRead AND ! $capacityRead ) {
 			echo '<p class="message-error">' . __( 'This content is only visible to connected users.', 'scriptura' ) . '</p>';
-		} elseif ( ! $capacityAministrator AND $userGroup != $authorizedGroups ) {
+		} elseif ( ! $capacityAministrator AND $authorizedGroups != $userGroup ) {
 			echo '<p class="message-error">' . __( 'This content is only visible to authorized users.', 'scriptura' ) . '</p>';
 		} else {
 			the_content();
@@ -92,11 +91,12 @@
 			$imageAlt = 'Article image'; // Texte alternatif si meta alt non renseignée
 		}
 		if ( ( $restrictedRead AND ! $capacityRead ) OR ( ! $capacityAministrator AND $userGroup != $authorizedGroups ) ) { // Si fichier protégé alors image et description de remplacement
-			$image1000 = $templateUri . '/Images/Protected1000.jpg';
-			$image1500 = $templateUri . '/Images/Protected1500.jpg';
-			$image2000 = $templateUri . '/Images/Protected2000.jpg';
-			$imageUri = $templateUri . '/Images/Protected1000.jpg';
-			$imageAlt = __( 'Protected file', 'scriptura' );
+			$image300 = $imageProtected300;
+			$image1000 = $imageProtected1000;
+			$image1500 = $imageProtected1500;
+			$image2000 = $imageProtected2000;
+			$imageUri = $imageProtected300;
+			$imageAlt = __( 'Protected content', 'scriptura' );
 		}
 		$image = '
 <style>
@@ -257,7 +257,7 @@
 	} elseif ( get_option( 'scriptura_def_thumbnail' ) ) {
 		$image1000 = str_replace( 'http:', '', get_option( 'scriptura_def_thumbnail' ) );
 	} else {
-		$image1000 = $templateUri . '/Images/Default1000.jpg';
+		$image1000 = $imgDefault1000;
 	}
 	echo '<a href="' . $postLink . '" class="ribbon-container" itemprop="relatedLink">' . PHP_EOL;
 	echo '<style>#relation' . $postId . ' {background-image: url(' . $image1000 . ')}</style>' . PHP_EOL;

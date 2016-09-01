@@ -20,6 +20,15 @@
 	$siteLang = get_language_attributes();
 	$templateUri = str_replace( 'http:', '', get_template_directory_uri() ); // Racine du site en // pour compatibilité avec certificat SSL
 	$imgDefault = $templateUri . '/Images/Default.jpg';
+	$imgDefault300 = $templateUri . '/Images/Default300.jpg';
+	$imgDefault1000 = $templateUri . '/Images/Default1000.jpg';
+	$imgDefault1500 = $templateUri . '/Images/Default1500.jpg';
+	$imgDefault2000 = $templateUri . '/Images/Default2000.jpg';
+	$imageProtected = $templateUri . '/Images/Protected.jpg';
+	$imageProtected300 = $templateUri . '/Images/Protected300.jpg';
+	$imageProtected1000 = $templateUri . '/Images/Protected1000.jpg';
+	$imageProtected1500 = $templateUri . '/Images/Protected1500.jpg';
+	$imageProtected2000 = $templateUri . '/Images/Protected2000.jpg';
 
 	global $current_user;
 	get_currentuserinfo();
@@ -40,18 +49,18 @@
 
 	$userRole = $current_user->roles[ 0 ];
 	// Traduction de `$userRole` si possible :
-	if ($userRole == 'administrator' )    $userRole = __( 'Administrator', 'scriptura' );
-	if ($userRole == 'role_moderator' )   $userRole = __( 'Moderator', 'scriptura' );
-	if ($userRole == 'role_editor' )      $userRole = __( 'Editor', 'scriptura' );
-	if ($userRole == 'role_contributor' ) $userRole = __( 'Contributor', 'scriptura' );
-	if ($userRole == 'role_author' )      $userRole = __( 'Author', 'scriptura' );
-	if ($userRole == 'role_student' )     $userRole = __( 'Student', 'scriptura' );
-	if ($userRole == 'role_commentator' ) $userRole = __( 'Commentator', 'scriptura' );
-	if ($userRole == 'subscriber' )       $userRole = __( 'Subscriber', 'scriptura' );
+	if ( $userRole == 'administrator' )    $userRole = __( 'Administrator', 'scriptura' );
+	if ( $userRole == 'role_moderator' )   $userRole = __( 'Moderator', 'scriptura' );
+	if ( $userRole == 'role_editor' )      $userRole = __( 'Editor', 'scriptura' );
+	if ( $userRole == 'role_contributor' ) $userRole = __( 'Contributor', 'scriptura' );
+	if ( $userRole == 'role_author' )      $userRole = __( 'Author', 'scriptura' );
+	if ( $userRole == 'role_student' )     $userRole = __( 'Student', 'scriptura' );
+	if ( $userRole == 'role_commentator' ) $userRole = __( 'Commentator', 'scriptura' );
+	if ( $userRole == 'subscriber' )       $userRole = __( 'Subscriber', 'scriptura' );
 
 	$userRegistrationOpen = get_option( 'scriptura_user_registration' );
 	$userRegistrationMainNav = get_option( 'scriptura_user_registration_main_nav' );
-	$authorizedgroups = ''; // Initialisation de la variable par défaut
+	$authorizedGroups = false; // Initialisation de la variable par défaut
 
 	global $gravatarUri;
 

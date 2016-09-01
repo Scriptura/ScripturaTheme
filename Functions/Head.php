@@ -33,12 +33,14 @@
             echo strip_tags( get_the_title() ) . $separator . $siteName;
     }
     echo '</title>' . PHP_EOL;
-    if ( $restrictedRead ) { // Si restriction de lecture alors pas d'indexation par les robots
+    if ( $restrictedRead ) {
     echo '    <meta name="robots" content="noindex">' . PHP_EOL;
     }
     // Meta Description tag:
     echo '    <meta name="description" content="';
-    if ( is_home() OR is_front_page() ) { // @note Si page statique à la place de la vraie page d'accueil
+    if ( $restrictedRead AND ! $capacityRead ) {
+    echo __( 'Content on this page is protected.', 'scriptura' );
+    } elseif ( is_home() OR is_front_page() ) { // @note Si page statique à la place de la vraie page d'accueil
     echo get_bloginfo( 'description' );
     } elseif ( is_category() ) {
     echo __( 'Request for the category', 'scriptura' ) . ': ' . single_cat_title( '', false ) . '.';

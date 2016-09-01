@@ -12,7 +12,18 @@ function ScripturaSetup()
 {
 
 
-// @subsection Remove Admin Bar
+// @subsection  Permalink Structure
+// @description Forçage de la structure des permaliens par défaut
+// -----------------------------------------------------------------------------
+
+// @link http://stackoverflow.com/questions/2399184/wordpress-force-update-of-permalink-settings
+if ( get_option( 'permalink_structure' ) == '' ) {
+	global $wp_rewrite;
+	$wp_rewrite->set_permalink_structure( '/%postname%/' );
+}
+
+
+// @subsection  Remove Admin Bar
 // @description Suppression de la barre d'admin WP sur les pages front end
 // -----------------------------------------------------------------------------
 
