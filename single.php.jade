@@ -14,17 +14,17 @@ block content
             h1.h2.vmin.emphasized(itemprop='name headline') {% $name %}
           .grid6.sizeS-grid12
             .links.protected(itemprop='articleBody') {% $content %}
-            _if $capacityAministrator OR ( ( ! $restrictedRead OR $restrictedRead AND $capacityRead ) AND ( $userGroup == $authorizedGroups ) )
+            _if $capacityAministrator OR ( ! $restrictedRead OR $restrictedRead AND $capacityRead ) AND ( ! $authorizedGroups OR $userGroup == $authorizedGroups )
             include Includes/Buttons
             _endif
-          _if $capacityAministrator OR ( ( ! $restrictedRead OR $restrictedRead AND $capacityRead ) AND ( $userGroup == $authorizedGroups ) )
+          _if $capacityAministrator OR ( ! $restrictedRead OR $restrictedRead AND $capacityRead ) AND ( ! $authorizedGroups OR $userGroup == $authorizedGroups )
           aside.m6.sizeS-m12
             include Includes/Sidebar
           _endif
 
 block comments
   _if $capacityRead
-  _if ( $capacityAministrator OR $capacityCommentator AND $commentsOpen ) AND $comments
+  _if $comments OR $capacityCommentator AND $commentsOpen
   aside.aside#index-comments
     .wrap
       h2.vmin.emphasized {% $commentsTitle %}
@@ -32,7 +32,7 @@ block comments
       .grid
         _php $comments
         _endif
-        _if $capacityAministrator OR $capacityCommentator AND $commentsOpen
+        _if $capacityCommentator AND $commentsOpen
         _php $commentForm
         _endif
   _endif

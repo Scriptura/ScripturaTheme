@@ -50,7 +50,7 @@
 		ob_start();
 		if ( $restrictedRead AND ! $capacityRead ) {
 			echo '<p class="message-error">' . __( 'This content is only visible to connected users.', 'scriptura' ) . '</p>';
-		} elseif ( ! $capacityAministrator AND $authorizedGroups != $userGroup ) {
+		} elseif ( ! $capacityAministrator AND $authorizedGroups != $userGroup AND $authorizedGroups != false ) {
 			echo '<p class="message-error">' . __( 'This content is only visible to authorized users.', 'scriptura' ) . '</p>';
 		} else {
 			the_content();

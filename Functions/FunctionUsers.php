@@ -9,7 +9,7 @@
 // @description Connexion de l'utilisateur
 // -----------------------------------------------------------------------------
 
-// @note Fonctionnalitée d'autentification par mail désormait disponible par défaut dans WordPress vanilla ? @todo À réévaluer...
+// @note Fonctionnalitée d'autentification par mail, désormais disponible par défaut dans WordPress ? @todo À réévaluer...
 
 function ScripturaAuthenticate( $user, $username, $password )
 {

@@ -28,7 +28,7 @@
               </div>
               <div class="grid6 sizeS-grid12">
                 <div itemprop="articleBody" class="links protected"><?php echo $content; ?></div>
-                <?php if ($capacityAministrator OR ( ( ! $restrictedRead OR $restrictedRead AND $capacityRead ) AND ( $userGroup == $authorizedGroups ) )): ?>
+                <?php if ($capacityAministrator OR ( ! $restrictedRead OR $restrictedRead AND $capacityRead ) AND ( ! $authorizedGroups OR $userGroup == $authorizedGroups )): ?>
                 <aside class="button-group">
                   <div>
                     <button title="Print article" class="button cmd-print"><span class="icon-printer"></span></button>
@@ -46,7 +46,7 @@
                 </aside>
                 <?php endif; ?>
               </div>
-              <?php if ($capacityAministrator OR ( ( ! $restrictedRead OR $restrictedRead AND $capacityRead ) AND ( $userGroup == $authorizedGroups ) )): ?>
+              <?php if ($capacityAministrator OR ( ! $restrictedRead OR $restrictedRead AND $capacityRead ) AND ( ! $authorizedGroups OR $userGroup == $authorizedGroups )): ?>
               <aside class="m6 sizeS-m12">
                 <?php if ($articleDescription): ?>
                 <p itemprop="description" class="message"><?php echo $articleDescription; ?></p>
@@ -76,14 +76,14 @@
       </article>
     </main>
     <?php if ($capacityRead):
-          if (( $capacityAministrator OR $capacityCommentator AND $commentsOpen ) AND $comments): ?>
+          if ($comments OR $capacityCommentator AND $commentsOpen): ?>
     <aside id="index-comments" class="aside">
       <div class="wrap">
         <h2 class="vmin emphasized"><?php echo $commentsTitle; ?><a href="#index-comments" class="anchor"></a></h2>
         <div class="grid">
           <?php echo $comments;
                 endif;
-                if ($capacityAministrator OR $capacityCommentator AND $commentsOpen):
+                if ($capacityCommentator AND $commentsOpen):
                 echo $commentForm;
                 endif; ?>
         </div>

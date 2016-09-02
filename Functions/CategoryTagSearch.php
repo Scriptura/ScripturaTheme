@@ -19,8 +19,8 @@
 
 		echo '<article class="box0 m3 sizeS-m6 sizeL-m4 ribbon-container-bottom protected">';
 		echo '<a href="' . $postLink . '">';
-		if ( ( $restrictedRead AND ! $capacityRead ) OR ( ! $capacityAministrator AND $userGroup != $authorizedGroups ) ) {
-			$image1000 = $templateUri . '/Images/Protected1000.jpg';
+		if ( $restrictedRead AND ! $capacityRead OR $authorizedGroups AND $userGroup != $authorizedGroups ) {
+			$image1000 = $imageProtected1000;
 		} elseif ( has_post_thumbnail() ) {
 			ob_start();
 			the_post_thumbnail_url( 'image1000' );
@@ -36,7 +36,7 @@
 		echo '<h2 class="h5"><a href="' . $postLink . '">' . $title . '</a></h2>';
 		if ( $restrictedRead != false AND $capacityRead == false ) {
 			echo '<p class="message-error">' . __( 'This content is only visible to connected users.', 'scriptura' ) . '</p>';
-		} elseif ( ! $capacityAministrator AND $userGroup != $authorizedGroups ) {
+		} elseif ( ! $capacityAministrator AND $authorizedGroups AND $userGroup != $authorizedGroups ) {
 			echo '<p class="message-error">' . __( 'This content is only visible to authorized users.', 'scriptura' ) . '</p>';
 		} else {
 			echo '<p>' . $resume . '</p>';

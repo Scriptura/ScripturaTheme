@@ -33,7 +33,7 @@
             echo strip_tags( get_the_title() ) . $separator . $siteName;
     }
     echo '</title>' . PHP_EOL;
-    if ( $restrictedRead ) {
+    if ( $restrictedRead  OR $authorizedGroups ) {
     echo '    <meta name="robots" content="noindex">' . PHP_EOL;
     }
     // Meta Description tag:
