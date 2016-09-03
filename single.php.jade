@@ -25,7 +25,7 @@ block content
 block comments
   //-
     _php var_dump($commentsOpen);die()
-  _if $capacityAdministrator OR ( $capacityRead AND ( $commentsOpen AND $capacityCommentator OR $commentsOpen AND $comments ) AND ( ! $authorizedGroups OR $userGroup == $authorizedGroups ) )
+  _if $capacityRead AND ( $commentsOpen AND $capacityCommentator OR $commentsOpen AND $comments ) AND ( ! $authorizedGroups OR $userGroup == $authorizedGroups )
   aside.aside#index-comments
     .wrap
       h2.vmin.emphasized {% $commentsTitle %}
