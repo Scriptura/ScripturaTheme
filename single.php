@@ -28,7 +28,7 @@
               </div>
               <div class="grid6 sizeS-grid12">
                 <div itemprop="articleBody" class="links protected"><?php echo $content; ?></div>
-                <?php if ($capacityAministrator OR ( ! $restrictedRead OR $restrictedRead AND $capacityRead ) AND ( ! $authorizedGroups OR $userGroup == $authorizedGroups )): ?>
+                <?php if ($capacityAdministrator OR ( ! $restrictedRead OR $restrictedRead AND $capacityRead ) AND ( ! $authorizedGroups OR $userGroup == $authorizedGroups )): ?>
                 <aside class="button-group">
                   <div>
                     <button title="Print article" class="button cmd-print"><span class="icon-printer"></span></button>
@@ -46,7 +46,7 @@
                 </aside>
                 <?php endif; ?>
               </div>
-              <?php if ($capacityAministrator OR ( ! $restrictedRead OR $restrictedRead AND $capacityRead ) AND ( ! $authorizedGroups OR $userGroup == $authorizedGroups )): ?>
+              <?php if ($capacityAdministrator OR ( ! $restrictedRead OR $restrictedRead AND $capacityRead ) AND ( ! $authorizedGroups OR $userGroup == $authorizedGroups )): ?>
               <aside class="m6 sizeS-m12">
                 <?php if ($articleDescription): ?>
                 <p itemprop="description" class="message"><?php echo $articleDescription; ?></p>
@@ -75,23 +75,20 @@
         </div>
       </article>
     </main>
-    <?php if ($capacityRead):
-          if ($comments OR $capacityCommentator AND $commentsOpen): ?>
+    <?php if ($capacityAdministrator OR ( $capacityRead AND ( $commentsOpen AND $capacityCommentator OR $commentsOpen AND $comments ) AND ( ! $authorizedGroups OR $userGroup == $authorizedGroups ) )): ?>
     <aside id="index-comments" class="aside">
       <div class="wrap">
         <h2 class="vmin emphasized"><?php echo $commentsTitle; ?><a href="#index-comments" class="anchor"></a></h2>
         <div class="grid">
           <?php echo $comments;
-                endif;
-                if ($capacityCommentator AND $commentsOpen):
+                if ($commentsOpen AND $capacityCommentator):
                 echo $commentForm;
                 endif; ?>
         </div>
       </div>
     </aside>
-    <?php endif; ?>
-    <div class="ajax-window-comments"></div>
-    <?php if ($relation): ?>
+    <?php endif;
+          if ($relation): ?>
     <aside class="aside">
       <div class="wrap">
         <h2 class="vmin emphasized"><?php echo $relationsTitle; ?></h2>

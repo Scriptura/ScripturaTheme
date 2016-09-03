@@ -50,7 +50,7 @@
           $image1500 = $imgDefault1500;
           $image2000 = $imgDefault2000;
         }
-        if ( ( $restrictedRead AND ! $capacityRead ) OR ( ! $capacityAministrator AND $userGroup != $authorizedGroups ) ) {
+        if ( ( $restrictedRead AND ! $capacityRead ) OR ( ! $capacityAdministrator AND $userGroup != $authorizedGroups ) ) {
           $image300 = $imageProtected300;
           $image1000 = $imageProtected1000;
           $image1500 = $imageProtected1500;

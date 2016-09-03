@@ -42,7 +42,7 @@
 	$userDisplayName = $current_user->display_name;
 	$userDescription = $current_user->description; //get_user_meta( $userId, 'description', true );
 	$userGroup = get_user_meta( $userId, 'group', true );
-	$capacityAministrator = current_user_can( 'administrator' );
+	$capacityAdministrator = current_user_can( 'administrator' );
 	$capacityRead = current_user_can( 'read' );
 	$capacityCommentator = ( current_user_can( 'subscriber' ) ) ? false : true;
 	$capacityEditPosts = current_user_can( 'edit_posts' );

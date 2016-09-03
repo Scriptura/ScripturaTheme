@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Scriptura\n"
-"POT-Creation-Date: 2016-08-31 13:35+0100\n"
-"PO-Revision-Date: 2016-08-31 13:35+0100\n"
+"POT-Creation-Date: 2016-09-03 06:59+0100\n"
+"PO-Revision-Date: 2016-09-03 07:00+0100\n"
 "Last-Translator: \n"
 "Language-Team: Olivier Chavarin\n"
 "Language: fr_FR\n"
@@ -36,12 +36,13 @@ msgstr "Profil"
 msgid "Home"
 msgstr "Accueil"
 
-#: ../Functions/CategoryTagSearch.php:38 ../Functions/SetSingle.php:53
-#: ../single.php:62
+#: ../Functions/CategoryTagSearch.php:38 ../Functions/SetSingle.php:60
+#: ../single.php:63
 msgid "This content is only visible to connected users."
 msgstr "Ce contenu n'est visible que par les utilisateurs connectés."
 
-#: ../Functions/CategoryTagSearch.php:40 ../Functions/SetSingle.php:55
+#: ../Functions/CategoryTagSearch.php:40 ../Functions/SetSingle.php:62
+#: ../single.php:68
 msgid "This content is only visible to authorized users."
 msgstr "Ce contenu n'est visible que par les utilisateurs autorisés."
 
@@ -388,15 +389,15 @@ msgstr "Ajouter la connexion depuis le menu de navigation du site"
 msgid "Search"
 msgstr "Rechercher"
 
-#: ../Functions/FunctionSearchForm.php:14 ../Functions/SetSingle.php:384
+#: ../Functions/FunctionSearchForm.php:14 ../Functions/SetSingle.php:392
 msgid "Submit"
 msgstr "Soumettre"
 
-#: ../Functions/FunctionSetup.php:78
+#: ../Functions/FunctionSetup.php:89
 msgid "Primary menu"
 msgstr "Menu principal"
 
-#: ../Functions/FunctionSetup.php:79
+#: ../Functions/FunctionSetup.php:90
 msgid "Secondary menu"
 msgstr "Menu secondaire"
 
@@ -412,35 +413,35 @@ msgstr "Localisation"
 msgid "Group"
 msgstr "Groupe"
 
-#: ../Functions/FunctionVariables.php:43
+#: ../Functions/FunctionVariables.php:52
 msgid "Administrator"
 msgstr "Administrateur"
 
-#: ../Functions/FunctionVariables.php:44
+#: ../Functions/FunctionVariables.php:53
 msgid "Moderator"
 msgstr "Modérateur"
 
-#: ../Functions/FunctionVariables.php:45
+#: ../Functions/FunctionVariables.php:54
 msgid "Editor"
 msgstr "Éditeur"
 
-#: ../Functions/FunctionVariables.php:46
+#: ../Functions/FunctionVariables.php:55
 msgid "Contributor"
 msgstr "Contributeur"
 
-#: ../Functions/FunctionVariables.php:47
+#: ../Functions/FunctionVariables.php:56
 msgid "Author"
 msgstr "Auteur"
 
-#: ../Functions/FunctionVariables.php:48
+#: ../Functions/FunctionVariables.php:57
 msgid "Student"
 msgstr "Édudiant"
 
-#: ../Functions/FunctionVariables.php:49
+#: ../Functions/FunctionVariables.php:58
 msgid "Commentator"
 msgstr "Commentateur"
 
-#: ../Functions/FunctionVariables.php:50
+#: ../Functions/FunctionVariables.php:59
 msgid "Subscriber"
 msgstr "Abonné"
 
@@ -591,51 +592,55 @@ msgstr ""
 msgid "Request to"
 msgstr "Requête pour "
 
-#: ../Functions/SetSingle.php:36
+#: ../Functions/SetSingle.php:46
+msgid "Keyword:"
+msgstr "Mot clef :"
+
+#: ../Functions/SetSingle.php:48
 msgid "Keywords:"
 msgstr "Mots clefs :"
 
-#: ../Functions/SetSingle.php:99
+#: ../Functions/SetSingle.php:107
 msgid "Protected content"
 msgstr "Contenu protégé"
 
-#: ../Functions/SetSingle.php:139
+#: ../Functions/SetSingle.php:147
 msgid "Author:"
 msgstr "Auteur :"
 
-#: ../Functions/SetSingle.php:187
+#: ../Functions/SetSingle.php:195
 msgid "Content published on"
 msgstr "Contenu publié le"
 
-#: ../Functions/SetSingle.php:192
+#: ../Functions/SetSingle.php:200
 msgid "modified on"
 msgstr "modifié le"
 
-#: ../Functions/SetSingle.php:266
+#: ../Functions/SetSingle.php:274
 msgid "Read article"
 msgstr "Lire l'article"
 
-#: ../Functions/SetSingle.php:321
+#: ../Functions/SetSingle.php:329
 msgid "Index the comment"
 msgstr "Ajouter un commentaire"
 
-#: ../Functions/SetSingle.php:383
+#: ../Functions/SetSingle.php:391
 msgid "Message"
 msgstr "Message"
 
-#: ../Functions/SetSingle.php:383
+#: ../Functions/SetSingle.php:391
 msgid "Hello..."
 msgstr "Bonjour..."
 
-#: ../Functions/SetSingle.php:396
+#: ../Functions/SetSingle.php:404
 msgid "Add a comment"
 msgstr "Ajouter un commentaire"
 
-#: ../Functions/SetSingle.php:399
+#: ../Functions/SetSingle.php:407
 msgid "Comments"
 msgstr "Commentaires"
 
-#: ../Functions/SetSingle.php:400
+#: ../Functions/SetSingle.php:408
 msgid "Related Articles"
 msgstr "Articles en relation"
 

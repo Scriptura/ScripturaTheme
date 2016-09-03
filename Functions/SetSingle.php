@@ -5,7 +5,7 @@
 // @description Configuration pour les pages d'articles
 // -----------------------------------------------------------------------------
 
-	// @note Certaines fonctions WP ne peuvent être mise dans une variable en l'état. Recours aux fonctions php natives 'ob_start()' et 'ob_get_clean()' afin de contourner ce problème.
+	// @note Certaines fonctions WP ne peuvent être mises dans une variable en l'état. Recours aux fonctions php natives 'ob_start()' et 'ob_get_clean()' afin de contourner ce problème.
 
 	// @documentation
 	// - 'ob_start()' enclenche la temporisation de sortie
@@ -31,26 +31,35 @@
 		ob_start();
 		if ( get_the_tags() ) {
 			$posttags = get_the_tags(); // plus facilement personnalisable que the_tags()
+			$keywords = ' <span itemprop="keywords">';
 			if ( $posttags ) {
-				$keywords = __( 'Keywords:', 'scriptura' ) . ' <span itemprop="keywords">';
+				$count = 0;
 				foreach( $posttags as $tag ) {
+					$count++;
 					$keywords .= '<a href="' . get_tag_link( $tag->term_id ) . '">' . $tag->name . '</a>';
 					$keywords .= ', '; // Ajout d'une virgule
 				}
 			}
 			$keywords = rtrim( $keywords, ', ' ); // Suppression de la dernière virgule
 			$keywords = $keywords . '</span>.'; // Un point en fin de chaîne
+			//$label = _n( 'Keyword:', 'Keywords:', $count, 'scriptura' ); // Problème d'utilisation de la fonction _n() avec Poedit
+			if ( $count == 1 ) {
+				$label = __( 'Keyword:', 'scriptura' );
+			} else {
+				$label = __( 'Keywords:', 'scriptura' );
+			}
+			$keywords = $label . $keywords;
 			echo $keywords;
 		}
 		$keywords = ob_get_clean();
 
-//		if ( ( $restrictedread != 1 AND $capacityRead == false ) AND ( $capacityAministrator OR $authorizedGroups == '' OR $authorizedGroups == $userGroup ) ) {
+//		if ( ( $restrictedread != 1 AND $capacityRead == false ) AND ( $capacityAdministrator OR $authorizedGroups == '' OR $authorizedGroups == $userGroup ) ) {
 
 		//var_dump($userGroup);die();
 		ob_start();
 		if ( $restrictedRead AND ! $capacityRead ) {
 			echo '<p class="message-error">' . __( 'This content is only visible to connected users.', 'scriptura' ) . '</p>';
-		} elseif ( ! $capacityAministrator AND $authorizedGroups != $userGroup AND $authorizedGroups != false ) {
+		} elseif ( ! $capacityAdministrator AND $authorizedGroups != $userGroup AND $authorizedGroups ) {
 			echo '<p class="message-error">' . __( 'This content is only visible to authorized users.', 'scriptura' ) . '</p>';
 		} else {
 			the_content();
@@ -90,7 +99,7 @@
 		} else {
 			$imageAlt = 'Article image'; // Texte alternatif si meta alt non renseignée
 		}
-		if ( ( $restrictedRead AND ! $capacityRead ) OR ( ! $capacityAministrator AND $userGroup != $authorizedGroups ) ) { // Si fichier protégé alors image et description de remplacement
+		if ( ( $restrictedRead AND ! $capacityRead ) OR ( ! $capacityAdministrator AND $authorizedGroups != $userGroup AND $authorizedGroups ) ) { // Si fichier protégé alors image et description de remplacement
 			$image300 = $imageProtected300;
 			$image1000 = $imageProtected1000;
 			$image1500 = $imageProtected1500;
@@ -248,7 +257,7 @@
 	$restrictedRead = get_post_meta( $post->ID, 'restrictedread', true );
 	$authorizedGroups = get_post_meta( $post->ID, 'authorizedgroups', true );
 
-	if ( ( $restrictedRead AND ! $capacityRead ) OR ( ! $capacityAministrator AND $userGroup != $authorizedGroups ) ) {
+	if ( ( $restrictedRead AND ! $capacityRead ) OR ( ! $capacityAdministrator AND $authorizedGroups != $userGroup AND $authorizedGroups ) ) {
 		$image1000 = $templateUri . '/Images/Protected1000.jpg';
 	} elseif ( has_post_thumbnail() ) {
 		ob_start();

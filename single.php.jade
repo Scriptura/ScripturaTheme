@@ -14,29 +14,30 @@ block content
             h1.h2.vmin.emphasized(itemprop='name headline') {% $name %}
           .grid6.sizeS-grid12
             .links.protected(itemprop='articleBody') {% $content %}
-            _if $capacityAministrator OR ( ! $restrictedRead OR $restrictedRead AND $capacityRead ) AND ( ! $authorizedGroups OR $userGroup == $authorizedGroups )
+            _if $capacityAdministrator OR ( ! $restrictedRead OR $restrictedRead AND $capacityRead ) AND ( ! $authorizedGroups OR $userGroup == $authorizedGroups )
             include Includes/Buttons
             _endif
-          _if $capacityAministrator OR ( ! $restrictedRead OR $restrictedRead AND $capacityRead ) AND ( ! $authorizedGroups OR $userGroup == $authorizedGroups )
+          _if $capacityAdministrator OR ( ! $restrictedRead OR $restrictedRead AND $capacityRead ) AND ( ! $authorizedGroups OR $userGroup == $authorizedGroups )
           aside.m6.sizeS-m12
             include Includes/Sidebar
           _endif
 
 block comments
-  _if $capacityRead
-  _if $comments OR $capacityCommentator AND $commentsOpen
+  //-
+    _php var_dump($commentsOpen);die()
+  _if $capacityAdministrator OR ( $capacityRead AND ( $commentsOpen AND $capacityCommentator OR $commentsOpen AND $comments ) AND ( ! $authorizedGroups OR $userGroup == $authorizedGroups ) )
   aside.aside#index-comments
     .wrap
       h2.vmin.emphasized {% $commentsTitle %}
         a.anchor(href='#index-comments')
       .grid
         _php $comments
-        _endif
-        _if $capacityCommentator AND $commentsOpen
+        _if $commentsOpen AND $capacityCommentator
         _php $commentForm
         _endif
   _endif
-  .ajax-window-comments
+  //-
+    .ajax-window-comments
 
 block aside
   _if $relation

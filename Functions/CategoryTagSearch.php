@@ -36,7 +36,7 @@
 		echo '<h2 class="h5"><a href="' . $postLink . '">' . $title . '</a></h2>';
 		if ( $restrictedRead != false AND $capacityRead == false ) {
 			echo '<p class="message-error">' . __( 'This content is only visible to connected users.', 'scriptura' ) . '</p>';
-		} elseif ( ! $capacityAministrator AND $authorizedGroups AND $userGroup != $authorizedGroups ) {
+		} elseif ( ! $capacityAdministrator AND $authorizedGroups AND $userGroup != $authorizedGroups ) {
 			echo '<p class="message-error">' . __( 'This content is only visible to authorized users.', 'scriptura' ) . '</p>';
 		} else {
 			echo '<p>' . $resume . '</p>';
