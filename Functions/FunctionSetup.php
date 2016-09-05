@@ -198,6 +198,18 @@ add_action( 'init', 'ScripturaDisableEmojis' );
 //	}
 //}
 
+// @subsection  Footer Admin
+// @description Ajout d'un lien dans le footer de l'admin
+// -----------------------------------------------------------------------------
+
+if (is_admin()) {
+	function ScripturaAdminFooterText()
+	{
+	    echo '<span id="footer-thankyou">' .__( '<a href="https://github.com/Scriptura/ScripturaTheme">Scriptura</a> theme is developed by <a href="https://github.com/Scriptura">Olivier Chavarin</a>.', 'scriptura' ). '</span>';
+	}
+	add_filter( 'admin_footer_text', 'ScripturaAdminFooterText' );
+}
+
 
 // END function ScripturaSetup :
 }

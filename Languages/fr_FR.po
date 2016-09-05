@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Scriptura\n"
-"POT-Creation-Date: 2016-09-03 06:59+0100\n"
-"PO-Revision-Date: 2016-09-03 07:00+0100\n"
+"POT-Creation-Date: 2016-09-05 05:07+0100\n"
+"PO-Revision-Date: 2016-09-05 05:07+0100\n"
 "Last-Translator: \n"
 "Language-Team: Olivier Chavarin\n"
 "Language: fr_FR\n"
@@ -36,12 +36,12 @@ msgstr "Profil"
 msgid "Home"
 msgstr "Accueil"
 
-#: ../Functions/CategoryTagSearch.php:38 ../Functions/SetSingle.php:60
+#: ../Functions/CategoryTagSearch.php:38 ../Functions/SetSingle.php:61
 #: ../single.php:63
 msgid "This content is only visible to connected users."
 msgstr "Ce contenu n'est visible que par les utilisateurs connectés."
 
-#: ../Functions/CategoryTagSearch.php:40 ../Functions/SetSingle.php:62
+#: ../Functions/CategoryTagSearch.php:40 ../Functions/SetSingle.php:63
 #: ../single.php:68
 msgid "This content is only visible to authorized users."
 msgstr "Ce contenu n'est visible que par les utilisateurs autorisés."
@@ -166,11 +166,11 @@ msgstr "Date de publication du document"
 msgid "1974"
 msgstr "1974"
 
-#: ../Functions/FunctionImages.php:43
+#: ../Functions/FunctionImages.php:61
 msgid "Portrait"
 msgstr "Portrait"
 
-#: ../Functions/FunctionImages.php:44
+#: ../Functions/FunctionImages.php:62
 msgid "Squarre"
 msgstr "Carré"
 
@@ -389,7 +389,7 @@ msgstr "Ajouter la connexion depuis le menu de navigation du site"
 msgid "Search"
 msgstr "Rechercher"
 
-#: ../Functions/FunctionSearchForm.php:14 ../Functions/SetSingle.php:392
+#: ../Functions/FunctionSearchForm.php:14 ../Functions/SetSingle.php:393
 msgid "Submit"
 msgstr "Soumettre"
 
@@ -401,49 +401,56 @@ msgstr "Menu principal"
 msgid "Secondary menu"
 msgstr "Menu secondaire"
 
-#: ../Functions/FunctionUsers.php:81
-msgid "Additional Information"
-msgstr "Informations complémentaires"
+#: ../Functions/FunctionSetup.php:208
+msgid ""
+"<a href=\"https://github.com/Scriptura/ScripturaTheme\">Scriptura</a> theme "
+"is developed by <a href=\"https://github.com/Scriptura\">Olivier Chavarin</"
+"a>."
+msgstr ""
+"Le thème <a href=\"https://github.com/Scriptura/ScripturaTheme\">Scriptura</"
+"a> est développé par <a href=\"https://github.com/Scriptura\">Olivier "
+"Chavarin</a>."
 
-#: ../Functions/FunctionUsers.php:85
-msgid "Location"
-msgstr "Localisation"
-
-#: ../Functions/FunctionUsers.php:89
-msgid "Group"
-msgstr "Groupe"
-
-#: ../Functions/FunctionVariables.php:52
-msgid "Administrator"
-msgstr "Administrateur"
-
-#: ../Functions/FunctionVariables.php:53
+#: ../Functions/FunctionUsers.php:42
 msgid "Moderator"
 msgstr "Modérateur"
 
-#: ../Functions/FunctionVariables.php:54
+#: ../Functions/FunctionUsers.php:73
 msgid "Editor"
 msgstr "Éditeur"
 
-#: ../Functions/FunctionVariables.php:55
-msgid "Contributor"
-msgstr "Contributeur"
-
-#: ../Functions/FunctionVariables.php:56
+#: ../Functions/FunctionUsers.php:104
 msgid "Author"
 msgstr "Auteur"
 
-#: ../Functions/FunctionVariables.php:57
-msgid "Student"
-msgstr "Édudiant"
+#: ../Functions/FunctionUsers.php:116
+msgid "Contributor"
+msgstr "Contributeur"
 
-#: ../Functions/FunctionVariables.php:58
+#: ../Functions/FunctionUsers.php:124
+msgid "Student"
+msgstr "Étudiant"
+
+#: ../Functions/FunctionUsers.php:147
+#, fuzzy
 msgid "Commentator"
 msgstr "Commentateur"
 
-#: ../Functions/FunctionVariables.php:59
+#: ../Functions/FunctionUsers.php:153
 msgid "Subscriber"
 msgstr "Abonné"
+
+#: ../Functions/FunctionUsers.php:324
+msgid "Additional Information"
+msgstr "Informations complémentaires"
+
+#: ../Functions/FunctionUsers.php:328
+msgid "Location"
+msgstr "Localisation"
+
+#: ../Functions/FunctionUsers.php:332
+msgid "Group"
+msgstr "Groupe"
 
 #: ../Functions/FunctionWidgets.php:22
 msgid "This widget takes place in the site footer."
@@ -592,66 +599,54 @@ msgstr ""
 msgid "Request to"
 msgstr "Requête pour "
 
-#: ../Functions/SetSingle.php:46
+#: ../Functions/SetSingle.php:47
 msgid "Keyword:"
 msgstr "Mot clef :"
 
-#: ../Functions/SetSingle.php:48
+#: ../Functions/SetSingle.php:49
 msgid "Keywords:"
 msgstr "Mots clefs :"
 
-#: ../Functions/SetSingle.php:107
+#: ../Functions/SetSingle.php:108
 msgid "Protected content"
 msgstr "Contenu protégé"
 
-#: ../Functions/SetSingle.php:147
+#: ../Functions/SetSingle.php:148
 msgid "Author:"
 msgstr "Auteur :"
 
-#: ../Functions/SetSingle.php:195
+#: ../Functions/SetSingle.php:196
 msgid "Content published on"
 msgstr "Contenu publié le"
 
-#: ../Functions/SetSingle.php:200
+#: ../Functions/SetSingle.php:201
 msgid "modified on"
 msgstr "modifié le"
 
-#: ../Functions/SetSingle.php:274
+#: ../Functions/SetSingle.php:275
 msgid "Read article"
 msgstr "Lire l'article"
 
-#: ../Functions/SetSingle.php:329
+#: ../Functions/SetSingle.php:330
 msgid "Index the comment"
 msgstr "Ajouter un commentaire"
 
-#: ../Functions/SetSingle.php:391
+#: ../Functions/SetSingle.php:392
 msgid "Message"
 msgstr "Message"
 
-#: ../Functions/SetSingle.php:391
+#: ../Functions/SetSingle.php:392
 msgid "Hello..."
 msgstr "Bonjour..."
 
-#: ../Functions/SetSingle.php:404
+#: ../Functions/SetSingle.php:405
 msgid "Add a comment"
 msgstr "Ajouter un commentaire"
 
-#: ../Functions/SetSingle.php:407
+#: ../Functions/SetSingle.php:408
 msgid "Comments"
 msgstr "Commentaires"
 
-#: ../Functions/SetSingle.php:408
+#: ../Functions/SetSingle.php:409
 msgid "Related Articles"
 msgstr "Articles en relation"
-
-#~ msgid "Given Name"
-#~ msgstr "Prénom"
-
-#~ msgid "Name"
-#~ msgstr "Nom"
-
-#~ msgid "Meta tags"
-#~ msgstr "Balises meta"
-
-#~ msgid "Hello"
-#~ msgstr "Bonjour"

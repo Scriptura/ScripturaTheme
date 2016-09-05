@@ -5,13 +5,6 @@
 // @description Paramétrage de l'éditeur visuel tinyMCE
 // -----------------------------------------------------------------------------
 
-if ( is_admin() ) :
-
-// Définir l'éditeur de texte en tant qu'éditeur par défaut
-//add_filter( 'wp_default_editor', create_function('', 'return "html";') );
-
-endif; // admin
-
 
 // -----------------------------------------------------------------------------
 // @subsection  Add original buttons
@@ -73,6 +66,7 @@ endif; // admin
 // @subsection  Wysiwyg Styles
 // @description Styles injecté dans la fenêtre wysiwyg
 // -----------------------------------------------------------------------------
+
 // @todo à mettre en place si besoin
 // @link http://www.gregoirenoyelle.com/wordpress-accorder-style-editeur-wysiwyg-theme/
 

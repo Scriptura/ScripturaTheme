@@ -2,7 +2,7 @@
 
 // -----------------------------------------------------------------------------
 // @section     Function Router
-// @description Routage dédié aux pages spécifiques du thème
+// @description Routage spécifiques
 // -----------------------------------------------------------------------------
 
 // @link https://www.grafikart.fr/tutoriels/wordpress/inscription-connexion-perso-282
@@ -25,3 +25,16 @@ function ScripturaRouter()
 add_action( 'send_headers', 'ScripturaRouter' ); // @note Gestion des en-têtes HTTP
 
 endif; // admin
+
+
+// @subsection  Logout Redirect
+// @description Redirection après déconnection
+// -----------------------------------------------------------------------------
+
+function ScripturaLogoutRedirect()
+{
+	//wp_redirect( get_site_url() . '/Login' );
+	require locate_template( 'Templates/Login.php' );
+	exit;
+}
+add_action( 'wp_logout', 'ScripturaLogoutRedirect' );

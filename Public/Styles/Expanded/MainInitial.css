@@ -1038,7 +1038,7 @@
   content: '\EAC7';
 }
 
-/* line 3795 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Icons.styl */
+/* line 3796 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Icons.styl */
 
 /* line 13 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 
@@ -6361,9 +6361,10 @@ a:active .magimg {
 /* line 3639 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 .relationship [class*="ratio"] {
   background-size: cover;
+  background-position: 50% 50%;
 }
 
-/* line 3642 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3643 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 .relationship a:focus,
 .relationship a:hover,
 .relationship a:active {
@@ -6373,53 +6374,53 @@ a:active .magimg {
   text-decoration: none;
 }
 
-/* line 3650 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3651 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 .relationship h2 {
   font-size: 1em;
 }
 
-/* line 3660 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3661 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 .avatar {
   background-size: cover;
 }
 
 /* line 1 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 
-/* line 3670 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3671 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 
-/* line 3670 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3671 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 @-webkit-keyframes animBlink {
 
-/* line 3671 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3672 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
   0% {
     opacity: 1;
   }
 
-/* line 3673 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3674 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
   50% {
     opacity: 0.2;
   }
 }
 
-/* line 3670 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3671 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 
-/* line 3670 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3671 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 @keyframes animBlink {
 
-/* line 3671 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3672 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
   0% {
     opacity: 1;
   }
 
-/* line 3673 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3674 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
   50% {
     opacity: 0.2;
   }
 }
 
-/* line 3684 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3685 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 
-/* line 3686 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3687 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 .organizational-chart {
   display: -webkit-box;
   display: -webkit-flex;
@@ -6428,7 +6429,7 @@ a:active .magimg {
   color: #fff;
 }
 
-/* line 3690 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3691 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 .organizational-chart ul {
   display: -webkit-box;
   display: -webkit-flex;
@@ -6446,7 +6447,7 @@ a:active .magimg {
   padding: 0;
 }
 
-/* line 3697 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3698 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 .organizational-chart li {
   position: relative;
   height: 2em;
@@ -6461,37 +6462,37 @@ a:active .magimg {
   background-color: #ff6f7d;
 }
 
-/* line 3710 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3711 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 .organizational-chart ul:nth-last-child(2) li {
   background-color: #dff0d8;
 }
 
-/* line 3713 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3714 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 .organizational-chart ul:nth-last-child(3) li {
   background-color: #d9edf7;
 }
 
-/* line 3716 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3717 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 .organizational-chart ul:nth-last-child(4) li {
   background-color: #dff0d8;
 }
 
-/* line 3719 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3720 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 .organizational-chart ul:nth-last-child(5) li {
   background-color: #f2dede;
 }
 
-/* line 3722 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3723 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 .organizational-chart ul:first-child li {
   background-color: #d9edf7;
 }
 
-/* line 3725 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3726 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 .organizational-chart ul:last-child li {
   background-color: #ff6f7d;
 }
 
-/* line 3728 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3729 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 .organizational-chart li::before,
 .organizational-chart li::after {
   content: '';
@@ -6500,7 +6501,7 @@ a:active .magimg {
   box-sizing: border-box;
 }
 
-/* line 3735 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3736 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 .organizational-chart li::before {
   top: 50%;
   left: 100%;
@@ -6508,7 +6509,7 @@ a:active .magimg {
   border: 1px solid #aaa;
 }
 
-/* line 3741 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3742 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 .organizational-chart li::after {
   top: 0;
   right: -2em;
@@ -6516,82 +6517,82 @@ a:active .magimg {
   border: 1px solid #aaa;
 }
 
-/* line 3747 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3748 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 .organizational-chart ul:last-child li::before,
 .organizational-chart ul:last-child li::after {
   content: none;
 }
 
-/* line 3751 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3752 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 .organizational-chart li:nth-child(odd)::after {
   top: 50%;
 }
 
-/* line 3754 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3755 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 .organizational-chart ul:nth-child(2) li::after {
   height: 3em;
 }
 
-/* line 3757 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3758 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 .organizational-chart ul:nth-child(2) li:nth-child(even)::after {
   top: -100%;
 }
 
-/* line 3760 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3761 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 .organizational-chart ul:nth-child(3) li::after {
   height: 7em;
 }
 
-/* line 3763 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3764 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 .organizational-chart ul:nth-child(3) li:nth-child(even)::after {
   top: -300%;
 }
 
-/* line 3766 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3767 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 .organizational-chart ul:nth-child(4) li::after {
   height: 15em;
 }
 
-/* line 3769 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3770 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 .organizational-chart ul:nth-child(4) li:nth-child(even)::after {
   top: -700%;
 }
 
-/* line 3772 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3773 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 .organizational-chart ul:nth-child(5) li::after {
   height: 31em;
 }
 
-/* line 3775 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3776 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 .organizational-chart ul:nth-child(5) li:nth-child(even)::after {
   top: -1500%;
 }
 @media (max-width: 36.01rem) {
 
-/* line 3780 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3781 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
   .organizational-chart ul + ul li {
     margin-left: -2em;
   }
 
-/* line 3783 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3784 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
   .organizational-chart ul li::before {
     width: 1em;
   }
 
-/* line 3786 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3787 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
   .organizational-chart ul li::after {
     right: -1em;
   }
 }
 @media (min-width: 36.01rem) {
 
-/* line 3791 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3792 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
   .organizational-chart ul + ul li {
     margin-left: 1em;
   }
 }
 
-/* line 3794 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
+/* line 3795 : /Users/olivierchavarin/Documents/Archives/Web/Scriptura/ScripturaForWordpress/wp-content/themes/ScripturaTheme/Styles/Partial/Core.styl */
 :root .organizational-chart li:empty {
   visibility: hidden;
 }

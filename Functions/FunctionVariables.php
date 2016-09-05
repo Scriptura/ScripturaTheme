@@ -43,21 +43,13 @@
 	$userDescription = $current_user->description; //get_user_meta( $userId, 'description', true );
 	$userGroup = get_user_meta( $userId, 'group', true );
 	$capacityAdministrator = current_user_can( 'administrator' );
+	$capacityModerator = current_user_can( 'moderate_comments' );
+	$capacityEditor = current_user_can( 'unfiltered_html' );
+	$capacityCommentator = ( current_user_can( 'subscriber' ) ) ? false : true; // @note Test d'une capacité et non du rôle par lui même 
 	$capacityRead = current_user_can( 'read' );
-	$capacityCommentator = ( current_user_can( 'subscriber' ) ) ? false : true;
 	$capacityEditPosts = current_user_can( 'edit_posts' );
 
 	$userRole = $current_user->roles[ 0 ];
-	// Traduction de `$userRole` si possible :
-	if ( $userRole == 'administrator' )    $userRole = __( 'Administrator', 'scriptura' );
-	if ( $userRole == 'role_moderator' )   $userRole = __( 'Moderator', 'scriptura' );
-	if ( $userRole == 'role_editor' )      $userRole = __( 'Editor', 'scriptura' );
-	if ( $userRole == 'role_contributor' ) $userRole = __( 'Contributor', 'scriptura' );
-	if ( $userRole == 'role_author' )      $userRole = __( 'Author', 'scriptura' );
-	if ( $userRole == 'role_student' )     $userRole = __( 'Student', 'scriptura' );
-	if ( $userRole == 'role_commentator' ) $userRole = __( 'Commentator', 'scriptura' );
-	if ( $userRole == 'subscriber' )       $userRole = __( 'Subscriber', 'scriptura' );
-
 	$userRegistrationOpen = get_option( 'scriptura_user_registration' );
 	$userRegistrationMainNav = get_option( 'scriptura_user_registration_main_nav' );
 	$authorizedGroups = false; // Initialisation de la variable par défaut

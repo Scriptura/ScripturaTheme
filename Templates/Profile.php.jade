@@ -68,7 +68,7 @@ block content
                   | &nbsp;&nbsp;Description&nbsp;: {% $userDescription %}
                 _endif
             .list-stripe
-              _if $capacityEditPosts
+              _if $capacityModerator
               a(href='{% $adminUri %}')
                 span.icon-login
                 | &nbsp;&nbsp;{% $textAdmin %}

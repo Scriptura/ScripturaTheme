@@ -60,7 +60,7 @@
                   <?php endif; ?>
                 </div>
                 <div class="list-stripe">
-                  <?php if ($capacityEditPosts): ?><a href="<?php echo $adminUri; ?>"><span class="icon-login"></span>&nbsp;&nbsp;<?php echo $textAdmin; ?></a>
+                  <?php if ($capacityModerator): ?><a href="<?php echo $adminUri; ?>"><span class="icon-login"></span>&nbsp;&nbsp;<?php echo $textAdmin; ?></a>
                   <?php endif; ?><a href="<?php echo $logoutUri; ?>"><span class="icon-logout"></span>&nbsp;&nbsp;<?php echo $textLogout; ?></a>
                 </div>
               </div>

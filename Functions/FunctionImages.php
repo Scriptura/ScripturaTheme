@@ -6,6 +6,24 @@
 // -----------------------------------------------------------------------------
 
 
+// @subsection  Upload SVG Ready
+// @description Autorise l'upload des SVG dans la bibliothèque medias
+// -----------------------------------------------------------------------------
+
+// @link http://css-tricks.com/snippets/wordpress/allow-svg-through-wordpress-media-uploader/
+// @note Il existe une failles de sécurité XML avec le format SVG, c'est pourquoi l'upload de ce format est réservé aux administrateurs
+// @note Le SVG n'est pas appelé en natif mais via une balise <img>
+
+if ( is_admin() AND $capacityAdministrator ) {
+    function ScripturaUploadMimesSvgAdd( $mimes )
+    {
+        $mimes[ 'svg' ] = 'image/svg+xml';
+        return $mimes;
+    }
+    add_filter( 'upload_mimes', 'ScripturaUploadMimesSvgAdd' );
+}
+
+
 // @subsection  Thumbnails
 // @description Support des images
 // -----------------------------------------------------------------------------
