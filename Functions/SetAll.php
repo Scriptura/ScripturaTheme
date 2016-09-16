@@ -5,10 +5,11 @@
 // @description Configuration commune à plusieurs pages du site
 // -----------------------------------------------------------------------------
 
+	$widgetFooter = false;
 	if ( is_active_sidebar( 'footer' ) ) {
 		ob_start();
 		dynamic_sidebar( 'footer' );
-		$widgetFooter .= ob_get_clean();
+		$widgetFooter = ob_get_clean();
 	}
 
 	$searchForm = ScripturaSearchForm();

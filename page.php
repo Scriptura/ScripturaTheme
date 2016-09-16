@@ -36,7 +36,7 @@
                 </div>
                 <?php endif;
                       if ($capacityEditPosts): ?>
-                <form action="<?php echo $editPost; ?>" method="post" target="_blank">
+                <form action="<?php echo $editPost; ?>" method="post">
                   <button title="Edit article" class="button"><span class="icon-pen"></span></button>
                 </form>
                 <?php endif; ?>

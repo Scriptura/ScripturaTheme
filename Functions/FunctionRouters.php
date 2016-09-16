@@ -31,6 +31,8 @@ endif; // admin
 // @description Redirection après déconnection
 // -----------------------------------------------------------------------------
 
+// @link https://developer.wordpress.org/reference/functions/wp_redirect/
+
 function ScripturaLogoutRedirect()
 {
 	//wp_redirect( get_site_url() . '/Login' );

@@ -24,7 +24,7 @@
           <div class="wrap">
             <div class="grid">
               <div class="m12">
-                <h1 itemprop="name headline" class="h2 vmin emphasized"><?php echo $name; ?></h1>
+                <h1 itemprop="name" class="h2 vmin emphasized"><?php echo $name; ?></h1>
               </div>
               <div class="grid6 sizeS-grid12">
                 <div itemprop="articleBody" class="links protected"><?php echo $content; ?></div>
@@ -39,7 +39,7 @@
                   </div>
                   <?php endif;
                         if ($capacityEditPosts): ?>
-                  <form action="<?php echo $editPost; ?>" method="post" target="_blank">
+                  <form action="<?php echo $editPost; ?>" method="post">
                     <button title="Edit article" class="button"><span class="icon-pen"></span></button>
                   </form>
                   <?php endif; ?>

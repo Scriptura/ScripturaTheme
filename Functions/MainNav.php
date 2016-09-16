@@ -32,7 +32,7 @@ function ScripturaMainNav()
 		} else {
 			$menuList .= '<a href="' . $siteUri . '">';
 		}
-		$menuList .= '<span class="icon-home only-icon"></span><span class="sizeNav-hidden">Home</span>';
+		$menuList .= '<span class="icon-home only-icon"></span><span>Home</span>';
 		if ( is_home() ) {
 			$menuList .= '</span>';
 		} else {

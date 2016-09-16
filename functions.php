@@ -11,10 +11,10 @@
 	//phpinfo ( -1 );
 	ini_set( 'display_errors', 1 ); // Affiche les erreurs php
 	error_reporting( E_ALL ); // Rapporte toutes les erreurs et les notices
-	error_reporting( 0 ); // Ne retourne aucune erreur
+	//error_reporting( 0 ); // Ne retourne aucune erreur
 
 	require_once locate_template( 'Functions/FunctionVariables.php' );
-	require_once locate_template( 'Functions/FunctionRouter.php' );
+	require_once locate_template( 'Functions/FunctionRouters.php' );
 	require_once locate_template( 'Functions/FunctionSetup.php' );
 	require_once locate_template( 'Functions/FunctionHead.php' );
 	require_once locate_template( 'Functions/FunctionScripts.php' );

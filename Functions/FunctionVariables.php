@@ -13,7 +13,7 @@
 	$slug = str_replace( $root, '', $_SERVER[ 'REQUEST_URI' ] );
 	$slug = explode( '/', $slug );
 
-	$version = date( dmy ); // Versioning pour certains fichiers css et js
+	$version = date( 'dmy' ); // Versioning pour certains fichiers css et js
 
 	$siteName = get_bloginfo( 'name' ); // Nom du site
 	$siteUri = get_site_url(); // Url du site

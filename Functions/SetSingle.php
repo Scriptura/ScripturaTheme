@@ -21,8 +21,8 @@
 		//$publisher = 'Editions MachinTruc';
 		$addressLocality = get_post_meta( $post->ID, 'addresslocality', true );
 		$dateDocumentPublished = get_post_meta( $post->ID, 'datedocumentpublished', true );
-		//$pageStart = '57';
-		//$pageEnd = '58';
+		$pageStart = false;
+		$pageEnd = false;
 		$datePublished = get_the_date();
 		$dateModified = get_the_modified_date();
 		$restrictedRead = get_post_meta( $post->ID, 'restrictedread', true );
@@ -94,8 +94,9 @@
 	// @note Fonctions en remplacement de 'the_post_thumbnail()' afin de générer du html maîtrisé.
 	if ( has_post_thumbnail() ) {
 		$imageUri = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full', false )[ 0 ]; // URL et format de l'image
-		if( $imageAlt ) {
-			$imageAlt = get_post_meta( get_post_thumbnail_id(), '_wp_attachment_image_alt', true ); // Meta alt
+		$imageAlt = get_post_meta( get_post_thumbnail_id(), '_wp_attachment_image_alt', true ); // Meta alt
+		if ( $imageAlt ) {
+			$imageAlt = $imageAlt;
 		} else {
 			$imageAlt = 'Article image'; // Texte alternatif si meta alt non renseignée
 		}
@@ -140,31 +141,50 @@
 	$reference = false;
 	$authorGivenName = get_post_meta( $post->ID, 'authorgivenname', true );
 	$authorFamilyName = get_post_meta( $post->ID, 'authorfamilyname', true );
+	$documentName = get_post_meta( $post->ID, 'documentname', true );
 	$articleSource = get_post_meta( $post->ID, 'articlesource', true );
+	$documentTranslator = get_post_meta( $post->ID, 'documenttranslator', true );
+	$addressLocality = get_post_meta( $post->ID, 'addresslocality', true );
+	$documentPublisher = get_post_meta( $post->ID, 'documentpublisher', true );
+	$dateDocumentPublished = get_post_meta( $post->ID, 'datedocumentpublished', true );
 	$separator = ', ';
 
+	if ( ( $authorGivenName OR $authorFamilyName ) AND ( ! $documentName AND ! $articleSource ) ) {
+		$reference .= __( 'Author:', 'scriptura' ) . ' ';
+	} elseif ( ( ! $authorGivenName AND ! $authorFamilyName ) AND ( $documentName OR $articleSource ) ) {
+		$reference .= __( 'Source:', 'scriptura' ) . ' ';
+	} else {
+		$reference .= '';
+	}
 	if( $authorGivenName OR $authorFamilyName ) {
-		if( ! $articleSource ) // Affichage de l'introduction "auteur" si les autres données bibliographiques ne sont pas disponibles
-			$reference .= __( 'Author:', 'scriptura' ) . ' ';
-		$reference .= '<span itemprop="author" class="author">' . $authorGivenName;
-		if( $reference )
+		$reference .= '<span itemprop="author" class="author">';
+		if( $authorGivenName )
+			$reference .= '<span itemprop="author">' . $authorGivenName . '</span>';
+		if( $authorGivenName AND $authorFamilyName )
 			$reference .= ' ';
-		$reference .= $authorFamilyName . '</span>';
+		if( $authorFamilyName )
+			$reference .= '<span itemprop="author">' . $authorFamilyName . '</span>';
+		$reference .= '</span>';
+	}
+	if( $documentName ) {
+		if( $reference )
+			$reference .= $separator;
+		$reference .= '<em itemprop="headline">' . $documentName . '</em>';
 	}
 	if( $articleSource ) {
 		if( $reference )
 			$reference .= $separator;
-		$reference .= '<em itemprop="alternativeHeadline">' . $articleSource . '</em>';
+		$reference .= '<span>' . $articleSource . '</span>';
 	}
-	if( $translator ) {
+	if( $documentTranslator ) {
 		if( $reference )
 			$reference .= $separator;
-		$reference .= 'tr. <span itemprop="translator">' . $translator . '</span>';
+		$reference .= 'tr. fr. <span itemprop="translator">' . $documentTranslator . '</span>';
 	}
-	if( $publisher ) {
+	if( $documentPublisher ) {
 		if( $reference )
 			$reference .= $separator;
-		$reference .= '<span itemprop="publisher">' . $publisher . '</span>';
+		$reference .= '<span itemprop="publisher">' . $documentPublisher . '</span>';
 	}
 	if( $addressLocality ) {
 		if( $reference )
@@ -318,8 +338,10 @@ function ScripturaComments()
 			$offsetSizeS = 'sizeS-o0 ';
 		}
 		$email = $e->comment_author_email;
+		$default = 'identicon';
+		$size = 130; // Taille maximum du gravatar
 		$id = $e->comment_ID;
-		$gravatar = '//www.gravatar.com/avatar/' . md5( strtolower( trim( $email ) ) ) . '?d=' . urlencode( $default ) . '&s=130';
+		$gravatar = '//www.gravatar.com/avatar/' . md5( strtolower( trim( $email ) ) ) . '?d=' . urlencode( $default ) . '&s=' . $size;
 
 		$comments .= '<div class="grid">' . PHP_EOL;
 		$comments .= '<article class="' . $offset . 'm6 sizeS-m9 ' . $offsetSizeS . 'comment" id="comment-' . $id . '">' . PHP_EOL;
@@ -391,7 +413,7 @@ function ScripturaCommentForm()
 		'cancel_reply_link'    => '',
 		'comment_field'        =>  '<div class="input">' . PHP_EOL . '<label for="comment">' . __( 'Message', 'scriptura' ) . '</label><textarea id="comment" name="comment" placeholder="' . __( 'Hello...', 'scriptura' ) . '" required aria-required="true">' . PHP_EOL . '</textarea>' . PHP_EOL . '</div>' . PHP_EOL,
 		'submit_button'        => '<button name="submit" type="submit" id="%2$s" class="submit button" value="%4$s" /><span class="icon-checkmark"></span>&nbsp;&nbsp;' . __( 'Submit', 'scriptura' ) . '</button>',
-		'fields' => apply_filters( 'comment_form_default_fields', $fields ),
+		'fields' => apply_filters( 'comment_form_default_fields', 'author' ),
 	];
 	ob_start();
 	comment_form( $arrCommentForm );

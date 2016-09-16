@@ -95,8 +95,11 @@ class ClassScripturaMetaBox
 		$dataAuthorizedGroups = sanitize_text_field( $_POST[ 'scriptura_authorized_groups' ] );
 		$dataAuthorGivenName = sanitize_text_field( $_POST[ 'scriptura_author_given_name' ] );
 		$dataAuthorFamilyName = sanitize_text_field( $_POST[ 'scriptura_author_family_name' ] );
+		$dataDocumentName = sanitize_text_field( $_POST[ 'scriptura_document_name' ] );
 		$dataArticleSource = sanitize_text_field( $_POST[ 'scriptura_article_source' ] );
+		$dataDocumentTranslator = sanitize_text_field( $_POST[ 'scriptura_document_translator' ] );
 		$dataAddressLocality = sanitize_text_field( $_POST[ 'scriptura_address_locality' ] );
+		$dataDocumentPublisher = sanitize_text_field( $_POST[ 'scriptura_document_publisher' ] );
 		$dataDateDocumentPublished = sanitize_text_field( $_POST[ 'scriptura_date_document_published' ] );
 
 		// Update the meta field.
@@ -106,8 +109,11 @@ class ClassScripturaMetaBox
 		update_post_meta( $post_id, 'authorizedgroups', $dataAuthorizedGroups );
 		update_post_meta( $post_id, 'authorgivenname', $dataAuthorGivenName );
 		update_post_meta( $post_id, 'authorfamilyname', $dataAuthorFamilyName );
+		update_post_meta( $post_id, 'documentname', $dataDocumentName );
 		update_post_meta( $post_id, 'articlesource', $dataArticleSource );
+		update_post_meta( $post_id, 'documenttranslator', $dataDocumentTranslator );
 		update_post_meta( $post_id, 'addresslocality', $dataAddressLocality );
+		update_post_meta( $post_id, 'documentpublisher', $dataDocumentPublisher );
 		update_post_meta( $post_id, 'datedocumentpublished', $dataDateDocumentPublished );
 }
 
@@ -127,8 +133,11 @@ class ClassScripturaMetaBox
 		$dataAuthorizedGroups = get_post_meta( $post->ID, 'authorizedgroups', true );
 		$dataAuthorGivenName = get_post_meta( $post->ID, 'authorgivenname', true );
 		$dataAuthorFamilyName = get_post_meta( $post->ID, 'authorfamilyname', true );
+		$dataDocumentName = get_post_meta( $post->ID, 'documentname', true );
 		$dataArticleSource = get_post_meta( $post->ID, 'articlesource', true );
+		$dataDocumentTranslator = get_post_meta( $post->ID, 'documenttranslator', true );
 		$dataAddressLocality = get_post_meta( $post->ID, 'addresslocality', true );
+		$dataDocumentPublisher = get_post_meta( $post->ID, 'documentpublisher', true );
 		$dataDateDocumentPublished = get_post_meta( $post->ID, 'datedocumentpublished', true );
  
 		// Display the form, using the current value.
@@ -196,10 +205,26 @@ class ClassScripturaMetaBox
 			</tr>
 			<tr>
 				<th scope="row">
-					<label for="scriptura_article_source"><?php _e( 'Article Source', 'scriptura' ); ?></label>
+					<label for="scriptura_document_name"><?php _e( 'Article Title', 'scriptura' ); ?></label>
 				</th>
 				<td>
-					<input type="text" id="scriptura_article_source" name="scriptura_article_source" value="<?php echo esc_attr( $dataArticleSource ); ?>" style="width:100%" placeholder="<?php _e( 'Book, Article...', 'scriptura' ); ?>" />
+					<input type="text" id="scriptura_document_name" name="scriptura_document_name" value="<?php echo esc_attr( $dataDocumentName ); ?>" style="width:100%" placeholder="<?php _e( 'Book, Article...', 'scriptura' ); ?>" />
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					<label for="scriptura_article_source"><?php _e( 'Sources', 'scriptura' ); ?></label>
+				</th>
+				<td>
+					<input type="text" id="scriptura_article_source" name="scriptura_article_source" value="<?php echo esc_attr( $dataArticleSource ); ?>" style="width:100%" placeholder="<?php _e( 'Sources', 'scriptura' ); ?>" />
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					<label for="scriptura_document_translator"><?php _e( 'Translator', 'scriptura' ); ?></label>
+				</th>
+				<td>
+					<input type="text" id="scriptura_document_translator" name="scriptura_document_translator" value="<?php echo esc_attr( $dataDocumentTranslator ); ?>" style="width:100%" placeholder="<?php _e( 'Translator', 'scriptura' ); ?>" />
 				</td>
 			</tr>
 			<tr>
@@ -208,6 +233,14 @@ class ClassScripturaMetaBox
 				</th>
 				<td>
 					<input type="text" id="scriptura_address_locality" name="scriptura_address_locality" value="<?php echo esc_attr( $dataAddressLocality ); ?>" style="width:100%" placeholder="<?php _e( 'Paris', 'scriptura' ); ?>" />
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					<label for="scriptura_document_publisher"><?php _e( 'Publisher', 'scriptura' ); ?></label>
+				</th>
+				<td>
+					<input type="text" id="scriptura_document_publisher" name="scriptura_document_publisher" value="<?php echo esc_attr( $dataDocumentPublisher ); ?>" style="width:100%" placeholder="<?php _e( 'Publishing house', 'scriptura' ); ?>" />
 				</td>
 			</tr>
 			<tr>

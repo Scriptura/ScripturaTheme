@@ -2920,13 +2920,29 @@ if $bundleMainNav
 
   .brand-image
     background-image $image000
-    background-size 2em 2em
+    background-size 1.5em 1.5em
     background-position 1em 50%
     background-repeat no-repeat
-    //padding-left 4em
 
   .brand-image a
-    padding-left 3em
+    padding-left 2em
+
+  @media (min-width $sizeNav)
+
+    .brand-image ~ ul li:first-child > *
+      display block
+      background-image $image000
+      background-size 1.5em 1.5em
+      background-position 50% 50%
+      background-repeat no-repeat
+
+    .brand-image ~ ul li:first-child
+      min-width 4em
+
+    .brand-image ~ ul li:first-child [class*=icon]::before
+    .brand-image ~ ul li:first-child > * > :last-child
+      display none
+
 
   // @subsection Items Main Nav
   // -----------------------------------------------------------------------------
