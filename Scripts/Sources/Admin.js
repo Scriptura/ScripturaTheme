@@ -28,8 +28,8 @@
 
 (function( $ ) { // Suppression de la miniature dans le visuel
    $( '.scriptura-media-remove' ).click(function( e ) {
-      $( '#scriptura_def_thumbnail' ).val( '' );
-      $( '#visual_scriptura_def_thumbnail' ).attr( 'src', $templateUri +'/Images/Null.svg' );
+      $( '.scriptura-media-link' ).val( '' );
+      $( this ).siblings().children( '.scriptura-media-visual' ).attr( 'src', $templateUri +'/Images/Null.svg' );
       e.preventDefault();
    } );
 } )( jQuery );

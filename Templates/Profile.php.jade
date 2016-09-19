@@ -14,10 +14,10 @@ block content
       .wrap
         div(itemprop='articleBody')
           h1.emphasized {% $name %}
+          br.sizeS-hidden
           .grid
             .m2.sizeXS-m6.sizeS-m3
-              br.sizeS-hidden
-              .avatar(style='background-image:url({% $gravatarUri %})')
+              .avatar(style='background-image:url({% $avatarImg %})')
                 .ratio
             .m6.sizeS-m9
               _if $userDescription

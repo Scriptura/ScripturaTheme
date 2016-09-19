@@ -75,7 +75,7 @@
         </div>
       </article>
     </main>
-    <?php if ($capacityRead AND ( $commentsOpen AND $capacityCommentator OR $commentsOpen AND $comments ) AND ( ! $authorizedGroups OR $userGroup == $authorizedGroups )): ?>
+    <?php if (( $capacityAdministrator AND $comments ) OR ( $capacityRead AND ( $commentsOpen AND $capacityCommentator OR $commentsOpen AND $comments ) AND ( ! $authorizedGroups OR $userGroup == $authorizedGroups ) )): ?>
     <aside id="index-comments" class="aside">
       <div class="wrap">
         <h2 class="vmin emphasized"><?php echo $commentsTitle; ?><a href="#index-comments" class="anchor"></a></h2>

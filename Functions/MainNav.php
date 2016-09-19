@@ -12,7 +12,8 @@ function ScripturaMainNav()
 
 	global $uri;
 	global $siteUri;
-	global $gravatarUri;
+	global $arrayHttp;
+	global $avatarImg;
 	global $slug;
 	global $userRegistrationMainNav;
 
@@ -39,8 +40,6 @@ function ScripturaMainNav()
 			$menuList .= '</a>';
 		}
 		$menuList .= '</li>' . PHP_EOL;
-
-		$arrayHttp = [ 'http://', 'https://' ];
 
 		foreach ( ( array ) $menu_items as $key => $menu_item ) {
 			$title = $menu_item->title;
@@ -76,7 +75,7 @@ function ScripturaMainNav()
 				} else {
 					$menuList .= '<a href="' . $siteUri . '/Profile">';
 				}
-				$menuList .= '<span class="icon-user"></span><span>' . $userDisplayName . '</span><div class="avatar" style="background-image:url(' . $gravatarUri . ')"></div>';
+				$menuList .= '<span class="icon-user"></span><span>' . $userDisplayName . '</span><div class="avatar" style="background-image:url(' . $avatarImg . ')"></div>';
 				if ( count( $slug ) == 1 AND $slug[0] == 'Profile' ) {
 					$menuList .= '</span>';
 				} else {

@@ -18,7 +18,8 @@
 	$siteName = get_bloginfo( 'name' ); // Nom du site
 	$siteUri = get_site_url(); // Url du site
 	$siteLang = get_language_attributes();
-	$templateUri = str_replace( 'http:', '', get_template_directory_uri() ); // Racine du site en // pour compatibilité avec certificat SSL
+	$arrayHttp = [ 'http://', 'https://' ];
+	$templateUri = str_replace( $arrayHttp, '//', get_template_directory_uri() ); // Racine du site en // pour compatibilité avec certificat SSL
 	$imgDefault = $templateUri . '/Images/Default.jpg';
 	$imgDefault300 = $templateUri . '/Images/Default300.jpg';
 	$imgDefault1000 = $templateUri . '/Images/Default1000.jpg';
@@ -42,6 +43,7 @@
 	$userDisplayName = $current_user->display_name;
 	$userDescription = $current_user->description; //get_user_meta( $userId, 'description', true );
 	$userGroup = get_user_meta( $userId, 'group', true );
+	$userAvatar = get_user_meta( $userId, 'avatar', true );
 	$capacityAdministrator = current_user_can( 'administrator' );
 	$capacityModerator = current_user_can( 'moderate_comments' );
 	$capacityEditor = current_user_can( 'unfiltered_html' );
@@ -54,5 +56,10 @@
 	$userRegistrationMainNav = get_option( 'scriptura_user_registration_main_nav' );
 	$authorizedGroups = false; // Initialisation de la variable par défaut
 
-	global $gravatarUri;
+    if ( $userAvatar ) {
+        $avatarImg = $userAvatar;
+    } else {
+		global $avatarImg;
+    }
+    $avatarImg = str_replace( $arrayHttp, '//', $avatarImg );
 

@@ -22,10 +22,10 @@
         <div id="index-article">
           <div class="wrap">
             <div itemprop="articleBody">
-              <h1 class="emphasized"><?php echo $name; ?></h1>
+              <h1 class="emphasized"><?php echo $name; ?></h1><br class="sizeS-hidden">
               <div class="grid">
-                <div class="m2 sizeXS-m6 sizeS-m3"><br class="sizeS-hidden">
-                  <div style="background-image:url(<?php echo $gravatarUri; ?>)" class="avatar">
+                <div class="m2 sizeXS-m6 sizeS-m3">
+                  <div style="background-image:url(<?php echo $avatarImg; ?>)" class="avatar">
                     <div class="ratio"></div>
                   </div>
                 </div>

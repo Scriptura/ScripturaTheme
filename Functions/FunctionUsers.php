@@ -88,9 +88,6 @@ function ScripturaAddRole()
             'edit_private_posts'         => true,
             'edit_published_pages'       => true,
             'edit_published_posts'       => true,
-            'manage_categories'          => true,
-            'manage_links'               => true,
-            'moderate_comments'          => true,
             'publish_pages'              => true,
             'publish_posts'              => true,
             'read'                       => true,
@@ -188,18 +185,17 @@ add_filter( 'authenticate', 'ScripturaAuthenticate', 20, 3 );
 
 if ( ! is_admin() ) :
 
-function scripturaUserGravatar()
+function scripturaUserAvatar()
 {
     global $current_user;
-    //get_currentuserinfo();
-    $email = $current_user->user_email;
-    $default = 'identicon';
-    $size = 400; // Taille maximum du gravatar
-    $gravatarUri = '//www.gravatar.com/avatar/' . md5( strtolower( trim( $email ) ) ) . '?d=' . urlencode( $default ) . '&s=' . $size;
-    return $gravatarUri;
+        $email = $current_user->user_email;
+        $default = 'identicon';
+        $size = 400; // Taille maximum du gravatar
+        $uri = '//www.gravatar.com/avatar/' . md5( strtolower( trim( $email ) ) ) . '?d=' . urlencode( $default ) . '&s=' . $size;
+    return $uri;
 }
 
-$gravatarUri = scripturaUserGravatar();
+$avatarImg = scripturaUserAvatar();
 
 endif; // admin
 
@@ -319,8 +315,14 @@ endif; // admin
 // @link http://b-website.com/ajouter-des-information-aux-profils-utilisateur-dans-wordpress/
 
 function ScripturaUserAddMetas( $user )
-{ ?>
+{
+    $avatar = get_the_author_meta( 'avatar', $user->ID );
+    wp_enqueue_media(); // Permet l'upload des medias WP
+    echo '<script>';
+    echo '$templateUri = "' . get_bloginfo( 'template_directory' ) . '";'; // Variable javascript sur l'emplacement du thème, pour le bouton de suppression
+    echo '</script>';
 
+    ?>
     <h2><?php _e( 'Additional Information', 'scriptura' ); ?></h2>
     <table class="form-table">
         <tbody>
@@ -332,20 +334,31 @@ function ScripturaUserAddMetas( $user )
                 <th><label><?php _e( 'Group', 'scriptura' ); ?></label></th>
                 <td><input class="regular-text" id="group" type="text" name="group" value="<?php echo esc_attr( get_the_author_meta( 'group', $user->ID ) ); ?>" /></td>
             </tr>
+            <tr>
+                <th><label><?php _e( 'Avatar', 'scriptura' ); ?></label></th>
+                <td>
+                    <div style="width:100%;height:100px;max-width:100px;max-height:100px;background:#333">
+                        <img id="visual_scriptura_def_thumbnail" class="scriptura-media-visual" src="<?php if ( $avatar ) { echo $avatar; } else { echo get_template_directory_uri() . '/Images/Null.svg'; } ?>" style="display:block;max-width:100%;max-height:100%;margin-top:10px">
+                    </div><br>
+                    <input type="text" class="regular-text scriptura-media-link" id="avatar" name="avatar" value="<?php echo esc_attr( $avatar ); ?>" />
+                    <a href="#" class="button scriptura-media-uploader"><?php _e( 'Choose an image', 'scriptura' ); ?></a>
+                    <a href="#" class="button scriptura-media-remove"><?php _e( 'Delete image', 'scriptura' ); ?></a>
+                    <p class="description"><?php _e( 'This presentation image will be used on the site preference to your gravatar if you have one. The image must be square.', 'scriptura' ); ?></p>
+                </td>
+            </tr>
         </tbody>
     </table>
-
 <?php }
 add_action( 'show_user_profile', 'ScripturaUserAddMetas' );
 add_action( 'edit_user_profile', 'ScripturaUserAddMetas' );
  
  
 function ScripturaUserSaveAddMetas( $user_id ) {
-    if ( !current_user_can( 'edit_user', $user_id ) ) { 
-        return false; 
+    if ( current_user_can( 'edit_user', $user_id ) ) {
+        update_user_meta( $user_id, 'location', $_POST[ 'location' ] );
+        update_user_meta( $user_id, 'group', $_POST[ 'group' ] );
+        update_user_meta( $user_id, 'avatar', $_POST[ 'avatar' ] );
     }
-    update_user_meta( $user_id, 'location', $_POST[ 'location' ] );
-    update_user_meta( $user_id, 'group', $_POST[ 'group' ] );
 }
 add_action( 'personal_options_update', 'ScripturaUserSaveAddMetas' );
 add_action( 'edit_user_profile_update', 'ScripturaUserSaveAddMetas' );

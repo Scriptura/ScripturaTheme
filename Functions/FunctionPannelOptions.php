@@ -8,8 +8,6 @@
 if (is_admin()) :
 
 	function pannel_templates_options() {
-
-		wp_enqueue_media(); // Permet l'upload des medias WP
 		/*
 		// @todo Débug
 		if(!empty($_POST)){
@@ -34,6 +32,8 @@ if (is_admin()) :
 			echo '<p>' .__( 'Options saved successfully.', 'scriptura' ). '</p>';
 			echo '</div>';
 		}
+
+	wp_enqueue_media(); // Permet l'upload des medias WP
 	echo '<script>';
 	echo '$templateUri = "' . get_bloginfo( 'template_directory' ) . '";'; // Variable javascript sur l'emplacement du thème, pour le bouton de suppression
 	echo '</script>';
@@ -111,9 +111,9 @@ if (is_admin()) :
 						</th>
 						<td>
 							<div style="width:100%;height:150px;max-width:350px;max-height:150px;background:#333">
-								<img id="visual_scriptura_def_thumbnail" src="<?php if( get_option( 'scriptura_def_thumbnail' ) ) { echo get_option('scriptura_def_thumbnail', '' ); } else { echo get_template_directory_uri() . '/Images/Null.svg'; } ?>" style="display:block;max-width:100%;max-height:100%;margin:0 auto">
+								<img id="visual_scriptura_def_thumbnail" class="scriptura-media-visual" src="<?php if( get_option( 'scriptura_def_thumbnail' ) ) { echo get_option('scriptura_def_thumbnail', '' ); } else { echo get_template_directory_uri() . '/Images/Null.svg'; } ?>" style="display:block;max-width:100%;max-height:100%;margin:0 auto">
 							</div><br>
-							<input type="text" id="scriptura_def_thumbnail" name="option[scriptura_def_thumbnail]" value="<?php echo get_option('scriptura_def_thumbnail', ''); ?>" class="regular-text" placeholder="<?php _e( 'No current image', 'scriptura' ); ?>">
+							<input type="text" id="scriptura_def_thumbnail" class="regular-text scriptura-media-link" name="option[scriptura_def_thumbnail]" value="<?php echo get_option('scriptura_def_thumbnail', ''); ?>" class="regular-text" placeholder="<?php _e( 'No current image', 'scriptura' ); ?>">
 							<a href="#" class="button scriptura-media-uploader"><?php _e( 'Choose an image', 'scriptura' ); ?></a>
 							<a href="#" class="button scriptura-media-remove"><?php _e( 'Delete image', 'scriptura' ); ?></a>
 							<p class="description"><?php _e( 'The image must first be uploaded via the media library.', 'scriptura' ); ?></p>

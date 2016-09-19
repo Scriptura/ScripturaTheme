@@ -125,6 +125,8 @@ class ClassScripturaMetaBox
 
 		// Add an nonce field so we can check for it later.
 		wp_nonce_field( 'myplugin_inner_custom_box', 'myplugin_inner_custom_box_nonce' );
+		
+		global $capacityEditor;
 
 		// Use get_post_meta to retrieve an existing value from the database.
 		$dataMetaDescription = get_post_meta( $post->ID, 'metadescription', true );
@@ -141,8 +143,35 @@ class ClassScripturaMetaBox
 		$dataDateDocumentPublished = get_post_meta( $post->ID, 'datedocumentpublished', true );
  
 		// Display the form, using the current value.
-		?>
-		<h3><?php _e( 'On article', 'scriptura' ); ?></h3>
+
+		if ( $capacityEditor ) { ?>
+			<h3><?php _e( 'Protection of Article', 'scriptura' ); ?></h3>
+			<table class="form-table">
+				<tr>
+					<th scope="row">
+						<label for="scriptura_restricted_read"><?php _e( 'Restricted read', 'scriptura' ); ?></label>
+					</th>
+					<td>
+						<select id="scriptura_restricted_read" name="scriptura_restricted_read">
+							<option value=""<?php if( $dataRestrictedRead == '' ) { echo ' selected="selected"'; } ?>><?php _e( 'No', 'scriptura' ); ?></option>
+							<option value="1"<?php if( $dataRestrictedRead == 1 ) { echo ' selected="selected"'; } ?>><?php _e( 'Yes', 'scriptura' ); ?></option>
+						</select>
+						<p class="description"><?php _e( 'Reading the article restricted to members online.', 'scriptura' ); ?></p>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">
+						<label for="scriptura_authorized_groups"><?php _e( 'Authorized Groups', 'scriptura' ); ?></label>
+					</th>
+					<td>
+						<input type="text" id="scriptura_authorized_groups" name="scriptura_authorized_groups" value="<?php echo esc_attr( $dataAuthorizedGroups ); ?>" style="width:100%" placeholder="<?php _e( 'GroupA', 'scriptura' ); ?>" />
+						<p class="description"><?php _e( 'No default restriction if the field is left blank.', 'scriptura' ); ?></p>
+					</td>
+				</tr>
+			</table>
+			<hr>
+		<?php } ?>
+		<h3><?php _e( 'Description of article', 'scriptura' ); ?></h3>
 		<table class="form-table">
 			<tr>
 				<th scope="row">
@@ -155,32 +184,11 @@ class ClassScripturaMetaBox
 			</tr>
 			<tr>
 				<th scope="row">
-					<label for="scriptura_article_description"><?php _e( 'Article description', 'scriptura' ); ?></label>
+					<label for="scriptura_article_description"><?php _e( 'Presentation of article', 'scriptura' ); ?></label>
 				</th>
 				<td>
 					<textarea id="scriptura_article_description" name="scriptura_article_description" placeholder="<?php _e( 'A description...', 'scriptura' ); ?>" style="width:100%;min-height:5rem"><?php echo esc_attr( $dataArticleDescription ); ?></textarea>
-					<p class="description"><?php _e( 'A presentation of the article. Appear in plain text on the page within the article.', 'scriptura' ); ?></p>
-				</td>
-			</tr>
-			<tr>
-				<th scope="row">
-					<label for="scriptura_restricted_read"><?php _e( 'Restricted read', 'scriptura' ); ?></label>
-				</th>
-				<td>
-					<select id="scriptura_restricted_read" name="scriptura_restricted_read">
-						<option value=""<?php if( $dataRestrictedRead == '' ) { echo ' selected="selected"'; } ?>><?php _e( 'No', 'scriptura' ); ?></option>
-						<option value="1"<?php if( $dataRestrictedRead == 1 ) { echo ' selected="selected"'; } ?>><?php _e( 'Yes', 'scriptura' ); ?></option>
-					</select>
-					<p class="description"><?php _e( 'Reading the article restricted to members online.', 'scriptura' ); ?></p>
-				</td>
-			</tr>
-			<tr>
-				<th scope="row">
-					<label for="scriptura_authorized_groups"><?php _e( 'Authorized Groups', 'scriptura' ); ?></label>
-				</th>
-				<td>
-					<input type="text" id="scriptura_authorized_groups" name="scriptura_authorized_groups" value="<?php echo esc_attr( $dataAuthorizedGroups ); ?>" style="width:100%" placeholder="<?php _e( 'GroupA', 'scriptura' ); ?>" />
-					<p class="description"><?php _e( 'No default restriction if the field is left blank.', 'scriptura' ); ?></p>
+					<p class="description"><?php _e( 'A presentation of the article. Appears light on the page next to the article.', 'scriptura' ); ?></p>
 				</td>
 			</tr>
 		</table>
@@ -213,10 +221,10 @@ class ClassScripturaMetaBox
 			</tr>
 			<tr>
 				<th scope="row">
-					<label for="scriptura_article_source"><?php _e( 'Sources', 'scriptura' ); ?></label>
+					<label for="scriptura_article_source"><?php _e( 'References', 'scriptura' ); ?></label>
 				</th>
 				<td>
-					<input type="text" id="scriptura_article_source" name="scriptura_article_source" value="<?php echo esc_attr( $dataArticleSource ); ?>" style="width:100%" placeholder="<?php _e( 'Sources', 'scriptura' ); ?>" />
+					<input type="text" id="scriptura_article_source" name="scriptura_article_source" value="<?php echo esc_attr( $dataArticleSource ); ?>" style="width:100%" placeholder="<?php _e( 'Volume, page, chapter...', 'scriptura' ); ?>" />
 				</td>
 			</tr>
 			<tr>

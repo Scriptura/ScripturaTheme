@@ -3147,8 +3147,14 @@ if $bundleLoginAvatar
     display flex
 
   .login .avatar
+    flex-shrink 0 // @note Évite la compression si élément poussé par nom d'utilisateur trop long
     width 2.5rem
     height 2.5rem
+
+  .login > * :nth-child(2)
+    overflow hidden // @note Si nom utilisateur trop long...
+    white-space nowrap
+    text-overflow ellipsis
 
   @media (min-width $sizeNav)
     .login .active .avatar
@@ -3187,6 +3193,7 @@ if $bundleLoginAvatar
     
     .login > * :nth-child(2)
       margin-left .5rem
+      max-width 10rem
 
 
 // -----------------------------------------------------------------------------
@@ -3492,22 +3499,9 @@ if $bundleComments
     ifBoxShadow($colorBS036)
 
   .comment [href^="#comment"]
+    margin-left auto
+    padding-left 1em
     transition color .3s
-
-  @media (max-width $sizeXS)
-
-    .comment [href^="#comment"]
-      padding-left 1em
-
-  @media (min-width $sizeXS)
-
-    .comment
-      position relative
-
-    .comment [href^="#comment"]
-      position absolute
-      top .5rem
-      right 1rem
 
   .comment [href^="#comment"]:focus
   .comment [href^="#comment"]:hover
@@ -3516,10 +3510,10 @@ if $bundleComments
     text-decoration none
 
   .author-comment
-    display table
+    display flex
 
   .author-comment .avatar
-    display table-cell
+    flex-shrink 0 // @note Évite la compression si élément poussé par nom d'utilisateur trop long
     width 4rem
     height 4rem
     background-color #444

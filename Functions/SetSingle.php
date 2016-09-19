@@ -151,10 +151,9 @@
 
 	if ( ( $authorGivenName OR $authorFamilyName ) AND ( ! $documentName AND ! $articleSource ) ) {
 		$reference .= __( 'Author:', 'scriptura' ) . ' ';
-	} elseif ( ( ! $authorGivenName AND ! $authorFamilyName ) AND ( $documentName OR $articleSource ) ) {
+	} elseif ( $documentName OR $articleSource ) {
 		$reference .= __( 'Source:', 'scriptura' ) . ' ';
 	} else {
-		$reference .= '';
 	}
 	if( $authorGivenName OR $authorFamilyName ) {
 		$reference .= '<span itemprop="author" class="author">';
@@ -167,12 +166,12 @@
 		$reference .= '</span>';
 	}
 	if( $documentName ) {
-		if( $reference )
+		if( $authorGivenName OR $authorFamilyName )
 			$reference .= $separator;
 		$reference .= '<em itemprop="headline">' . $documentName . '</em>';
 	}
 	if( $articleSource ) {
-		if( $reference )
+		if( $authorGivenName OR $authorFamilyName OR $documentName )
 			$reference .= $separator;
 		$reference .= '<span>' . $articleSource . '</span>';
 	}
@@ -306,6 +305,7 @@ function ScripturaComments()
 	// Modification de la liste de commentaires par défaut de WordPress
 	// @link https://codex.wordpress.org/Function_Reference/get_comments
 	// @link https://developer.wordpress.org/reference/functions/get_comments/
+	global $arrayHttp;
 	$arr = [
 		//'number' => 10,
 		'post_id' => get_the_ID(),
@@ -341,14 +341,24 @@ function ScripturaComments()
 		$default = 'identicon';
 		$size = 130; // Taille maximum du gravatar
 		$id = $e->comment_ID;
+		$avatar = get_user_meta( $e->user_id, 'avatar', true );
 		$gravatar = '//www.gravatar.com/avatar/' . md5( strtolower( trim( $email ) ) ) . '?d=' . urlencode( $default ) . '&s=' . $size;
 
 		$comments .= '<div class="grid">' . PHP_EOL;
 		$comments .= '<article class="' . $offset . 'm6 sizeS-m9 ' . $offsetSizeS . 'comment" id="comment-' . $id . '">' . PHP_EOL;
 		$comments .= '<header class="author-comment">' . PHP_EOL;
-		$comments .= '<div class="avatar" style="background-image:url(' . $gravatar . ')"></div>' . PHP_EOL;
-		$comments .= '<p class="author">' . $e->comment_author . '</p>' . PHP_EOL;
+		$comments .= '<div class="avatar" style="background-image:url(';
+		if ( $avatar ) {
+			$comments .= str_replace( $arrayHttp, '//', $avatar );
+		} else {
+			$comments .= $gravatar;
+		}
+		$comments .= ')"></div>' . PHP_EOL;
+		$comments .= '<div>' . PHP_EOL;
+		// @note WordPress enregistre le choix du nom publique de l'auteur et le stocke dans la table des commentaires (celui-ci peut être appelé via `$e->comment_author`). Mais si l'utilisateur décide de changer de nom publique l'ancien nom sera tout de même affiché sur les commentaires antérieurs au changement. Pour éviter ce problème on récupère l'ID utilisateur et on passe par `get_userdata()->display_name`.
+		$comments .= '<p class="author">' . get_userdata( $e->user_id )->display_name . '</p>' . PHP_EOL;
 		$comments .= '<p><time datetime="' . $e->comment_date . '">' . date_i18n( get_option( 'date_format' ), strtotime( $e->comment_date ) ) . '</time></p>' . PHP_EOL;
+		$comments .= '</div>' . PHP_EOL;
 		$comments .= '<a href="#comment-' . $id . '" title="' . __( 'Index the comment', 'scriptura' ) . '">#</a>' . PHP_EOL;
 		$comments .= '</header>' . PHP_EOL;
 		$comments .= '<p>' . $e->comment_content . '</p>' . PHP_EOL;
