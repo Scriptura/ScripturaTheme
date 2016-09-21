@@ -20,6 +20,7 @@
 	$siteLang = get_language_attributes();
 	$arrayHttp = [ 'http://', 'https://' ];
 	$templateUri = str_replace( $arrayHttp, '//', get_template_directory_uri() ); // Racine du site en // pour compatibilité avec certificat SSL
+	$image = false;
 	$imgDefault = $templateUri . '/Images/Default.jpg';
 	$imgDefault300 = $templateUri . '/Images/Default300.jpg';
 	$imgDefault1000 = $templateUri . '/Images/Default1000.jpg';
@@ -54,11 +55,11 @@
 	$userRole = $current_user->roles[ 0 ];
 	$userRegistrationOpen = get_option( 'scriptura_user_registration' );
 	$userRegistrationMainNav = get_option( 'scriptura_user_registration_main_nav' );
+	$restrictedRead = false;
 	$authorizedGroups = false; // Initialisation de la variable par défaut
 
-	global $avatarImg;
+	global $avatarImg; // @see FunctionUsers.php
     if ( $userAvatar )
         $avatarImg = $userAvatar;
     $avatarImg = str_replace( $arrayHttp, '//', $avatarImg );
-	//var_dump( $avatarImg );exit;
 
