@@ -56,10 +56,9 @@
 	$userRegistrationMainNav = get_option( 'scriptura_user_registration_main_nav' );
 	$authorizedGroups = false; // Initialisation de la variable par défaut
 
-    if ( $userAvatar ) {
+	global $avatarImg;
+    if ( $userAvatar )
         $avatarImg = $userAvatar;
-    } else {
-		global $avatarImg;
-    }
     $avatarImg = str_replace( $arrayHttp, '//', $avatarImg );
+	//var_dump( $avatarImg );exit;
 

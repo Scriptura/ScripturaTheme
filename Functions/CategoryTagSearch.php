@@ -19,7 +19,7 @@
 
 		echo '<article class="box0 m3 sizeS-m6 sizeL-m4 ribbon-container-bottom protected">';
 		echo '<a href="' . $postLink . '">';
-		if ( $restrictedRead AND ! $capacityRead OR $authorizedGroups AND $userGroup != $authorizedGroups ) {
+		if ( ! $capacityAdministrator AND ( $restrictedRead AND ! $capacityRead OR $authorizedGroups AND $userGroup != $authorizedGroups ) ) {
 			$image1000 = $imageProtected1000;
 		} elseif ( has_post_thumbnail() ) {
 			ob_start();

@@ -338,7 +338,7 @@ function ScripturaUserAddMetas( $user )
                 <th><label><?php _e( 'Avatar', 'scriptura' ); ?></label></th>
                 <td>
                     <div style="width:100%;height:100px;max-width:100px;max-height:100px;background:#333">
-                        <img id="visual_scriptura_def_thumbnail" class="scriptura-media-visual" src="<?php if ( $avatar ) { echo $avatar; } else { echo get_template_directory_uri() . '/Images/Null.svg'; } ?>" style="display:block;max-width:100%;max-height:100%;margin-top:10px">
+                        <img id="visual_scriptura_def_thumbnail" class="scriptura-media-visual" src="<?php if ( $avatar ) { echo $avatar; } else { echo get_template_directory_uri() . '/Images/Null.svg'; } ?>" style="display:block;max-width:100%;max-height:100%">
                     </div><br>
                     <input type="text" class="regular-text scriptura-media-link" id="avatar" name="avatar" value="<?php echo esc_attr( $avatar ); ?>" />
                     <a href="#" class="button scriptura-media-uploader"><?php _e( 'Choose an image', 'scriptura' ); ?></a>
