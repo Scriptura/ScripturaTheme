@@ -227,10 +227,10 @@
 
 	// BEGIN $relation
 
-	//global $templateUri;
-
 	ob_start();
 
+	$tag_ids = '';
+	$cat_ids = '';
 	$tags = wp_get_post_tags( $post->ID ); // Récupération des mots clefs associés à l'article en cours
 	if ( $tags ) {
 		$tag_ids = [];
@@ -306,6 +306,9 @@ function ScripturaComments()
 	// @link https://codex.wordpress.org/Function_Reference/get_comments
 	// @link https://developer.wordpress.org/reference/functions/get_comments/
 	global $arrayHttp;
+	global $capacityEditor;
+	$offsetSizeS = false;
+	$offsetSub = false;
 	$arr = [
 		//'number' => 10,
 		'post_id' => get_the_ID(),
@@ -356,7 +359,13 @@ function ScripturaComments()
 		$comments .= ')"></div>' . PHP_EOL;
 		$comments .= '<div>' . PHP_EOL;
 		// @note WordPress enregistre le choix du nom publique de l'auteur et le stocke dans la table des commentaires (celui-ci peut être appelé via `$e->comment_author`). Mais si l'utilisateur décide de changer de nom publique l'ancien nom sera tout de même affiché sur les commentaires antérieurs au changement. Pour éviter ce problème on récupère l'ID utilisateur et on passe par `get_userdata()->display_name`.
-		$comments .= '<p class="author">' . get_userdata( $e->user_id )->display_name . '</p>' . PHP_EOL;
+		$comments .= '<p class="author">';
+		if ( $capacityEditor ) // @note Donner la même valeur de capacité au template de destination @see SetAuthor.php
+			$comments .= '<a href="' . get_author_posts_url( $e->user_id ) . '">';
+		$comments .= get_userdata( $e->user_id )->display_name;
+		if ( $capacityEditor )
+			$comments .= '</a>';
+		$comments .= '</p>' . PHP_EOL;
 		$comments .= '<p><time datetime="' . $e->comment_date . '">' . date_i18n( get_option( 'date_format' ), strtotime( $e->comment_date ) ) . '</time></p>' . PHP_EOL;
 		$comments .= '</div>' . PHP_EOL;
 		$comments .= '<a href="#comment-' . $id . '" title="' . __( 'Index the comment', 'scriptura' ) . '">#</a>' . PHP_EOL;

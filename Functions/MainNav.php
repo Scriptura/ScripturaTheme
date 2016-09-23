@@ -75,7 +75,7 @@ function ScripturaMainNav()
 				} else {
 					$menuList .= '<a href="' . $siteUri . '/Profile">';
 				}
-				$menuList .= '<span class="icon-user"></span><span>' . $userDisplayName . '</span><div class="avatar" style="background-image:url(' . $avatarImg . ')"></div>';
+				$menuList .= '<span class="icon-user"></span><span class="onaline">' . $userDisplayName . '</span><div class="avatar" style="background-image:url(' . $avatarImg . ')"></div>';
 				if ( count( $slug ) == 1 AND $slug[0] == 'Profile' ) {
 					$menuList .= '</span>';
 				} else {

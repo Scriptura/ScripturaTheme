@@ -18,50 +18,27 @@
     </nav>
     <?php echo $breadcrumb; ?>
     <main itemprop="mainContentOfPage">
-      <article itemscope itemtype="https://schema.org/Article" class="article"><?php echo $image; ?>
+      <article itemscope itemtype="https://schema.org/Article" class="article">
         <div id="index-article">
           <div class="wrap">
-            <div itemprop="articleBody">
-              <h1 class="emphasized"><?php echo $name; ?></h1><br class="sizeS-hidden">
-              <div class="grid">
-                <div class="m2 sizeXS-m6 sizeS-m3">
-                  <div style="background-image:url(<?php echo $avatarImg; ?>)" class="avatar">
-                    <div class="ratio"></div>
-                  </div>
-                </div>
-                <div class="m6 sizeS-m9">
-                  <?php if ($userDescription): ?>
-                  <p><em><?php echo $userDescription; ?></em></p>
-                  <?php endif; ?>
+            <div class="grid">
+              <h1 itemprop="name headline" class="emphasized"><?php echo $name; ?></h1>
+            </div><br class="sizeS-hidden">
+            <div itemprop="articleBody" class="grid">
+              <div class="m2 sizeXS-m6 sizeS-m3">
+                <div style="background-image:url(<?php echo $avatarImg; ?>)" class="avatar">
+                  <div class="ratio"></div>
                 </div>
               </div>
-              <div class="columns">
-                <div class="list-stripe">
-                  <?php if ($userLogin): ?>
-                  <p><span class="icon-ampersand"></span>&nbsp;&nbsp;Identifiant&nbsp;: <?php echo $userLogin; ?></p>
-                  <?php endif;
-                        if ($userEmail): ?>
-                  <p><span class="icon-at"></span>&nbsp;&nbsp;Email&nbsp;: <?php echo $userEmail; ?></p>
-                  <?php endif;
-                        if ($userFirstName): ?>
-                  <p><span class="icon-user"></span>&nbsp;&nbsp;Prénom&nbsp;: <?php echo $userFirstName; ?></p>
-                  <?php endif;
-                        if ($userLastName): ?>
-                  <p><span class="icon-user"></span>&nbsp;&nbsp;Nom&nbsp;: <?php echo $userLastName; ?></p>
-                  <?php endif;
-                        if ($userDisplayName): ?>
-                  <p><span class="icon-user"></span>&nbsp;&nbsp;Pseudo&nbsp;: <?php echo $userDisplayName; ?></p>
-                  <?php endif;
-                        if ($userRole): ?>
-                  <p><span class="icon-badge"></span>&nbsp;&nbsp;Role&nbsp;: <?php echo $userRole; ?></p>
-                  <?php endif;
-                        if ($userGroup): ?>
-                  <p><span class="icon-radio-unchecked"></span>&nbsp;&nbsp;Group&nbsp;: <?php echo $userGroup; ?></p>
-                  <?php endif; ?>
-                </div>
-                <div class="list-stripe">
-                  <?php if ($capacityModerator): ?><a href="<?php echo $adminUri; ?>"><span class="icon-login"></span>&nbsp;&nbsp;<?php echo $textAdmin; ?></a>
-                  <?php endif; ?><a href="<?php echo $logoutUri; ?>"><span class="icon-logout"></span>&nbsp;&nbsp;<?php echo $textLogout; ?></a>
+              <?php if ($userDescription): ?>
+              <div class="m6 sizeS-m9">
+                <p><em><?php echo $userDescription; ?></em></p>
+              </div>
+              <?php endif; ?>
+              <div>
+                <div class="columns">
+                  <div class="list-stripe"><?php echo $userInfoList; ?></div>
+                  <div class="list-stripe"><?php echo $loginLogout; ?></div>
                 </div>
               </div>
             </div>
@@ -94,4 +71,4 @@
     <?php require locate_template('Functions/GoogleAnalytics.php'); ?>
   </body>
 </html>
-<?php die(); ?>
+<?php exit; ?>

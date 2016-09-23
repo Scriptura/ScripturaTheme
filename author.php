@@ -18,6 +18,35 @@
     </nav>
     <?php echo $breadcrumb; ?>
     <main itemprop="mainContentOfPage">
+      <article itemscope itemtype="https://schema.org/Article" class="article">
+        <div id="index-article">
+          <div class="wrap">
+            <div class="grid">
+              <h1 itemprop="name headline" class="emphasized"><?php echo $name; ?></h1>
+            </div><br class="sizeS-hidden">
+            <div itemprop="articleBody" class="grid">
+              <div class="m2 sizeXS-m6 sizeS-m3">
+                <div style="background-image:url(<?php echo $avataruser; ?>)" class="avatar">
+                  <div class="ratio"></div>
+                </div>
+              </div>
+              <?php if ($memberDescription): ?>
+              <div class="m6 sizeS-m9">
+                <p><em><?php echo $memberDescription; ?></em></p>
+              </div>
+              <?php endif; ?>
+              <div>
+                <div class="columns">
+                  <div class="list-stripe"><?php echo $memberInfoList; ?></div>
+                  <?php if ($capacityModerator): ?>
+                  <div class="list-stripe"><?php echo $changeProfile; ?></div>
+                  <?php endif; ?>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
     </main>
     <footer id="index-footer" class="section footer center">
       <?php echo $widgetFooter; ?>
@@ -44,4 +73,4 @@
     <?php require locate_template('Functions/GoogleAnalytics.php'); ?>
   </body>
 </html>
-<?php die(); ?>
+<?php exit; ?>

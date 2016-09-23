@@ -23,7 +23,7 @@ function ScripturaBreadcrumb()
 
 	$breadcrumb = '<nav class="breadcrumb">' . PHP_EOL;
 	$breadcrumb .= '<div class="wrap">' . PHP_EOL;
-	$breadcrumb .= '<ul itemprop="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">' . PHP_EOL;
+	$breadcrumb .= '<ul itemprop="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList" class="onaline">' . PHP_EOL;
 	$breadcrumb .= '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href="' . $siteUri . '" itemprop="item"><span itemprop="name">' . __('Home', 'scriptura') . '</span></a></li>' . PHP_EOL;
 	if ( is_single() ) :
 		$breadcrumb .= '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href="' . $singleCatLink . '" itemprop="item"><span itemprop="name">' . $singleCatName . '</span></a></li>' . PHP_EOL;

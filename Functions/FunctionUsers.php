@@ -160,7 +160,8 @@ add_action( 'after_setup_theme', 'ScripturaAddRole' );
 // @description Connexion de l'utilisateur
 // -----------------------------------------------------------------------------
 
-// @note Fonctionnalitée d'autentification par mail, désormais disponible par défaut dans WordPress ? @todo À réévaluer...
+// @note Fonctionnalitée d'autentification par mail
+// @todo Désormais disponible par défaut dans WordPress ? À réévaluer...
 
 function ScripturaAuthenticate( $user, $username, $password )
 {
@@ -185,19 +186,25 @@ add_filter( 'authenticate', 'ScripturaAuthenticate', 20, 3 );
 
 if ( ! is_admin() ) :
 
-function scripturaUserAvatar()
+function scripturaUserAvatar( $email )
 {
+    // @note Si pas de renseignement de la variable $email, alors chargement du mail de l'utilisateur courant
     global $current_user;
+    if( $email ) {
+        $email = $email;
+    } else {
         $email = $current_user->user_email;
-        $default = 'identicon';
-        $size = 400; // Taille maximum du gravatar
-        $uri = '//www.gravatar.com/avatar/' . md5( strtolower( trim( $email ) ) ) . '?d=' . urlencode( $default ) . '&s=' . $size;
+    }
+    $default = 'identicon';
+    $size = 400; // Taille maximum du gravatar
+    $uri = '//www.gravatar.com/avatar/' . md5( strtolower( trim( $email ) ) ) . '?d=' . urlencode( $default ) . '&s=' . $size;
     return $uri;
 }
 
 $avatarImg = scripturaUserAvatar();
 
 endif; // admin
+
 
 // @subsection  Restrict Access Administration
 // @description Restreindre l’accès à l’administration à certains rôles

@@ -20,7 +20,6 @@
 	$siteLang = get_language_attributes();
 	$arrayHttp = [ 'http://', 'https://' ];
 	$templateUri = str_replace( $arrayHttp, '//', get_template_directory_uri() ); // Racine du site en // pour compatibilité avec certificat SSL
-	$image = false;
 	$imgDefault = $templateUri . '/Images/Default.jpg';
 	$imgDefault300 = $templateUri . '/Images/Default300.jpg';
 	$imgDefault1000 = $templateUri . '/Images/Default1000.jpg';
@@ -39,6 +38,7 @@
 	$userLogin = $current_user->user_login;
 	$userEmail = $current_user->user_email;
 	$userLevel = $current_user->user_level;
+	$userUri = $current_user->user_url;
 	$userFirstName = $current_user->user_firstname;
 	$userLastName = $current_user->user_lastname;
 	$userDisplayName = $current_user->display_name;
@@ -52,7 +52,8 @@
 	$capacityRead = current_user_can( 'read' );
 	$capacityEditPosts = current_user_can( 'edit_posts' );
 
-	$userRole = $current_user->roles[ 0 ];
+	if ( $userLogin ) // @note Évite une erreur de variable indéfinie si déconnexion
+		$userRole = $current_user->roles[ 0 ];
 	$userRegistrationOpen = get_option( 'scriptura_user_registration' );
 	$userRegistrationMainNav = get_option( 'scriptura_user_registration_main_nav' );
 	$restrictedRead = false;

@@ -21,6 +21,8 @@
         echo single_cat_title( '', false ) . $separator . __( 'Category', 'scriptura' ) . $separator . $siteName;
     } elseif ( is_tag() ) {
         echo single_tag_title( '', false ) . $separator . __( 'Tag', 'scriptura' ) . $separator . $siteName;
+    } elseif ( is_author() ) {
+        echo $name . $separator . $siteName;
     } elseif ( is_search() ) {
             echo __( 'Search results for', 'scriptura' ) . ' "' . get_search_query() . '"' . $separator . $siteName;
     } elseif ( count($slug) == 1 AND $slug[0] == 'Login' ) {

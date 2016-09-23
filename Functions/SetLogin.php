@@ -25,11 +25,11 @@
 	$errorLogin = false;
 	if( !empty( $_POST ) ) :
 	$user = wp_signon( $_POST );
-	if( is_wp_error( $user) ) :
-	$errorLogin = '<p class="message-error">' .__( 'Your password is invalid. Your connection attempt failed.', 'scriptura' ). '</p>';
-	else :
-	header( 'location:Profile' );
-	endif;
+	if( is_wp_error( $user) ) {
+		$errorLogin = '<p class="message-error">' .__( 'Your password is invalid. Your connection attempt failed.', 'scriptura' ). '</p>';
+	} else {
+		header( 'location:Profile' );
+	}
 	else :
 	$user = wp_get_current_user();
 	if( $user->ID != 0 ) :

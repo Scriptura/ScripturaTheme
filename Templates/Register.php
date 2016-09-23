@@ -64,4 +64,4 @@
     <?php require locate_template('Functions/GoogleAnalytics.php'); ?>
   </body>
 </html>
-<?php die(); ?>
+<?php exit; ?>
