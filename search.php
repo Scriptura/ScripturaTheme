@@ -21,7 +21,7 @@
       <div class="section">
         <div class="wrap-limited">
           <div class="grid">
-            <h1 itemprop="name headline" class="vmin emphasized"><?php echo $name; ?></h1>
+            <h1 itemprop="name headline" class="emphasized"><?php echo $name; ?></h1>
             <?php echo $content; ?>
           </div>
         </div>

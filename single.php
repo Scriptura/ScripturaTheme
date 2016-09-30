@@ -24,7 +24,7 @@
           <div class="wrap">
             <div class="grid">
               <div class="m12">
-                <h1 itemprop="name" class="h2 vmin emphasized"><?php echo $name; ?></h1>
+                <h1 itemprop="name" class="h2 emphasized"><?php echo $name; ?></h1>
               </div>
               <div class="grid6 sizeS-grid12">
                 <div itemprop="articleBody" class="links protected"><?php echo $content; ?></div>
@@ -35,10 +35,14 @@
                   </div>
                   <?php if ($capacityRead AND $commentsOpen AND is_single()): ?>
                   <div>
-                    <button title="Comment article" id="comments" class="button"><span class="icon-bubbles"></span></button>
+                    <button title="Comment article" id="comments" class="button"><span class="icon-bubbles"></span>
+                      <?php if (is_single() AND get_comments_number()):
+                            echo get_comments_number();
+                            endif; ?>
+                    </button>
                   </div>
                   <?php endif;
-                        if ($capacityEditPosts): ?>
+                        if (( $capacityEditPosts AND is_single() ) OR ( $capacityEditPages AND !is_single() )): ?>
                   <form action="<?php echo $editPost; ?>" method="post">
                     <button title="Edit article" class="button"><span class="icon-pen"></span></button>
                   </form>
@@ -78,7 +82,7 @@
     <?php if (( $capacityAdministrator AND $comments ) OR ( $capacityRead AND ( $commentsOpen AND $capacityCommentator OR $commentsOpen AND $comments ) AND ( ! $authorizedGroups OR $userGroup == $authorizedGroups ) )): ?>
     <aside id="index-comments" class="aside">
       <div class="wrap">
-        <h2 class="vmin emphasized"><?php echo $commentsTitle; ?><a href="#index-comments" class="anchor"></a></h2>
+        <h2 class="emphasized"><?php echo $commentsTitle; ?><a href="#index-comments" class="anchor"></a></h2>
         <div class="grid">
           <?php echo $comments;
                 if ($commentsOpen AND $capacityCommentator):
@@ -91,7 +95,7 @@
           if ($relation): ?>
     <aside class="aside">
       <div class="wrap">
-        <h2 class="vmin emphasized"><?php echo $relationsTitle; ?></h2>
+        <h2 class="emphasized"><?php echo $relationsTitle; ?></h2>
         <div class="relationship"><?php echo $relation; ?></div>
       </div>
     </aside>

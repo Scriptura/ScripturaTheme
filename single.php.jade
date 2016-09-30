@@ -11,7 +11,7 @@ block content
       .wrap
         .grid
           .m12
-            h1.h2.vmin.emphasized(itemprop='name') {% $name %}
+            h1.h2.emphasized(itemprop='name') {% $name %}
           .grid6.sizeS-grid12
             .links.protected(itemprop='articleBody') {% $content %}
             _if $capacityAdministrator OR ( ! $restrictedRead OR $restrictedRead AND $capacityRead ) AND ( ! $authorizedGroups OR $userGroup == $authorizedGroups )
@@ -26,7 +26,7 @@ block comments
   _if ( $capacityAdministrator AND $comments ) OR ( $capacityRead AND ( $commentsOpen AND $capacityCommentator OR $commentsOpen AND $comments ) AND ( ! $authorizedGroups OR $userGroup == $authorizedGroups ) )
   aside.aside#index-comments
     .wrap
-      h2.vmin.emphasized {% $commentsTitle %}
+      h2.emphasized {% $commentsTitle %}
         a.anchor(href='#index-comments')
       .grid
         _php $comments
@@ -41,6 +41,6 @@ block aside
   _if $relation
   aside.aside
     .wrap
-      h2.vmin.emphasized {% $relationsTitle %}
+      h2.emphasized {% $relationsTitle %}
       .relationship {% $relation %}
   _endif

@@ -4,20 +4,35 @@ append variables
   _require_once_wp Functions/Set404
 
 block content
-  header.section.vh100(role='banner')
+  header.section(role='banner')
     .wrap-limited.ribbon-container
       .ribbon
         a(href='{% $siteUri %}') {% $alternativeLink %}
-      h1.emphasized.vmin(itemprop='name') {% $name %}
-      style.
-        .meca-anim{display:block;max-width:100%;max-height:50vh;margin:0 auto;fill:#5a728a;stroke:#444;stroke-width:2}
-        .meca-anim :nth-child(odd){fill:#b03c57}
-        .meca-anim :nth-child(3){fill:#bb7c3c}
-        .meca-anim :nth-child(5){fill:#7ca166}
-      _php require locate_template('Images/404.svg')
-      //-
-        p.message-error {% $content %}
-      br.hidden.sizeXS-unhidden
-      br.hidden.sizeXS-unhidden
-      br.hidden.sizeXS-unhidden
+      h1.emphasized(itemprop='name') {% $name %}
+      .grid
+        .m2.sizeS-m4.vertical
+          span.icon-arrow-up.surround.zoom500
+        .m2.sizeS-m4.vertical
+          span.icon-arrow-left.surround.zoom500
+        .m2.sizeS-m4.vertical
+          span.icon-arrow-down.surround.zoom500
+        .m2.sizeS-m4.vertical
+          span.icon-arrow-right.surround.zoom500
+        .m2.sizeS-m4.vertical.sizeS-hidden
+          span.icon-arrow-up.surround.zoom500
+        .m2.sizeS-m4.vertical.sizeS-hidden
+          span.icon-arrow-left.surround.zoom500
+        .m2.sizeS-m4.vertical.sizeS-hidden
+          span.icon-arrow-down.surround.zoom500
+        .m2.sizeS-m4.vertical.sizeXS-hidden
+          span.icon-arrow-right.surround.zoom500
+        .m2.sizeS-m4.vertical.sizeXS-hidden
+          span.icon-arrow-up.surround.zoom500
+        .m2.sizeS-m4.vertical.sizeXS-hidden
+          span.icon-arrow-left.surround.zoom500
+        .m2.sizeS-m4.vertical.sizeXS-hidden
+          span.icon-arrow-down.surround.zoom500
+        .m2.sizeS-m4.vertical.sizeXS-hidden
+          span.icon-arrow-right.surround.zoom500
+      br
       _php $searchForm

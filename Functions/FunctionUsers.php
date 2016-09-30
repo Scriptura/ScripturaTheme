@@ -120,24 +120,12 @@ function ScripturaAddRole()
 
     add_role( 'role_student', __( 'Student', 'scriptura' ),
         [
-        /*
-            'delete_posts'               => true,
-            'delete_published_posts'     => true,
             'edit_posts'                 => true,
             'edit_published_posts'       => true,
-            'publish_posts'              => true,
-            'read'                       => true
-            */
-            'edit_others_pages'          => true,
-            'edit_others_posts'          => true,
-            'edit_pages'                 => true,
-            'edit_posts'                 => true,
-            'edit_published_pages'       => true,
-            'edit_published_posts'       => true,
-            'publish_pages'              => true,
             'publish_posts'              => true,
             'read'                       => true,
-            'upload_files'               => true
+            'edit_others_posts'          => true
+            //'upload_files'               => true
         ]
     );
 
@@ -186,21 +174,16 @@ add_filter( 'authenticate', 'ScripturaAuthenticate', 20, 3 );
 
 if ( ! is_admin() ) :
 
-function scripturaUserAvatar( $email )
+function scripturaUserAvatar( $email = false, $size = 400 )
 {
-    // @note Si pas de renseignement de la variable $email, alors chargement du mail de l'utilisateur courant
-    global $current_user;
-    if( $email ) {
-        $email = $email;
-    } else {
-        $email = $current_user->user_email;
+    if ( ! $email ) { // @note Email de l'utilisateur courant par défaut.
+        global $userEmail;
+        $email = $userEmail;
     }
-    $default = 'identicon';
-    $size = 400; // Taille maximum du gravatar
+    $default = 'mm'; // @param 'identicon'
     $uri = '//www.gravatar.com/avatar/' . md5( strtolower( trim( $email ) ) ) . '?d=' . urlencode( $default ) . '&s=' . $size;
     return $uri;
 }
-
 $avatarImg = scripturaUserAvatar();
 
 endif; // admin

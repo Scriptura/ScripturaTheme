@@ -2,16 +2,15 @@ aside.button-group
   div
     button(title='Print article').button.cmd-print
       span.icon-printer
-  //-
-    div
-      button(title='Share article').button
-        span.icon-share
   _if $capacityRead AND $commentsOpen AND is_single()
   div
     button(title='Comment article').button#comments
       span.icon-bubbles
+      _if is_single() AND get_comments_number()
+      _php echo get_comments_number()
+      _endif
   _endif
-  _if $capacityEditPosts
+  _if ( $capacityEditPosts AND is_single() ) OR ( $capacityEditPages AND !is_single() )
   form(action='{% $editPost %}' method='post')
     button(title='Edit article').button
       span.icon-pen

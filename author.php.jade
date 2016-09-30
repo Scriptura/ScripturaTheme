@@ -9,10 +9,10 @@ block content
       .wrap
         .grid
           h1.emphasized(itemprop='name headline') {% $name %}
-        br.sizeS-hidden
+        br.sizeS-unhidden
         .grid(itemprop='articleBody')
           .m2.sizeXS-m6.sizeS-m3
-            .avatar(style='background-image:url({% $avataruser %})')
+            .avatar(style='background-image:url({% $avatarUser %})')
               .ratio
           _if $memberDescription
           .m6.sizeS-m9

@@ -21,7 +21,7 @@
       <article itemscope itemtype="https://schema.org/Article" class="article">
         <div id="index-article">
           <div class="wrap">
-            <h1 class="emphasized"><?php echo $name; ?></h1><br class="sizeS-hidden">
+            <h1 class="emphasized"><?php echo $name; ?></h1><br class="sizeS-unhidden">
             <?php if ($userRegistrationOpen): ?>
             <div itemprop="articleBody" class="grid">
               <div class="m6">

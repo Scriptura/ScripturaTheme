@@ -266,8 +266,9 @@ class ClassScripturaMetaBox
 
 } else {
 
+	// @note Remplacement de tags générés par WordPress :
 	function ScripturaReplaceContent( $content )
-	{ // Remplacement du contenu généré par WordPress
+	{
 		$search = [
 			'<h2>',
 			'<h3>',
@@ -275,14 +276,14 @@ class ClassScripturaMetaBox
 			'<h5>'
 		];
 		$replace = [
-			'<h2 class="h3 vmin">',
-			'<h3 class="h4 vmin">',
-			'<h4 class="h5 vmin">',
-			'<h5 class="h6 vmin">'
+			'<h2 class="h3">',
+			'<h3 class="h4">',
+			'<h4 class="h5">',
+			'<h5 class="h6">'
 		];
 		$content = str_replace( $search, $replace, $content );
 		return $content;
 	}
 	add_filter( 'the_content', 'ScripturaReplaceContent' );
-
+	
 }

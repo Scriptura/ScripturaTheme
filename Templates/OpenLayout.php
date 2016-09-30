@@ -29,10 +29,14 @@
               </div>
               <?php if ($capacityRead AND $commentsOpen AND is_single()): ?>
               <div>
-                <button title="Comment article" id="comments" class="button"><span class="icon-bubbles"></span></button>
+                <button title="Comment article" id="comments" class="button"><span class="icon-bubbles"></span>
+                  <?php if (is_single() AND get_comments_number()):
+                        echo get_comments_number();
+                        endif; ?>
+                </button>
               </div>
               <?php endif;
-                    if ($capacityEditPosts): ?>
+                    if (( $capacityEditPosts AND is_single() ) OR ( $capacityEditPages AND !is_single() )): ?>
               <form action="<?php echo $editPost; ?>" method="post">
                 <button title="Edit article" class="button"><span class="icon-pen"></span></button>
               </form>

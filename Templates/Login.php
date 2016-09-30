@@ -23,7 +23,7 @@
           <div class="wrap">
             <div class="grid">
               <div class="m12">
-                <h1 class="emphasized"><?php echo $name; ?></h1><br class="sizeS-hidden">
+                <h1 class="emphasized"><?php echo $name; ?></h1><br class="sizeS-unhidden">
                 <div itemprop="articleBody" class="grid">
                   <div class="m6">
                     <form method="post" action="<?php echo $formAction; ?>">

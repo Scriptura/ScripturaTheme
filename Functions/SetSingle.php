@@ -66,8 +66,6 @@
 		}
 		$content = ob_get_clean();
 
-
-
 		ob_start();
 		the_post_thumbnail_url( 'image300' );
 		$image300 = ob_get_clean();
@@ -341,12 +339,11 @@ function ScripturaComments()
 			$offsetSizeS = 'sizeS-o0 ';
 		}
 		$email = $e->comment_author_email;
-		$default = 'identicon';
-		$size = 130; // Taille maximum du gravatar
 		$id = $e->comment_ID;
-		$avatar = get_user_meta( $e->user_id, 'avatar', true );
-		$gravatar = '//www.gravatar.com/avatar/' . md5( strtolower( trim( $email ) ) ) . '?d=' . urlencode( $default ) . '&s=' . $size;
 
+		$avatar = get_user_meta( $e->user_id, 'avatar', true );
+		//$gravatar = '//www.gravatar.com/avatar/' . md5( strtolower( trim( $email ) ) ) . '?d=' . urlencode( $default ) . '&s=' . $size;
+		$gravatar = scripturaUserAvatar( $email, '130' );
 		$comments .= '<div class="grid">' . PHP_EOL;
 		$comments .= '<article class="' . $offset . 'm6 sizeS-m9 ' . $offsetSizeS . 'comment" id="comment-' . $id . '">' . PHP_EOL;
 		$comments .= '<header class="author-comment">' . PHP_EOL;

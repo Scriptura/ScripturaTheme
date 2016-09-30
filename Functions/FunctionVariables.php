@@ -43,13 +43,15 @@
 	$userLastName = $current_user->user_lastname;
 	$userDisplayName = $current_user->display_name;
 	$userDescription = $current_user->description; //get_user_meta( $userId, 'description', true );
-	$userGroup = get_user_meta( $userId, 'group', true );
 	$userAvatar = get_user_meta( $userId, 'avatar', true );
+	$userGroup = get_user_meta( $userId, 'group', true );
+	$userLocation = get_user_meta( $userId, 'location', true );
 	$capacityAdministrator = current_user_can( 'administrator' );
 	$capacityModerator = current_user_can( 'moderate_comments' );
 	$capacityEditor = current_user_can( 'unfiltered_html' );
 	$capacityCommentator = ( current_user_can( 'subscriber' ) ) ? false : true; // @note Test d'une capacité et non du rôle par lui même 
 	$capacityRead = current_user_can( 'read' );
+	$capacityEditPages = current_user_can( 'edit_pages' );
 	$capacityEditPosts = current_user_can( 'edit_posts' );
 
 	if ( $userLogin ) // @note Évite une erreur de variable indéfinie si déconnexion

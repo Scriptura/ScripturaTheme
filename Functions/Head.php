@@ -42,6 +42,8 @@
     echo '    <meta name="description" content="';
     if ( $restrictedRead AND ! $capacityRead ) {
     echo __( 'Content on this page is protected.', 'scriptura' );
+    } elseif ( is_404() ) {
+    echo __( 'Page not found.', 'scriptura' );
     } elseif ( is_home() OR is_front_page() ) { // @note Si page statique à la place de la vraie page d'accueil
     echo get_bloginfo( 'description' );
     } elseif ( is_category() ) {
