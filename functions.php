@@ -30,4 +30,5 @@
 	require_once locate_template( 'Functions/FunctionPannelIdentity.php' );
 	require_once locate_template( 'Functions/FunctionPannelUsers.php' );
 	require_once locate_template( 'Functions/FunctionPannelForms.php' );
+	require_once locate_template( 'Functions/FunctionCalendar.php' );
 

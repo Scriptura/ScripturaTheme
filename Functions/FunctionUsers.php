@@ -233,6 +233,7 @@ endif; // admin
 // @note La suppression des onglets n'empêche pas l'accès direct à la page
 // @link https://codex.wordpress.org/Function_Reference/remove_menu_page
 // @link https://codex.wordpress.org/Function_Reference/remove_meta_box
+// @link https://codex.wordpress.org/Function_Reference/remove_post_type_support
 
 if ( is_admin() ) :
 
@@ -243,6 +244,13 @@ if ( ! $capacityAdministrator ) {
         remove_menu_page( 'themes.php' );                              // Onglet "Apparence" supprimé
     }
     add_action( 'admin_menu', 'ScripturaRemoveMenuIfNoAdministrator' );
+    
+    function ScripturaRemoveCustomFieldMetaBoxes()
+    { // Suppression des champs personnalisés aux profits des meta box
+        remove_post_type_support( 'post','custom-fields' );
+        remove_post_type_support( 'page','custom-fields' );
+    }
+    add_action( 'init','ScripturaRemoveCustomFieldMetaBoxes' );
 }
 
 if ( ! $capacityModerator ) {
@@ -255,12 +263,12 @@ if ( ! $capacityModerator ) {
     add_action( 'admin_menu', 'ScripturaRemoveMenuIfNoModerator' );
 
     function ScripturaRemoveScreenOptions( $display_boolean, $wp_screen_object )
-    {
+    { // Onglet "Option de l'écran" supprimé
         $blacklist = [ 'post.php', 'post-new.php', 'index.php', 'edit.php' ];
         if ( in_array( $GLOBALS[ 'pagenow' ], $blacklist ) ) {
             $wp_screen_object->render_screen_layout();
             $wp_screen_object->render_per_page_options();
-            return false;                                              // Onglet "Option de l'écran" supprimé
+            return false;
         } else {
             return true;
         }

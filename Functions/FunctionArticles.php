@@ -2,7 +2,7 @@
 
 // -----------------------------------------------------------------------------
 // @section     Function Articles
-// @description Configuration 
+// @description Configuration des articles
 // -----------------------------------------------------------------------------
 
 
