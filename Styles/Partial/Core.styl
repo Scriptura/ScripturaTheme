@@ -550,11 +550,13 @@ h6
 
   h5
   .h5
-    font-size 4.2vmin
+    //font-size 4.2vmin
+    font-size 1.2rem
 
   h6
   .h6
-    font-size 3.6vmin
+    //font-size 3.6vmin
+    font-size 1rem
 
 b
 strong
@@ -1464,7 +1466,7 @@ if $bundleFocus
 
   .focus-off img
     max-height 100vh
-    //padding $gutter
+    background-color #000 // @note Pour les .png transparents
     box-shadow 0 0 0 1000rem $colorBS040
 
 
@@ -2940,8 +2942,10 @@ if $bundleMainNav
     height 2.5em
     padding-left 1em
     padding-right 4rem
-    background-color $colorBG1101
     color $colorCL120
+    background-color $colorBG1101
+    //font-weight 100
+    letter-spacing .1em
 
   [class^="brand"] a
     color $colorCL120 // @note Même couleur que pour .brand

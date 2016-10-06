@@ -11,8 +11,9 @@
 // -----------------------------------------------------------------------------
 
 // @link http://syframework.alwaysdata.net/3b9
-function ScripturaGetDate( $lang = '' )
+function ScripturaGetDate( $html = '' )
 {
+	// @param $html, valeur d'une balise html ('div', 'span', 'p', etc...)
 	date_default_timezone_set( 'Europe/Paris' );
 	$day = [
 		'Dimanche',
@@ -38,28 +39,66 @@ function ScripturaGetDate( $lang = '' )
 		'Décembre'
 	];
 	//$date = date( 'w' ) . ' ' . date( 'j' ) . ' ' . date( 'n' );
-	$date = $day[ date( 'w' ) ] . ' ' . date( 'j' ) . ' ' . $month[ date( 'n' ) - 1 ];
-	$dateHtml = '<p>' . $date . '</p>' . PHP_EOL;
-	return $dateHtml;
+	$date = '';
+	if ( $html )
+		$date .= '<' . $html . '>';
+	$date .= $day[ date( 'w' ) ] . ' ' . date( 'j' ) . ' ' . $month[ date( 'n' ) - 1 ];
+	if ( $html )
+		$date .= '</' . $html . '>' . PHP_EOL;
+	return $date;
 }
+//var_dump( ScripturaGetDate( 'span' ) );exit;
 
-//echo ScripturaGetDate();
+
+// @link https://css-tricks.com/snippets/php/change-graphics-based-on-season/
+// @link http://syframework.alwaysdata.net/3c2
+function ScripturaGetSeason( $day = '' )
+{
+	$day = (int) $day; // Convertir une chaîne de caractère (string) en entier (integer)
+	if ( ! $day )
+		$day = date( 'z' ); // Jour de l'année 
+	if ( $day < 0 OR $day > 365 ) // De 1 à 366 jours max., le premier jour commence par 0.
+		return 'Date error';
+	// Days of spring
+	$spring_starts = date( 'z', strtotime( 'March 21' ) );
+	$spring_ends   = date( 'z', strtotime( 'June 20' ) );
+	// Days of summer
+	$summer_starts = date( 'z', strtotime( 'June 21' ) );
+	$summer_ends   = date( 'z', strtotime( 'September 22' ) );
+	// Days of autumn
+	$autumn_starts = date( 'z', strtotime( 'September 23' ) );
+	$autumn_ends   = date( 'z', strtotime( 'December 20' ) );
+	// Affichage de la saison :
+	if( $day >= $spring_starts AND $day <= $spring_ends ) {
+		$season = 'spring';
+	} elseif ( $day >= $summer_starts AND $day <= $summer_ends ) {
+		$season = 'summer';
+	} elseif ( $day >= $autumn_starts AND $day <= $autumn_ends ) {
+		$season = 'autumn';
+	} else {
+		$season = 'winter';
+	}
+	return $season;
+}
+//var_dump( ScripturaGetSeason( 1 ) );exit;
 
 
 // @link http://syframework.alwaysdata.net/3bs
-function ScripturaCalendarLiturgy( $date = '' )
+function ScripturaCalendarLiturgy( $date = '', $links = '', $html = '' )
 {
+	// @param $date jour/mois sur deux chiffres passés obligatoirement en chaine de caractères (ex : '0101')
+	// @param $links bouléen, true si affichage des liens
+	// @param $html, valeur d'une balise html ('div', 'span', 'p', etc...)
+	if ( strlen( $date ) != 4 )
+		return 'Date Error: the string must consist of 4 numbers';
+	if ( ! ctype_digit( $date ) )
+		return 'Date Error: the string is not only digital';
 	if ( $date ) { // Si date non renseignée, alors date du jour
 		$calendar = $date;
 	} else {
-		$calendar = '0000';
+		$calendar = date( 'dm' );
 	}
-	//var_dump( $calendar );
-
-	// Valeur par défaut
-	$item[ '0000' ] = 'de la férie';
-
-	// Commémorations fixes
+	// Commémorations fixes :
 	$item[ '0101' ] = 'Sainte Marie, Mère de Dieu';
 	$item[ '0201' ] = 'S. Basile le Grand, évêque de Césarée, docteur de l\'Église et S. Grégoire de Nazianze, évêque de Constantinople, docteur de l\'Église';
 	$item[ '0301' ] = 'Saint Nom de Jésus';
@@ -276,8 +315,7 @@ function ScripturaCalendarLiturgy( $date = '' )
 	$item[ '2812' ] = 'Les Saints Innocents, martyrs';
 	$item[ '2912' ] = 'S. Thomas Becket, évêque de Cantorbéry et martyr';
 	$item[ '3112' ] = 'S. Sylvestre <abbr title="premier">I<sup>er</sup></abbr>, pape';
-
-	$link[ '0000' ] = '';
+	// Lien associé à une commémoration fixe :
 	$link[ '0101' ] = 'https://christus.fr/a-propos-de-marie-mere-de-dieu/';
 	$link[ '0201' ] = 'https://christus.fr/basile-de-cesaree';
 	$link[ '0301' ] = 'https://christus.fr/litanies-du-saint-nom-de-jesus';
@@ -494,55 +532,23 @@ function ScripturaCalendarLiturgy( $date = '' )
 	$link[ '2812' ] = 'https://christus.fr/les-saints-innocents-pierre-chrysologue';
 	$link[ '2912' ] = 'https://christus.fr/thomas-becket';
 	$link[ '3112' ] = '';
-
-	$calendarLiturgy = '<p>';
-	if ( $link )
+	// Si pas de valeurs renseignées dans les tableaux :
+	if ( empty( $item[ $calendar ] ) )
+		$item[ $calendar ] = 'de la férie'; // Valeur par défaut
+	if ( empty( $link[ $calendar ] ) )
+		$link[ $calendar ] = '';
+	$calendarLiturgy = '';
+	if ( $html )
+		$calendarLiturgy .= '<' . $html . '>';
+	if ( $links AND $link[ $calendar ] != '' )
 		$calendarLiturgy .= '<a href="' . $link[ $calendar ] . '">';
 	$calendarLiturgy .= $item[ $calendar ];
-	if ( $link )
+	if ( $links AND $link[ $calendar ] != '' )
 		$calendarLiturgy .= '</a>';
-	$calendarLiturgy .= '</p>' . PHP_EOL;
+	if ( $html )
+		$calendarLiturgy .= '</' . $html . '>' . PHP_EOL;
 	return $calendarLiturgy;
 }
 
-//echo ScripturaCalendarLiturgy( '2912' );exit;
+//var_dump( ScripturaCalendarLiturgy( '0101', true, 'p' ) );exit;
 
-
-// @link https://css-tricks.com/snippets/php/change-graphics-based-on-season/
-// @link http://syframework.alwaysdata.net/3c2
-function CurrentSeason( $day = '' ) {
-
-       if ( ! $day )
-           $day = date( 'z' ); // Jour de l'année
-	   //var_dump( $day );
-
-       if ( $day < 0 OR $day > 366 )
-		   return 'date error';
-	
-       //  Days of spring
-       $spring_starts = date( 'z', strtotime( 'March 21' ) );
-       $spring_ends   = date( 'z', strtotime( 'June 20' ) );
-
-       //  Days of summer
-       $summer_starts = date( 'z', strtotime( 'June 21' ) );
-       $summer_ends   = date( 'z', strtotime( 'September 22' ) );
-
-       //  Days of autumn
-       $autumn_starts = date( 'z', strtotime( 'September 23' ) );
-       $autumn_ends   = date( 'z', strtotime( 'December 20' ) );
-
-       // Affichage de la saison :
-       if( $day >= $spring_starts AND $day <= $spring_ends ) :
-               $season = 'spring';
-       elseif( $day >= $summer_starts AND $day <= $summer_ends ) :
-               $season = 'summer';
-       elseif( $day >= $autumn_starts AND $day <= $autumn_ends ) :
-               $season = 'autumn';
-       else :
-               $season = 'winter';
-       endif;
-
-       return $season;
-
-}
-//echo CurrentSeason('-1');

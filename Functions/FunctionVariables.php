@@ -5,7 +5,8 @@
 // @description Variables globales pour le thème
 // -----------------------------------------------------------------------------
 
-	$scheme = '//'; // Compatibilité avec SSL
+	$arrayHttp = [ 'http://', 'https://' ];
+	$scheme = '//'; // Pour compatibilité avec SSL
 	$host = $_SERVER[ 'HTTP_HOST' ];
 	$path = $_SERVER[ 'REQUEST_URI' ];
 	$uri = $scheme . $host . $path;	// Alternative fiable à get_permalink() : fonctionnera partout sur le site
@@ -16,9 +17,8 @@
 	$version = date( 'dmy' ); // Versioning pour certains fichiers css et js
 
 	$siteName = get_bloginfo( 'name' ); // Nom du site
-	$siteUri = get_site_url(); // Url du site
+	$siteUri = str_replace( $arrayHttp, '//', get_site_url() ); // Url du site
 	$siteLang = get_language_attributes();
-	$arrayHttp = [ 'http://', 'https://' ];
 	$templateUri = str_replace( $arrayHttp, '//', get_template_directory_uri() ); // Racine du site en // pour compatibilité avec certificat SSL
 	$imgDefault = $templateUri . '/Images/Default.jpg';
 	$imgDefault300 = $templateUri . '/Images/Default300.jpg';

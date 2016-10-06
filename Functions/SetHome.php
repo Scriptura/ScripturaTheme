@@ -59,24 +59,24 @@
         echo '<style>
                 @media screen and (max-width: 36.01rem) {
                   #cycle-item' . $postId . ' {
-                    background-image: url(' . $image1000 . ');
+                    background-image: url(' . str_replace( $arrayHttp, '//', $image1000 ) . ');
                   }
                 }
                 @media screen and (min-width: 36.01rem) and (max-width: 65.01rem) {
                   #cycle-item' . $postId . ' {
-                    background-image: url(' . $image1500 . ');
+                    background-image: url(' . str_replace( $arrayHttp, '//', $image1500 ) . ');
                   }
                 }
                 @media screen and (min-width: 65.01rem) {
                   #cycle-item' . $postId . ' {
-                    background-image: url(' . $image2000 . ');
+                    background-image: url(' . str_replace( $arrayHttp, '//', $image2000 ) . ');
                   }
                 }
               </style>
               <div id="cycle-item' . $id . '" class="cycle-item">
                 <picture>
-                  <source srcset="' . $image300 . '" sizes="100vw">
-                  <img src="' . $image2000 . '" alt="' . $postTitle . '">
+                  <source srcset="' . str_replace( $arrayHttp, '//', $image300 ) . '" sizes="100vw">
+                  <img src="' . str_replace( $arrayHttp, '//', $image2000 ) . '" alt="' . $postTitle . '">
                 </picture>
                 <div class="wrap cycle-text">
                   <div>

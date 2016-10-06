@@ -82,14 +82,18 @@
 		the_post_thumbnail_url( 'image2000' );
 		$image2000 = ob_get_clean();
 
-		$category = get_the_category()[ 0 ]; // Récupération de la première catégorie seulement
-		$singleCatLink = get_category_link( $category->cat_ID );
-		$singleCatName = $category->cat_name;
+
+		if ( is_single() ) { // Exclu les pages
+			$category = get_the_category()[ 0 ]; // Récupération de la première catégorie seulement
+			$singleCatLink = get_category_link( $category->cat_ID );
+			$singleCatName = $category->cat_name;
+		}
 		endwhile;
 	}
 
 	// Images
 	// @note Fonctions en remplacement de 'the_post_thumbnail()' afin de générer du html maîtrisé.
+	$image = '';
 	if ( has_post_thumbnail() ) {
 		$imageUri = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full', false )[ 0 ]; // URL et format de l'image
 		$imageAlt = get_post_meta( get_post_thumbnail_id(), '_wp_attachment_image_alt', true ); // Meta alt
@@ -110,17 +114,17 @@
 <style>
 @media screen and (max-width: 36.01rem) {
   .image-article {
-    background-image: url(' . $image1000 . ');
+    background-image: url(' . str_replace( $arrayHttp, '//', $image1000 ) . ');
   }
 }
 @media screen and (min-width: 36.01rem) and (max-width: 65.01rem) {
   .image-article {
-    background-image: url(' . $image1500 . ');
+    background-image: url(' . str_replace( $arrayHttp, '//', $image1500 ) . ');
   }
 }
 @media screen and (min-width: 65.01rem) {
   .image-article {
-    background-image: url(' . $image2000 . ');
+    background-image: url(' . str_replace( $arrayHttp, '//', $image2000 ) . ');
   }
 }
 </style>
@@ -128,8 +132,8 @@
 			   . '<header>' . PHP_EOL
 			   . '<div class="image-article">' . PHP_EOL
 			   . '<picture>' . PHP_EOL
-			   . '<source srcset="' . $image300 . '" sizes="100vw">' . PHP_EOL
-			   . '<img src="' . $imageUri . '" alt="' . $imageAlt . '" itemprop="image">' . PHP_EOL
+			   . '<source srcset="' . str_replace( $arrayHttp, '//', $image300 ) . '" sizes="100vw">' . PHP_EOL
+			   . '<img src="' . str_replace( $arrayHttp, '//', $imageUri ) . '" alt="' . $imageAlt . '" itemprop="image">' . PHP_EOL
 			   . '</picture>' . PHP_EOL
 			   . '</div>' . PHP_EOL
 			   . '</header>' . PHP_EOL;

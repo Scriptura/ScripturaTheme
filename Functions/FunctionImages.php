@@ -83,6 +83,7 @@ if ( !is_admin() ) :
 function ScripturaImgCaptionShortcode( $current_html, $attr, $content )
 { // Change le html autour des images, généré via shortcode par l'éditeur WordPress
     global $host;
+    global $arrayHttp;
     extract( shortcode_atts(
     	[
     		'id' => '',
@@ -99,7 +100,7 @@ function ScripturaImgCaptionShortcode( $current_html, $attr, $content )
             . '<picture>'
             . PHP_EOL
             . str_replace(
-                [ PHP_EOL . PHP_EOL, PHP_EOL . PHP_EOL, PHP_EOL . PHP_EOL ], // @todo Il existe certainement une méthode plus simple pour supprimer deux retours chariots
+                [ PHP_EOL . PHP_EOL, PHP_EOL . PHP_EOL, PHP_EOL . PHP_EOL ], // @todo Il existe certainement une méthode plus simple pour supprimer deux retours chariots...
                 [ PHP_EOL, PHP_EOL, PHP_EOL ],
                 /*
                 preg_replace(
@@ -152,7 +153,7 @@ function ScripturaImgCaptionShortcode( $current_html, $attr, $content )
                     )
                 )
                 */
-                $image
+                str_replace( $arrayHttp, '//', $image )
             )
         	. PHP_EOL
         	. '</picture>'
@@ -160,6 +161,7 @@ function ScripturaImgCaptionShortcode( $current_html, $attr, $content )
         	. '<figcaption>' . $caption . '</figcaption>'
             . PHP_EOL
         	. '</figure>';
+            //var_dump($arrayHttp);exit;
     return $html;
 }
 add_filter( 'img_caption_shortcode', 'ScripturaImgCaptionShortcode', 10, 3 );
@@ -173,7 +175,8 @@ endif; // admin
 
 // @link https://www.smashingmagazine.com/2015/12/responsive-images-in-wordpress-core/
 
-function ScripturaAdjustImageSizesAttr( $sizes, $size ) {
+function ScripturaAdjustImageSizesAttr( $sizes, $size )
+{
    $sizes = '100vw';
    return $sizes;
 }

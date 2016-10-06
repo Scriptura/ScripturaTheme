@@ -11,7 +11,7 @@
   <body itemscope itemtype="https://schema.org/WebPage">
     <nav role="navigation" class="main-nav">
       <div class="wrap">
-        <div class="brand-image"><a href="<?php echo $siteUri; ?>"><?php echo $siteName; ?></a></div>
+        <div class="brand-image onaline"><a href="<?php echo $siteUri; ?>"><?php echo $siteName; ?></a></div>
         <input type="checkbox" id="cmd-main-nav">
         <label for="cmd-main-nav"><span></span></label>
         <?php echo $mainNav; ?>
