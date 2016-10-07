@@ -89,14 +89,13 @@ function ScripturaCalendarLiturgy( $date = '', $links = '', $html = '' )
 	// @param $date jour/mois sur deux chiffres passés obligatoirement en chaine de caractères (ex : '0101')
 	// @param $links bouléen, true si affichage des liens
 	// @param $html, valeur d'une balise html ('div', 'span', 'p', etc...)
-	if ( strlen( $date ) != 4 )
-		return 'Date Error: the string must consist of 4 numbers';
-	if ( ! ctype_digit( $date ) )
-		return 'Date Error: the string is not only digital';
-	if ( $date ) { // Si date non renseignée, alors date du jour
-		$calendar = $date;
+	if ( $date ) {
+		if ( strlen( $date ) != 4 )
+			return 'Date Error: the string must consist of 4 numbers';
+		if ( ! ctype_digit( $date ) )
+			return 'Date Error: the string is not only digital';
 	} else {
-		$calendar = date( 'dm' );
+		$calendar = date( 'dm' ); // Si date non renseignée, alors date du jour
 	}
 	// Commémorations fixes :
 	$item[ '0101' ] = 'Sainte Marie, Mère de Dieu';

@@ -1346,6 +1346,8 @@ if $bundleImages
     padding-top .5em
     text-align center
 
+  [class^="figure"] + [class^="figure"]
+    margin-top 2em
 
   // @subsection .align
   // -----------------------------------------------------------------------------
@@ -3637,19 +3639,34 @@ if $bundleBox
     margin-left 1rem
     margin-right 1rem
 
+  //.box0 > a:first-child
+  //  overflow hidden
+
   .box0 .magimg
     width 100% // @note Si petites images
     padding-bottom 50%
     background-color #333
     background-size cover
     background-position 50% 50%
-    border-radius $r1 $r1 0 0
+    //border-radius $r1 $r1 0 0
     transition all 1s
 
   a:focus .magimg
   a:hover .magimg
   a:active .magimg
-    background-position 0% 0%
+    background-position 50% 0%
+  
+  .fullImg
+    padding-bottom 0
+  
+  .fullImg .magimg
+    min-height 100%
+    padding-bottom 100%
+    
+  .fullImg .magimg :nth-child(2)
+    width 100%
+    padding .8rem 1rem 1rem
+    background-color rgba(255, 255, 255, .8)
 
 
 // -----------------------------------------------------------------------------
