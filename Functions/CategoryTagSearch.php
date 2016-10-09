@@ -11,19 +11,20 @@
 
 	    $postId = get_the_ID();
 	    $title = get_the_title();
-		$postLink = str_replace( 'http:', '', get_permalink() );
+		$postLink = str_replace( $arrayHttp, '//', get_permalink() );
 		$resume = get_the_excerpt();
-		$displayResume = false;
-		if ( strlen( $resume ) > 20 ) // Si peu de contenu textuel
-			$displayResume = true;
+		$resume = str_replace( '&nbsp; ', '', $resume ); // Suppression des espaces blancs induits par les shortcodes
+		$longResume = false;
+		$longTitle = false;
+		if ( strlen( $resume ) > 160 ) // En nombre de caractères
+			$longResume = true;
+		if ( strlen( strip_tags( $title ) ) > 90 ) // En nombre de caractères, moins les tags html
+			$longTitle = true;
 		$restrictedRead = get_post_meta( $post->ID, 'restrictedread', true );
 		$authorizedGroups = get_post_meta( $post->ID, 'authorizedgroups', true );
 		//var_dump( $restrictedRead );die();
 
-		echo '<article class="box0';
-		if ( ! $displayResume )
-			echo ' fullImg';
-		echo ' m3 sizeS-m6 sizeL-m4 ribbon-container-bottom protected">';
+		echo '<article class="box0 m3 sizeS-m6 sizeL-m4 ribbon-container-bottom protected">';
 		echo '<a href="' . $postLink . '">';
 		if ( ! $capacityAdministrator AND ( $restrictedRead AND ! $capacityRead OR $authorizedGroups AND $userGroup != $authorizedGroups ) ) {
 			$image1000 = $imageProtected1000;
@@ -36,22 +37,22 @@
 		} else {
 			$image1000 = $templateUri . '/Images/Default1000.jpg';
 		}
+		$image1000 = str_replace( $arrayHttp, '//', $image1000);
 		echo '<style>#post' . $postId . ' {background-image: url(' . $image1000 . ')}</style>';
-		echo '<div class="ratio-1-2 magimg" id="post' . $postId . '">';
-		if ( ! $displayResume ) {
-			echo '<div class="ratio-1-2"></div>';
-			echo '<div><h2 class="h5">' . $title . '</h2></div>';
-		}
-		echo '</div>';
+		echo '<div class="ratio-1-2 magimg" id="post' . $postId . '"></div>';
 		echo '</a>';
-		if ( $displayResume ) {
-			echo '<h2 class="h5"><a href="' . $postLink . '">' . $title . '</a></h2>';
-			if ( $restrictedRead != false AND $capacityRead == false ) {
-				echo '<p class="message-error">' . __( 'This content is only visible to connected users.', 'scriptura' ) . '</p>';
-			} elseif ( ! $capacityAdministrator AND $authorizedGroups AND $userGroup != $authorizedGroups ) {
-				echo '<p class="message-error">' . __( 'This content is only visible to authorized users.', 'scriptura' ) . '</p>';
+		echo '<h2 class="h5"><a href="' . $postLink . '">' . $title . '</a></h2>';
+		if ( ( $restrictedRead != false AND $capacityRead == false ) OR ( ! $capacityAdministrator AND $authorizedGroups AND $userGroup != $authorizedGroups ) ) {
+			echo '<div class="vertical"><div class="icon-locked zoom800"></div></div>';
+		} else {
+			if ( ! $longTitle ) {
+				if ( $longResume ) {
+					echo '<p>' . $resume . '</p>';
+				} else {
+					echo '<div class="vertical"><div class="icon-ampersand zoom800"></div></div>';
+				}
 			} else {
-				echo '<p>' . $resume . '</p>';
+				echo '<div class="vertical sizeXS-unhidden"><div class="icon-ampersand zoom800"></div></div>';
 			}
 		}
 		echo '<div class="ribbon"><a href="' . $postLink . '">' . __( 'Read more', 'scriptura' ) . '</a></div>'

@@ -23,7 +23,7 @@ block content
           _endif
 
 block comments
-  _if ( $capacityAdministrator AND $comments ) OR ( $capacityRead AND ( $commentsOpen AND $capacityCommentator OR $commentsOpen AND $comments ) AND ( ! $authorizedGroups OR $userGroup == $authorizedGroups ) )
+  _if ( $capacityAdministrator AND $commentsOpen ) OR ( $capacityRead AND ( $commentsOpen AND $capacityCommentator OR $commentsOpen AND $comments ) AND ( ! $authorizedGroups OR $userGroup == $authorizedGroups ) )
   aside.aside#index-comments
     .wrap
       h2.emphasized {% $commentsTitle %}

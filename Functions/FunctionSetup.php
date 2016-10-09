@@ -57,15 +57,16 @@ add_theme_support( 'automatic-feed-links' );
 //	add_theme_support( 'title-tag' );
 
 
-// @subsection  Excerpt
-// @description Gestion des extraits d'articles
+// @subsection  The Excerpt
+// @description Gestion des extraits d'articles 
 // -----------------------------------------------------------------------------
 
-if (!is_admin()) :
+if ( ! is_admin() ) :
 
 // Longueur des extraits d'article
 function ScripturaExcerptLength() {
-	return 60;
+	$word = '60';
+	return $word;
 }
 add_filter('excerpt_length', 'ScripturaExcerptLength');
 

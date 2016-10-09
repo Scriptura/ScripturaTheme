@@ -5,8 +5,8 @@
 // @description Configuration des balises meta et link du head du site
 // -----------------------------------------------------------------------------
 
-    //$version = '?ver=' . $version;
-    $version = ''; // Désactivation du versioning
+    $version = '?ver=' . $version;
+    //$version = ''; // Désactivation du versioning
     $separator = ' | ';
     $locality = get_option( 'scriptura_itemprop_address_locality' );
     $country = get_option( 'scriptura_itemprop_address_country' );

@@ -3194,6 +3194,7 @@ if $bundleLoginAvatar
     flex-shrink 0 // @note Évite la compression si élément poussé par nom d'utilisateur trop long
     width 2.5rem
     height 2.5rem
+    background-color #000
 
   @media (min-width $sizeNav)
     .login .active .avatar
@@ -3552,7 +3553,7 @@ if $bundleComments
     flex-shrink 0 // @note Évite la compression si élément poussé par nom d'utilisateur trop long
     width 4rem
     height 4rem
-    background-color #444
+    background-color #000
     background-size cover
 
   .author-comment p
@@ -3570,36 +3571,15 @@ if $bundleComments
 // @description Boîtes d'extrait de contenu
 // -----------------------------------------------------------------------------
 if $bundleBox
-  //.box
-  //  position relative
-  //  padding 1rem
-  //  background-color #ddd
-
-  //.box::before
-  //.box::after
-  //  content ''
-  //  position absolute
-  //  width 100%
-  //  height 100%
-
-  //.box::before
-  //  z-index: -1
-  //  top: -.5rem
-  //  left: -.5rem
-  //  border: .5rem solid transparent
-  //  border-image: url(../../Images/border31.svg) 100 repeat
-
-  //.box::after
-  //  z-index -2
-  //  top 0
-  //  left 0
-  //  box-shadow 0 0 2rem rgba(0, 0, 0, .2)
 
   [class*="box"]
     position relative
+    display flex
+    flex-direction column
+    min-height 33rem
     padding-bottom .5rem
-    background-color $colorBG002
-    background-image linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.5))
+    background-color #f5f5f5
+    //background-image linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.5))
     ifBorderRadius($r1)
     box-shadow 0 0 2em rgba(0, 0, 0, .1)
 
@@ -3621,12 +3601,25 @@ if $bundleBox
     left auto
     transform rotate(3deg)
 
+  [class*="box"] h2
+    text-align center
+
+  [class*="box"] h2 a
+    color $color6
+
+  [class*="box"] .vertical
+    flex-grow 2
+  
+  [class*="box"] [class*="icon"]
+    margin-bottom 2rem // Permet un meilleur centrage de l'icône
+    color #ddd
+
   //.emphasized::before
   //.emphasized::after
   //  border-image url('../../Images/border4.svg') 0 100 100 repeat
 
-  [class*="ribbon-container"][class*="box"]
-    background-image none
+  //[class*="ribbon-container"][class*="box"]
+  //  background-image none
 
   .box
     padding 1em
@@ -3639,34 +3632,19 @@ if $bundleBox
     margin-left 1rem
     margin-right 1rem
 
-  //.box0 > a:first-child
-  //  overflow hidden
-
   .box0 .magimg
     width 100% // @note Si petites images
     padding-bottom 50%
     background-color #333
     background-size cover
     background-position 50% 50%
-    //border-radius $r1 $r1 0 0
+    border-radius $r1 $r1 0 0
     transition all 1s
 
   a:focus .magimg
   a:hover .magimg
   a:active .magimg
     background-position 50% 0%
-  
-  .fullImg
-    padding-bottom 0
-  
-  .fullImg .magimg
-    min-height 100%
-    padding-bottom 100%
-    
-  .fullImg .magimg :nth-child(2)
-    width 100%
-    padding .8rem 1rem 1rem
-    background-color rgba(255, 255, 255, .8)
 
 
 // -----------------------------------------------------------------------------
@@ -3723,6 +3701,7 @@ if $bundleRelationship
 // -----------------------------------------------------------------------------
 
 .avatar
+  background-color #000
   background-size cover
 
 
