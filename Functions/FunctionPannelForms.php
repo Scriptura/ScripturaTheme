@@ -7,8 +7,9 @@
 
 if ( is_admin() ) {
 
-	function pannel_forms() {
-		if(isset($_POST['pannel-update'])) {
+	function pannel_forms()
+	{
+		if( isset( $_POST[ 'pannel-update' ] ) ) {
 			if( ! wp_verify_nonce( $_POST[ 'pannel_noncename' ], 'pannel-update' ) ) {
 				die( 'Token non valide' );
 			}

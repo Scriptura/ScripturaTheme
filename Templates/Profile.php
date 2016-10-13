@@ -23,22 +23,22 @@
           <div class="wrap">
             <div class="grid">
               <h1 itemprop="name headline" class="emphasized"><?php echo $name; ?></h1>
-            </div><br class="sizeS-unhidden">
-            <div itemprop="articleBody" class="grid">
-              <div class="m2 sizeXS-m6 sizeS-m3">
-                <div style="background-image:url(<?php echo $avatarImg; ?>)" class="avatar">
-                  <div class="ratio"></div>
+              <div itemprop="articleBody" class="grid">
+                <div class="m2 sizeXS-m6 sizeS-m3">
+                  <div style="background-image:url(<?php echo $avatarImg; ?>)" class="avatar">
+                    <div class="ratio"></div>
+                  </div>
                 </div>
-              </div>
-              <?php if ($userDescription): ?>
-              <div class="m6 sizeS-m9">
-                <p><em><?php echo $userDescription; ?></em></p>
-              </div>
-              <?php endif; ?>
-              <div>
-                <div class="columns">
-                  <div class="list-stripe"><?php echo $userInfoList; ?></div>
-                  <div class="list-stripe"><?php echo $loginLogout; ?></div>
+                <?php if ($userDescription): ?>
+                <div class="m6 sizeS-m9">
+                  <p><em><?php echo $userDescription; ?></em></p>
+                </div>
+                <?php endif; ?>
+                <div>
+                  <div class="columns">
+                    <div class="list-stripe"><?php echo $userInfoList; ?></div>
+                    <div class="list-stripe"><?php echo $loginLogout; ?></div>
+                  </div>
                 </div>
               </div>
             </div>

@@ -46,7 +46,7 @@ if ( is_admin() ) :
 			</table>
 			<hr>
 			<table class="form-table">
-			<h3><?php _e( 'From the main menu', 'scriptura' ); ?></h3>
+			<h3><?php _e( 'Connection from the main menu', 'scriptura' ); ?></h3>
 				<tbody>
           			<tr>
             			<th scope="row">

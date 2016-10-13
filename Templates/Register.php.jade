@@ -1,9 +1,5 @@
 extends ../PatternLayouts
 
-block banner
-  //-
-    _php // Template Name: Register
-
 append variables
   _require_once_wp Functions/SetRegister
 
@@ -11,15 +7,15 @@ block content
   article.article(itemscope itemtype='https://schema.org/Article')
     #index-article
       .wrap
-        h1.emphasized {% $name %}
-        br.sizeS-unhidden
-        _if $userRegistrationOpen
-        .grid(itemprop='articleBody')
-          .m6
-            _php $content
-            p.message-info {% $message %}
-          .m6.vertical
-            .icon-rocket.surround.zoom500
-        _else
-        div(itemprop='articleBody') {% $content %}
-        _endif
+        .grid
+          h1.emphasized {% $name %}
+          _if $userRegistrationOpen
+          .grid(itemprop='articleBody')
+            .m6
+              _php $content
+              p.message-info {% $message %}
+            .m6.vertical
+              .icon-rocket.surround.zoom500
+          _else
+          div(itemprop='articleBody') {% $content %}
+          _endif

@@ -22,45 +22,43 @@
         <div id="index-article">
           <div class="wrap">
             <div class="grid">
-              <div class="m12">
-                <h1 class="emphasized"><?php echo $name; ?></h1><br class="sizeS-unhidden">
-                <div itemprop="articleBody" class="grid">
-                  <div class="m6">
-                    <form method="post" action="<?php echo $formAction; ?>">
-                      <fieldset>
-                        <?php if ($errorLogin):
-                              echo $errorLogin;
-                              endif; ?>
-                        <div class="input">
-                          <label for="user_login"><?php echo $formUserLoginText; ?></label>
-                          <input type="text" id="user_login" name="user_login" placeholder="<?php echo $formUserLoginPlaceholder; ?>" autofocus>
-                        </div>
-                        <div class="input-password">
-                          <label for="user_password"><?php echo $formUserPasswordText; ?></label>
-                          <input type="password" id="user_password" name="user_password" placeholder="<?php echo $formUserPasswordPlaceholder; ?>">
-                          <input type="checkbox" title="See the password">
-                        </div>
-                        <div>
-                          <input id="remember" type="checkbox" name="remember" checked="" class="switch">
-                          <label for="remember"><?php echo $formSaveText; ?><span data-on="yes" data-off="no"></span></label>
-                        </div>
-                        <div>
-                          <button class="button"><span class="icon-login"></span>&nbsp;&nbsp;<?php echo $formSignInText; ?></button>
-                        </div>
-                      </fieldset>
+              <h1 class="emphasized"><?php echo $name; ?></h1>
+              <div itemprop="articleBody" class="grid">
+                <div class="m6">
+                  <form method="post" action="<?php echo $formAction; ?>">
+                    <fieldset>
+                      <?php if ($errorLogin):
+                            echo $errorLogin;
+                            endif; ?>
+                      <div class="input">
+                        <label for="user_login"><?php echo $formUserLoginText; ?></label>
+                        <input type="text" id="user_login" name="user_login" placeholder="<?php echo $formUserLoginPlaceholder; ?>" autofocus>
+                      </div>
+                      <div class="input-password">
+                        <label for="user_password"><?php echo $formUserPasswordText; ?></label>
+                        <input type="password" id="user_password" name="user_password" placeholder="<?php echo $formUserPasswordPlaceholder; ?>">
+                        <input type="checkbox" title="See the password">
+                      </div>
+                      <div>
+                        <input id="remember" type="checkbox" name="remember" checked="" class="switch">
+                        <label for="remember"><?php echo $formSaveText; ?><span data-on="yes" data-off="no"></span></label>
+                      </div>
+                      <div>
+                        <button class="button"><span class="icon-login"></span>&nbsp;&nbsp;<?php echo $formSignInText; ?></button>
+                      </div>
+                    </fieldset>
+                  </form>
+                  <?php if ($userRegistrationOpen): ?>
+                  <div class="message-info">
+                    <p><?php echo $message; ?></p>
+                    <form action="<?php echo $siteUri; ?>/Register" method="post">
+                      <button class="button"><span class="icon-arrow-right"></span>&nbsp;&nbsp;<?php echo $register; ?></button>
                     </form>
-                    <?php if ($userRegistrationOpen): ?>
-                    <div class="message-info">
-                      <p><?php echo $message; ?></p>
-                      <form action="<?php echo $siteUri; ?>/Register" method="post">
-                        <button class="button"><span class="icon-arrow-right"></span>&nbsp;&nbsp;<?php echo $register; ?></button>
-                      </form>
-                    </div>
-                    <?php endif; ?>
                   </div>
-                  <div class="m6 vertical">
-                    <div class="icon-user surround zoom500"></div>
-                  </div>
+                  <?php endif; ?>
+                </div>
+                <div class="m6 vertical">
+                  <div class="icon-user surround zoom500"></div>
                 </div>
               </div>
             </div>

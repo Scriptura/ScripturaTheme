@@ -21,20 +21,22 @@
       <article itemscope itemtype="https://schema.org/Article" class="article">
         <div id="index-article">
           <div class="wrap">
-            <h1 class="emphasized"><?php echo $name; ?></h1><br class="sizeS-unhidden">
-            <?php if ($userRegistrationOpen): ?>
-            <div itemprop="articleBody" class="grid">
-              <div class="m6">
-                <?php echo $content; ?>
-                <p class="message-info"><?php echo $message; ?></p>
+            <div class="grid">
+              <h1 class="emphasized"><?php echo $name; ?></h1>
+              <?php if ($userRegistrationOpen): ?>
+              <div itemprop="articleBody" class="grid">
+                <div class="m6">
+                  <?php echo $content; ?>
+                  <p class="message-info"><?php echo $message; ?></p>
+                </div>
+                <div class="m6 vertical">
+                  <div class="icon-rocket surround zoom500"></div>
+                </div>
               </div>
-              <div class="m6 vertical">
-                <div class="icon-rocket surround zoom500"></div>
-              </div>
+              <?php else: ?>
+              <div itemprop="articleBody"><?php echo $content; ?></div>
+              <?php endif; ?>
             </div>
-            <?php else: ?>
-            <div itemprop="articleBody"><?php echo $content; ?></div>
-            <?php endif; ?>
           </div>
         </div>
       </article>

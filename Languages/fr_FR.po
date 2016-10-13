@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Scriptura\n"
-"POT-Creation-Date: 2016-10-06 10:28+0100\n"
-"PO-Revision-Date: 2016-10-06 10:28+0100\n"
+"POT-Creation-Date: 2016-10-11 06:14+0100\n"
+"PO-Revision-Date: 2016-10-11 06:14+0100\n"
 "Last-Translator: \n"
 "Language-Team: Olivier Chavarin\n"
 "Language: fr_FR\n"
@@ -36,25 +36,15 @@ msgstr "Profil"
 msgid "Home"
 msgstr "Accueil"
 
-#: ../Functions/CategoryTagSearch.php:38 ../Functions/SetSingle.php:61
-#: ../single.php:67
-msgid "This content is only visible to connected users."
-msgstr "Ce contenu n'est visible que par les utilisateurs connectés."
-
-#: ../Functions/CategoryTagSearch.php:40 ../Functions/SetSingle.php:63
-#: ../single.php:72
-msgid "This content is only visible to authorized users."
-msgstr "Ce contenu n'est visible que par les utilisateurs autorisés."
-
-#: ../Functions/CategoryTagSearch.php:44
+#: ../Functions/CategoryTagSearch.php:58
 msgid "Read more"
 msgstr "Lire la suite"
 
-#: ../Functions/CategoryTagSearch.php:49
+#: ../Functions/CategoryTagSearch.php:63
 msgid "This query yielded no results."
 msgstr "Cette requête n'a donné aucun résultat."
 
-#: ../Functions/CategoryTagSearch.php:52
+#: ../Functions/CategoryTagSearch.php:66
 msgid "Search form"
 msgstr "Formulaire de recherche"
 
@@ -371,12 +361,12 @@ msgid "No current image"
 msgstr "Pas d'image courante"
 
 #: ../Functions/FunctionPannelOptions.php:117
-#: ../Functions/FunctionUsers.php:342
+#: ../Functions/FunctionUsers.php:359
 msgid "Choose an image"
 msgstr "Choisir une image"
 
 #: ../Functions/FunctionPannelOptions.php:118
-#: ../Functions/FunctionUsers.php:343
+#: ../Functions/FunctionUsers.php:360
 msgid "Delete image"
 msgstr "Supprimer l'image"
 
@@ -406,8 +396,8 @@ msgid "Allow user registration"
 msgstr "Autoriser l'enregistrement des utilisateurs"
 
 #: ../Functions/FunctionPannelUsers.php:49
-msgid "From the main menu"
-msgstr "Depuis le menu principal"
+msgid "Connection from the main menu"
+msgstr "Connexion depuis le menu principal"
 
 #: ../Functions/FunctionPannelUsers.php:53
 msgid "Make the connection from the Site navigation menu"
@@ -422,15 +412,15 @@ msgstr "Rechercher"
 msgid "Submit"
 msgstr "Soumettre"
 
-#: ../Functions/FunctionSetup.php:89
+#: ../Functions/FunctionSetup.php:90
 msgid "Primary menu"
 msgstr "Menu principal"
 
-#: ../Functions/FunctionSetup.php:90
+#: ../Functions/FunctionSetup.php:91
 msgid "Secondary menu"
 msgstr "Menu secondaire"
 
-#: ../Functions/FunctionSetup.php:208
+#: ../Functions/FunctionSetup.php:209
 msgid ""
 "<a href=\"https://github.com/Scriptura/ScripturaTheme\">Scriptura</a> theme "
 "is developed by <a href=\"https://github.com/Scriptura\">Olivier Chavarin</"
@@ -440,51 +430,51 @@ msgstr ""
 "a> est développé par <a href=\"https://github.com/Scriptura\">Olivier "
 "Chavarin</a>."
 
-#: ../Functions/FunctionUsers.php:42
+#: ../Functions/FunctionUsers.php:40
 msgid "Moderator"
 msgstr "Modérateur"
 
-#: ../Functions/FunctionUsers.php:73
+#: ../Functions/FunctionUsers.php:71
 msgid "Editor"
 msgstr "Éditeur"
 
-#: ../Functions/FunctionUsers.php:101
+#: ../Functions/FunctionUsers.php:99
 msgid "Author"
 msgstr "Auteur"
 
-#: ../Functions/FunctionUsers.php:113
+#: ../Functions/FunctionUsers.php:111
 msgid "Contributor"
 msgstr "Contributeur"
 
-#: ../Functions/FunctionUsers.php:121
+#: ../Functions/FunctionUsers.php:119
 msgid "Student"
 msgstr "Étudiant"
 
-#: ../Functions/FunctionUsers.php:132
+#: ../Functions/FunctionUsers.php:130
 msgid "Commentator"
 msgstr "Commentateur"
 
-#: ../Functions/FunctionUsers.php:138
+#: ../Functions/FunctionUsers.php:136
 msgid "Subscriber"
 msgstr "Abonné"
 
-#: ../Functions/FunctionUsers.php:324
+#: ../Functions/FunctionUsers.php:341
 msgid "Additional Information"
 msgstr "Informations complémentaires"
 
-#: ../Functions/FunctionUsers.php:328
+#: ../Functions/FunctionUsers.php:345
 msgid "Location"
 msgstr "Localisation"
 
-#: ../Functions/FunctionUsers.php:332
+#: ../Functions/FunctionUsers.php:349
 msgid "Group"
 msgstr "Groupe"
 
-#: ../Functions/FunctionUsers.php:336
+#: ../Functions/FunctionUsers.php:353
 msgid "Avatar"
 msgstr "Avatar"
 
-#: ../Functions/FunctionUsers.php:344
+#: ../Functions/FunctionUsers.php:361
 msgid ""
 "This presentation image will be used on the site preference to your gravatar "
 "if you have one. The image must be square."
@@ -694,6 +684,14 @@ msgstr "Mot clef :"
 #: ../Functions/SetSingle.php:49
 msgid "Keywords:"
 msgstr "Mots clefs :"
+
+#: ../Functions/SetSingle.php:61 ../single.php:67
+msgid "This content is only visible to connected users."
+msgstr "Ce contenu n'est visible que par les utilisateurs connectés."
+
+#: ../Functions/SetSingle.php:63 ../single.php:72
+msgid "This content is only visible to authorized users."
+msgstr "Ce contenu n'est visible que par les utilisateurs autorisés."
 
 #: ../Functions/SetSingle.php:111
 msgid "Protected content"

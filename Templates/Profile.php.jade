@@ -9,17 +9,16 @@ block content
       .wrap
         .grid
           h1.emphasized(itemprop='name headline') {% $name %}
-        br.sizeS-unhidden
-        .grid(itemprop='articleBody')
-          .m2.sizeXS-m6.sizeS-m3
-            .avatar(style='background-image:url({% $avatarImg %})')
-              .ratio
-          _if $userDescription
-          .m6.sizeS-m9
-            p
-              em {% $userDescription %}
-          _endif
-          div
-            .columns
-              .list-stripe {% $userInfoList %}
-              .list-stripe {% $loginLogout %}
+          .grid(itemprop='articleBody')
+            .m2.sizeXS-m6.sizeS-m3
+              .avatar(style='background-image:url({% $avatarImg %})')
+                .ratio
+            _if $userDescription
+            .m6.sizeS-m9
+              p
+                em {% $userDescription %}
+            _endif
+            div
+              .columns
+                .list-stripe {% $userInfoList %}
+                .list-stripe {% $loginLogout %}

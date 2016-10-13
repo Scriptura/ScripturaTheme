@@ -59,7 +59,7 @@
 	$userRegistrationOpen = get_option( 'scriptura_user_registration' );
 	$userRegistrationMainNav = get_option( 'scriptura_user_registration_main_nav' );
 	$restrictedRead = false;
-	$authorizedGroups = false; // Initialisation de la variable par défaut
+	$authorizedGroups = ''; // Initialisation de la variable par défaut
 
 	global $avatarImg; // @see FunctionUsers.php
     if ( $userAvatar )

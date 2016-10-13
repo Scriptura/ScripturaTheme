@@ -6,8 +6,7 @@
 // -----------------------------------------------------------------------------
 
 
-// -----------------------------------------------------------------------------
-// @section     Remove Roles Users
+// @subsection  Remove Roles Users
 // @description Suppression des rôles
 // -----------------------------------------------------------------------------
 
@@ -30,8 +29,7 @@ function ScripturaRemoveRole()
 add_action( 'after_setup_theme', 'ScripturaRemoveRole' );
 
 
-// -----------------------------------------------------------------------------
-// @section     Add Roles Users
+// @subsection  Add Roles Users
 // @description Création de rôles personnalisés et gestion des droits
 // -----------------------------------------------------------------------------
 
@@ -142,6 +140,25 @@ function ScripturaAddRole()
     );
 }
 add_action( 'after_setup_theme', 'ScripturaAddRole' );
+
+
+// @subsection  Rights Management Groups
+// @description Gestion des droits sur les groupes
+// -----------------------------------------------------------------------------
+
+function ScripturaRightsManagementGroups( $userGroup = [ '' ], $authorizedGroups = [ '' ] )
+{
+    global $userGroup;
+    global $authorizedGroups;
+    $userGroup = explode( ',', $userGroup );
+    $authorizedGroups = explode( ',', $authorizedGroups );
+    $intersect = array_intersect( $userGroup, $authorizedGroups );
+    $rights = false;
+    if( $intersect )
+        $rights = true;
+    //var_dump( $authorizedGroups );exit;
+    return $rights;
+}
 
 
 // @subsection  Login User
