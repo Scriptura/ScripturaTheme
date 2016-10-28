@@ -36,7 +36,7 @@ if ( is_admin() ) :
 							<label><?php _e( 'Title of insert', 'scriptura' ); ?></label>
 						</th>
 						<td>
-							<input type="text" id="scriptura_organization_title" name="option[scriptura_organization_title]" value="<?php echo get_option( 'scriptura_organization_title', '' ); ?>" class="regular-text" placeholder="ex : Mentions légales, Adresse">
+							<input type="text" id="scriptura_organization_title" name="option[scriptura_organization_title]" value="<?php echo get_option( 'scriptura_organization_title' ); ?>" class="regular-text" placeholder="ex : Mentions légales, Adresse">
 							<p class="description"><?php _e( 'This field is required if you want to show the information on the site.', 'scriptura' ); ?></p>
 						</td>
 					</tr>
@@ -45,7 +45,7 @@ if ( is_admin() ) :
 							<label><?php _e( 'Name of the organization', 'scriptura' ); ?></label>
 						</th>
 						<td>
-							<input type="text" id="scriptura_itemprop_name" name="option[scriptura_itemprop_name]" value="<?php echo get_option( 'scriptura_itemprop_name', '' ); ?>" class="regular-text">
+							<input type="text" id="scriptura_itemprop_name" name="option[scriptura_itemprop_name]" value="<?php echo get_option( 'scriptura_itemprop_name' ); ?>" class="regular-text">
 						</td>
 					</tr>
 					<tr>
@@ -53,7 +53,7 @@ if ( is_admin() ) :
 							<label><?php _e( 'Address', 'scriptura' ); ?></label>
 						</th>
 						<td>
-							<input type="text" id="scriptura_itemprop_street_address" name="option[scriptura_itemprop_street_address]" value="<?php echo get_option( 'scriptura_itemprop_street_address', '' ); ?>" class="regular-text">
+							<input type="text" id="scriptura_itemprop_street_address" name="option[scriptura_itemprop_street_address]" value="<?php echo get_option( 'scriptura_itemprop_street_address' ); ?>" class="regular-text">
 						</td>
 					</tr>
 					<tr>
@@ -61,7 +61,7 @@ if ( is_admin() ) :
 							<label><?php _e( 'Postal code', 'scriptura' ); ?></label>
 						</th>
 						<td>
-							<input type="text" id="scriptura_itemprop_postal_code" name="option[scriptura_itemprop_postal_code]" value="<?php echo get_option( 'scriptura_itemprop_postal_code', '' ); ?>" class="regular-text">
+							<input type="text" id="scriptura_itemprop_postal_code" name="option[scriptura_itemprop_postal_code]" value="<?php echo get_option( 'scriptura_itemprop_postal_code' ); ?>" class="regular-text">
 						</td>
 					</tr>
 					<tr>
@@ -69,7 +69,7 @@ if ( is_admin() ) :
 							<label><?php _e( 'Locality', 'scriptura' ); ?></label>
 						</th>
 						<td>
-							<input type="text" id="scriptura_itemprop_address_locality" name="option[scriptura_itemprop_address_locality]" value="<?php echo get_option( 'scriptura_itemprop_address_locality', '' ); ?>" class="regular-text">
+							<input type="text" id="scriptura_itemprop_address_locality" name="option[scriptura_itemprop_address_locality]" value="<?php echo get_option( 'scriptura_itemprop_address_locality' ); ?>" class="regular-text">
 							<p class="description"><?php _e( 'This result will appear in a meta tag site.', 'scriptura' ); ?></p>
 						</td>
 					</tr>
@@ -78,7 +78,7 @@ if ( is_admin() ) :
 							<label><?php _e( 'Country', 'scriptura' ); ?></label>
 						</th>
 						<td>
-							<input type="text" id="scriptura_itemprop_address_country" name="option[scriptura_itemprop_address_country]" value="<?php echo get_option( 'scriptura_itemprop_address_country', '' ); ?>" class="regular-text">
+							<input type="text" id="scriptura_itemprop_address_country" name="option[scriptura_itemprop_address_country]" value="<?php echo get_option( 'scriptura_itemprop_address_country' ); ?>" class="regular-text">
 							<p class="description"><?php _e( 'This result will appear in a meta tag site.', 'scriptura' ); ?></p>
 						</td>
 					</tr>
@@ -87,7 +87,7 @@ if ( is_admin() ) :
 							<label><?php _e( 'Phone', 'scriptura' ); ?></label>
 						</th>
 						<td>
-							<input type="text" id="scriptura_itemprop_telephone" name="option[scriptura_itemprop_telephone]" value="<?php echo get_option( 'scriptura_itemprop_telephone', '' ); ?>" placeholder="ex : 04 77 00 00 00" class="regular-text">
+							<input type="text" id="scriptura_itemprop_telephone" name="option[scriptura_itemprop_telephone]" value="<?php echo get_option( 'scriptura_itemprop_telephone' ); ?>" placeholder="ex : 04 77 00 00 00" class="regular-text">
 						</td>
 					</tr>
 					<tr>
@@ -95,7 +95,7 @@ if ( is_admin() ) :
 							<label><?php _e( 'Email', 'scriptura' ); ?></label>
 						</th>
 						<td>
-							<input type="text" id="scriptura_itemprop_email" name="option[scriptura_itemprop_email]" value="<?php echo get_option( 'scriptura_itemprop_email', '' ); ?>" placeholder="ex : pseudo@gmail.com" class="regular-text">
+							<input type="text" id="scriptura_itemprop_email" name="option[scriptura_itemprop_email]" value="<?php echo get_option( 'scriptura_itemprop_email' ); ?>" placeholder="ex : pseudo@gmail.com" class="regular-text">
 							<p class="description">En raison du risque de spams cette option est déconseillée. Le <a href="<?php bloginfo( 'url' ); ?>/wp-admin/admin.php?page=scriptura-pannel-forms">formulaire de contact</a> du site est une alternative à privilégier car il garantit la confidentialité.</p>
 						</td>
 					</tr>
@@ -104,7 +104,7 @@ if ( is_admin() ) :
 							<label><?php _e( 'Editorial manager', 'scriptura' ); ?></label>
 						</th>
 						<td>
-							<input type="text" id="scriptura_itemprop_member" name="option[scriptura_itemprop_member]" value="<?php echo get_option( 'scriptura_itemprop_member', '' ); ?>" class="regular-text">
+							<input type="text" id="scriptura_itemprop_member" name="option[scriptura_itemprop_member]" value="<?php echo get_option( 'scriptura_itemprop_member' ); ?>" class="regular-text">
 						</td>
 					</tr>
 					<tr>

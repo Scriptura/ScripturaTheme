@@ -19,6 +19,7 @@
 	$siteName = get_bloginfo( 'name' ); // Nom du site
 	$siteUri = str_replace( $arrayHttp, '//', get_site_url() ); // Url du site
 	$siteLang = get_language_attributes();
+	$siteDescription = get_bloginfo( 'description' );
 	$templateUri = str_replace( $arrayHttp, '//', get_template_directory_uri() ); // Racine du site en // pour compatibilité avec certificat SSL
 	$imgDefault = $templateUri . '/Images/Default.jpg';
 	$imgDefault300 = $templateUri . '/Images/Default300.jpg';

@@ -78,16 +78,16 @@
 		<form action="' .get_permalink(). '" method="post">
 			<div class="input">
 				<label for="registerName">' .__('Username', 'scriptura'). '</label>
-				<input type="text" name="registerName" id="registerName" value="' .$name. '" placeholder="' .__( 'John Smith', 'scriptura' ). '" autofocus>
+				<input type="text" name="registerName" id="registerName" value="' .$name. '" placeholder="' .__( 'John Smith', 'scriptura' ). '" autocomplete="off" autofocus>
 			</div>
 			<div class="input-password">
 				<label for="password">' .__('Password', 'scriptura'). '</label>
-				<input type="password" name="password" id="password" value="' .$password. '" placeholder="• • • • • • • •">
+				<input type="password" name="password" id="password" value="' .$password. '" placeholder="• • • • • • • •" autocomplete="off">
 				<input type="checkbox" title="See the password">
 			</div>
 			<div class="input">
 				<label for="email">' .__( 'Email', 'scriptura' ). '</label>
-				<input type="email" name="email" id="email" value="' .$email. '" placeholder="' .__( 'pseudo@gmail.com', 'scriptura' ). '">
+				<input type="email" name="email" id="email" value="' .$email. '" placeholder="' .__( 'pseudo@gmail.com', 'scriptura' ). '" autocomplete="off">
 			</div>'
 			/*
 			<div>

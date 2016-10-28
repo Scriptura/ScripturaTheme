@@ -43,7 +43,7 @@ if (is_admin()) :
 		<form method="post" action="">
 			<hr>
 			<table class="form-table">
-			<h3>Google Analytics</h3>
+			<h3><?php _e( 'Google Analytics', 'scriptura' ); ?></h3>
 				<tbody>
 					<tr>
 						<th scope="row">
@@ -51,7 +51,7 @@ if (is_admin()) :
 						</th>
 						<fieldset>
 						<td>
-							<input type="text" id="scriptura_google_analytics" name="option[scriptura_google_analytics]" value="<?php echo get_option( 'scriptura_google_analytics', '' ); ?>" class="regular-text" placeholder="UA-XXXXXXXX-X">
+							<input type="text" id="scriptura_google_analytics" name="option[scriptura_google_analytics]" value="<?php echo get_option( 'scriptura_google_analytics' ); ?>" class="regular-text" placeholder="UA-XXXXXXXX-X">
 							<p class="description"><?php _e( 'Register your account number Analytics if you require this service. You must have previously created an account on <a href="http://www.google.fr/intl/fr/analytics/">the API website</a>.', 'scriptura' ); ?></p>
 						</td>
 						<fieldset>
@@ -60,7 +60,7 @@ if (is_admin()) :
 			</table>
 			<hr>
 			<table class="form-table">
-			<h3>Google Maps</h3>
+			<h3><?php _e( 'Google Maps', 'scriptura' ); ?></h3>
 				<tbody>
 					<tr>
 						<th scope="row">
@@ -68,7 +68,7 @@ if (is_admin()) :
 						</th>
 						<fieldset>
 						<td>
-							<input type="text" id="scriptura_google_maps" name="option[scriptura_google_maps]" value="<?php echo get_option( 'scriptura_google_maps', '' ); ?>" class="regular-text" placeholder="UA-XXXXXXXX-X">
+							<input type="text" id="scriptura_google_maps" name="option[scriptura_google_maps]" value="<?php echo get_option( 'scriptura_google_maps' ); ?>" class="regular-text" placeholder="UA-XXXXXXXX-X">
 						</td>
 						<fieldset>
 					</tr>
@@ -76,7 +76,7 @@ if (is_admin()) :
 			</table>
 			<hr>
 			<table class="form-table">
-			<h3>Google reCAPTCHA</h3>
+			<h3><?php _e( 'Google reCAPTCHA', 'scriptura' ); ?></h3>
 				<tbody>
 					<tr>
 						<th scope="row">
@@ -84,7 +84,7 @@ if (is_admin()) :
 						</th>
 						<fieldset>
 						<td>
-							<input type="text" id="scriptura_google_recaptchasitekey" name="option[scriptura_google_recaptchasitekey]" value="<?php echo get_option( 'scriptura_google_recaptchasitekey', '' ); ?>" class="regular-text" placeholder="...">
+							<input type="text" id="scriptura_google_recaptchasitekey" name="option[scriptura_google_recaptchasitekey]" value="<?php echo get_option( 'scriptura_google_recaptchasitekey' ); ?>" class="regular-text" placeholder="...">
 						</td>
 						<fieldset>
 					</tr>
@@ -94,9 +94,47 @@ if (is_admin()) :
 						</th>
 						<fieldset>
 						<td>
-							<input type="text" id="scriptura_google_recaptchasecretkey" name="option[scriptura_google_recaptchasecretkey]" value="<?php echo get_option( 'scriptura_google_recaptchasecretkey', '' ); ?>" class="regular-text" placeholder="...">
+							<input type="text" id="scriptura_google_recaptchasecretkey" name="option[scriptura_google_recaptchasecretkey]" value="<?php echo get_option( 'scriptura_google_recaptchasecretkey' ); ?>" class="regular-text" placeholder="...">
 						</td>
 						<fieldset>
+					</tr>
+				</tbody>
+			</table>
+			<hr>
+			<table class="form-table">
+			<h3><?php _e( 'Logo SVG', 'scriptura' ); ?></h3>
+				<tbody>
+					<tr>
+						<th scope="row">
+							<label><?php _e( 'Logo SVG', 'scriptura' ); ?></label>
+						</th>
+						<fieldset>
+						<td>
+							<input type="text" id="scriptura_logo_site_svg" name="option[scriptura_logo_site_svg]" value='<?php echo str_replace( '\"', '"', get_option( 'scriptura_logo_site_svg' ) ); ?>' class="regular-text" placeholder="<svg><path/></svg>">
+							<p class="description"><?php _e( 'The logo must be saved in SVG.', 'scriptura' ); ?></p>
+						</td>
+						<fieldset>
+					</tr>
+				</tbody>
+			</table>
+			<hr>
+			<table class="form-table">
+			<h3><?php _e( 'Thumbnail Welcome', 'scriptura' ); ?></h3>
+			<p><?php _e( 'Customizing the first image of the website home page.', 'scriptura' ); ?></p>
+				<tbody>
+					<tr>
+						<th scope="row">
+							<label for="scriptura_thumbnail_welcome"><?php _e( 'Thumbnail Welcome', 'scriptura' ); ?></label>
+						</th>
+						<td>
+							<div style="width:100%;height:150px;max-width:350px;max-height:150px;background:#333">
+								<img id="visual_scriptura_thumbnail_welcome" class="scriptura-media-visual" src="<?php if( get_option( 'scriptura_thumbnail_welcome' ) ) { echo get_option('scriptura_thumbnail_welcome', '' ); } else { echo get_template_directory_uri() . '/Images/Null.svg'; } ?>" style="display:block;max-width:100%;max-height:100%;margin:0 auto">
+							</div><br>
+							<input type="text" id="scriptura_thumbnail_welcome" class="regular-text scriptura-media-link" name="option[scriptura_thumbnail_welcome]" value="<?php echo get_option('scriptura_thumbnail_welcome', ''); ?>" class="regular-text" placeholder="<?php _e( 'No current image', 'scriptura' ); ?>">
+							<a href="#" class="button scriptura-media-uploader"><?php _e( 'Choose an image', 'scriptura' ); ?></a>
+							<a href="#" class="button scriptura-media-remove"><?php _e( 'Delete image', 'scriptura' ); ?></a>
+							<p class="description"><?php _e( 'The image must first be uploaded via the media library.', 'scriptura' ); ?></p>
+						</td>
 					</tr>
 				</tbody>
 			</table>

@@ -28,7 +28,7 @@
 
 (function( $ ) { // Suppression de la miniature dans le visuel
    $( '.scriptura-media-remove' ).click(function( e ) {
-      $( '.scriptura-media-link' ).val( '' );
+      $( this ).siblings( '.scriptura-media-link' ).val( '' );
       $( this ).siblings().children( '.scriptura-media-visual' ).attr( 'src', $templateUri +'/Images/Null.svg' );
       e.preventDefault();
    } );

@@ -21,9 +21,6 @@
       <section class="section">
         <div class="wrap-limited">
           <div class="grid">
-            <div class="m"><br>
-              <h1 itemprop="name headline" class="emphasized"><?php echo $name; ?></h1><br>
-            </div>
             <div class="m8 o2"><br>
               <?php echo $searchForm; ?><br>
             </div>
