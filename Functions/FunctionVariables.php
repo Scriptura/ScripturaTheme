@@ -45,7 +45,8 @@
 	$userDisplayName = $current_user->display_name;
 	$userDescription = $current_user->description; //get_user_meta( $userId, 'description', true );
 	$userAvatar = get_user_meta( $userId, 'avatar', true );
-	$userGroup = get_user_meta( $userId, 'group', true );
+	$userGroups = get_user_meta( $userId, 'group', true );
+	//$userGroups = explode( ',', get_user_meta( $userId, 'group', true ) ); // @todo Nouveau paramètre en tableau
 	$userLocation = get_user_meta( $userId, 'location', true );
 	$capacityAdministrator = current_user_can( 'administrator' );
 	$capacityModerator = current_user_can( 'moderate_comments' );

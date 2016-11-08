@@ -143,20 +143,19 @@ add_action( 'after_setup_theme', 'ScripturaAddRole' );
 
 
 // @subsection  Rights Management Groups
-// @description Gestion des droits sur les groupes
+// @description Gestion des droits à partir des groupes
 // -----------------------------------------------------------------------------
 
-function ScripturaRightsManagementGroups( $userGroup = [ '' ], $authorizedGroups = [ '' ] )
+function ScripturaRightsManagementGroups( $userGroups = [ '' ], $authorizedGroups = [ '' ] )
 {
-    global $userGroup;
-    global $authorizedGroups;
-    $userGroup = explode( ',', $userGroup );
+    //global $userGroups;
+    //global $authorizedGroups;
+    $userGroups = explode( ',', $userGroups );
     $authorizedGroups = explode( ',', $authorizedGroups );
-    $intersect = array_intersect( $userGroup, $authorizedGroups );
+    $intersect = array_intersect( $userGroups, $authorizedGroups );
     $rights = false;
     if( $intersect )
         $rights = true;
-    //var_dump( $authorizedGroups );exit;
     return $rights;
 }
 
@@ -267,7 +266,7 @@ if ( ! $capacityAdministrator ) {
         remove_post_type_support( 'post','custom-fields' );
         remove_post_type_support( 'page','custom-fields' );
     }
-    add_action( 'init','ScripturaRemoveCustomFieldMetaBoxes' );
+    add_action( 'init', 'ScripturaRemoveCustomFieldMetaBoxes' );
 }
 
 if ( ! $capacityModerator ) {

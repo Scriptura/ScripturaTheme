@@ -14,16 +14,16 @@ block content
             h1.h2.emphasized(itemprop='name') {% $name %}
           .grid6.sizeS-grid12
             .links.protected(itemprop='articleBody') {% $content %}
-            _if $capacityAdministrator OR ( ! $restrictedRead OR $restrictedRead AND $capacityRead ) AND ( ! $authorizedGroups OR $userGroup == $authorizedGroups )
+            _if $capacityAdministrator OR ( ! $restrictedRead OR $restrictedRead AND $capacityRead ) AND ( ! $authorizedGroups OR $userGroups == $authorizedGroups )
             include Includes/Buttons
             _endif
-          _if $capacityAdministrator OR ( ! $restrictedRead OR $restrictedRead AND $capacityRead ) AND ( ! $authorizedGroups OR $userGroup == $authorizedGroups )
+          _if $capacityAdministrator OR ( ! $restrictedRead OR $restrictedRead AND $capacityRead ) AND ( ! $authorizedGroups OR $userGroups == $authorizedGroups )
           aside.m6.sizeS-m12
             include Includes/Sidebar
           _endif
 
 block comments
-  _if ( $capacityAdministrator AND $commentsOpen ) OR ( $capacityRead AND ( $commentsOpen AND $capacityCommentator OR $commentsOpen AND $comments ) AND ( ! $authorizedGroups OR $userGroup == $authorizedGroups ) )
+  _if ( $capacityAdministrator AND $commentsOpen ) OR ( $capacityRead AND ( $commentsOpen AND $capacityCommentator OR $commentsOpen AND $comments ) AND ( ! $authorizedGroups OR $userGroups == $authorizedGroups ) )
   aside.aside#index-comments
     .wrap
       h2.emphasized {% $commentsTitle %}

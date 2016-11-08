@@ -40,8 +40,8 @@ if ( $userLastName )
 	$userInfoList .= '<p><span class="icon-user"></span>&nbsp;&nbsp;' . __( 'Last Name:', 'scriptura' ) . ' ' . $userLastName . '</p>' . PHP_EOL;
 if ( $userRole )
 	$userInfoList .= '<p><span class="icon-badge"></span>&nbsp;&nbsp;' . __( 'Role:', 'scriptura' ) . ' ' . $userRole . '</p>' . PHP_EOL;
-if ( $userGroup )
-	$userInfoList .= '<p><span class="icon-radio-unchecked"></span>&nbsp;&nbsp;' . __( 'Group:', 'scriptura' ) . ' ' . $userGroup . '</p>' . PHP_EOL;
+if ( $userGroups )
+	$userInfoList .= '<p><span class="icon-radio-unchecked"></span>&nbsp;&nbsp;' . __( 'Group:', 'scriptura' ) . ' ' . $userGroups . '</p>' . PHP_EOL;
 if ( $userLocation )
 	$userInfoList .= '<p><span class="icon-location"></span>&nbsp;&nbsp;' . __( 'Location:', 'scriptura' ) . ' ' . $userLocation . '</p>' . PHP_EOL;
 

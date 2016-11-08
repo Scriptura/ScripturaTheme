@@ -28,7 +28,7 @@
               </div>
               <div class="grid6 sizeS-grid12">
                 <div itemprop="articleBody" class="links protected"><?php echo $content; ?></div>
-                <?php if ($capacityAdministrator OR ( ! $restrictedRead OR $restrictedRead AND $capacityRead ) AND ( ! $authorizedGroups OR $userGroup == $authorizedGroups )): ?>
+                <?php if ($capacityAdministrator OR ( ! $restrictedRead OR $restrictedRead AND $capacityRead ) AND ( ! $authorizedGroups OR $userGroups == $authorizedGroups )): ?>
                 <aside class="button-group">
                   <div>
                     <button title="Print article" class="button cmd-print"><span class="icon-printer"></span></button>
@@ -50,7 +50,7 @@
                 </aside>
                 <?php endif; ?>
               </div>
-              <?php if ($capacityAdministrator OR ( ! $restrictedRead OR $restrictedRead AND $capacityRead ) AND ( ! $authorizedGroups OR $userGroup == $authorizedGroups )): ?>
+              <?php if ($capacityAdministrator OR ( ! $restrictedRead OR $restrictedRead AND $capacityRead ) AND ( ! $authorizedGroups OR $userGroups == $authorizedGroups )): ?>
               <aside class="m6 sizeS-m12">
                 <?php if ($articleDescription): ?>
                 <p itemprop="description" class="message"><?php echo $articleDescription; ?></p>
@@ -79,7 +79,7 @@
         </div>
       </article>
     </main>
-    <?php if (( $capacityAdministrator AND $commentsOpen ) OR ( $capacityRead AND ( $commentsOpen AND $capacityCommentator OR $commentsOpen AND $comments ) AND ( ! $authorizedGroups OR $userGroup == $authorizedGroups ) )): ?>
+    <?php if (( $capacityAdministrator AND $commentsOpen ) OR ( $capacityRead AND ( $commentsOpen AND $capacityCommentator OR $commentsOpen AND $comments ) AND ( ! $authorizedGroups OR $userGroups == $authorizedGroups ) )): ?>
     <aside id="index-comments" class="aside">
       <div class="wrap">
         <h2 class="emphasized"><?php echo $commentsTitle; ?><a href="#index-comments" class="anchor"></a></h2>

@@ -15,6 +15,7 @@
   $logoSvg = str_replace( '\"', '"', $logoSvg );
   $imgDefaultAlternative = get_option( 'scriptura_def_thumbnail' );
   $imgWelcome = get_option( 'scriptura_thumbnail_welcome' );
+  $imgWelcome = str_replace( $arrayHttp, '//', $imgWelcome );
   if ( $imgWelcome ) {
     $image300 = $imgWelcome;
     $image1000 = $imgWelcome;
@@ -111,7 +112,7 @@
       $image1500 = $imgDefault1500;
       $image2000 = $imgDefault2000;
     }
-    if ( ( $restrictedRead AND ! $capacityRead ) OR ( ! $capacityAdministrator AND $authorizedGroups AND $authorizedGroups != $userGroup ) ) {
+    if ( ( $restrictedRead AND ! $capacityRead ) OR ( ! $capacityAdministrator AND $authorizedGroups AND $authorizedGroups != $userGroups ) ) {
       $image300 = $imageProtected300;
       $image1000 = $imageProtected1000;
       $image1500 = $imageProtected1500;

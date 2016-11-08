@@ -4,18 +4,13 @@
 // @section     Set Single
 // @description Configuration pour les pages d'articles
 // -----------------------------------------------------------------------------
-
 	// @note Certaines fonctions WP ne peuvent être mises dans une variable en l'état. Recours aux fonctions php natives 'ob_start()' et 'ob_get_clean()' afin de contourner ce problème.
-
 	// @documentation
 	// - 'ob_start()' enclenche la temporisation de sortie
 	// - 'ob_get_clean()' lit le contenu courant du tampon de sortie puis l'efface
-
 	global $siteUri;
-
 	if( have_posts() ) {
 		while( have_posts() ) : the_post();
-
 		$name = get_the_title();
 		$author = get_the_author();
 		//$publisher = 'Editions MachinTruc';
@@ -27,6 +22,8 @@
 		$dateModified = get_the_modified_date();
 		$restrictedRead = get_post_meta( $post->ID, 'restrictedread', true );
 		$authorizedGroups = get_post_meta( $post->ID, 'authorizedgroups', true );
+		//$rightGroups = ScripturaRightsManagementGroups( $userGroups, $authorizedGroups );
+
 
 		ob_start();
 		if ( get_the_tags() ) {
@@ -52,37 +49,28 @@
 			echo $keywords;
 		}
 		$keywords = ob_get_clean();
-
-//		if ( ( $restrictedread != 1 AND $capacityRead == false ) AND ( $capacityAdministrator OR $authorizedGroups == '' OR $authorizedGroups == $userGroup ) ) {
-
-		//var_dump($userGroup);die();
+//		if ( ( $restrictedread != 1 AND $capacityRead == false ) AND ( $capacityAdministrator OR $authorizedGroups == '' OR $authorizedGroups == $userGroups ) ) {
 		ob_start();
 		if ( $restrictedRead AND ! $capacityRead ) {
 			echo '<p class="message-error">' . __( 'This content is only visible to connected users.', 'scriptura' ) . '</p>';
-		} elseif ( ! $capacityAdministrator AND $authorizedGroups != $userGroup AND $authorizedGroups ) {
+		} elseif ( ! $capacityAdministrator AND $authorizedGroups != $userGroups AND $authorizedGroups ) {
 			echo '<p class="message-error">' . __( 'This content is only visible to authorized users.', 'scriptura' ) . '</p>';
 		} else {
 			the_content();
 		}
 		$content = ob_get_clean();
-
 		ob_start();
 		the_post_thumbnail_url( 'image300' );
 		$image300 = ob_get_clean();
-
 		ob_start();
 		the_post_thumbnail_url( 'image1000' );
 		$image1000 = ob_get_clean();
-
 		ob_start();
 		the_post_thumbnail_url( 'image1500' );
 		$image1500 = ob_get_clean();
-
 		ob_start();
 		the_post_thumbnail_url( 'image2000' );
 		$image2000 = ob_get_clean();
-
-
 		if ( is_single() ) { // Exclu les pages
 			$category = get_the_category()[ 0 ]; // Récupération de la première catégorie seulement
 			$singleCatLink = get_category_link( $category->cat_ID );
@@ -90,7 +78,6 @@
 		}
 		endwhile;
 	}
-
 	// Images
 	// @note Fonctions en remplacement de 'the_post_thumbnail()' afin de générer du html maîtrisé.
 	$image = '';
@@ -102,7 +89,7 @@
 		} else {
 			$imageAlt = 'Article image'; // Texte alternatif si meta alt non renseignée
 		}
-		if ( ( $restrictedRead AND ! $capacityRead ) OR ( ! $capacityAdministrator AND $authorizedGroups != $userGroup AND $authorizedGroups ) ) { // Si fichier protégé alors image et description de remplacement
+		if ( ( $restrictedRead AND ! $capacityRead ) OR ( ! $capacityAdministrator AND $authorizedGroups != $userGroups AND $authorizedGroups ) ) { // Si fichier protégé alors image et description de remplacement
 			$image300 = $imageProtected300;
 			$image1000 = $imageProtected1000;
 			$image1500 = $imageProtected1500;
@@ -138,8 +125,6 @@
 			   . '</div>' . PHP_EOL
 			   . '</header>' . PHP_EOL;
 	}
-
-
 	$reference = false;
 	$authorGivenName = get_post_meta( $post->ID, 'authorgivenname', true );
 	$authorFamilyName = get_post_meta( $post->ID, 'authorfamilyname', true );
@@ -150,7 +135,6 @@
 	$documentPublisher = get_post_meta( $post->ID, 'documentpublisher', true );
 	$dateDocumentPublished = get_post_meta( $post->ID, 'datedocumentpublished', true );
 	$separator = ', ';
-
 	if ( ( $authorGivenName OR $authorFamilyName ) AND ( ! $documentName AND ! $articleSource ) ) {
 		$reference .= __( 'Author:', 'scriptura' ) . ' ';
 	} elseif ( $documentName OR $articleSource ) {
@@ -212,7 +196,6 @@
 	}
 	if( $reference )
 		$reference .= '.';
-
 	if( $datePublished ) {
 		$published = __( 'Content published on', 'scriptura' );
 		$published .= ' <time itemprop="dateCreated datePublished" datetime="2015-11-21T20:06:17+00:00">' . $datePublished . '</time>';
@@ -223,14 +206,9 @@
 		$published .= ' <time itemprop="dateModified" datetime="2015-11-21T20:06:17+00:00">' . $dateModified . '</time>';
 		$published .= '.';
 	}
-
 	$editPost = get_edit_post_link();
-
-
 	// BEGIN $relation
-
 	ob_start();
-
 	$tag_ids = '';
 	$cat_ids = '';
 	$tags = wp_get_post_tags( $post->ID ); // Récupération des mots clefs associés à l'article en cours
@@ -238,13 +216,11 @@
 		$tag_ids = [];
 		foreach( $tags as $individualTag ) $tag_ids[] = $individualTag->term_id;
 	}
-
 	$categories = get_the_category( $post->ID ); // Récupération des catégories associées à l'article en cours
 	if( $categories ) {
 		$cat_ids = [];
 		foreach( $categories as $individualCategory ) $cat_ids[] = $individualCategory->term_id;
 	}
-
 	// @note Mixage entre le mot clef et la catégorie
 	// @link https://codex.wordpress.org/Class_Reference/WP_Query#Taxonomy_Parameters
 	// @link https://codex.wordpress.org/Taxonomies
@@ -269,16 +245,13 @@
 		]
 	];
 	$rel = new WP_Query( $arr );
-
 	while ( $rel->have_posts() ) : $rel->the_post();
-
     $postId = get_the_ID();
     $postTitle = get_the_title();
     $postLink = str_replace( 'http:', '', get_the_permalink() );
 	$restrictedRead = get_post_meta( $post->ID, 'restrictedread', true );
 	$authorizedGroups = get_post_meta( $post->ID, 'authorizedgroups', true );
-
-	if ( ( $restrictedRead AND ! $capacityRead ) OR ( ! $capacityAdministrator AND $authorizedGroups != $userGroup AND $authorizedGroups ) ) {
+	if ( ( $restrictedRead AND ! $capacityRead ) OR ( ! $capacityAdministrator AND $authorizedGroups != $userGroups AND $authorizedGroups ) ) {
 		$image1000 = $templateUri . '/Images/Protected1000.jpg';
 	} elseif ( has_post_thumbnail() ) {
 		ob_start();
@@ -297,11 +270,8 @@
 	echo '</a>' . PHP_EOL;
 	endwhile;
 	wp_reset_query();
-
 	$relation = ob_get_clean();
-
 	// END $relation
-
 function ScripturaComments()
 {
 	// Modification de la liste de commentaires par défaut de WordPress
@@ -344,7 +314,6 @@ function ScripturaComments()
 		}
 		$email = $e->comment_author_email;
 		$id = $e->comment_ID;
-
 		$avatar = get_user_meta( $e->user_id, 'avatar', true );
 		//$gravatar = '//www.gravatar.com/avatar/' . md5( strtolower( trim( $email ) ) ) . '?d=' . urlencode( $default ) . '&s=' . $size;
 		$gravatar = scripturaUserAvatar( $email, '130' );
@@ -413,7 +382,6 @@ function ScripturaComments()
 	// $offsetSub : Classe offset de la div pour le positionnement du commentaire dans la page
 	// $offsetSubSizeS : Classe de l'offset pour les définitions d'écran en dessous de "sizeS"
 }
-
 function ScripturaCommentForm()
 {
 	// Modification du html du formulaire de commentaires de WordPress :
@@ -440,7 +408,6 @@ function ScripturaCommentForm()
 	$html = ob_get_clean();
 	return $html;
 }
-
 $commentsOpen = comments_open();
 $comments = ScripturaComments()[ 0 ];
 $commentForm = '<div class="grid"><div class="m6 ' . ScripturaComments()[ 1 ] . '' . ScripturaComments()[ 2 ] . 'sizeS-m9">'
