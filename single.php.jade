@@ -3,6 +3,7 @@ extends PatternLayouts
 append variables
   _require_once_wp Functions/SetSingle
   _php $authorizedGroups = get_post_meta( $post->ID, 'authorizedgroups', true )
+  _php $rightGroups = ScripturaRightsManagementGroups( $userGroups, $authorizedGroups )
 
 block content
   article.article(itemprop='mainEntityOfPage' itemscope itemtype='https://schema.org/Article')
@@ -14,16 +15,16 @@ block content
             h1.h2.emphasized(itemprop='name') {% $name %}
           .grid6.sizeS-grid12
             .links.protected(itemprop='articleBody') {% $content %}
-            _if $capacityAdministrator OR ( ! $restrictedRead OR $restrictedRead AND $capacityRead ) AND ( ! $authorizedGroups OR $userGroups == $authorizedGroups )
+            _if $capacityAdministrator OR ( ! $restrictedRead OR $restrictedRead AND $capacityRead ) AND ( ! $authorizedGroups OR $rightGroups )
             include Includes/Buttons
             _endif
-          _if $capacityAdministrator OR ( ! $restrictedRead OR $restrictedRead AND $capacityRead ) AND ( ! $authorizedGroups OR $userGroups == $authorizedGroups )
+          _if $capacityAdministrator OR ( ! $restrictedRead OR $restrictedRead AND $capacityRead ) AND ( ! $authorizedGroups OR $rightGroups )
           aside.m6.sizeS-m12
             include Includes/Sidebar
           _endif
 
 block comments
-  _if ( $capacityAdministrator AND $commentsOpen ) OR ( $capacityRead AND ( $commentsOpen AND $capacityCommentator OR $commentsOpen AND $comments ) AND ( ! $authorizedGroups OR $userGroups == $authorizedGroups ) )
+  _if ( $capacityAdministrator AND $commentsOpen ) OR ( $capacityRead AND ( $commentsOpen AND $capacityCommentator OR $commentsOpen AND $comments ) AND ( ! $authorizedGroups OR $rightGroups ) )
   aside.aside#index-comments
     .wrap
       h2.emphasized {% $commentsTitle %}

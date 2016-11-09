@@ -86,6 +86,7 @@
     $permalink = get_permalink();
     $restrictedRead = get_post_meta( $post->ID, 'restrictedread', true );
     $authorizedGroups = get_post_meta( $post->ID, 'authorizedgroups', true );
+    $rightGroups = ScripturaRightsManagementGroups( $userGroups, $authorizedGroups );
     $imgDefaultAlternative = get_option( 'scriptura_def_thumbnail' );
 
     if ( has_post_thumbnail() ) {
@@ -112,7 +113,7 @@
       $image1500 = $imgDefault1500;
       $image2000 = $imgDefault2000;
     }
-    if ( ( $restrictedRead AND ! $capacityRead ) OR ( ! $capacityAdministrator AND $authorizedGroups AND $authorizedGroups != $userGroups ) ) {
+    if ( ( $restrictedRead AND ! $capacityRead ) OR ( ! $capacityAdministrator AND $authorizedGroups AND ! $rightGroups ) ) {
       $image300 = $imageProtected300;
       $image1000 = $imageProtected1000;
       $image1500 = $imageProtected1500;

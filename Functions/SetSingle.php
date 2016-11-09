@@ -22,7 +22,7 @@
 		$dateModified = get_the_modified_date();
 		$restrictedRead = get_post_meta( $post->ID, 'restrictedread', true );
 		$authorizedGroups = get_post_meta( $post->ID, 'authorizedgroups', true );
-		//$rightGroups = ScripturaRightsManagementGroups( $userGroups, $authorizedGroups );
+		$rightGroups = ScripturaRightsManagementGroups( $userGroups, $authorizedGroups );
 
 
 		ob_start();
@@ -53,7 +53,7 @@
 		ob_start();
 		if ( $restrictedRead AND ! $capacityRead ) {
 			echo '<p class="message-error">' . __( 'This content is only visible to connected users.', 'scriptura' ) . '</p>';
-		} elseif ( ! $capacityAdministrator AND $authorizedGroups != $userGroups AND $authorizedGroups ) {
+		} elseif ( ! $capacityAdministrator AND $authorizedGroups AND ! $rightGroups ) {
 			echo '<p class="message-error">' . __( 'This content is only visible to authorized users.', 'scriptura' ) . '</p>';
 		} else {
 			the_content();
@@ -89,7 +89,7 @@
 		} else {
 			$imageAlt = 'Article image'; // Texte alternatif si meta alt non renseignée
 		}
-		if ( ( $restrictedRead AND ! $capacityRead ) OR ( ! $capacityAdministrator AND $authorizedGroups != $userGroups AND $authorizedGroups ) ) { // Si fichier protégé alors image et description de remplacement
+		if ( ( $restrictedRead AND ! $capacityRead ) OR ( ! $capacityAdministrator AND $authorizedGroups AND $rightGroups ) ) { // Si fichier protégé alors image et description de remplacement
 			$image300 = $imageProtected300;
 			$image1000 = $imageProtected1000;
 			$image1500 = $imageProtected1500;
@@ -251,7 +251,8 @@
     $postLink = str_replace( 'http:', '', get_the_permalink() );
 	$restrictedRead = get_post_meta( $post->ID, 'restrictedread', true );
 	$authorizedGroups = get_post_meta( $post->ID, 'authorizedgroups', true );
-	if ( ( $restrictedRead AND ! $capacityRead ) OR ( ! $capacityAdministrator AND $authorizedGroups != $userGroups AND $authorizedGroups ) ) {
+	$rightGroups = ScripturaRightsManagementGroups( $userGroups, $authorizedGroups );
+	if ( ( $restrictedRead AND ! $capacityRead ) OR ( ! $capacityAdministrator AND $authorizedGroups AND $rightGroups ) ) {
 		$image1000 = $templateUri . '/Images/Protected1000.jpg';
 	} elseif ( has_post_thumbnail() ) {
 		ob_start();

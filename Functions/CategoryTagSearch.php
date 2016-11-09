@@ -21,10 +21,11 @@
 			$longTitle = true;
 		$restrictedRead = get_post_meta( $post->ID, 'restrictedread', true );
 		$authorizedGroups = get_post_meta( $post->ID, 'authorizedgroups', true );
-		//var_dump( $restrictedRead );die();
+		$rightGroups = ScripturaRightsManagementGroups( $userGroups, $authorizedGroups );
+		//var_dump( $rightGroups );
 		echo '<article class="box0 m3 sizeS-m6 sizeL-m4 ribbon-container-bottom protected">';
 		echo '<a href="' . $postLink . '">';
-		if ( ! $capacityAdministrator AND ( $restrictedRead AND ! $capacityRead OR $authorizedGroups AND $userGroups != $authorizedGroups ) ) {
+		if ( ! $capacityAdministrator AND ( $restrictedRead AND ! $capacityRead OR $authorizedGroups AND ! $rightGroups ) ) {
 			$image1000 = $imageProtected1000;
 		} elseif ( has_post_thumbnail() ) {
 			ob_start();
@@ -40,7 +41,7 @@
 		echo '<div class="ratio-1-2 magimg" id="post' . $postId . '"></div>';
 		echo '</a>';
 		echo '<h2 class="h5"><a href="' . $postLink . '">' . $title . '</a></h2>';
-		if ( ( $restrictedRead != false AND $capacityRead == false ) OR ( ! $capacityAdministrator AND $authorizedGroups AND $userGroups != $authorizedGroups ) ) {
+		if ( ( $restrictedRead != false AND $capacityRead == false ) OR ( ! $capacityAdministrator AND $authorizedGroups AND ! $rightGroups ) ) {
 			echo '<div class="vertical"><div class="icon-locked zoom800"></div></div>';
 		} else {
 			if ( ! $longTitle ) {
