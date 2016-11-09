@@ -148,9 +148,12 @@ add_action( 'after_setup_theme', 'ScripturaAddRole' );
 
 function ScripturaRightsManagementGroups( $userGroups = [ '' ], $authorizedGroups = [ '' ] )
 {
+    // @note Les variables d'entrées sont passées en tableaux pour permettre l'utilisation de plusieurs groupes
     //global $userGroups;
     //global $authorizedGroups;
+    $userGroups = preg_replace('/\s/', '', $userGroups );
     $userGroups = explode( ',', $userGroups );
+    $authorizedGroups = preg_replace('/\s/', '', $authorizedGroups );
     $authorizedGroups = explode( ',', $authorizedGroups );
     $intersect = array_intersect( $userGroups, $authorizedGroups );
     $rights = false;

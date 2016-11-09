@@ -89,7 +89,7 @@
 		} else {
 			$imageAlt = 'Article image'; // Texte alternatif si meta alt non renseignée
 		}
-		if ( ( $restrictedRead AND ! $capacityRead ) OR ( ! $capacityAdministrator AND $authorizedGroups AND $rightGroups ) ) { // Si fichier protégé alors image et description de remplacement
+		if ( ( $restrictedRead AND ! $capacityRead ) OR ( ! $capacityAdministrator AND $authorizedGroups AND ! $rightGroups ) ) { // Si fichier protégé alors image et description de remplacement
 			$image300 = $imageProtected300;
 			$image1000 = $imageProtected1000;
 			$image1500 = $imageProtected1500;
