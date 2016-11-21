@@ -18,6 +18,7 @@ function ScripturaNoMediaelement()
 }
 add_filter( 'wp_video_shortcode_library','ScripturaNoMediaelement' );
 
+
 // @subsection  Remove Media Element JS
 // @description Suppression des éléments générés par WordPress
 // -----------------------------------------------------------------------------

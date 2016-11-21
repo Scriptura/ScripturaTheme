@@ -61,10 +61,10 @@
           </picture>
           <div class="wrap cycle-text">
             <div>
-              <div class="vertical vh85">
+              <div class="vertical vh85 unveiling">
                 <h1 itemprop="name">' . $siteName . '</h1>
                 ' . $logoSvg . '
-                <h2 itemprop="alternativeHeadline"><em class="unveiling">' . $siteDescription . '</em></h2>
+                <h2 itemprop="alternativeHeadline"><em>' . $siteDescription . '</em></h2>
               </div>
             </div>
           </div>

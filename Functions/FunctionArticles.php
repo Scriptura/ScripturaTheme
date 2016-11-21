@@ -5,7 +5,6 @@
 // @description Configuration des articles
 // -----------------------------------------------------------------------------
 
-
 // @subsection  Additional Information
 // @description Informations supplémentaires sur un article
 // -----------------------------------------------------------------------------

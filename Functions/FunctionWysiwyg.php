@@ -5,8 +5,6 @@
 // @description Paramétrage de l'éditeur visuel tinyMCE
 // -----------------------------------------------------------------------------
 
-
-// -----------------------------------------------------------------------------
 // @subsection  Add original buttons
 // @description Ajout de boutons TinyMCE désactivé par défaut
 // -----------------------------------------------------------------------------

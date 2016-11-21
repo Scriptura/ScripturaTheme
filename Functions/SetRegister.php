@@ -5,11 +5,11 @@
 // @description Configuration pour la page d'inscription utlisateur
 // -----------------------------------------------------------------------------
 
-	// @note Certaines fonctions WP ne peuvent être mise dans une variable en l'état. Recours aux fonctions php natives 'ob_start()' et 'ob_get_clean()' afin de contourner ce problème.
+// @note Certaines fonctions WP ne peuvent être mise dans une variable en l'état. Recours aux fonctions php natives 'ob_start()' et 'ob_get_clean()' afin de contourner ce problème.
 
-	// @documentation
-	// - 'ob_start()' enclenche la temporisation de sortie
-	// - 'ob_get_clean()' lit le contenu courant du tampon de sortie puis l'efface
+// @documentation
+// - 'ob_start()' enclenche la temporisation de sortie
+// - 'ob_get_clean()' lit le contenu courant du tampon de sortie puis l'efface
 
 	$name = __( 'Register', 'scriptura' );
 

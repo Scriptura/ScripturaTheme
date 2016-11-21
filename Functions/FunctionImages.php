@@ -5,7 +5,6 @@
 // @description Gestion des images
 // -----------------------------------------------------------------------------
 
-
 // @subsection  Upload SVG Ready
 // @description Autorise l'upload des SVG dans la bibliothèque medias
 // -----------------------------------------------------------------------------

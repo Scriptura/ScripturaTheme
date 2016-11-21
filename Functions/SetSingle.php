@@ -4,10 +4,12 @@
 // @section     Set Single
 // @description Configuration pour les pages d'articles
 // -----------------------------------------------------------------------------
-	// @note Certaines fonctions WP ne peuvent être mises dans une variable en l'état. Recours aux fonctions php natives 'ob_start()' et 'ob_get_clean()' afin de contourner ce problème.
-	// @documentation
-	// - 'ob_start()' enclenche la temporisation de sortie
-	// - 'ob_get_clean()' lit le contenu courant du tampon de sortie puis l'efface
+
+// @note Certaines fonctions WP ne peuvent être mises dans une variable en l'état. Recours aux fonctions php natives 'ob_start()' et 'ob_get_clean()' afin de contourner ce problème.
+
+// @documentation
+// - 'ob_start()' enclenche la temporisation de sortie
+// - 'ob_get_clean()' lit le contenu courant du tampon de sortie puis l'efface
 	global $siteUri;
 	if( have_posts() ) {
 		while( have_posts() ) : the_post();

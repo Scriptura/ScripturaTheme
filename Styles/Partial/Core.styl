@@ -1542,15 +1542,6 @@ if $bundleSlideshow
   .cycle-text > div *
     color #fff
 
-  :root .cycle-text *:not(button)
-    font-size 8vmin
-  //  color $colorTest
-
-  @media (min-width $sizeXS)
-
-    :root .cycle-text *:not(button)
-      font-size 3rem
-
   .slideshow button
   .slideshow button::after
     border-radius 50%
@@ -3221,7 +3212,7 @@ if $bundleLoginAvatar
 
   @media (min-width $sizeNav)
     .login .active .avatar
-      animation animLogin 5s infinite ease-in-out
+      animation animLogin 5s ease-in-out infinite
 
     @keyframes animLogin
       0%
@@ -3361,7 +3352,7 @@ if $bundleLoaders
     border .2em solid $colorBD113a
     border-left-color $colorBD113b
     border-radius 50%
-    animation animLoader 1s infinite linear
+    animation animLoader 1s linear infinite
 
   .loader2
     border 1em solid $colorBD114a
@@ -3382,8 +3373,8 @@ if $bundleLoaders
     width 1em
     height 1em
     border-radius 50%
+    animation animLoader3 1.2s ease-in-out infinite
     animation-fill-mode both
-    animation animLoader3 1.2s infinite ease-in-out
 
   .loader3
     top -3.5em // @note Les margins et top servent à donner une hauteur au visuel
@@ -3597,7 +3588,7 @@ if $bundleComments
 // -----------------------------------------------------------------------------
 if $bundleBox
 
-  [class*="box"]
+  .box
     position relative
     display flex
     flex-direction column
@@ -3608,8 +3599,8 @@ if $bundleBox
     ifBorderRadius($r1)
     box-shadow 0 0 2em rgba(0, 0, 0, .1)
 
-  [class*="box"]::before
-  [class*="box"]::after
+  .box::before
+  .box::after
     content ''
     z-index -1
     position absolute
@@ -3621,21 +3612,21 @@ if $bundleBox
     box-shadow 0 1.5em 2em rgba(0, 0, 0, .4)
     transform rotate(-3deg) translateZ(0)
 
-  [class*="box"]::after
+  .box::after
     right 1em
     left auto
     transform rotate(3deg)
 
-  [class*="box"] h2
+  .box h2
     text-align center
 
-  [class*="box"] h2 a
+  .box h2 a
     color $color6
 
-  [class*="box"] .vertical
+  .box .vertical
     flex-grow 2
   
-  [class*="box"] [class*="icon"]
+  .box [class*="icon"]
     margin-bottom 2rem // Permet un meilleur centrage de l'icône
     //color #ccc
 
@@ -3643,10 +3634,10 @@ if $bundleBox
   //.emphasized::after
   //  border-image url('../../Images/border4.svg') 0 100 100 repeat
 
-  //[class*="ribbon-container"][class*="box"]
+  //[class*="ribbon-container"].box
   //  background-image none
 
-  .box
+  .box:not(.box0)
     padding 1em
 
   .box0
@@ -3741,6 +3732,24 @@ if $bundleMessagesBox and $bundleInputs
       opacity 1
     50%
       opacity .2
+
+
+// -----------------------------------------------------------------------------
+// @section     Unveiling
+// @description Dévoilement en fondu
+// -----------------------------------------------------------------------------
+if $bundleUnveiling
+
+  .unveiling-start
+    opacity 0
+    animation animUnveiling 2s .2s ease-in-out 1
+    animation-fill-mode forwards
+
+    @keyframes animUnveiling
+      0%
+        opacity 0
+      100%
+        opacity 1
 
 
 // -----------------------------------------------------------------------------

@@ -1,6 +1,5 @@
 <?php
 
-
 // -----------------------------------------------------------------------------
 // @section     Category Tag Search
 // @description Configuration commune pour les pages susnommées
@@ -23,7 +22,7 @@
 		$authorizedGroups = get_post_meta( $post->ID, 'authorizedgroups', true );
 		$rightGroups = ScripturaRightsManagementGroups( $userGroups, $authorizedGroups );
 		//var_dump( $rightGroups );
-		echo '<article class="box0 m3 sizeS-m6 sizeL-m4 ribbon-container-bottom protected">';
+		echo '<article class="box box0 m3 sizeS-m6 sizeL-m4 ribbon-container-bottom protected">';
 		echo '<a href="' . $postLink . '">';
 		if ( ! $capacityAdministrator AND ( $restrictedRead AND ! $capacityRead OR $authorizedGroups AND ! $rightGroups ) ) {
 			$image1000 = $imageProtected1000;
