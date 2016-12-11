@@ -21,7 +21,9 @@
 		$pageStart = false;
 		$pageEnd = false;
 		$datePublished = get_the_date();
+		$datePublishedIso = get_the_date( c ); // @link https://codex.wordpress.org/Formatting_Date_and_Time
 		$dateModified = get_the_modified_date();
+		$dateModifiedIso = get_the_modified_date( c ); // @link https://codex.wordpress.org/Formatting_Date_and_Time
 		$restrictedRead = get_post_meta( $post->ID, 'restrictedread', true );
 		$authorizedGroups = get_post_meta( $post->ID, 'authorizedgroups', true );
 		$rightGroups = ScripturaRightsManagementGroups( $userGroups, $authorizedGroups );
@@ -200,12 +202,12 @@
 		$reference .= '.';
 	if( $datePublished ) {
 		$published = __( 'Content published on', 'scriptura' );
-		$published .= ' <time itemprop="dateCreated datePublished" datetime="2015-11-21T20:06:17+00:00">' . $datePublished . '</time>';
+		$published .= ' <time itemprop="dateCreated datePublished" datetime="' . $datePublishedIso . '">' . $datePublished . '</time>';
 	}
 	if( $dateModified ) {
 		$published .= $separator;
 		$published .= __( 'modified on', 'scriptura' );
-		$published .= ' <time itemprop="dateModified" datetime="2015-11-21T20:06:17+00:00">' . $dateModified . '</time>';
+		$published .= ' <time itemprop="dateModified" datetime="' . $dateModifiedIso . '">' . $dateModified . '</time>';
 		$published .= '.';
 	}
 	$editPost = get_edit_post_link();

@@ -126,6 +126,43 @@ if $bundleGrid
     .sizeXL-o0 // @note Cette classe permet l'annulation d'un offset dans cette définition
       margin-left $gutter
 
+
+// -----------------------------------------------------------------------------
+// @section     Masonry
+// @description Position optimale en fonction de l'espace vertical disponible
+// -----------------------------------------------------------------------------
+if $bundleMasonry
+  // @note Solution CSS only
+  // @toto En développement...
+
+  .masonry
+    margin $gutter 0
+    column-gap $gutter
+
+  @media (min-width $sizeXS)
+    .masonry
+      column-count 2
+
+  @media (min-width $sizeS)
+    .masonry
+      column-count 3
+
+  @media (min-width $sizeL)
+    .masonry
+      column-count 4
+
+  @media (min-width $sizeXL)
+    .masonry
+      column-count 5
+
+  .masonry > *
+    display inline-block
+    width 100%
+    margin 0 0 $gutter
+    padding 0 1em
+    box-sizing border-box
+
+
 // -----------------------------------------------------------------------------
 // @section     Columns
 // @description Colonnes fluides
