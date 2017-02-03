@@ -99,7 +99,7 @@ function ScripturaMainNav()
 		$menuList .= '</li>' . PHP_EOL;
 		$menuList .= '</ul>' . PHP_EOL;
 	} else {
-		$menuList = '<ul><li><span>[' . $menu_name . ' menu not defined - <a href="' . $siteUri . '/wp-admin/nav-menus.php">create a menu</a>]</span></li></ul>';
+		$menuList = '<ul><li><a href="' . $siteUri . '"><span class="icon-home only-icon"></span><span>Home</span></a></li><li><span>[' . $menu_name . ' menu not defined - <a href="' . $siteUri . '/wp-admin/nav-menus.php">create a menu</a>]</span></li></ul>';
 	}
 	return $menuList;
 }

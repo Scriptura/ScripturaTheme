@@ -265,24 +265,44 @@ class ClassScripturaMetaBox
 
 } else {
 
-	// @note Remplacement de tags générés par WordPress :
-	function ScripturaReplaceContent( $content )
-	{
-		$search = [
+	$incIndex = 0;
+	function ScripturaReplaceTitlesContentAddAnchors( $content )
+	{ // @note Ajout d'une ancre sur les titres
+		$pattern = [
+			'/(<h[1-6]+.*?>)(.*)(<\/h[1-6]+>)/'
+		];
+		$replacement = function ( $m ) { // '$m[1]' est l'équivalent de '$1' de preg_replace()
+			//$index = strtolower( $m[2] );
+			//$index = sanitize_title( $index ); // @link https://codex.wordpress.org/Function_Reference/sanitize_title
+			//$index = str_replace( '-', '', $index );
+			global $incIndex;
+			//$index = $incIndex++ . $index; // @note Incrémentation d'un numéro permettant de différencier deux résultats identiques
+			$index = $incIndex++; // @note Incrémentation d'un numéro permettant de différencier deux résultats identiques
+			$string = $m[1] . $m[2] . '<a href="#index' . $index . '" class="anchor"></a><span id="index' . $index . '"></span>' . $m[3];
+            return $string;
+        };
+		$content = preg_replace_callback( $pattern, $replacement, $content );
+		return $content;
+	}
+	add_filter( 'the_content', 'ScripturaReplaceTitlesContentAddAnchors', 99 ); // @note Le dernier paramètre décale le traitement du string en évitant les shortcodes @todo A vérifier...
+
+	function ScripturaReplaceTitlesContentAddClasses( $content )
+	{ // @note Ajout d'une classe sur les titres
+		$pattern = [
 			'<h2>',
 			'<h3>',
 			'<h4>',
 			'<h5>'
 		];
-		$replace = [
+		$replacement = [
 			'<h2 class="h3">',
 			'<h3 class="h4">',
 			'<h4 class="h5">',
 			'<h5 class="h6">'
 		];
-		$content = str_replace( $search, $replace, $content );
+		$content = str_replace( $pattern, $replacement, $content );
 		return $content;
 	}
-	add_filter( 'the_content', 'ScripturaReplaceContent' );
-	
+	add_filter( 'the_content', 'ScripturaReplaceTitlesContentAddClasses', 99 );
+
 }

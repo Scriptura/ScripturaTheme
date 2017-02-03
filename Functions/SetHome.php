@@ -32,30 +32,30 @@
     $image1500 = $imgDefault1500;
     $image2000 = $imgDefault2000;
   }
-  echo '<style>
-          #welcome h2 * {
-            font-size: 2.5rem;
-          }
-          @media screen and (max-width: 36.01rem) {
+  echo '        <div id="welcome" class="cycle-item">
+          <style scoped>
             #welcome h2 * {
-              font-size: 1.5rem;
+              font-size: 2.5rem;
             }
-            #welcome {
-              background-image: url(' . $image1000 . ');
+            @media screen and (max-width: 36.01rem) {
+              #welcome h2 * {
+                font-size: 1.5rem;
+              }
+              #welcome {
+                background-image: url(' . $image1000 . ');
+              }
             }
-          }
-          @media screen and (min-width: 36.01rem) and (max-width: 65.01rem) {
-            #welcome {
-              background-image: url(' . $image1500 . ');
+            @media screen and (min-width: 36.01rem) and (max-width: 65.01rem) {
+              #welcome {
+                background-image: url(' . $image1500 . ');
+              }
             }
-          }
-          @media screen and (min-width: 65.01rem) {
-            #welcome {
-              background-image: url(' . $image2000 . ');
+            @media screen and (min-width: 65.01rem) {
+              #welcome {
+                background-image: url(' . $image2000 . ');
+              }
             }
-          }
-        </style>
-        <div id="welcome" class="cycle-item">
+          </style>
           <picture>
             <source srcset="' . $image300 . '" sizes="100vw"><img src="' . $image2000 . '" alt="">
           </picture>
@@ -71,15 +71,12 @@
         </div>';
 
   if( get_option( 'sticky_posts' ) ) {
-
     $popular = new WP_Query( [
         //'orderby' => 'rand',
         'post__in' => get_option( 'sticky_posts' ), // cibler posts "Mis en avant"
         'posts_per_page' => 5 // Nombre d'item maximum dans le slider
     ] );
-
     while ( $popular->have_posts() ) : $popular->the_post();
-
     $postId = get_the_ID();
     $postImg = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full', false )[ 0 ];
     $postTitle = get_the_title();
@@ -88,7 +85,6 @@
     $authorizedGroups = get_post_meta( $post->ID, 'authorizedgroups', true );
     $rightGroups = ScripturaRightsManagementGroups( $userGroups, $authorizedGroups );
     $imgDefaultAlternative = get_option( 'scriptura_def_thumbnail' );
-
     if ( has_post_thumbnail() ) {
       ob_start();
       the_post_thumbnail_url( 'image300' );
@@ -119,24 +115,25 @@
       $image1500 = $imageProtected1500;
       $image2000 = $imageProtected2000;
     }
-    echo '<style>
-            @media screen and (max-width: 36.01rem) {
-              #cycle-item' . $postId . ' {
-                background-image: url(' . str_replace( $arrayHttp, '//', $image1000 ) . ');
+    echo PHP_EOL;
+    echo '          <div id="cycle-item' . $id . '" class="cycle-item">
+            <style scoped>
+              @media screen and (max-width: 36.01rem) {
+                #cycle-item' . $postId . ' {
+                  background-image: url(' . str_replace( $arrayHttp, '//', $image1000 ) . ');
+                }
               }
-            }
-            @media screen and (min-width: 36.01rem) and (max-width: 65.01rem) {
-              #cycle-item' . $postId . ' {
-                background-image: url(' . str_replace( $arrayHttp, '//', $image1500 ) . ');
+              @media screen and (min-width: 36.01rem) and (max-width: 65.01rem) {
+                #cycle-item' . $postId . ' {
+                  background-image: url(' . str_replace( $arrayHttp, '//', $image1500 ) . ');
+                }
               }
-            }
-            @media screen and (min-width: 65.01rem) {
-              #cycle-item' . $postId . ' {
-                background-image: url(' . str_replace( $arrayHttp, '//', $image2000 ) . ');
+              @media screen and (min-width: 65.01rem) {
+                #cycle-item' . $postId . ' {
+                  background-image: url(' . str_replace( $arrayHttp, '//', $image2000 ) . ');
+                }
               }
-            }
-          </style>
-          <div id="cycle-item' . $id . '" class="cycle-item">
+            </style>
             <picture>
               <source srcset="' . str_replace( $arrayHttp, '//', $image300 ) . '" sizes="100vw">
               <img src="' . str_replace( $arrayHttp, '//', $image2000 ) . '" alt="' . $postTitle . '">
@@ -148,9 +145,9 @@
             </div>
           </div>';
     endwhile;
+    wp_reset_postdata();
   }
   echo '</header>';
-	wp_reset_postdata();
 
 	$slideshow = ob_get_clean();
 

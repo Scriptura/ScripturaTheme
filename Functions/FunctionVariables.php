@@ -13,14 +13,16 @@
 	$root = str_replace( 'index.php', '', $_SERVER[ 'SCRIPT_NAME' ] );
 	$slug = str_replace( $root, '', $_SERVER[ 'REQUEST_URI' ] );
 	$slug = explode( '/', $slug );
-
-	$version = date( 'dmy' ); // Versioning pour certains fichiers css et js
-
 	$siteName = get_bloginfo( 'name' ); // Nom du site
 	$siteUri = str_replace( $arrayHttp, '//', get_site_url() ); // Url du site
 	$siteLang = get_language_attributes();
 	$siteDescription = get_bloginfo( 'description' );
 	$templateUri = str_replace( $arrayHttp, '//', get_template_directory_uri() ); // Racine du site en // pour compatibilité avec certificat SSL
+	$version = date( 'dmy' ); // Versioning pour certains fichiers front end
+	$bodyMetas = 'itemscope itemtype="https://schema.org/WebPage"';
+	$snowstorm = get_option( 'scriptura_snowstorm' );
+	if ( $snowstorm ) // @see FunctionPannelOptions.php
+		$bodyMetas = $bodyMetas . ' class="snowstorm"';
 	$imgDefault = $templateUri . '/Images/Default.jpg';
 	$imgDefault300 = $templateUri . '/Images/Default300.jpg';
 	$imgDefault1000 = $templateUri . '/Images/Default1000.jpg';
@@ -63,7 +65,7 @@
 	$authorizedGroups = ''; // Initialisation de la variable par défaut
 
 	global $avatarImg; // @see FunctionUsers.php
-    if ( $userAvatar )
-        $avatarImg = $userAvatar;
-    $avatarImg = str_replace( $arrayHttp, '//', $avatarImg );
+	if ( $userAvatar )
+		$avatarImg = $userAvatar;
+	$avatarImg = str_replace( $arrayHttp, '//', $avatarImg );
 

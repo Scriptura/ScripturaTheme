@@ -1,0 +1,16 @@
+extends ../PatternLayouts
+
+block banner
+  _php // Template Name: Sitemap
+
+append variables
+  _require_once_wp Functions/SetSitemap
+
+block content
+  article.article(itemscope itemtype='https://schema.org/Article')
+    #index-article
+      .wrap
+        .grid
+          h1.emphasized(itemprop='name headline') {% $name %}
+        _php $content
+        br

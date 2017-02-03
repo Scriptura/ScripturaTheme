@@ -35,9 +35,10 @@
 		} else {
 			$image1000 = $templateUri . '/Images/Default1000.jpg';
 		}
-		$image1000 = str_replace( $arrayHttp, '//', $image1000);
-		echo '<style>#post' . $postId . ' {background-image: url(' . $image1000 . ')}</style>';
-		echo '<div class="ratio-1-2 magimg" id="post' . $postId . '"></div>';
+		$image1000 = str_replace( $arrayHttp, '//', $image1000 );
+		echo '<div class="ratio-1-2 magimg" id="post' . $postId . '">';
+		echo '<style scoped>#post' . $postId . ' {background-image: url(' . $image1000 . ')}</style>';
+		echo '</div>';
 		echo '</a>';
 		echo '<h2 class="h5"><a href="' . $postLink . '">' . $title . '</a></h2>';
 		if ( ( $restrictedRead != false AND $capacityRead == false ) OR ( ! $capacityAdministrator AND $authorizedGroups AND ! $rightGroups ) ) {

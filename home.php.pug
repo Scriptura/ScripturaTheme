@@ -1,0 +1,17 @@
+extends PatternLayouts
+
+append variables
+  _require_once_wp Functions/SetHome
+
+block breadcrumb
+  //- No breadcrumb
+
+block content
+  _php $slideshow
+  .section
+    .wrap-limited
+      .grid
+        .m8.o2
+          br
+          _php $searchForm
+          br

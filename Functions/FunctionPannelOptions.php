@@ -172,7 +172,7 @@ if (is_admin()) :
 							<option value="0"<?php if( get_option( 'scriptura_snowstorm' ) == 0 ) { echo ' selected="selected"'; } ?><?php if ( ! get_option( 'scriptura_snowstorm' ) ) { echo ' selected="selected"'; } ?>><?php _e( 'No', 'scriptura' ); ?></option>
 							<option value="1"<?php if( get_option( 'scriptura_snowstorm' ) == 1 ) { echo ' selected="selected"'; } ?>><?php _e('Yes', 'scriptura'); ?></option>
 						</select>
-						<p class="description"><?php _e( 'Displays a snow effect on the site during the winter season.', 'scriptura' ); ?></p>
+						<p class="description"><?php _e( 'Displays a snowfall effect on the site pages.', 'scriptura' ); ?></p>
 						</td>
 					</tr>
 				</tbody>

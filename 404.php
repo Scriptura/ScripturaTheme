@@ -1,14 +1,15 @@
+
 <?php require locate_template('Functions/FunctionVariables.php');
       require_once locate_template('Functions/Set404.php');
       require_once locate_template('Functions/SetAll.php');
       require_once locate_template('Functions/MainNav.php');
       require_once locate_template('Functions/Breadcrumb.php'); ?><!DOCTYPE html>
-<html <?php echo $siteLang; ?> class="no-js">
+<html class="no-js" <?php echo $siteLang; ?>>
   <head>
     <?php require_once locate_template('Functions/Head.php'); ?>
   </head>
-  <body itemscope itemtype="https://schema.org/WebPage">
-    <nav role="navigation" class="main-nav">
+  <body <?php echo $bodyMetas; ?>>
+    <nav class="main-nav" role="navigation">
       <div class="wrap">
         <div class="brand-image onaline"><a href="<?php echo $siteUri; ?>"><?php echo $siteName; ?></a></div>
         <input type="checkbox" id="cmd-main-nav">
@@ -18,10 +19,10 @@
     </nav>
     <?php echo $breadcrumb; ?>
     <main itemprop="mainContentOfPage">
-      <header role="banner" class="section">
+      <header class="section" role="banner">
         <div class="wrap-limited ribbon-container">
           <div class="ribbon"><a href="<?php echo $siteUri; ?>"><?php echo $alternativeLink; ?></a></div>
-          <h1 itemprop="name" class="emphasized"><?php echo $name; ?></h1>
+          <h1 class="emphasized" itemprop="name"><?php echo $name; ?></h1>
           <div class="grid">
             <div class="m2 sizeS-m4 vertical"><span class="icon-arrow-up surround zoom500"></span></div>
             <div class="m2 sizeS-m4 vertical"><span class="icon-arrow-left surround zoom500"></span></div>
@@ -40,12 +41,12 @@
         </div>
       </header>
     </main>
-    <footer id="index-footer" class="section footer center">
+    <footer class="section footer center" id="index-footer">
       <?php echo $widgetFooter; ?>
-      <div class="terms-use">
+      <div id="terms-use">
         <div class="message">
           <p>Bonjour ! En parcourant ce site vous acceptez <a href="<?php echo $siteUri; ?>/legal-notice" style="color:#000">nos conditions générales d'utilisation.</a></p>
-          <button id="terms-use" class="button width">oui</button>
+          <button class="button width">oui</button>
         </div>
       </div>
       <div class="old-browers">
@@ -58,10 +59,10 @@
       </noscript>
       <div class="ajax-window-popin"></div>
     </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="<?php echo $templateUri; ?>/Scripts/Vendors/JQuery.js"><\/script>')</script>
     <script>var templateUri = '<?php echo $templateUri; ?>'</script>
-    <script src="<?php echo $templateUri; ?>/Public/Scripts/Main.js"></script>
+    <script src="<?php echo $templateUri; ?>/Public/Scripts/Main.js<?php echo $version; ?>"></script>
     <?php require locate_template('Functions/GoogleAnalytics.php'); ?>
   </body>
 </html>

@@ -5,8 +5,8 @@
 // @description Configuration des balises meta et link du head du site
 // -----------------------------------------------------------------------------
 
-    $version = '?ver=' . $version;
-    //$version = ''; // Désactivation du versioning
+    if ( $version )
+        $version = '?ver=' . $version;
     $separator = ' | ';
     $locality = get_option( 'scriptura_itemprop_address_locality' );
     $country = get_option( 'scriptura_itemprop_address_country' );
@@ -25,14 +25,14 @@
         echo $name . $separator . $siteName;
     } elseif ( is_search() ) {
             echo __( 'Search results for', 'scriptura' ) . ' "' . get_search_query() . '"' . $separator . $siteName;
-    } elseif ( count($slug) == 1 AND $slug[0] == 'Login' ) {
+    } elseif ( count( $slug ) == 1 AND $slug[0] == 'Login' ) {
         echo __( 'Login', 'scriptura' ) . $separator . $siteName;
-    } elseif ( count($slug) == 1 AND $slug[0] == 'Register' ) {
+    } elseif ( count( $slug ) == 1 AND $slug[0] == 'Register' ) {
         echo __( 'Register', 'scriptura' ) . $separator . $siteName;
-    } elseif ( count($slug) == 1 AND $slug[0] == 'Profile' ) {
+    } elseif ( count( $slug ) == 1 AND $slug[0] == 'Profile' ) {
         echo __( 'Profile', 'scriptura' ) . $separator . $siteName;
     } else {
-            echo strip_tags( get_the_title() ) . $separator . $siteName;
+        echo strip_tags( get_the_title() ) . $separator . $siteName;
     }
     echo '</title>' . PHP_EOL;
     if ( $restrictedRead  OR $authorizedGroups ) {

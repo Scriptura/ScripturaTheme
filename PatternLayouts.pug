@@ -1,0 +1,29 @@
+block var
+
+block banner
+
+block variables
+  _require_wp Functions/FunctionVariables
+
+block functions
+  _require_once_wp Functions/SetAll
+  _require_once_wp Functions/MainNav
+  _require_once_wp Functions/Breadcrumb
+
+doctype html
+html.no-js({% $siteLang %})
+  block head
+    head
+      _require_once_wp Functions/Head
+  body({% $bodyMetas %})
+    block mainnav
+      include Includes/MainNav
+    block breadcrumb
+      _php $breadcrumb
+    main(itemprop='mainContentOfPage')
+      block content
+    block comments
+    block aside
+    block footer
+      include Includes/Footer
+_php exit

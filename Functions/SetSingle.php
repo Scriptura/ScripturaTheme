@@ -20,14 +20,17 @@
 		$dateDocumentPublished = get_post_meta( $post->ID, 'datedocumentpublished', true );
 		$pageStart = false;
 		$pageEnd = false;
+		// @documentation `get_the_date()` vs `get_the_time()` :
+		// @link http://wordpress.stackexchange.com/questions/27183/whats-the-difference-between-get-the-time-and-get-the-date
+		// @link https://codex.wordpress.org/Formatting_Date_and_Time
+		// @params 'c' = DATE_W3C
 		$datePublished = get_the_date();
-		$datePublishedIso = get_the_date( c ); // @link https://codex.wordpress.org/Formatting_Date_and_Time
+		$datePublishedIso = get_the_date( 'c' );
 		$dateModified = get_the_modified_date();
-		$dateModifiedIso = get_the_modified_date( c ); // @link https://codex.wordpress.org/Formatting_Date_and_Time
+		$dateModifiedIso = get_the_modified_date( 'c' );
 		$restrictedRead = get_post_meta( $post->ID, 'restrictedread', true );
 		$authorizedGroups = get_post_meta( $post->ID, 'authorizedgroups', true );
 		$rightGroups = ScripturaRightsManagementGroups( $userGroups, $authorizedGroups );
-
 
 		ob_start();
 		if ( get_the_tags() ) {
@@ -101,8 +104,9 @@
 			$imageUri = $imageProtected300;
 			$imageAlt = __( 'Protected content', 'scriptura' );
 		}
-		$image = '
-<style>
+		$image = '<header>' . PHP_EOL
+			   . '<div class="image-article">' . PHP_EOL
+			   . '<style scoped>
 @media screen and (max-width: 36.01rem) {
   .image-article {
     background-image: url(' . str_replace( $arrayHttp, '//', $image1000 ) . ');
@@ -118,13 +122,10 @@
     background-image: url(' . str_replace( $arrayHttp, '//', $image2000 ) . ');
   }
 }
-</style>
-'
-			   . '<header>' . PHP_EOL
-			   . '<div class="image-article">' . PHP_EOL
-			   . '<picture>' . PHP_EOL
+</style>' . PHP_EOL
+			   . '<picture itemprop="image" itemscope itemtype="http://schema.org/ImageObject">' . PHP_EOL
 			   . '<source srcset="' . str_replace( $arrayHttp, '//', $image300 ) . '" sizes="100vw">' . PHP_EOL
-			   . '<img src="' . str_replace( $arrayHttp, '//', $imageUri ) . '" alt="' . $imageAlt . '" itemprop="image">' . PHP_EOL
+			   . '<img src="' . str_replace( $arrayHttp, '//', $imageUri ) . '" alt="' . $imageAlt . '" itemprop="url">' . PHP_EOL
 			   . '</picture>' . PHP_EOL
 			   . '</div>' . PHP_EOL
 			   . '</header>' . PHP_EOL;
@@ -146,14 +147,14 @@
 	} else {
 	}
 	if( $authorGivenName OR $authorFamilyName ) {
-		$reference .= '<span itemprop="author" class="author">';
+		$reference .= '<span itemprop="author" class="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">';
 		if( $authorGivenName )
-			$reference .= '<span itemprop="author">' . $authorGivenName . '</span>';
+			$reference .= '<span itemprop="givenName">' . $authorGivenName . '</span>';
 		if( $authorGivenName AND $authorFamilyName )
 			$reference .= ' ';
 		if( $authorFamilyName )
-			$reference .= '<span itemprop="author">' . $authorFamilyName . '</span>';
-		$reference .= '</span>';
+			$reference .= '<span itemprop="familyName">' . $authorFamilyName . '</span>';
+		$reference .= '</span></span>';
 	}
 	if( $documentName ) {
 		if( $authorGivenName OR $authorFamilyName )
@@ -187,7 +188,7 @@
 	if( $dateDocumentPublished ) {
 		if( $reference )
 			$reference .= $separator;
-		$reference .= '<span itemprop="datePublished">' . $dateDocumentPublished . '</span>';
+		$reference .= '<span>' . $dateDocumentPublished . '</span>';
 	}
 	if( $pageStart AND $pageEnd ) {
 		if( $reference )
@@ -268,13 +269,14 @@
 		$image1000 = $imgDefault1000;
 	}
 	echo '<a href="' . $postLink . '" class="ribbon-container" itemprop="relatedLink">' . PHP_EOL;
-	echo '<style>#relation' . $postId . ' {background-image: url(' . $image1000 . ')}</style>' . PHP_EOL;
-	echo '<div class="ratio-16-9" id="relation' . $postId . '"></div>' . PHP_EOL;
+	echo '<div class="ratio-16-9" id="relation' . $postId . '">' . PHP_EOL;
+	echo '<style scoped>#relation' . $postId . ' {background-image: url(' . $image1000 . ')}</style>' . PHP_EOL;
+	echo '</div>' . PHP_EOL;
 	echo '<h2>' . $postTitle . '</h2>' . PHP_EOL;
 	echo '<div class="ribbon"><span>' . __( 'Read article', 'scriptura' ) . '</span></div>' . PHP_EOL;
 	echo '</a>' . PHP_EOL;
 	endwhile;
-	wp_reset_query();
+	wp_reset_postdata();
 	$relation = ob_get_clean();
 	// END $relation
 function ScripturaComments()
@@ -337,7 +339,7 @@ function ScripturaComments()
 		$comments .= '<p class="author">';
 		if ( $capacityEditor ) // @note Donner la même valeur de capacité au template de destination @see SetAuthor.php
 			$comments .= '<a href="' . get_author_posts_url( $e->user_id ) . '">';
-		$comments .= get_userdata( $e->user_id )->display_name;
+		$comments .= isset( get_userdata( $e->user_id )->display_name ); // @note Renvoie une erreur si variable non renseignée, donc test avec isset()
 		if ( $capacityEditor )
 			$comments .= '</a>';
 		$comments .= '</p>' . PHP_EOL;

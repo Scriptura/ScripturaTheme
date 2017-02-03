@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Scriptura\n"
-"POT-Creation-Date: 2016-10-28 11:20+0100\n"
-"PO-Revision-Date: 2016-10-28 11:20+0100\n"
+"POT-Creation-Date: 2017-01-08 19:48+0100\n"
+"PO-Revision-Date: 2017-01-08 19:48+0100\n"
 "Last-Translator: \n"
 "Language-Team: Olivier Chavarin\n"
 "Language: fr_FR\n"
@@ -18,12 +18,12 @@ msgstr ""
 "X-Poedit-SearchPath-1: ..\n"
 
 #: ../Functions/Breadcrumb.php:18 ../Functions/Head.php:29
-#: ../Functions/MainNav.php:91 ../Functions/SetLogin.php:14
+#: ../Functions/MainNav.php:91 ../Functions/SetLogin.php:22
 msgid "Login"
 msgstr "Connexion"
 
 #: ../Functions/Breadcrumb.php:20 ../Functions/Head.php:31
-#: ../Functions/SetLogin.php:41 ../Functions/SetRegister.php:14
+#: ../Functions/SetLogin.php:32 ../Functions/SetRegister.php:14
 #: ../Functions/SetRegister.php:100
 msgid "Register"
 msgstr "S'inscrire"
@@ -36,31 +36,31 @@ msgstr "Profil"
 msgid "Home"
 msgstr "Accueil"
 
-#: ../Functions/CategoryTagSearch.php:58
+#: ../Functions/CategoryTagSearch.php:57
 msgid "Read more"
 msgstr "Lire la suite"
 
-#: ../Functions/CategoryTagSearch.php:63
+#: ../Functions/CategoryTagSearch.php:62
 msgid "This query yielded no results."
 msgstr "Cette requête n'a donné aucun résultat."
 
-#: ../Functions/CategoryTagSearch.php:66
+#: ../Functions/CategoryTagSearch.php:65
 msgid "Search form"
 msgstr "Formulaire de recherche"
 
-#: ../Functions/FunctionArticles.php:46
+#: ../Functions/FunctionArticles.php:45
 msgid "Additional Informations"
 msgstr "Informations complémentaires"
 
-#: ../Functions/FunctionArticles.php:148
+#: ../Functions/FunctionArticles.php:147
 msgid "Protection of Article"
 msgstr "Protection de l'article"
 
-#: ../Functions/FunctionArticles.php:152
+#: ../Functions/FunctionArticles.php:151
 msgid "Restricted read"
 msgstr "Lecture restreinte"
 
-#: ../Functions/FunctionArticles.php:156
+#: ../Functions/FunctionArticles.php:155
 #: ../Functions/FunctionPannelIdentity.php:131
 #: ../Functions/FunctionPannelOptions.php:172
 #: ../Functions/FunctionPannelUsers.php:40
@@ -68,42 +68,42 @@ msgstr "Lecture restreinte"
 msgid "No"
 msgstr "Non"
 
-#: ../Functions/FunctionArticles.php:157
+#: ../Functions/FunctionArticles.php:156
 #: ../Functions/FunctionPannelOptions.php:173
 #: ../Functions/FunctionPannelUsers.php:41
 #: ../Functions/FunctionPannelUsers.php:58
 msgid "Yes"
 msgstr "Oui"
 
-#: ../Functions/FunctionArticles.php:159
+#: ../Functions/FunctionArticles.php:158
 msgid "Reading the article restricted to members online."
 msgstr "Lecture de l'article restreinte aux membres connectés."
 
-#: ../Functions/FunctionArticles.php:164
+#: ../Functions/FunctionArticles.php:163
 msgid "Authorized Groups"
 msgstr "Groupes autorisés"
 
-#: ../Functions/FunctionArticles.php:167
+#: ../Functions/FunctionArticles.php:166
 msgid "GroupA"
 msgstr "GroupeA"
 
-#: ../Functions/FunctionArticles.php:168
+#: ../Functions/FunctionArticles.php:167
 msgid "No default restriction if the field is left blank."
 msgstr "Pas de restriction par défaut si le champ est laissé vide."
 
-#: ../Functions/FunctionArticles.php:174
+#: ../Functions/FunctionArticles.php:173
 msgid "Description of article"
 msgstr "Description de l'article"
 
-#: ../Functions/FunctionArticles.php:178
+#: ../Functions/FunctionArticles.php:177
 msgid "Meta description tag"
 msgstr "Balise meta description"
 
-#: ../Functions/FunctionArticles.php:181 ../Functions/FunctionArticles.php:190
+#: ../Functions/FunctionArticles.php:180 ../Functions/FunctionArticles.php:189
 msgid "A description..."
 msgstr "Une description..."
 
-#: ../Functions/FunctionArticles.php:182
+#: ../Functions/FunctionArticles.php:181
 msgid ""
 "This should be an interesting alternative to the title should contain 100 to "
 "255 characters. It will appear in a html tag dedicated to search engines and "
@@ -116,78 +116,78 @@ msgstr ""
 "proposé par défaut dans les pages de présentation (catégories, mots-"
 "clefs...)."
 
-#: ../Functions/FunctionArticles.php:187
+#: ../Functions/FunctionArticles.php:186
 msgid "Presentation of article"
 msgstr "Présentation de l'article"
 
-#: ../Functions/FunctionArticles.php:191
+#: ../Functions/FunctionArticles.php:190
 msgid ""
 "A presentation of the article. Appears light on the page next to the article."
 msgstr ""
 "Une présentation de l'article. Apparaitra en clair sur la page au côté de "
 "l'article."
 
-#: ../Functions/FunctionArticles.php:196
+#: ../Functions/FunctionArticles.php:195
 msgid "Article Source"
 msgstr "Source de l'article"
 
-#: ../Functions/FunctionArticles.php:200 ../Functions/FunctionArticles.php:203
+#: ../Functions/FunctionArticles.php:199 ../Functions/FunctionArticles.php:202
 msgid "Given name"
 msgstr "Prénom"
 
-#: ../Functions/FunctionArticles.php:208 ../Functions/FunctionArticles.php:211
+#: ../Functions/FunctionArticles.php:207 ../Functions/FunctionArticles.php:210
 msgid "Family name"
 msgstr "Nom de famille"
 
-#: ../Functions/FunctionArticles.php:216
+#: ../Functions/FunctionArticles.php:215
 msgid "Article Title"
 msgstr "Titre de l'article"
 
-#: ../Functions/FunctionArticles.php:219
+#: ../Functions/FunctionArticles.php:218
 msgid "Book, Article..."
 msgstr "Livre, article..."
 
-#: ../Functions/FunctionArticles.php:224
+#: ../Functions/FunctionArticles.php:223
 msgid "References"
 msgstr "Références"
 
-#: ../Functions/FunctionArticles.php:227
+#: ../Functions/FunctionArticles.php:226
 msgid "Volume, page, chapter..."
 msgstr "Volume, page, chapitre..."
 
-#: ../Functions/FunctionArticles.php:232 ../Functions/FunctionArticles.php:235
+#: ../Functions/FunctionArticles.php:231 ../Functions/FunctionArticles.php:234
 msgid "Translator"
 msgstr "Traducteur"
 
-#: ../Functions/FunctionArticles.php:240
+#: ../Functions/FunctionArticles.php:239
 msgid "Address Locality"
 msgstr "Localité"
 
-#: ../Functions/FunctionArticles.php:243
+#: ../Functions/FunctionArticles.php:242
 msgid "Paris"
 msgstr "Paris"
 
-#: ../Functions/FunctionArticles.php:248
+#: ../Functions/FunctionArticles.php:247
 msgid "Publisher"
 msgstr "Éditeur"
 
-#: ../Functions/FunctionArticles.php:251
+#: ../Functions/FunctionArticles.php:250
 msgid "Publishing house"
 msgstr "Maison d'édition"
 
-#: ../Functions/FunctionArticles.php:256
+#: ../Functions/FunctionArticles.php:255
 msgid "Date Document Published"
 msgstr "Date de publication du document"
 
-#: ../Functions/FunctionArticles.php:259
+#: ../Functions/FunctionArticles.php:258
 msgid "1974"
 msgstr "1974"
 
-#: ../Functions/FunctionImages.php:61
+#: ../Functions/FunctionImages.php:60
 msgid "Portrait"
 msgstr "Portrait"
 
-#: ../Functions/FunctionImages.php:62
+#: ../Functions/FunctionImages.php:61
 msgid "Squarre"
 msgstr "Carré"
 
@@ -383,13 +383,13 @@ msgstr "Pas d'image courante"
 
 #: ../Functions/FunctionPannelOptions.php:134
 #: ../Functions/FunctionPannelOptions.php:155
-#: ../Functions/FunctionUsers.php:359
+#: ../Functions/FunctionUsers.php:360
 msgid "Choose an image"
 msgstr "Choisir une image"
 
 #: ../Functions/FunctionPannelOptions.php:135
 #: ../Functions/FunctionPannelOptions.php:156
-#: ../Functions/FunctionUsers.php:360
+#: ../Functions/FunctionUsers.php:361
 msgid "Delete image"
 msgstr "Supprimer l'image"
 
@@ -417,9 +417,8 @@ msgid "Activate"
 msgstr "Activer"
 
 #: ../Functions/FunctionPannelOptions.php:175
-msgid "Displays a snow effect on the site during the winter season."
-msgstr ""
-"Affiche un effet d'enneigement sur le site au cours de la saison d'hiver."
+msgid "Displays a snowfall effect on the site pages."
+msgstr "Affiche un effet d'enneigement sur les pages du site."
 
 #: ../Functions/FunctionPannelUsers.php:32
 msgid "User registration"
@@ -442,7 +441,7 @@ msgstr "Ajouter la connexion depuis le menu de navigation du site"
 msgid "Search"
 msgstr "Rechercher"
 
-#: ../Functions/FunctionSearchForm.php:14 ../Functions/SetSingle.php:435
+#: ../Functions/FunctionSearchForm.php:14 ../Functions/SetSingle.php:410
 msgid "Submit"
 msgstr "Soumettre"
 
@@ -464,51 +463,51 @@ msgstr ""
 "a> est développé par <a href=\"https://github.com/Scriptura\">Olivier "
 "Chavarin</a>."
 
-#: ../Functions/FunctionUsers.php:40
+#: ../Functions/FunctionUsers.php:39
 msgid "Moderator"
 msgstr "Modérateur"
 
-#: ../Functions/FunctionUsers.php:71
+#: ../Functions/FunctionUsers.php:70
 msgid "Editor"
 msgstr "Éditeur"
 
-#: ../Functions/FunctionUsers.php:99
+#: ../Functions/FunctionUsers.php:98
 msgid "Author"
 msgstr "Auteur"
 
-#: ../Functions/FunctionUsers.php:111
+#: ../Functions/FunctionUsers.php:110
 msgid "Contributor"
 msgstr "Contributeur"
 
-#: ../Functions/FunctionUsers.php:119
+#: ../Functions/FunctionUsers.php:118
 msgid "Student"
 msgstr "Étudiant"
 
-#: ../Functions/FunctionUsers.php:130
+#: ../Functions/FunctionUsers.php:129
 msgid "Commentator"
 msgstr "Commentateur"
 
-#: ../Functions/FunctionUsers.php:136
+#: ../Functions/FunctionUsers.php:135
 msgid "Subscriber"
 msgstr "Abonné"
 
-#: ../Functions/FunctionUsers.php:341
+#: ../Functions/FunctionUsers.php:342
 msgid "Additional Information"
 msgstr "Informations complémentaires"
 
-#: ../Functions/FunctionUsers.php:345
+#: ../Functions/FunctionUsers.php:346
 msgid "Location"
 msgstr "Localisation"
 
-#: ../Functions/FunctionUsers.php:349
+#: ../Functions/FunctionUsers.php:350
 msgid "Group"
 msgstr "Groupe"
 
-#: ../Functions/FunctionUsers.php:353
+#: ../Functions/FunctionUsers.php:354
 msgid "Avatar"
 msgstr "Avatar"
 
-#: ../Functions/FunctionUsers.php:361
+#: ../Functions/FunctionUsers.php:362
 msgid ""
 "This presentation image will be used on the site preference to your gravatar "
 "if you have one. The image must be square."
@@ -516,7 +515,7 @@ msgstr ""
 "Cette image de présentation sera utilisée sur le site de préférence à votre "
 "gravatar si vous en possédez un. L'image doit être carrée."
 
-#: ../Functions/FunctionWidgets.php:22
+#: ../Functions/FunctionWidgets.php:21
 msgid "This widget takes place in the site footer."
 msgstr "Ce widget prend place dans le pied de page du site."
 
@@ -532,31 +531,35 @@ msgstr "Étiquette "
 msgid "Search results for"
 msgstr "Résultats de recherche pour"
 
-#: ../Functions/Head.php:44
+#: ../Functions/Head.php:35
+msgid "Sitemap"
+msgstr "Plan du site"
+
+#: ../Functions/Head.php:46
 msgid "Content on this page is protected."
 msgstr "Le contenu de cette page est protégé."
 
-#: ../Functions/Head.php:46
+#: ../Functions/Head.php:48
 msgid "Page not found."
 msgstr "Page introuvable."
 
-#: ../Functions/Head.php:50
+#: ../Functions/Head.php:52
 msgid "Request for the category"
 msgstr "Requête pour la catégorie "
 
-#: ../Functions/Head.php:52
+#: ../Functions/Head.php:54
 msgid "Request for the tag"
 msgstr "Requête pour le mot clef "
 
-#: ../Functions/Set404.php:9
+#: ../Functions/Set404.php:8
 msgid "Error 404!"
 msgstr "Erreur 404 !"
 
-#: ../Functions/Set404.php:10
+#: ../Functions/Set404.php:9
 msgid "Page not found..."
 msgstr "Page introuvable..."
 
-#: ../Functions/Set404.php:11
+#: ../Functions/Set404.php:10
 msgid "Home Page"
 msgstr "Page d'accueil"
 
@@ -596,36 +599,36 @@ msgstr "Localisation"
 msgid "Change profil"
 msgstr "Modifier le profil"
 
-#: ../Functions/SetLogin.php:17
-msgid "Username or email"
-msgstr "Nom d'utilisateur ou Email"
-
-#: ../Functions/SetLogin.php:18
-msgid "Pseudo / pseudo@gmail.com"
-msgstr "Pseudo / pseudo@gmail.com"
-
-#: ../Functions/SetLogin.php:19 ../Functions/SetRegister.php:84
-msgid "Password"
-msgstr "Mot de passe"
-
-#: ../Functions/SetLogin.php:21
-msgid "Save information"
-msgstr "Sauver les informations"
-
-#: ../Functions/SetLogin.php:22 ../Functions/SetRegister.php:73
-msgid "Sign in"
-msgstr "Se connecter"
-
-#: ../Functions/SetLogin.php:23
-msgid "Not yet registered?"
-msgstr "Pas encore enregistré&nbsp;?"
-
-#: ../Functions/SetLogin.php:29
+#: ../Functions/SetLogin.php:12
 msgid "Your password is invalid. Your connection attempt failed."
 msgstr ""
 "Votre mot de passe est invalide. Votre tentative de connexion a échoué."
 
-#: ../Functions/SetLogin.php:40
+#: ../Functions/SetLogin.php:24
+msgid "Username or email"
+msgstr "Nom d'utilisateur ou Email"
+
+#: ../Functions/SetLogin.php:25
+msgid "Pseudo / pseudo@gmail.com"
+msgstr "Pseudo / pseudo@gmail.com"
+
+#: ../Functions/SetLogin.php:26 ../Functions/SetRegister.php:84
+msgid "Password"
+msgstr "Mot de passe"
+
+#: ../Functions/SetLogin.php:28
+msgid "Save information"
+msgstr "Sauver les informations"
+
+#: ../Functions/SetLogin.php:29 ../Functions/SetRegister.php:73
+msgid "Sign in"
+msgstr "Se connecter"
+
+#: ../Functions/SetLogin.php:30
+msgid "Not yet registered?"
+msgstr "Pas encore enregistré&nbsp;?"
+
+#: ../Functions/SetLogin.php:31
 msgid "Not registered?"
 msgstr "Pas encore inscrit&nbsp;?"
 
@@ -711,77 +714,84 @@ msgstr ""
 msgid "Request to"
 msgstr "Requête pour "
 
-#: ../Functions/SetSingle.php:47
+#: ../Functions/SetSingle.php:51
 msgid "Keyword:"
 msgstr "Mot clef :"
 
-#: ../Functions/SetSingle.php:49
+#: ../Functions/SetSingle.php:53
 msgid "Keywords:"
 msgstr "Mots clefs :"
 
-#: ../Functions/SetSingle.php:61 ../single.php:67
+#: ../Functions/SetSingle.php:62 ../single.php:69
 msgid "This content is only visible to connected users."
 msgstr "Ce contenu n'est visible que par les utilisateurs connectés."
 
-#: ../Functions/SetSingle.php:63 ../single.php:72
+#: ../Functions/SetSingle.php:64 ../single.php:74
 msgid "This content is only visible to authorized users."
 msgstr "Ce contenu n'est visible que par les utilisateurs autorisés."
 
-#: ../Functions/SetSingle.php:111
+#: ../Functions/SetSingle.php:105
 msgid "Protected content"
 msgstr "Contenu protégé"
 
-#: ../Functions/SetSingle.php:155
+#: ../Functions/SetSingle.php:144
 msgid "Author:"
 msgstr "Auteur :"
 
-#: ../Functions/SetSingle.php:157
+#: ../Functions/SetSingle.php:146
 msgid "Source:"
 msgstr "Source :"
 
-#: ../Functions/SetSingle.php:217
+#: ../Functions/SetSingle.php:205
 msgid "Content published on"
 msgstr "Contenu publié le"
 
-#: ../Functions/SetSingle.php:222
+#: ../Functions/SetSingle.php:210
 msgid "modified on"
 msgstr "modifié le"
 
-#: ../Functions/SetSingle.php:296
+#: ../Functions/SetSingle.php:276
 msgid "Read article"
 msgstr "Lire l'article"
 
-#: ../Functions/SetSingle.php:372
+#: ../Functions/SetSingle.php:348
 msgid "Index the comment"
 msgstr "Ajouter un commentaire"
 
-#: ../Functions/SetSingle.php:434
+#: ../Functions/SetSingle.php:409
 msgid "Message"
 msgstr "Message"
 
-#: ../Functions/SetSingle.php:434
+#: ../Functions/SetSingle.php:409
 msgid "Hello..."
 msgstr "Bonjour..."
 
-#: ../Functions/SetSingle.php:447
+#: ../Functions/SetSingle.php:421
 msgid "Add a comment"
 msgstr "Ajouter un commentaire"
 
-#: ../Functions/SetSingle.php:450
+#: ../Functions/SetSingle.php:424
 msgid "Comments"
 msgstr "Commentaires"
 
-#: ../Functions/SetSingle.php:451
+#: ../Functions/SetSingle.php:425
 msgid "Related Articles"
 msgstr "Articles en relation"
 
-#: ../Functions/SetSitemap.php:12
+#: ../Functions/SetSitemap.php:19
+msgid "Latest Articles"
+msgstr "Derniers articles"
+
+#: ../Functions/SetSitemap.php:33
 msgid "Categories"
 msgstr "Catégories"
 
-#: ../Functions/SetSitemap.php:21
+#: ../Functions/SetSitemap.php:43
 msgid "Keywords"
 msgstr "Mots clefs"
+
+#~ msgid "Latest Posts"
+#~ msgstr "Derniers messages"
 
 #~ msgid "Name:"
 #~ msgstr "Nom :"

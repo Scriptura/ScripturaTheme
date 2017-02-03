@@ -5,13 +5,13 @@
 // @description Fichiers d'appel aux fonctions
 // -----------------------------------------------------------------------------
 
-// @link https://make.wordpress.org/themes/handbook/review/
-// @note Les fonctionnalités de ce thème recourent au minimum à WordPress 4.4
+// @note Configuration minimum pour le thème : PHP 7 et WordPress 4.4
+// @note La déclaration ini_set() permet d'harmoniser les configurations php proposées selon les serveurs (ex : 1&1 vs OVH)
 
 	//phpinfo ( -1 );
-	ini_set( 'display_errors', 1 ); // Affiche les erreurs php
-	error_reporting( E_ALL ); // Rapporte toutes les erreurs et les notices
-	error_reporting( 0 ); // Ne retourne aucune erreur
+	ini_set( 'display_errors', 1 ); // @note Affiche les erreurs php
+	error_reporting( E_ALL ); // @note Rapporte toutes les erreurs et les notices
+	error_reporting( 0 ); // @note Ne retourne aucune erreur
 
 	require_once locate_template( 'Functions/FunctionVariables.php' );
 	require_once locate_template( 'Functions/FunctionRouters.php' );
