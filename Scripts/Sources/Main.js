@@ -2,7 +2,7 @@
 // @name         scriptura
 // @description  Interface for web apps
 // @version      0.0.44
-// @lastmodified 2017-01-04 19:27:43
+// @lastmodified 2017-01-02 02:43:49
 // @author       Olivier Chavarin
 // @homepage     http://scriptura.github.io/
 // @license      ISC

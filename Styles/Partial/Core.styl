@@ -408,8 +408,8 @@ if $bundleRatios
   box-sizing border-box
 
 html
-  height 100% // @bugfix @affected IE @note Pour les hauteur de page à 100%
-  width 100%
+  height 100% // @bugfix @affected All browers @note Important a définir pour certains cas d'utilisation
+//  width 100%
 
 body
   display flex
@@ -469,9 +469,9 @@ html
   // @note Pour des raisons de saut au chargement ou dans certaines conditions de resize (pour Chrome) il est déconseillé d'utiliser le font-size pour obtenir un zoom général sur l'élément html.
   // font-size 62.5% // @note 62.5% pour 1rem = 10px
   // font-size calc(1em * .625) // @bugfix @affected IE 9-IE11 @note Correctif de la règle précédente
-  text-size-adjust 100% // @bugfix @affected iOS Safari @note Améliore le zoom sur le text pour petits écrans. Propriété en cour de standardisation.
+  text-size-adjust 100% // @bugfix @affected IE pour Windows Phone @note Améliore le zoom sur le texte
   font $fontWeight 1em $fontFamily // @bugfix @affected IE 9-10 @note Pas d'unités rem en raccourcis
-  line-height 1.5
+  line-height 1.5 // @bugfix @affected All browsers
   color $colorCL001
 
 body
@@ -527,9 +527,9 @@ h6
 
 h1
 .h1
-  margin-top 1.3rem
-  margin-bottom .8rem
-  font-size 3.2em
+  margin-top 1.3rem // @bugfix @affected Chrome, Firefox et Safari @note Si éléments inclus dans `section` et `article`
+  margin-bottom .8rem // @note Idem
+  font-size 3.2em // @note Idem
 
 h2
 .h2
@@ -1026,7 +1026,7 @@ if $bundleSummary
   .summary
     display flex
     flex-wrap wrap
-    width 'calc(100% + %s - %s)' % $gutter $bugfixGrid
+    width 'calc(100% + %s - %s)' % ($gutter $bugfixGrid)
     margin-left - $gutter !important
 
   .summary > *
@@ -1037,17 +1037,17 @@ if $bundleSummary
   @media (min-width $sizeXS)
 
     .summary > *
-      width 'calc(%s - %s - %s)' % ((100% / 12 * 6) $gutter $bugfixGrid)
+      width 'calc(%s - %s - %s)' % (floor(100% / 12 * 6, 2) $gutter $bugfixGrid)
 
   @media (min-width $sizeS)
 
     .summary > *
-      width 'calc(%s - %s - %s)' % ((100% / 12 * 4) $gutter $bugfixGrid)
+      width 'calc(%s - %s - %s)' % (floor(100% / 12 * 4, 2) $gutter $bugfixGrid)
 
   @media (min-width $sizeL)
 
     .summary > *
-      width 'calc(%s - %s - %s)' % ((100% / 12 * 3) $gutter $bugfixGrid)
+      width 'calc(%s - %s - %s)' % (floor(100% / 12 * 3, 2) $gutter $bugfixGrid)
 
 
 // @subsection Number Lists
@@ -3241,7 +3241,7 @@ if $bundleBreadcrumb
   .breadcrumb li
     display inline
 
-  .breadcrumb li:not(:first-child):before
+  .breadcrumb li:not(:first-child)::before
     box-sizing border-box
     content ''
     display inline-block
@@ -3646,7 +3646,7 @@ if $bundleRelationship
   .relationship
     display flex
     flex-wrap wrap
-    width 'calc(100% + %s - %s)' % $gutter $bugfixGrid
+    width 'calc(100% + %s - %s)' % ($gutter $bugfixGrid)
     margin-left - $gutter !important
 
   .relationship a

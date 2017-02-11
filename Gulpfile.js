@@ -42,7 +42,7 @@ const gulp = require( 'gulp' ),
       del = require( 'del' ),
       ftp = require( 'vinyl-ftp' ),
       lodash = require( 'lodash' ),
-      browserSync = require( 'browser-sync' ),
+      bs = require( 'browser-sync' ).create(),
       gulpsync = require( 'gulp-sync' )( gulp ),
       gutil = require( 'gulp-util' ),
       plumber = require( 'gulp-plumber' ),
@@ -87,8 +87,8 @@ var consoleLog = function( event ) {
 // @link https://www.browsersync.io/docs/gulp/
 // @documentation https://www.browsersync.io/docs/options/
 
-gulp.task( 'browserSync', function() {
-  browserSync( {
+gulp.task( 'bs', function() {
+  bs.init( {
     server : {
       baseDir : source
     },
@@ -153,7 +153,7 @@ gulp.task( 'pug', function() {
     .pipe( replace( /(-->)/g, ' $1' ) ) // Ajout d'un espace en fin de commentaire
     // END Pug
     .pipe( gulp.dest( source ) )
-    .pipe( browserSync.stream( { match : '**/*.html' } ) );
+    .pipe( bs.stream( { match : '**/*.html' } ) );
 } );
 
 
@@ -189,7 +189,7 @@ gulp.task( 'scripts', function() {
     .pipe( jshint.reporter( 'default' ) )
     //.pipe( concat( 'Main.js' ) ) // @todo Concat n'est pas nécessaire pour l'instant, juste en prévision de...
     .pipe( uglify() )
-    .pipe( browserSync.stream( { match : '**/*.js' } ) )
+    .pipe( bs.stream( { match : '**/*.js' } ) )
     .pipe( gulp.dest( outputScripts ) );
 } );
 
@@ -232,7 +232,7 @@ gulp.task( 'styles', function() { // Version de production
     .pipe( autoprefixer( autoprefixerOptions ) )
     .pipe( sourcemaps.write( '../Styles/Maps', { addComment : true } ) )
     .pipe( gulp.dest( outputStyles ) )
-    .pipe( browserSync.stream( { match : '**/*.css' } ) );
+    .pipe( bs.stream( { match : '**/*.css' } ) );
 } );
 
 gulp.task( 'stylesexp', function() { // Version non compressée permettant un contrôle du code généré en sortie
@@ -607,7 +607,7 @@ gulp.task( 'watchstyles', function() {
 
 var tasks = [ 'watchpug', 'watchscripts', 'watchstyles' ]
 
-gulp.task( 'default', gulpsync.sync( [ 'browserSync', tasks ] ) );
+gulp.task( 'default', gulpsync.sync( [ 'bs', tasks ] ) );
 
 
 // @subsection  Noserver tasks

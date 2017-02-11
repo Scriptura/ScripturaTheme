@@ -335,11 +335,12 @@ function ScripturaComments()
 		}
 		$comments .= ')"></div>' . PHP_EOL;
 		$comments .= '<div>' . PHP_EOL;
-		// @note WordPress enregistre le choix du nom publique de l'auteur et le stocke dans la table des commentaires (celui-ci peut être appelé via `$e->comment_author`). Mais si l'utilisateur décide de changer de nom publique l'ancien nom sera tout de même affiché sur les commentaires antérieurs au changement. Pour éviter ce problème on récupère l'ID utilisateur et on passe par `get_userdata()->display_name`.
 		$comments .= '<p class="author">';
 		if ( $capacityEditor ) // @note Donner la même valeur de capacité au template de destination @see SetAuthor.php
 			$comments .= '<a href="' . get_author_posts_url( $e->user_id ) . '">';
-		$comments .= isset( get_userdata( $e->user_id )->display_name ); // @note Renvoie une erreur si variable non renseignée, donc test avec isset()
+		// @note WordPress enregistre le choix du nom publique de l'auteur et le stocke dans la table des commentaires (celui-ci peut être appelé via `$e->comment_author`). Mais si l'utilisateur décide de changer de nom publique l'ancien nom sera tout de même affiché sur les commentaires antérieurs au changement. Pour éviter ce problème on récupère l'ID utilisateur et on passe par `get_userdata()->display_name`.
+		$comments .= get_userdata( $e->user_id )->display_name;
+		//$comments .= $e->comment_author;
 		if ( $capacityEditor )
 			$comments .= '</a>';
 		$comments .= '</p>' . PHP_EOL;

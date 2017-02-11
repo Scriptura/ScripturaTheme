@@ -1,5 +1,5 @@
 # Scriptura
-> Interface for web apps. A framework [Pug](https://pugjs.org/)/[Stylus](http://stylus-lang.com/)/[jQuery](https://jquery.com/).
+> Interface for web apps. A framework [Pug](https://pugjs.org/)/[Stylus](https://learnboost.github.io/stylus/)/[jQuery](https://jquery.com/).
 
 * [Demo website and style guide](https://scriptura.github.io/)
 
