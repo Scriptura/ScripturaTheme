@@ -5,7 +5,7 @@
     <div class="grid">
       <div class="m6 sizeS-m9 comment" id="index-comment1">
         <div class="author-comment">
-          <div class="avatar" style="background-image:url(//scriptura.github.io/Images/Demo/ponton.jpg)"></div>
+          <div class="avatar" style="background-image:url(//scriptura.github.io/Images/Demo/ponton.jpg);"></div>
           <p class="author">Pseudo 1</p>
           <p>Posted the 
             <time datetime="2015-11-21T20:06:17+00:00">20/11/2015</time>
@@ -16,7 +16,7 @@
       </div>
       <div class="m6 o1 sizeS-m9 sizeS-o3 comment" id="index-comment2">
         <div class="author-comment">
-          <div class="avatar" style="background-image:url(//scriptura.github.io/Images/Demo/boat.jpg)"></div>
+          <div class="avatar" style="background-image:url(//scriptura.github.io/Images/Demo/boat.jpg);"></div>
           <p class="author">Pseudo 2</p>
           <p>Posted the 
             <time datetime="2015-11-21T20:06:17+00:00">20/11/2015</time>
@@ -28,7 +28,7 @@
       </div>
       <div class="m6 o2 sizeS-m9 sizeS-o0 comment" id="index-comment3">
         <div class="author-comment">
-          <div class="avatar" style="background-image:url(//scriptura.github.io/Images/Demo/phare.jpg)"></div>
+          <div class="avatar" style="background-image:url(//scriptura.github.io/Images/Demo/phare.jpg);"></div>
           <p class="author">Pseudo 3</p>
           <p>Posted the 
             <time datetime="2015-11-21T20:06:17+00:00">20/11/2015</time>
@@ -39,7 +39,7 @@
       </div>
       <div class="m6 o3 sizeS-m9 sizeS-o3 comment" id="index-comment4">
         <div class="author-comment">
-          <div class="avatar" style="background-image:url(//scriptura.github.io/Images/Demo/phare.jpg)"></div>
+          <div class="avatar" style="background-image:url(//scriptura.github.io/Images/Demo/phare.jpg);"></div>
           <p class="author">Pseudo 4</p>
           <p>Posted the 
             <time datetime="2015-11-21T20:06:17+00:00">20/11/2015</time>
@@ -50,7 +50,7 @@
       </div>
       <div class="m6 o4 sizeS-m9 sizeS-o0 comment" id="index-comment5">
         <div class="author-comment">
-          <div class="avatar" style="background-image:url(//scriptura.github.io/Images/Demo/phare.jpg)"></div>
+          <div class="avatar" style="background-image:url(//scriptura.github.io/Images/Demo/phare.jpg);"></div>
           <p class="author">Pseudo 5</p>
           <p>Posted the 
             <time datetime="2015-11-21T20:06:17+00:00">20/11/2015</time>
@@ -61,7 +61,7 @@
       </div>
       <div class="m6 o5 sizeS-m9 sizeS-o3 comment" id="index-comment6">
         <div class="author-comment">
-          <div class="avatar" style="background-image:url(//scriptura.github.io/Images/Demo/phare.jpg)"></div>
+          <div class="avatar" style="background-image:url(//scriptura.github.io/Images/Demo/phare.jpg);"></div>
           <p><span class="author">Pseudo 6</span></p>
           <p>Posted the 
             <time datetime="2015-11-21T20:06:17+00:00">20/11/2015</time>
@@ -72,7 +72,7 @@
       </div>
       <div class="m6 o6 sizeS-m9 sizeS-o0 comment" id="index-comment7">
         <div class="author-comment">
-          <div class="avatar" style="background-image:url(//scriptura.github.io/Images/Demo/phare.jpg)"></div>
+          <div class="avatar" style="background-image:url(//scriptura.github.io/Images/Demo/phare.jpg);"></div>
           <p class="author">Pseudo 7</p>
           <p>Posted the 
             <time datetime="2015-11-21T20:06:17+00:00">20/11/2015</time>
@@ -83,7 +83,7 @@
       </div>
       <div class="m6 o5 sizeS-m9 sizeS-o3 comment" id="index-comment8">
         <div class="author-comment">
-          <div class="avatar" style="background-image:url(//scriptura.github.io/Images/Demo/phare.jpg)"></div>
+          <div class="avatar" style="background-image:url(//scriptura.github.io/Images/Demo/phare.jpg);"></div>
           <p><span class="author">Pseudo 8</span></p>
           <p>Posted the 
             <time datetime="2015-11-21T20:06:17+00:00">20/11/2015</time>

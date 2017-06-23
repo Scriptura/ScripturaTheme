@@ -26,7 +26,7 @@
               <h1 class="emphasized" itemprop="name headline"><?php echo $name; ?></h1>
               <div class="grid" itemprop="articleBody">
                 <div class="m2 sizeXS-m6 sizeS-m3">
-                  <div class="avatar" style="background-image:url(<?php echo $avatarImg; ?>)">
+                  <div class="avatar" style="background-image:url(<?php echo $avatarImg; ?>);">
                     <div class="ratio"></div>
                   </div>
                 </div>
@@ -51,7 +51,7 @@
       <?php echo $widgetFooter; ?>
       <div id="terms-use">
         <div class="message">
-          <p>Bonjour ! En parcourant ce site vous acceptez <a href="<?php echo $siteUri; ?>/legal-notice" style="color:#000">nos conditions générales d'utilisation.</a></p>
+          <p>Bonjour ! En parcourant ce site vous acceptez <a href="<?php echo $siteUri; ?>/legal-notice" style="color:#000;">nos conditions générales d'utilisation.</a></p>
           <button class="button width">oui</button>
         </div>
       </div>

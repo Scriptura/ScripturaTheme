@@ -38,7 +38,7 @@
       <?php echo $widgetFooter; ?>
       <div id="terms-use">
         <div class="message">
-          <p>Bonjour ! En parcourant ce site vous acceptez <a href="<?php echo $siteUri; ?>/legal-notice" style="color:#000">nos conditions générales d'utilisation.</a></p>
+          <p>Bonjour ! En parcourant ce site vous acceptez <a href="<?php echo $siteUri; ?>/legal-notice" style="color:#000;">nos conditions générales d'utilisation.</a></p>
           <button class="button width">oui</button>
         </div>
       </div>
