@@ -1,8 +1,8 @@
 // -----------------------------------------------------------------------------
 // @name         scriptura
 // @description  Interface for web apps
-// @version      0.0.44
-// @lastmodified 2017-01-02 02:43:49
+// @version      0.1.1
+// @lastmodified 2017-06-29 07:05:05
 // @author       Olivier Chavarin
 // @homepage     http://scriptura.github.io/
 // @license      ISC
@@ -65,7 +65,7 @@ function protected() {
 	};
 	window.onload = function() {
 		var protect = document.getElementsByClassName( 'protected' );
-		for( var i = 0; i < protect.length; i++ ) {
+		for( var i = 0, len = protect.length; i < len; i++ ) {
 			protect[i].onmousedown = eventTest;
 		}
 	};
@@ -101,7 +101,7 @@ protected();
 
 function externalLinks() {
 	var anchors = document.querySelectorAll( 'a' );
-	for( var i = 0; i < anchors.length; i++ ) {
+	for( var i = 0, len = anchors.length; i < len; i++ ) {
 		if ( anchors[i].hostname !== window.location.hostname ) {
 			anchors[i].setAttribute( 'target', '_blank' );
 	 	}
@@ -555,9 +555,9 @@ bodyIndex();
 	$( '[class*="-focus"]' ).prepend( '<span class="icon-enlarge"/>' ); // Ajout d'une icône si classe détectée
 	$( document ).on( 'click', '[class*="-focus"]', function( e ) { // @note Event si utilisation sur <a>
 		$( this )
-			.find( 'picture' ) // .find( 'img' )
+			.find( 'img' ) //.find( 'picture' )
 			.clone()
-			.find( 'img' ).removeAttr( 'width' ).removeAttr( 'height' ) // @note La suppression des attributs de dimention de l'image permet le responsive en zoom
+			//.find( 'img' ).removeAttr( 'width' ).removeAttr( 'height' ) // @note La suppression des attributs de dimention de l'image permet le responsive en zoom // @note Actuellement plus nécessaire car le code html est contrôlé par le framework et ne spécifie pas ces dimmentions
 			.css( 'display', 'inherit' ) // @bugfix @affected Firefox @note Neutralise une déclaration inligne style 'display:inline' induite (via jQuery ?) sous ce navigateur
 			.fadeIn( 300 )
 			.appendTo( 'body > footer' )
@@ -626,7 +626,7 @@ bodyIndex();
 		// Auto-Initialization:
 		var scriptsUri = templateUri + '/Scripts/Vendors/Cycle.js';
 		$.getScript( scriptsUri, function() {  // Chargement via Ajax
-			$( '.slideshow' ).cycle(); // Initialisation du script
+			$( slideshow ).cycle(); // Initialisation du script
 		} );
 	}
 } )( jQuery );
@@ -643,7 +643,7 @@ function cmdPrint() {
 		window.print();
 		return false;
 	}
-	for( var i = 0; i < p.length; i++ ) {
+	for( var i = 0, len = p.length; i < len; i++ ) {
 		p[i].onclick = startPrint;
 	}
 }
@@ -776,7 +776,7 @@ $( '.typewriter' ).jTypeWriter();
 
 function unveiling() {
 	var u = document.getElementsByClassName( 'unveiling' );
-	for( var i = 0; i < u.length; i++ ) {
+	for( var i = 0, len = u.length; i < len; i++ ) {
 		u[i].classList.add( 'unveiling-start' );
 	}
 }

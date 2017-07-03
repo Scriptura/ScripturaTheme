@@ -95,14 +95,15 @@ function ScripturaImgCaptionShortcode( $current_html, $attr, $content )
     $image = $content; // do_shortcode( $content )
     $idNumber = preg_replace( '/attachment_/', '', $id ); // On formate l'ID par défaut de WP
     if ( $idNumber ) $idDisplay = 'id="image' . esc_attr( $idNumber ) . '" ';
-    // @warning : ´wp_upload_dir()['subdir']´ n'obtient que le dossier du mois en cours, pas celui de l'image
+    // @warning : ´wp_upload_dir()['subdir']´ n'obtient que le dossier du mois en cours, pour obtenir le dossier courant de l'image il va falloir procéder par déduction (merci WordPress) :
     $imageMetadata = wp_get_attachment_metadata( $idNumber );
     $imageUrl = $imageMetadata['file'];
     $croup = strrpos( $imageUrl, '/', 0 ) + 1; // Repère le numéro de rang du dernier slash de la chaine
     $fileName = substr( $imageUrl, $croup );
-    $folderUpload = str_replace( $fileName, '', $imageUrl ); // Dossier de l'image
+    $folderUpload = str_replace( $fileName, '', $imageUrl ); // Dossier de l'image (enfin !)
     $imageSizes = $imageMetadata['sizes'];
     $uploadFiles = wp_upload_dir()['baseurl'] . '/'; // Dossier des uploads
+    $uploadUrl = $uploadFiles . $folderUpload; // Url du dossier des uploads
     $image300Name = $imageMetadata['sizes']['image300']['file'];
     $image400Name = $imageMetadata['sizes']['image400']['file'];
     $image600Name = $imageMetadata['sizes']['image600']['file'];
@@ -110,20 +111,21 @@ function ScripturaImgCaptionShortcode( $current_html, $attr, $content )
     $image1000Name = $imageMetadata['sizes']['image1000']['file'];
     $image1500Name = $imageMetadata['sizes']['image1500']['file'];
     $image2000Name = $imageMetadata['sizes']['image2000']['file'];
-    $image300Url = $uploadFiles . $folderUpload . $image300Name;
-    $image400Url = $uploadFiles . $folderUpload . $image400Name;
-    $image600Url = $uploadFiles . $folderUpload . $image600Name;
-    $image800Url = $uploadFiles . $folderUpload . $image800Name;
-    $image1000Url = $uploadFiles . $folderUpload . $image1000Name;
-    $image1500Url = $uploadFiles . $folderUpload . $image1500Name;
-    $image2000Url = $uploadFiles . $folderUpload . $image2000Name;
+    $image300Url = $uploadUrl . $image300Name;
+    $image400Url = $uploadUrl . $image400Name;
+    $image600Url = $uploadUrl . $image600Name;
+    $image800Url = $uploadUrl . $image800Name;
+    $image1000Url = $uploadUrl . $image1000Name;
+    $image1500Url = $uploadUrl . $image1500Name;
+    $image2000Url = $uploadUrl . $image2000Name;
     $sources = '';
-    if ( $imageUrl )
-      $sources .= '<source media="(min-width: 2000px)" srcset="' . $uploadFiles . $imageUrl . ' 2500w" sizes="100vw">' . PHP_EOL;
-    if ( $image2000Name )
-      $sources .= '<source media="(min-width: 1500px)" srcset="' . $image2000Url . ' 2000w" sizes="100vw">' . PHP_EOL;
-    if ( $image1500Name )
-      $sources .= '<source media="(min-width: 1000px)" srcset="' . $image1500Url . ' 1500w" sizes="100vw">' . PHP_EOL;
+    // @note Étant donné la taille des miniatures les tailles suivantes sont largement suffisantes :
+    //if ( $imageUrl )
+    //  $sources .= '<source media="(min-width: 2000px)" srcset="' . $uploadFiles . $imageUrl . ' 2500w" sizes="100vw">' . PHP_EOL;
+    //if ( $image2000Name )
+    //  $sources .= '<source media="(min-width: 1500px)" srcset="' . $image2000Url . ' 2000w" sizes="100vw">' . PHP_EOL;
+    //if ( $image1500Name )
+    //  $sources .= '<source media="(min-width: 1000px)" srcset="' . $image1500Url . ' 1500w" sizes="100vw">' . PHP_EOL;
     if ( $image1000Name )
       $sources .= '<source media="(min-width: 800px)" srcset="' . $image1000Url . ' 1000w" sizes="100vw">' . PHP_EOL;
     if ( $image800Name )

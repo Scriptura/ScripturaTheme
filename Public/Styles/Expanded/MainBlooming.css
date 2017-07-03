@@ -1096,7 +1096,7 @@
     display: none !important;
   }
 }
-@media (max-width: 55.01rem) {
+@media (max-width: 65.01rem) {
   .sizeNav-hidden {
     display: none !important;
   }
@@ -1116,7 +1116,7 @@
     display: none !important;
   }
 }
-@media (min-width: 55.01rem) {
+@media (min-width: 65.01rem) {
   .sizeNav-unhidden {
     display: none !important;
   }
@@ -1300,7 +1300,6 @@
 }
 html {
   height: 100%;
-  width: 100%;
 }
 body {
   display: -webkit-box;
@@ -1550,7 +1549,6 @@ pre code::before {
   font-family: monospace, serif;
   color: #fff;
   background-color: #5a728a;
-  border-radius: false false false 0;
   box-shadow: 0.5rem 0.5rem 2rem rgba(0,0,0,0.1);
 }
 pre code button {
@@ -1566,6 +1564,9 @@ blockquote {
   margin-left: 0;
   padding-left: 1.5em;
   border-left: 0.5em solid #ebebeb;
+}
+blockquote footer {
+  text-align: right;
 }
 blockquote footer::before {
   content: '\2014 \00A0';
@@ -1588,6 +1589,11 @@ sup {
 }
 sub {
   bottom: -0.25em;
+}
+@media (max-width: 36.01rem) {
+  .br {
+    display: block;
+  }
 }
 .links p a::after {
   font-family: GlyphIcons;
@@ -1953,7 +1959,7 @@ sub {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  width: calc(100% + 1rem - ) 0.01px;
+  width: calc(100% + 1rem - 0.01px);
   margin-left: -1rem !important;
 }
 .summary > * {
@@ -1968,7 +1974,7 @@ sub {
 }
 @media (min-width: 65.01rem) {
   .summary > * {
-    width: calc(33.333333333333336% - 1rem - 0.01px);
+    width: calc(33.33% - 1rem - 0.01px);
   }
 }
 @media (min-width: 90.01rem) {
@@ -2099,7 +2105,7 @@ sub {
 }
 @media (max-width: 65.01rem) {
   .emphasized {
-    padding-bottom: 0.25em;
+    padding-bottom: 0.5em;
     border-bottom: 0.15em solid #5a728a;
   }
 }
@@ -2141,7 +2147,6 @@ sub {
   margin-top: 1.5em;
   margin-bottom: 1.25em;
   padding: 1.4em 2em 1em;
-  color: $colorCL030;
   background-color: #e4e4e4;
   border: 0.1em solid #f0f0f0;
   box-shadow: 0.5rem 0.5rem 2rem rgba(0,0,0,0.1);
@@ -2302,7 +2307,7 @@ figure {
   height: 2.5em;
   line-height: 2.5;
   font-weight: 600;
-  color: #fff;
+  color: IndianRed;
   text-align: center;
   text-shadow: 0 0 0.5em colorTS037;
   background-color: rgba(0,0,0,0.5);
@@ -2318,7 +2323,7 @@ figure {
   left: 0;
   margin: 0 0.5em 0.5em;
   padding: 0.5em;
-  color: #fff;
+  color: IndianRed;
   background-color: rgba(0,0,0,0.5);
   opacity: 0;
   -webkit-transition: all 0.6s ease;
@@ -2758,9 +2763,6 @@ html input[disabled] {
 ::-webkit-input-placeholder {
   color: #aaa;
 }
-::-moz-placeholder {
-  color: #aaa;
-}
 :-ms-input-placeholder {
   color: #aaa;
 }
@@ -2784,7 +2786,7 @@ form [class^="columns"] > div {
   width: 100%;
   padding: 0.4em 1em;
   background-color: #e4e4e4;
-  border: 0.1em solid #eee;
+  border: 0.1em solid #e4e4e4;
 }
 .input input,
 [class*="input"] select,
@@ -2915,7 +2917,7 @@ form [class^="columns"] > div {
   font-weight: 300;
   white-space: nowrap;
   text-overflow: ellipsis;
-  color: #fff;
+  color: #efefef;
   background-color: #b03c57;
   outline: 0;
   border: 0.5em solid #b03c57;
@@ -3180,7 +3182,7 @@ form [class^="columns"] > div {
   position: relative;
   z-index: 2;
   height: 2em;
-  background-color: #eee;
+  background-color: #e4e4e4;
   width: calc(100% + 1px);
 }
 [type="range"]::-moz-range-thumb {
@@ -3647,7 +3649,7 @@ form [class^="columns"] > div {
   position: absolute;
   top: -9999rem;
 }
-@media (max-width: 55.01rem) {
+@media (max-width: 65.01rem) {
   .main-nav label {
     position: absolute;
     z-index: 1000;
@@ -3721,12 +3723,12 @@ form [class^="columns"] > div {
 [class^="brand"] a {
   color: #aaa !important;
 }
-@media (max-width: 55.01rem) {
+@media (max-width: 65.01rem) {
   .main-nav :checked ~ [class^="brand"] {
     border-bottom: 0.1em solid rgba(0,0,0,0.2);
   }
 }
-@media (min-width: 55.01rem) {
+@media (min-width: 65.01rem) {
   [class^="brand"] {
     display: none;
   }
@@ -3740,7 +3742,7 @@ form [class^="columns"] > div {
 .brand-image a {
   padding-left: 2em;
 }
-@media (min-width: 55.01rem) {
+@media (min-width: 65.01rem) {
   .brand-image ~ ul li:first-child > * {
     display: block;
     background-image: url("../../Images/Logo.svg");
@@ -3793,7 +3795,10 @@ form [class^="columns"] > div {
 .main-nav li a:active {
   background-color: #444;
 }
-@media (min-width: 55.01rem) {
+@media (min-width: 65.01rem) {
+  .main-nav li .active {
+    color: #fff;
+  }
   .main-nav li {
     position: relative;
     z-index: 2;
@@ -3807,7 +3812,7 @@ form [class^="columns"] > div {
     left: calc(50% - 1em);
     height: 2rem;
     width: 2rem;
-    background-color: transparent;
+    background-color: #444;
     box-shadow: 0.5rem 0.5rem 2rem rgba(0,0,0,0.15);
     -webkit-transform: rotate(45deg);
             transform: rotate(45deg);
@@ -3818,7 +3823,7 @@ form [class^="columns"] > div {
   margin-right: 0.5em;
   text-align: center;
 }
-@media (min-width: 55.01rem) {
+@media (min-width: 65.01rem) {
   .only-icon {
     margin-left: 0.5em;
   }
@@ -3829,7 +3834,7 @@ form [class^="columns"] > div {
   -webkit-animation: animJump 0.5s ease-in-out;
           animation: animJump 0.5s ease-in-out;
 }
-@media (min-width: 55.01rem) {
+@media (min-width: 65.01rem) {
   .item-push {
     margin-left: auto;
   }
@@ -3846,7 +3851,7 @@ form [class^="columns"] > div {
     }
 }
 }
-@media (max-width: 55.01rem) {
+@media (max-width: 65.01rem) {
   .main-nav {
     height: 2.5em;
   }
@@ -3929,7 +3934,7 @@ form [class^="columns"] > div {
   height: 2.5rem;
   background-color: #000;
 }
-@media (min-width: 55.01rem) {
+@media (min-width: 65.01rem) {
   .login .active .avatar {
     -webkit-animation: animLogin 5s ease-in-out infinite;
             animation: animLogin 5s ease-in-out infinite;
@@ -3955,7 +3960,7 @@ form [class^="columns"] > div {
     }
 }
 }
-@media (max-width: 55.01rem) {
+@media (max-width: 65.01rem) {
   .login .avatar {
     margin-left: auto;
   }
@@ -3963,7 +3968,7 @@ form [class^="columns"] > div {
     line-height: 2.5;
   }
 }
-@media (min-width: 55.01rem) {
+@media (min-width: 65.01rem) {
   .login {
     overflow: hidden;
     border-radius: 2.5rem 0 0 2.5rem;
@@ -3996,7 +4001,7 @@ form [class^="columns"] > div {
 .breadcrumb li {
   display: inline;
 }
-.breadcrumb li:not(:first-child):before {
+.breadcrumb li:not(:first-child)::before {
   box-sizing: border-box;
   content: '';
   display: inline-block;
@@ -4045,7 +4050,7 @@ form [class^="columns"] > div {
 .download-link:focus,
 .download-link:hover,
 .download-link:active {
-  color: #fff;
+  color: IndianRed;
   background-color: #b03c57;
   text-decoration: none;
 }
@@ -4158,7 +4163,7 @@ form [class^="columns"] > div {
   width: 100%;
   height: 100%;
   padding: 20px;
-  color: #fff !important;
+  color: IndianRed !important;
   background: #000;
 }
 .old-browers p {
@@ -4166,7 +4171,7 @@ form [class^="columns"] > div {
 }
 .old-browers * {
   text-align: center;
-  color: #fff !important;
+  color: IndianRed !important;
 }
 .footer {
   color: #aaa;
@@ -4192,7 +4197,7 @@ form [class^="columns"] > div {
   position: absolute;
   left: -9999rem;
 }
-@media (min-width: 55.01rem) {
+@media (min-width: 65.01rem) {
   .article header {
     padding: 0 1rem 1.5rem;
   }
@@ -4220,6 +4225,17 @@ form [class^="columns"] > div {
 [itemprop="articleBody"] > :first-child,
 .article aside > :first-child {
   margin-top: 0;
+}
+@media (min-width: 65.01rem) {
+  .article aside > .sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 1rem;
+    margin-top: -1.5rem;
+  }
+  .article aside > .message + .sticky {
+    margin-top: 0;
+  }
 }
 .aside {
   padding: 1.5rem 1rem 0.5rem;
@@ -4356,7 +4372,7 @@ a:active .magimg {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  width: calc(100% + 1rem - ) 0.01px;
+  width: calc(100% + 1rem - 0.01px);
   margin-left: -1rem !important;
 }
 .relationship a {
@@ -4559,16 +4575,10 @@ a:active .magimg {
 :root .organizational-chart li:empty {
   visibility: hidden;
 }
-.main-nav::after {
-  top: 2.2em;
-}
-.footer::before {
-  left: 0;
-}
 :root .main-nav * {
   color: #fff;
 }
-@media (min-width: 55.01rem) {
+@media (min-width: 65.01rem) {
   .main-nav li:nth-child(4n+1) > * {
     background-color: #5a728a;
   }
