@@ -2307,7 +2307,7 @@ figure {
   height: 2.5em;
   line-height: 2.5;
   font-weight: 600;
-  color: IndianRed;
+  color: #ddd;
   text-align: center;
   text-shadow: 0 0 0.5em colorTS037;
   background-color: rgba(0,0,0,0.5);
@@ -2323,7 +2323,7 @@ figure {
   left: 0;
   margin: 0 0.5em 0.5em;
   padding: 0.5em;
-  color: IndianRed;
+  color: #ddd;
   background-color: rgba(0,0,0,0.5);
   opacity: 0;
   -webkit-transition: all 0.6s ease;
@@ -4050,7 +4050,7 @@ form [class^="columns"] > div {
 .download-link:focus,
 .download-link:hover,
 .download-link:active {
-  color: IndianRed;
+  color: #fff;
   background-color: #b03c57;
   text-decoration: none;
 }
@@ -4163,7 +4163,7 @@ form [class^="columns"] > div {
   width: 100%;
   height: 100%;
   padding: 20px;
-  color: IndianRed !important;
+  color: #fff !important;
   background: #000;
 }
 .old-browers p {
@@ -4171,7 +4171,7 @@ form [class^="columns"] > div {
 }
 .old-browers * {
   text-align: center;
-  color: IndianRed !important;
+  color: #fff !important;
 }
 .footer {
   color: #aaa;

@@ -1,8 +1,8 @@
 // -----------------------------------------------------------------------------
 // @name         scriptura
 // @description  Interface for web apps
-// @version      0.1.1
-// @lastmodified 2017-06-29 07:05:05
+// @version      0.1.2
+// @lastmodified 2017-07-07 06:03:41
 // @author       Olivier Chavarin
 // @homepage     http://scriptura.github.io/
 // @license      ISC
@@ -555,14 +555,16 @@ bodyIndex();
 	$( '[class*="-focus"]' ).prepend( '<span class="icon-enlarge"/>' ); // Ajout d'une icône si classe détectée
 	$( document ).on( 'click', '[class*="-focus"]', function( e ) { // @note Event si utilisation sur <a>
 		$( this )
-			.find( 'img' ) //.find( 'picture' )
+			.find( 'picture' )
 			.clone()
-			//.find( 'img' ).removeAttr( 'width' ).removeAttr( 'height' ) // @note La suppression des attributs de dimention de l'image permet le responsive en zoom // @note Actuellement plus nécessaire car le code html est contrôlé par le framework et ne spécifie pas ces dimmentions
 			.css( 'display', 'inherit' ) // @bugfix @affected Firefox @note Neutralise une déclaration inligne style 'display:inline' induite (via jQuery ?) sous ce navigateur
 			.fadeIn( 300 )
 			.appendTo( 'body > footer' )
 			.wrap( '<div class="focus-off"><div></div></div>' ) // @bugfix @affected All browsers @note Image en flex item n'a pas son ratio préservé si resize ; une div intermédiaire entre le conteneur .focus-off et l'image corrige ce problème
-			.before( '<span class="icon-shrink zoom200"/>' );
+			.before( '<span class="icon-shrink zoom200"/>' )
+			.find( 'img' )
+			.removeAttr( 'width' ) // @note La suppression de ces attributs permet le responsive en zoom
+			.removeAttr( 'height' ); // @note Idem
 		$( 'body' ).css( 'overflow', 'hidden' ); // @note Pas de scroll sur la page si photo en focus
 		$( document ).find( '.focus-off' ).on( 'click', function( e ) {
 			$( '.focus-off' ).fadeOut( 300 );
