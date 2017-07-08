@@ -119,15 +119,15 @@ function ScripturaImgCaptionShortcode( $current_html, $attr, $content )
     $image1500Url = $uploadUrl . $image1500Name;
     $image2000Url = $uploadUrl . $image2000Name;
     $sources = '';
-    // @note Étant donné la taille des miniatures les tailles suivantes sont largement suffisantes :
+    // @note Limitation en largeur, une source supplémentaire est générée via javascript pour le zoom
     //if ( $imageUrl )
     //  $sources .= '<source media="(min-width: 2000px)" srcset="' . $uploadFiles . $imageUrl . ' 2500w" sizes="100vw">' . PHP_EOL;
     //if ( $image2000Name )
     //  $sources .= '<source media="(min-width: 1500px)" srcset="' . $image2000Url . ' 2000w" sizes="100vw">' . PHP_EOL;
     //if ( $image1500Name )
     //  $sources .= '<source media="(min-width: 1000px)" srcset="' . $image1500Url . ' 1500w" sizes="100vw">' . PHP_EOL;
-    if ( $image1000Name )
-      $sources .= '<source media="(min-width: 800px)" srcset="' . $image1000Url . ' 1000w" sizes="100vw">' . PHP_EOL;
+    //if ( $image1000Name )
+    //  $sources .= '<source media="(min-width: 800px)" srcset="' . $image1000Url . ' 1000w" sizes="100vw">' . PHP_EOL;
     if ( $image800Name )
       $sources .= '<source media="(min-width: 600px)" srcset="' . $image800Url . ' 800w" sizes="100vw">' . PHP_EOL;
     if ( $image600Name )

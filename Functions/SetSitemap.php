@@ -49,5 +49,21 @@
 		}
 		$content .= '</div>';
 	}
+	if( have_posts() ) {
+		$allArticles = new WP_Query( [
+			'posts_per_page' => 0, // @note Tous les articles
+			'ignore_sticky_posts' => true,
+			'orderby' => 'title', // @note Tri à partir des titres
+			'order' => 'ASC'
+		] );
+		$content .= '<h2 class="h3">' . __( 'All articles', 'scriptura' ) . '<a href="#index-articles" class="anchor"></a><span id="index-articles"></span></h2>';
+		while ( $allArticles->have_posts() ) : $allArticles->the_post();
+		$content .= '<a href="' . get_the_permalink() . '">' . get_the_title() . '</a>';
+		$content .= ' ● ';
+		endwhile;
+		$content = rtrim( $content, ' ● ' );
+		$content .= '<br>';
+		wp_reset_postdata(); // @note Restaure la variable globale $post de la requette principale, sinon certains éléments métas de la page seront basé sur le dernier post appelé dans la boucle
+	}
 	$content .= ob_get_clean();
 	return $content;
