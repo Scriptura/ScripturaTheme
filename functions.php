@@ -22,6 +22,7 @@
 	require_once locate_template( 'Functions/FunctionPlayers.php' );
 	require_once locate_template( 'Functions/FunctionWidgets.php' );
 	require_once locate_template( 'Functions/FunctionWysiwyg.php' );
+	//require_once locate_template( 'Functions/FunctionSearch.php' );
 	require_once locate_template( 'Functions/FunctionSearchForm.php' );
 	require_once locate_template( 'Functions/FunctionUsers.php' );
 	require_once locate_template( 'Functions/FunctionArticles.php' );
@@ -31,4 +32,5 @@
 	require_once locate_template( 'Functions/FunctionPannelUsers.php' );
 	require_once locate_template( 'Functions/FunctionPannelForms.php' );
 	require_once locate_template( 'Functions/FunctionCalendar.php' );
+	require_once locate_template( 'Functions/FunctionMoonPhases.php' );
 

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Scriptura\n"
-"POT-Creation-Date: 2017-01-08 19:48+0100\n"
-"PO-Revision-Date: 2017-01-08 19:48+0100\n"
+"POT-Creation-Date: 2017-06-04 17:28+0100\n"
+"PO-Revision-Date: 2017-06-04 17:28+0100\n"
 "Last-Translator: \n"
 "Language-Team: Olivier Chavarin\n"
 "Language: fr_FR\n"
@@ -182,6 +182,82 @@ msgstr "Date de publication du document"
 #: ../Functions/FunctionArticles.php:258
 msgid "1974"
 msgstr "1974"
+
+#: ../Functions/FunctionCalendar.php:22
+msgid "Sunday"
+msgstr "Dimanche"
+
+#: ../Functions/FunctionCalendar.php:23
+msgid "Monday"
+msgstr "Lundi"
+
+#: ../Functions/FunctionCalendar.php:24
+msgid "Tuesday"
+msgstr "Mardi"
+
+#: ../Functions/FunctionCalendar.php:25
+msgid "Wednesday"
+msgstr "Mercredi"
+
+#: ../Functions/FunctionCalendar.php:26
+msgid "Thursday"
+msgstr "Mardi"
+
+#: ../Functions/FunctionCalendar.php:27
+msgid "Friday"
+msgstr "Vendredi"
+
+#: ../Functions/FunctionCalendar.php:28
+msgid "Saturday"
+msgstr "Samedi"
+
+#: ../Functions/FunctionCalendar.php:31
+msgid "January"
+msgstr "Janvier"
+
+#: ../Functions/FunctionCalendar.php:32
+msgid "February"
+msgstr "Février"
+
+#: ../Functions/FunctionCalendar.php:33
+msgid "March"
+msgstr "Mars"
+
+#: ../Functions/FunctionCalendar.php:34
+msgid "April"
+msgstr "Avril"
+
+#: ../Functions/FunctionCalendar.php:35
+msgid "May"
+msgstr "Mai"
+
+#: ../Functions/FunctionCalendar.php:36
+msgid "June"
+msgstr "Juin"
+
+#: ../Functions/FunctionCalendar.php:37
+msgid "July"
+msgstr "Juillet"
+
+#: ../Functions/FunctionCalendar.php:38
+msgid "August"
+msgstr "Août"
+
+#: ../Functions/FunctionCalendar.php:39
+msgid "September"
+msgstr "Septembre"
+
+#: ../Functions/FunctionCalendar.php:40
+msgid "October"
+msgstr "Octobre"
+
+#: ../Functions/FunctionCalendar.php:41
+msgid "November"
+msgstr "Novembre"
+
+#: ../Functions/FunctionCalendar.php:42
+msgid "December"
+msgstr "Décembre"
 
 #: ../Functions/FunctionImages.php:60
 msgid "Portrait"
@@ -441,7 +517,7 @@ msgstr "Ajouter la connexion depuis le menu de navigation du site"
 msgid "Search"
 msgstr "Rechercher"
 
-#: ../Functions/FunctionSearchForm.php:14 ../Functions/SetSingle.php:410
+#: ../Functions/FunctionSearchForm.php:14 ../Functions/SetSingle.php:411
 msgid "Submit"
 msgstr "Soumettre"
 
@@ -531,23 +607,19 @@ msgstr "Étiquette "
 msgid "Search results for"
 msgstr "Résultats de recherche pour"
 
-#: ../Functions/Head.php:35
-msgid "Sitemap"
-msgstr "Plan du site"
-
-#: ../Functions/Head.php:46
+#: ../Functions/Head.php:44
 msgid "Content on this page is protected."
 msgstr "Le contenu de cette page est protégé."
 
-#: ../Functions/Head.php:48
+#: ../Functions/Head.php:46
 msgid "Page not found."
 msgstr "Page introuvable."
 
-#: ../Functions/Head.php:52
+#: ../Functions/Head.php:50
 msgid "Request for the category"
 msgstr "Requête pour la catégorie "
 
-#: ../Functions/Head.php:54
+#: ../Functions/Head.php:52
 msgid "Request for the tag"
 msgstr "Requête pour le mot clef "
 
@@ -722,11 +794,11 @@ msgstr "Mot clef :"
 msgid "Keywords:"
 msgstr "Mots clefs :"
 
-#: ../Functions/SetSingle.php:62 ../single.php:69
+#: ../Functions/SetSingle.php:62 ../single.php:70
 msgid "This content is only visible to connected users."
 msgstr "Ce contenu n'est visible que par les utilisateurs connectés."
 
-#: ../Functions/SetSingle.php:64 ../single.php:74
+#: ../Functions/SetSingle.php:64 ../single.php:75
 msgid "This content is only visible to authorized users."
 msgstr "Ce contenu n'est visible que par les utilisateurs autorisés."
 
@@ -754,27 +826,27 @@ msgstr "modifié le"
 msgid "Read article"
 msgstr "Lire l'article"
 
-#: ../Functions/SetSingle.php:348
+#: ../Functions/SetSingle.php:349
 msgid "Index the comment"
 msgstr "Ajouter un commentaire"
 
-#: ../Functions/SetSingle.php:409
+#: ../Functions/SetSingle.php:410
 msgid "Message"
 msgstr "Message"
 
-#: ../Functions/SetSingle.php:409
+#: ../Functions/SetSingle.php:410
 msgid "Hello..."
 msgstr "Bonjour..."
 
-#: ../Functions/SetSingle.php:421
+#: ../Functions/SetSingle.php:422
 msgid "Add a comment"
 msgstr "Ajouter un commentaire"
 
-#: ../Functions/SetSingle.php:424
+#: ../Functions/SetSingle.php:425
 msgid "Comments"
 msgstr "Commentaires"
 
-#: ../Functions/SetSingle.php:425
+#: ../Functions/SetSingle.php:426
 msgid "Related Articles"
 msgstr "Articles en relation"
 
@@ -782,13 +854,23 @@ msgstr "Articles en relation"
 msgid "Latest Articles"
 msgstr "Derniers articles"
 
-#: ../Functions/SetSitemap.php:33
+#: ../Functions/SetSitemap.php:34
 msgid "Categories"
 msgstr "Catégories"
 
-#: ../Functions/SetSitemap.php:43
+#: ../Functions/SetSitemap.php:44
 msgid "Keywords"
 msgstr "Mots clefs"
+
+#: ../Functions/SetSitemap.php:59
+msgid "All articles"
+msgstr "Tous les articles"
+
+#~ msgid "Calendar"
+#~ msgstr "Calendrier"
+
+#~ msgid "Sitemap"
+#~ msgstr "Plan du site"
 
 #~ msgid "Latest Posts"
 #~ msgstr "Derniers messages"
@@ -798,9 +880,6 @@ msgstr "Mots clefs"
 
 #~ msgid "Web Site:"
 #~ msgstr "Site web :"
-
-#~ msgid "On article"
-#~ msgstr "Sur l'article"
 
 #~ msgid "Article description"
 #~ msgstr "Description de l'article"

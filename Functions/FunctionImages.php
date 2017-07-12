@@ -120,6 +120,19 @@ function ScripturaImgCaptionShortcode( $current_html, $attr, $content )
     $image2000Url = $uploadUrl . $image2000Name;
     $sources = '';
     // @note Limitation en largeur, une source supplémentaire est générée via javascript pour le zoom
+    //if ( $image2000Name )
+    //  $sources .= '<source media="(min-width: 1500px)" srcset="' . $image2000Url . ', ' . $uploadFiles . $imageUrl . ' 2x" sizes="100vw">' . PHP_EOL;
+    //if ( $image1500Name AND $image2000Name )
+    //  $sources .= '<source media="(min-width: 1000px)" srcset="' . $image1500Url . ', ' . $image2000Url . ' 2x" sizes="100vw">' . PHP_EOL;
+    //if ( $image1000Name AND $image2000Name )
+    //  $sources .= '<source media="(min-width: 800px)" srcset="' . $image1000Url . ', ' . $image2000Url . ' 2x" sizes="100vw">' . PHP_EOL;
+    //if ( $image800Name AND $image1500Name )
+    //  $sources .= '<source media="(min-width: 600px)" srcset="' . $image800Url . ', ' . $image1500Url . ' 2x" sizes="100vw">' . PHP_EOL;
+    if ( $image600Name AND $image1000Name )
+      $sources .= '<source media="(min-width: 400px)" srcset="' . $image600Url . ', ' . $image1000Url . ' 2x" sizes="100vw">' . PHP_EOL;
+    if ( $image400Name AND $image800Name )
+      $sources .= '<source media="(min-width: 300px)" srcset="' . $image400Url . ', ' . $image800Url . ' 2x" sizes="100vw">' . PHP_EOL;
+    // BEGIN Ancien code
     //if ( $imageUrl )
     //  $sources .= '<source media="(min-width: 2000px)" srcset="' . $uploadFiles . $imageUrl . ' 2500w" sizes="100vw">' . PHP_EOL;
     //if ( $image2000Name )
@@ -128,16 +141,20 @@ function ScripturaImgCaptionShortcode( $current_html, $attr, $content )
     //  $sources .= '<source media="(min-width: 1000px)" srcset="' . $image1500Url . ' 1500w" sizes="100vw">' . PHP_EOL;
     //if ( $image1000Name )
     //  $sources .= '<source media="(min-width: 800px)" srcset="' . $image1000Url . ' 1000w" sizes="100vw">' . PHP_EOL;
-    if ( $image800Name )
-      $sources .= '<source media="(min-width: 600px)" srcset="' . $image800Url . ' 800w" sizes="100vw">' . PHP_EOL;
-    if ( $image600Name )
-      $sources .= '<source media="(min-width: 400px)" srcset="' . $image600Url . ' 600w" sizes="100vw">' . PHP_EOL;
-    if ( $image400Name )
-      $sources .= '<source media="(min-width: 300px)" srcset="' . $image400Url . ' 400w" sizes="100vw">' . PHP_EOL;
+    //if ( $image800Name )
+    //  $sources .= '<source media="(min-width: 600px)" srcset="' . $image800Url . ' 800w" sizes="100vw">' . PHP_EOL;
+    //if ( $image600Name )
+    //  $sources .= '<source media="(min-width: 400px)" srcset="' . $image600Url . ' 600w" sizes="100vw">' . PHP_EOL;
+    //if ( $image400Name )
+    //  $sources .= '<source media="(min-width: 300px)" srcset="' . $image400Url . ' 400w" sizes="100vw">' . PHP_EOL;
+    // END Ancien code
     if ( $image300Name )
       $sources .= '<source srcset="' . $image300Url . ' 300w" sizes="100vw">' . PHP_EOL;
+    $alternativeSource = ''; // Image alternative maximale pour petites définitions
+    if ( $image2000Name )
+        $alternativeSource = ' data-src="' . $image2000Url . '"';
     $html = '<figure ' . $idDisplay . 'class="figure-focus-thumbnail-' . esc_attr( $align ) . '">' . PHP_EOL
-      . '<picture>' . PHP_EOL
+      . '<picture' . $alternativeSource . '>' . PHP_EOL
       . $sources
       . '<img src="' . $uploadFiles . $imageUrl . '" alt="' . $caption . '">' . PHP_EOL // @link https://developer.wordpress.org/reference/functions/wp_upload_dir/
         . '</picture>' . PHP_EOL

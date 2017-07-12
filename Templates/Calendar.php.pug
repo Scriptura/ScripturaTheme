@@ -1,0 +1,15 @@
+extends ../PatternLayouts
+
+block banner
+  _php // Template Name: Calendar
+
+append variables
+  _require_once_wp Functions/SetCalendar
+
+block content
+  article.article(itemscope itemtype='https://schema.org/Article')
+    #index-article
+      .wrap
+        h1.emphasized {% $name %}
+        _php $content
+        include ../Includes/Buttons
